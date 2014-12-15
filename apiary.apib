@@ -1,0 +1,1616 @@
+FORMAT: 1A
+HOST: https://atmobeta.iplantc.org/api/v1
+
+# Atmosphere
+Atmosphere is a private, self-service cloud computing platform that supports research efforts in the plant sciences
+community.  It addresses the growing need for customized computational resources and provides the community with
+access to:
+  
+  1. Infrastructure as a Service (IaaS), accessible through a web portal or by API
+  2. Platform as a Service (PaaS), for developing and deploying software to the scientific community
+  3. Software as a Service (SaaS), with preconfigured, frequently used analysis routines, algorithms, and
+  datasets designed to accommodate computationally and data-intensive bioinformatics tasks.
+
+<span style="color:orange;">NOTE: These API docs are currently IN DEVELOPMENT.</span>
+ 
+## Useful Links
+
+ - [Atmosphere Homepage](http://www.iplantcollaborative.org/ci/atmosphere)
+ - [Atmosphere on GitHub](https://github.com/iPlantCollaborativeOpenSource/atmosphere)
+
+# Group Image/Application
+Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
+ a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
+
+## Image [/application/{id}]
+A single Image object.
+
+Each Image has the following properties:
+
+- **alias**: unique id of the image
+- **icon**: (optional) if a custom display icon has been uploaded for this image, this field will contain the relative
+ path to that image (e.g. "/images/icon.png")
+- **created_by**: username of the person who created the image
+- **uuid_hash**: **[deprecated]**
+- **tags**: tags applied to the image (an array of strings).
+- **description**: description of the image
+- **start_date**: the date the image was created
+- **end_date**: Atmosphere implements soft deletes for everything (or nearly everything).  Any images with an
+ end_date before the moment the request was made will be filtered out of the result set.  however, end_dates can also be
+ used to schedule resources deletion by setting them at a future date.  This can also be used to give someone access to
+ a resource for a limited time (such as for a workshop session).
+- **private**: if this field is true, it means the access to the image is limited to a group of people that includes you
+- **featured**: this boolean field can only be set by Atmosphere staff and is reserved for images that have gone through
+ a special review process
+- **machines**: admittedly, this field is poorly named, but it represents all the previous versions of this image, which
+  includes the current version.  It also shows which cloud providers that image version is available for.
+- **is_bookmarked**: **[user specific property]** this field is specific to the user making the request, and shows whether they identified this
+ images as being personally significant. In the future this will be taken out and moved to a different endpoint.
+- **projects**: **[user specific property]** Shows which projects the user has added this image to.
+
++ Parameters
+    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `uuid` of the Image.
+    
++ Model (application/json)
+
+    JSON representation of Image Resource.
+
+    + Body
+
+            {
+                "uuid": "bdc31c14-f807-11e3-8ef5-b2227cce2b54",
+                "icon": null,
+                "created_by": "username",
+                "uuid_hash": "318bf81a238d6c263fc7241c1ff41361",
+                "name": "Ubuntu 12.04 Updated NoGUI v1",
+                "tags": [
+                    "Ubuntu",
+                    "Featured"
+                ],
+                "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
+                "start_date": "2014-02-05T01:03:27.903Z",
+                "end_date": null,
+                "private": false,
+                "featured": true,
+                "machines": [
+                    {
+                        "alias": "813557f2-f808-11e3-8ef5-b2227cce2b54",
+                        "version": "1",
+                        "start_date": "2014-02-04T23:56:40.077Z",
+                        "end_date": null,
+                        "provider": 1
+                    }
+                ],
+                "is_bookmarked": false,
+                "projects": []
+            }
+
+### Retrieve a Single Image [GET]
++ Response 200 (application/json)
+
+    [Image][]
+    
+### Edit an Image [GET]
++ Response 200 (application/json)
+
+    [Image][]
+
+## Images Collection [/application]
+Collection of all Images.
+
+This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
+ images.  If authenticated, you will also get any private images you have permission to use.
+
++ Model (application/json)
+
+    JSON representation of the Images Collection.
+
+    + Body
+
+            {
+                "count": 5,
+                "next": null, 
+                "previous": null, 
+                "results": [
+                    {
+                        "uuid": "457b8b7c-f809-11e3-8ef5-b2227cce2b54", 
+                        "icon": null, 
+                        "created_by": "username", 
+                        "uuid_hash": "4f8bc92e81dbcb7bd856be34173966e7", 
+                        "name": "Ubuntu 13.04 NoGUI Base", 
+                        "tags": [], 
+                        "description": "Description of Ubuntu 13.04 NoGUI Base", 
+                        "start_date": "2014-01-14T23:17:23.813Z", 
+                        "end_date": null, 
+                        "private": false, 
+                        "featured": true, 
+                        "machines": [
+                            {
+                                "alias": "855e8c3d-cefa-4654-8728-32902d4d74c2", 
+                                "version": "1", 
+                                "start_date": "2014-01-28T05:14:56.114Z", 
+                                "end_date": null, 
+                                "provider": 1
+                            }, 
+                            {
+                                "alias": "2657cad0-f809-11e3-8ef5-b2227cce2b54", 
+                                "version": "2", 
+                                "start_date": "2014-01-14T19:25:22.220Z", 
+                                "end_date": null, 
+                                "provider": 1
+                            }
+                        ], 
+                        "is_bookmarked": false, 
+                        "projects": null
+                    }, 
+                    {
+                        "uuid": "589174a6-f809-11e3-8ef5-b2227cce2b54", 
+                        "icon": null, 
+                        "created_by": "username", 
+                        "uuid_hash": "b51ae503a6e4cfef6ec00084f3046db0", 
+                        "name": "TCW v1.2", 
+                        "tags": [], 
+                        "description": "Description for TCW v1.2", 
+                        "start_date": "2014-01-16T03:04:29.764Z", 
+                        "end_date": null, 
+                        "private": false, 
+                        "featured": false, 
+                        "machines": [
+                            {
+                                "alias": "8803eb10-f809-11e3-8ef5-b2227cce2b54", 
+                                "version": "1", 
+                                "start_date": "2014-01-28T05:14:56.114Z", 
+                                "end_date": null, 
+                                "provider": 1
+                            }, 
+                            {
+                                "alias": "8c632108-f809-11e3-8ef5-b2227cce2b54", 
+                                "version": "2", 
+                                "start_date": "2014-01-15T13:35:42.820Z", 
+                                "end_date": null, 
+                                "provider": 1
+                            }
+                        ], 
+                        "is_bookmarked": false, 
+                        "projects": null
+                    }, 
+                    {
+                        "uuid": "aa672302-f809-11e3-8ef5-b2227cce2b54", 
+                        "icon": null, 
+                        "created_by": "username", 
+                        "uuid_hash": "ba12c5bec58263cadfeee62131a0242d", 
+                        "name": "Ubuntu 13.04 XFCE GUI Base", 
+                        "tags": [], 
+                        "description": "Description for Ubuntu 13.04 XFCE GUI Base", 
+                        "start_date": "2014-01-16T08:10:31.622Z", 
+                        "end_date": null, 
+                        "private": false, 
+                        "featured": true, 
+                        "machines": [
+                            {
+                                "alias": "af851984-f809-11e3-8ef5-b2227cce2b54", 
+                                "version": "1", 
+                                "start_date": "2014-01-28T05:14:56.114Z", 
+                                "end_date": null, 
+                                "provider": 1
+                            }
+                        ], 
+                        "is_bookmarked": true, 
+                        "projects": null
+                    }, 
+                    {
+                        "uuid": "bdc31c14-f807-11e3-8ef5-b2227cce2b54",
+                        "icon": null,
+                        "created_by": "username",
+                        "uuid_hash": "318bf81a238d6c263fc7241c1ff41361",
+                        "name": "Ubuntu 12.04 Updated NoGUI v1",
+                        "tags": [
+                            "Ubuntu",
+                            "Featured"
+                        ],
+                        "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
+                        "start_date": "2014-02-05T01:03:27.903Z",
+                        "end_date": null,
+                        "private": false,
+                        "featured": true,
+                        "machines": [
+                            {
+                                "alias": "813557f2-f808-11e3-8ef5-b2227cce2b54",
+                                "version": "1",
+                                "start_date": "2014-02-04T23:56:40.077Z",
+                                "end_date": null,
+                                "provider": 1
+                            }
+                        ],
+                        "is_bookmarked": false,
+                        "projects": []
+                    },
+                    {
+                        "uuid": "8f66dae2-f80a-11e3-8ef5-b2227cce2b54", 
+                        "icon": null, 
+                        "created_by": "username", 
+                        "uuid_hash": "83ae31784ba0e1768f1439ca4b18bb38", 
+                        "name": "phytoImage", 
+                        "tags": [], 
+                        "description": "Description of phytoImage", 
+                        "start_date": "2014-01-18T06:12:46.923Z", 
+                        "end_date": null, 
+                        "private": false, 
+                        "featured": false, 
+                        "machines": [
+                            {
+                                "alias": "89b42744-f80a-11e3-8ef5-b2227cce2b54", 
+                                "version": "1", 
+                                "start_date": "2014-01-28T05:14:56.114Z", 
+                                "end_date": null, 
+                                "provider": 5
+                            }
+                        ], 
+                        "is_bookmarked": true, 
+                        "projects": null
+                    }
+                ]
+            }
+
+### List all Images [GET]
+
++ Response 200 (application/json)
+
+    [Images Collection][]
+
+## Request an Image [/provider/{providerId}/identity/{identityId}/request_image/]
+Images are created by sending a request to Atmosphere support.  This is the endpoint used to make that request.
+
++ Parameters
+    + id (required, string, 'b94d4964-8de3-4965-a87a-f4cf44d33165') ... String `alias` of the Instance.
+    + providerId (required, number, '4') ... Number `id` of the Provider.
+
+### Request an Image [POST]
+To request an image, you need to specify the following properties:
+
+- **name**: the name of the image
+- **instance**: alias property of the instance you want imaged
+- **provider**: the id of the provider you want the image to be created for
+- **description**: A description of the image for display purposes
+- **software**: What software is installed on the instance
+- **sys**: (**todo:** add details for what this field controls)
+- **exclude**: Files on the instance that should be excluded from the image, like ssh keys
+- **tags**: tags that should be applied to the image
+- **vis**: This field can be one of public, private, or a user-list. If public, everyone can view and create an instance
+  from the image.  If this field is private, the user who created the image will be able to see or launch it.  If user
+  specific, only those users that are listed will be able to see or launch the image.
+
++ Request (application/json)
+
+        {
+            instance: "74089c18-f80a-11e3-8ef5-b2227cce2b54",
+            ip_address: "127.0.0.1",
+            provider: 1,
+            description: "I would like to request an image of this instance for [reasons].",
+            software: "Description of software installed on the machine.",
+            sys: "I'm not sure what this field means.",
+            exclude: "I do not need any files excluded from the image.",
+            tags: [
+                "ESD",
+                "BGF",
+                "apache2",
+                "SpliceGrapher"
+            ],
+            vis: "public"
+        }
+
+# Group Profile
+The Profile contains information about the authenticated user. Profile can be thought of as the 'entry-point' to the
+ Atmosphere APIs. Once authenticated, a user can find their default provider and identity. The IDs for provider and
+ Identity can be used to navigate the rest of the API.
+
+## Profile [/profile]
+A single Profile object.
+
+Each Profile has the following properties:
+
+- **user**: the id for the user this profile belongs to
+- **username**: the username of the user this profile belongs to
+- **email**: the users email address
+- **is_staff**: true if the user is iPlant staff
+- **is_superuser**: true if the user is a super user (comes with special privileges)
+- **groups**: **[deprecated]**
+- **send_emails**: true if the user wants to be notified via email when instances they've launched are ready
+- **quick_launch**: **[deprecated]**
+- **vnc_resolution**: **[deprecated]**
+- **default_size**: **[deprecated]**
+- **background**: **[deprecated]**
+- **icon_set**: the style of icons the user would like to see in the Atmosphere UI when no there is no custom icon to
+ display
+- **selected_identity**: **[deprecated]**
+
+
++ Model (application/json)
+
+    JSON representation of Profile Resource.
+
+    + Body
+
+            {
+                "user": 1,
+                "username": "username",
+                "email": "username@example.com",
+                "is_staff": false,
+                "is_superuser": false,
+                "groups": [
+                    "username"
+                ],
+                "send_emails": true,
+                "quick_launch": true,
+                "vnc_resolution": "800x600",
+                "default_size": "m1.small",
+                "background": "default",
+                "icon_set": "default",
+                "selected_identity": {
+                    "quota": {
+                        "mem": 256,
+                        "suspended_count": 2,
+                        "storage": 1000,
+                        "cpu": 128,
+                        "storage_count": 10
+                    },
+                    "provider_id": 1,
+                    "id": 1,
+                    "provider": "planet tatooine"
+                }
+            }
+            
+### Retrieve the Profile [GET]
++ Response 200 (application/json)
+
+    [Profile][]
+    
+### Update the Profile [PATCH]
+To update the profile, send a PATCH request that includes the fields you want to modify.  Currently the only modifiable
+ fields are **send_emails** and **icon_set**
+
++ Request (application/json)
+
+        {
+            "send_emails": true,
+            "icon_set": "robots"
+        }
+
++ Response 200 (application/json)
+
+    [Profile][]
+
+# Group Identity
+Identities are like user account information. A user has at least one identity per provider, and each identity
+ contains information about how many resources can be consumed on that provider.  If a user has multiple identities
+ under a single provider, it means they can allocate more resources by using a different identity.
+
+## Identity [/identity/{id}]
+A single Identity object.
+
+Each Identity has the following properties:
+
+- **id**: id of the Identity
+- **provider_id**: the id of the provider this identity is for
+- **provider**: **[deprecated]** the name of the provider 
+- **quota**: object describing the resources that can be allocated on the provider under this identity
+- **quota.mem**: the maximum amount of memory that can be allocated across all instances under this identity
+- **quota.suspended_count**: **[deprecated]** how many instances are currently suspended
+- **quota.storage**: the maximum storage space that can be allocated across all volumes under this identity
+- **quota.cpu**: the number of CPUs that can be allocated across all instance under this identity
+- **quota.storage_count**: the maximum number of volumes that can be created under this identity
+
++ Parameters
+    + id (required, number, 1) ... Number `id` of the Identity.
+    
++ Model (application/json)
+
+    JSON representation of Identity Resource.
+
+    + Body
+
+            {
+                "id": 1,
+                "provider_id": 1,
+                "provider": "iPlant Cloud - Tucson",
+                "quota": {
+                    "mem": 256,
+                    "suspended_count": 2,
+                    "storage": 1000,
+                    "cpu": 128,
+                    "storage_count": 10
+                }
+            }
+
+### Retrieve a Single Identity [GET]
+
++ Response 200 (application/json)
+
+    [Identity][]
+    
+## Identity Collection [/identity]
+Collection of all Identities.
+
++ Model (application/json)
+
+    JSON representation of Identity Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "provider_id": 1,
+                    "provider": "iPlant Cloud - Tucson",
+                    "quota": {
+                        "mem": 256,
+                        "suspended_count": 2,
+                        "storage": 1000,
+                        "cpu": 128,
+                        "storage_count": 10
+                    }
+                }
+                
+            ]
+            
+### List all Identities [GET]
++ Response 200 (application/json)
+
+    [Identity Collection][]
+
+# Group Instance
+Instances are virtual machines that users have created from an image (application).  When a user creates an instance
+ it immediately starts deducting AU's from their account.
+
+## Instance [/provider/{providerId}/identity/{identityId}/instance/{id}]
+A single Instance object.
+
+Each Instance has the following properties:
+
+- **alias**: id
+- **alias_hash**: **[deprecated]**
+- **created_by**: username for the person who created the instance
+- **status**: the state the instance is in (active, suspended, shutoff, etc.)
+- **size_alias**: the id of the size resource for the instance (number of CPUs, RAM, and Disk Space)
+- **machine_alias**: which image the instance was based off.  Machines are image versions.
+- **ip_address**: IP address you can use to connect to the machine.  Address that start with 196, 178, or 10 are private,
+ all others are public.  Instances with an IP address of 0.0.0.0 have not been assigned an IP address yet.
+- **start_date**: the date the instance was created
+- **token**: **[deprecated]**
+- **has_shell**: true if a user can ssh into the instance
+- **has_vnc**: true if a user can remote desktop into the instance
+- **identity**: which account the instance deducts AU's from
+- **name**: name of the instance
+- **tags**: instance specific tags (array of strings)
+    
++ Parameters
+    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `alias` of the Instance.
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+    
++ Model (application/json)
+
+    JSON representation of Instance Resource.
+
+    + Body
+
+            {
+                "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
+                "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
+                "created_by": "username",
+                "status": "active",
+                "size_alias": "1",
+                "machine_alias": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
+                "machine_name": "Ubuntu 13.04 w/Docker 0.9",
+                "machine_alias_hash": "3f8add823804dc73b221a6c8308a8ab2",
+                "ip_address": "127.0.0.1",
+                "start_date": "2014-05-14T18:17:18Z",
+                "token": null,
+                "has_shell": false,
+                "has_vnc": false,
+                "identity": {
+                    "id": 1,
+                    "created_by": "username",
+                    "provider": 1
+                },
+                "name": "Ubuntu 13.04 w/Docker 0.9",
+                "tags": ["SpliceGrapher"],
+                "projects": [
+                    1
+                ]
+            }
+
+### Retrieve an Instance [GET]
+Get a specific instance.
+
++ Response 200 (application/json)
+
+    [Instance][]
+    
+### Terminate an Instance [DELETE]
+Terminate an instance.
+
++ Response 200 (application/json)
+
+    [Instance][]
+    
+## Instance Actions [/provider/{providerId}/identity/{identityId}/instance/{id}/action]
+
++ Parameters
+    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `alias` of the Instance.
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+
+### Suspend an Instance [POST]
+Suspend a running instance.  This will also stop subtracting AU's.
+
++ Request (application/json)
+
+        { 
+            "action": "suspend"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "message": "The requested action <suspend> was run successfully",
+            "object": null,
+            "result": "success"
+        }
+
+### Resume an Instance [POST]
+Resume a suspended instance.  This will also start subtracting AU's again.
+
++ Request (application/json)
+
+        { 
+            action: "resume"
+        }
+
++ Response 200 (application/json)
+
+        {
+            message: "The requested action <resume> was run successfully",
+            object: null,
+            result: "success"
+        }
+        
+### Stop an Instance [POST]
+Stop a running instance.  Stopped instances continue to reduce the AU's.
+
++ Request (application/json)
+
+        { 
+            action: "start"
+        }
+
++ Response 200 (application/json)
+
+        {
+            message: "The requested action <start> was run successfully",
+            object: null,
+            result: "success"
+        }
+        
+### Start an Instance [POST]
+Start a stopped instance.
+
++ Request (application/json)
+
+        { 
+            action: "stop"
+        }
+
++ Response 200 (application/json)
+
+        {
+            message: "The requested action <stop> was run successfully",
+            object: null,
+            result: "success"
+        }
+
+## Instances Collection [/provider/{providerId}/identity/{identityId}/instance]
+Collection of all Instances for a specific identity and provider.
+
++ Parameters
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+    
++ Model (application/json)
+
+    JSON representation of Instances Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
+                    "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
+                    "created_by": "username",
+                    "status": "active",
+                    "size_alias": "1",
+                    "machine_alias": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
+                    "machine_name": "Ubuntu 13.04 w/Docker 0.9",
+                    "machine_alias_hash": "3f8add823804dc73b221a6c8308a8ab2",
+                    "ip_address": "127.0.0.1",
+                    "start_date": "2014-05-14T18:17:18Z",
+                    "token": null,
+                    "has_shell": false,
+                    "has_vnc": false,
+                    "identity": {
+                        "id": 1,
+                        "created_by": "username",
+                        "provider": 1
+                    },
+                    "name": "Ubuntu 13.04 w/Docker 0.9",
+                    "tags": ["SpliceGrapher"],
+                    "projects": [
+                        1
+                    ]
+                }
+            ]
+    
+### List all Instances [GET]
+Get a list of your instances created under the specific provider/identity.
+
++ Response 200 (application/json)
+
+    [Instances Collection][]
+        
+### Launch an Instance [POST]
+Launch an instance of an application.  You must specify the following properties:
+
+- **machine_alias**: the specific version of the application you'd like to launch an instance of.
+- **size_alias**: the size of the virtual machine you need
+- **name**: the name of your instance
+
++ Request (application/json)
+
+        { 
+            machine_alias: "237f983e-f80d-11e3-8ef5-b2227cce2b54"
+            size_alias: "1"
+            name: "Instance Name"
+        }
+
++ Response 201 (application/json)
+
+    [Instance][]
+
+# Group Tag
+Tags are small labels users can apply to various resources and are primarily used to help focus searches.
+
+## Tag [/tag/{name}]
+A single Tag object.
+
+Each Tag has the following properties:
+
+- **id**: the id of the tag
+- **user**: username of the person who created the tag (**todo:** inconsistent? Seen created_by used on other resources)
+- **name**: the name of the tag
+- **description**: a description of what the tag means
+
++ Parameters
+    + name (required, string, `Featured`) ... String `name` of the Tag.
+    
++ Model (application/json)
+
+    JSON representation of Tag Resource.
+
+    + Body
+
+            {
+                "user": null,
+                "description": "A description of Ubuntu",
+                "id": 5,
+                "name": "Ubuntu"
+            }
+
+### Retrieve a Tag [GET]
++ Response 200 (application/json)
+
+    [Tag][]          
+
+## Tags Collection [/tag]
+Collection of all Tags.
+
++ Model (application/json)
+
+    JSON representation of Tags Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "user": null,
+                    "description": "A description of SpliceGrapher",
+                    "id": 1,
+                    "name": "SpliceGrapher"
+                },
+                {
+                    "user": null,
+                    "description": "A description of xGDBvm",
+                    "id": 2,
+                    "name": "xGDBvm"
+                },
+                {
+                    "user": null,
+                    "description": "A description of R",
+                    "id": 3,
+                    "name": "R"
+                },
+                {
+                    "user": null,
+                    "description": "Featured applications receive priority ordering over non-featured applications",
+                    "id": 4,
+                    "name": "Featured"
+                },
+                {
+                    "user": null,
+                    "description": "A description of Ubuntu",
+                    "id": 5,
+                    "name": "Ubuntu"
+                }
+            ]
+
+### List all Tags [GET]
++ Response 200 (application/json)
+
+    [Tags Collection][]
+
+### Create a Tag [POST]
+Create a Tag.  You must specify the following properties:
+
+- **name**: a name for the tag
+- **description**: a description of the tag
+
++ Request (application/json)
+
+        {
+            "name": "Tag name",
+            "description": "A description of the tag."
+        }
+
++ Response 201 (application/json)
+
+    [Tag][]
+
+# Group Provider
+Providers represent the different cloud providers managed by Atmosphere.
+
+## Provider [/provider/{provider_id}]
+A single Provider object.
+
+Each Provider has the following properties:
+
+- **type**: cloud provider (AWS, Azure, OpenStack, etc.)
+- **location**: the display name for the provider
+- **id**: unique id for the provider 
+- **description**: a description of the provider
+- **virtualization**: **[deprecated]**
+- **public**: **[deprecated]**
+- **traits**: **[deprecated]** 
+
++ Parameters
+    + provider_id (required, number, '1') ... Number `provider_id` of the Identity.
+
++ Model(application/json)
+
+    JSON representation of Provider Resource
+
+    + Body
+
+            {
+                "id": 1,
+                "type": "OpenStack",
+                "location": "planetTatooine",
+                "description": "planetTatooine",
+                "virtualization": 2,
+                "public": false,
+                "traits": []
+            }              
+
+
+### Retrieve a Provider [GET]
++ Response 200 (application/json)
+
+    [Provider][]
+
+## Providers Collection [/provider]
+Collection of all Providers.
+
++ Model (application/json)
+
+    JSON representation of Providers Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "type": "OpenStack",
+                    "location": "planetTatooine",
+                    "description": "planetTatooine",
+                    "virtualization": 2,
+                    "public": false,
+                    "traits": []
+                }
+            ]
+            
+### List all Providers [GET]
++ Response 200 (application/json)
+
+    [Providers Collection][]
+
+# Group Size
+Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
+ number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
+
+## Provider Sizes Collection [/provider/{providerId}/identity/{identityId}/size]
++ Parameters
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+    
+### List all Sizes [GET]
+For a combination of provider and identity.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "occupancy": 0,
+                "total": 1,
+                "remaining": 1,
+                "active": true,
+                "alias": "1",
+                "name": "m1.tiny",
+                "provider": 1,
+                "cpu": 1,
+                "disk": 0,
+                "root": 1,
+                "mem": 512
+            },
+            {
+                "occupancy": 0,
+                "total": 1,
+                "remaining": 1,
+                "active": true,
+                "alias": "2",
+                "name": "m1.small",
+                "provider": 1,
+                "cpu": 1,
+                "disk": 0,
+                "root": 20,
+                "mem": 2048
+            },
+            {
+                "occupancy": 0,
+                "total": 1,
+                "remaining": 1,
+                "active": true,
+                "alias": "3",
+                "name": "m1.medium",
+                "provider": 1,
+                "cpu": 2,
+                "disk": 0,
+                "root": 40,
+                "mem": 4096
+            }
+        ]
+        
+## Provider Size [/provider/{providerId}/identity/{identityId}/size/{id}]
+A single Size object (in the specified provider) with all its details.
+
++ Parameters
+    + id (required, string, 'b24ce221-1ed4-4317-av7q-b4yf4q4qe3239') ... String `alias` of the Size.
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+
+### Retrieve a Size [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "occupancy": 0,
+                "total": 1,
+                "remaining": 1,
+                "active": true,
+                "alias": "1",
+                "name": "m1.tiny",
+                "provider": 1,
+                "cpu": 1,
+                "disk": 0,
+                "root": 1,
+                "mem": 512
+            }
+
+# Group Volume
+Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
+ different instance.
+
+## Volume [/provider/{providerId}/identity/{identityId}/volume/{id}]
+A single Volume object.
+
+Each Volume has the following properties:
+
+- **alias**: unique id for the volume
+- **created_by**: user id of the person who created the volume
+- **name**: name of the volume
+- **description**: description of the volume
+- **status**: status of the volume (detaching, attaching, available or in-use)
+- **size**: size of the volume in Gigabytes
+- **attach_data**: if the volume is attached to an instance, provides details about which instance it's attached to and
+ where the volume is mounted to on the instance
+- **provider**: provider the volume is created on
+- **identity**: identity that created the volume
+
++ Parameters
+    + id (required, string, '13138b97-786a-4e57-9acc-5d41cfd21f75') ... String `alias` of the Volume.
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+    
++ Model (application/json)
+
+    JSON representation of Volume Resource.
+
+    + Body
+
+            {
+                "alias": "232333c94-7864-4157-9cq-5441ff321F11",
+                "created_by": 1,
+                "name": "My_Other_Volume",
+                "description": "",
+                "status": "available",
+                "size": 1,
+                "attach_data": {},
+                "provider": 1,
+                "identity": {
+                    "id": 1,
+                    "created_by": "HanSolo",
+                    "provider": 1
+                },
+                "projects": [
+                    1
+                ],
+                "start_date": "2014-05-13T00:24:58Z"
+            }
+
+### Retrieve a Volume [GET]
++ Response 200 (application/json)
+
+    [Volume][]
+    
+### Destroy a Volume [DELETE]
+Destroy a volume.
+
++ Response 200 (application/json)
+
+    [Volume][]
+    
+## Volume Actions [/provider/{providerId}/identity/{identityId}/instance/{id}/action]
+
++ Parameters
+    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `alias` of the Instance.
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+
+### Attach a Volume [POST]
+Attach a volume to an instance.
+
++ Request (application/json)
+
+        { 
+            action: "attach_volume",
+            volume_id: "21637611-d75c-4c94-a761-dcd58ed8324b"
+        }
+
++ Response 200 (application/json)
+
+        {
+            message: "The requested action <attach_volume> was run successfully",
+            object: null,
+            result: "success"
+        }
+
+### Detach a Volume [POST]
+Detach a volume from an instance.
+
++ Request (application/json)
+
+        { 
+            action: "detach_volume",
+            volume_id: "21637611-d75c-4c94-a761-dcd58ed8324b"
+        }
+
++ Response 200 (application/json)
+
+        {
+            message: "The requested action <detach_volume> was run successfully",
+            object: null,
+            result: "success"
+        }
+
+## Volumes Collection [/provider/{providerId}/identity/{identityId}/volume]
+Collection of all Volumes.
+
++ Parameters
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+    
++ Model (application/json)
+
+    JSON representation of Volumes Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "alias": "132333c94-7864-4157-9cq-5441ff321F11",
+                    "created_by": 1,
+                    "name": "My_First_Volume",
+                    "description": "",
+                    "status": "available",
+                    "size": 1,
+                    "attach_data": {},
+                    "provider": 1,
+                    "identity": {
+                        "id": 1,
+                        "created_by": "HanSolo",
+                        "provider": 1
+                    },
+                    "projects": [
+                        1
+                    ],
+                    "start_date": "2014-05-13T00:24:58Z"
+                },
+                {
+                    "status": "in-use",
+                    "attach_data": {
+                        "device": "/dev/vdc",
+                        "instanceId": "bac30113-423d-44bd-8d7a-41136e9ers34",
+                        "serverId": "abc30021-49d7-3ebg-837p-2712623r3732",
+                        "id": "1113297-786a-4e57-9acc-5d41cfd21f75",
+                        "volumeId": "123138b97-282b-2r55-8ddg-5d4ddfde1f76"
+                    },
+                    "identity": {
+                        "id": 1,
+                        "created_by": "HanSolo",
+                        "provider": 1
+                    },
+                    "alias": "13138b97-786a-4e57-9acc-5d41cfd21f76",
+                    "provider": 1,
+                    "size": 10,
+                    "name": "My_Second_Volume",
+                    "description": "",
+                    "created_by": 1,
+                    "start_date": "2014-05-13T00:24:58Z"
+                }
+            ]
+    
+### List all Volumes [GET]
++ Response 200 (application/json)
+
+    [Volumes Collection][]
+
+### Create a Volume [POST]
+Create a volume.  You must specify the following properties:
+
+- **name**: the name of the volume
+- **size**: the size of the volume in Gigabytes
+- **description**: a description of the volume
+
++ Request (application/json)
+
+        {
+            "name": "New Volume",
+            "description": "Description of new volume",
+            "size": 1
+        }
+
++ Response 201 (application/json)
+
+    [Volume][]
+
+# Group Project
+Projects are a way for users to group related resources.  Right now users can add Instances and Volumes to a group, but
+ we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
+ Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
+
+## Project [/project/{id}]
+A single Project object.
+
+Each Project has the following properties:
+
+- **id**: the id of the project
+- **owner**: username of the person who created the project
+- **applications**: applications (images) in the project
+- **instances**: instances in the project
+- **volumes**: volumes in the project
+- **name**: project name
+- **description**: project description
+
++ Parameters
+    + id (required, number, '1') ... Number `id` of the Project.
+    
++ Model (application/json)
+
+    JSON representation of Project Resource.
+
+    + Body
+
+            {
+                "id": 1,
+                "owner": "HanSolo",
+                "name": "Project 1",
+                "description": "This is my project description",
+                "applications": [],
+                "instances": [
+                    {
+                        "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
+                        "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
+                        "created_by": "username",
+                        "status": "active",
+                        "size_alias": "1",
+                        "machine_alias": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
+                        "machine_name": "Ubuntu 13.04 w/Docker 0.9",
+                        "machine_alias_hash": "3f8add823804dc73b221a6c8308a8ab2",
+                        "ip_address": "127.0.0.1",
+                        "start_date": "2014-05-14T18:17:18Z",
+                        "token": null,
+                        "has_shell": false,
+                        "has_vnc": false,
+                        "identity": {
+                            "id": 1,
+                            "created_by": "username",
+                            "provider": 1
+                        },
+                        "name": "Ubuntu 13.04 w/Docker 0.9",
+                        "tags": ["SpliceGrapher"],
+                        "projects": [
+                            1
+                        ]
+                    }
+                ],
+                "volumes": [
+                    {
+                        "alias": "132333c94-7864-4157-9cq-5441ff321F11",
+                        "created_by": 1,
+                        "name": "My_First_Volume",
+                        "description": "",
+                        "status": "available",
+                        "size": 1,
+                        "attach_data": {},
+                        "provider": 1,
+                        "identity": {
+                            "id": 1,
+                            "created_by": "HanSolo",
+                            "provider": 1
+                        },
+                        "projects": [
+                            1
+                        ],
+                        "start_date": "2014-05-13T00:24:58Z"
+                    }
+                ],
+                "start_date": "2014-04-11T17:51:11.511Z",
+                "end_date": null
+            }
+
+### Retrieve a Project [GET]
++ Response 200 (application/json)
+
+    [Project][]
+        
+### Update a Project [PUT]
++ Request (application/json)
+
+        {
+          "description": "A new description for my project."
+        }
+
++ Response 200 (application/json)
+
+    [Project][]
+    
+### Delete a Project [DELETE]
+Delete a Project.  Projects can only be deleted once all resources (instances and volumes) have been transferred out of
+ it or deleted.  Attempting to delete a project with resources still inside will return a status code of 409 (conflict)
+
++ Response 200 (application/json)
+
+    [Project][]
+
+## Projects Collection [/project]
+Collection of all Projects.
+
++ Model (application/json)
+
+    JSON representation of Projects Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "owner": "HanSolo",
+                    "name": "Project 1",
+                    "description": "This is my project description",
+                    "applications": [],
+                    "instances": [
+                        {
+                            "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
+                            "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
+                            "created_by": "username",
+                            "status": "active",
+                            "size_alias": "1",
+                            "machine_alias": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
+                            "machine_name": "Ubuntu 13.04 w/Docker 0.9",
+                            "machine_alias_hash": "3f8add823804dc73b221a6c8308a8ab2",
+                            "ip_address": "127.0.0.1",
+                            "start_date": "2014-05-14T18:17:18Z",
+                            "token": null,
+                            "has_shell": false,
+                            "has_vnc": false,
+                            "identity": {
+                                "id": 1,
+                                "created_by": "username",
+                                "provider": 1
+                            },
+                            "name": "Ubuntu 13.04 w/Docker 0.9",
+                            "tags": ["SpliceGrapher"],
+                            "projects": [
+                                1
+                            ]
+                        }
+                    ],
+                    "volumes": [
+                        {
+                            "alias": "132333c94-7864-4157-9cq-5441ff321F11",
+                            "created_by": 1,
+                            "name": "My_First_Volume",
+                            "description": "",
+                            "status": "available",
+                            "size": 1,
+                            "attach_data": {},
+                            "provider": 1,
+                            "identity": {
+                                "id": 1,
+                                "created_by": "HanSolo",
+                                "provider": 1
+                            },
+                            "projects": [
+                                1
+                            ],
+                            "start_date": "2014-05-13T00:24:58Z"
+                        }
+                    ],
+                    "start_date": "2014-04-11T17:51:11.511Z",
+                    "end_date": null
+                },
+                {
+                    "id": 2,
+                    "owner": "HanSolo",
+                    "name": "Project 2",
+                    "description": "My second project.",
+                    "applications": [],
+                    "instances": [],
+                    "volumes": [],
+                    "start_date": "2014-05-01T19:27:40.910Z",
+                    "end_date": "2014-05-02T19:47:30.055Z"
+                }
+            ]
+
+### List all Projects [GET]
++ Response 200 (application/json)
+
+    [Projects Collection][]
+
+### Create a Project [POST]
+Create a Project.  You must specify the following properties:
+
+- **name**: a name for the project
+- **description**: a description of the project
+
++ Request (application/json)
+
+        {
+            "name": "My Awesome Project",
+            "description": "A description of my awesome project."
+        }
+
++ Response 201 (application/json)
+
+    [Project][]
+
+## Project Instances [/project/{id}/instance]
+The Instances in the Project.
+
++ Parameters
+    + id (required, number, '1') ... Number `id` of the Project.
+    
+### Retrieve a Project's Instances [GET]
++ Response 200 (application/json)
+
+    [Instances Collection][]
+    
+## Project Instance [/project/{project_id}/instance/{instance_id}]
+The endpoint to add or remove an Instance from a Project.
+
++ Parameters
+    + project_id (required, number, '1') ... Number `id` of the Project.
+    + instance_id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... Number `alias` of the Instance.
+    
+### Add Instance to Project [PUT]
++ Response 200 (application/json)
+
+    [Instance][]
+    
+### Remove Instance from Project [DELETE]
++ Response 204 (application/json)
+            
+## Project Volumes [/project/{id}/volume]
+The Volumes in the Project.
+
++ Parameters
+    + id (required, number, '1') ... Number `id` of the Project.
+    
+### Retrieve a Project's Volumes [GET]
++ Response 200 (application/json)
+
+    [Volumes Collection][]
+    
+## Project Volume [/project/{project_id}/volume/{volume_id}]
+The endpoint to add or remove a Volume from a Project.
+
++ Parameters
+    + project_id (required, number, '1') ... Number `id` of the Project.
+    + volume_id (required, string, '13138b97-786a-4e57-9acc-5d41cfd21f75') ... Number `alias` of the Volume.
+    
+### Add Volume to Project [PUT]
++ Response 200 (application/json)
+
+    [Volume][]
+    
+### Remove Volume from Project [DELETE]
++ Response 204 (application/json)
+
+# Group Non-Project Resources
+Because the API does enforce the concept that resources are in projects, we've provided a way to find out if the user
+ has any projects that are not associated with a project.
+
+## Null Project [/project/null]
+This endpoint returns a list of all resources that are not associated with a project.
+
+Each Project has the following properties:
+
+- **applications**: images that are not in a project
+- **instances**: instances that are not in a project
+- **volumes**: volumes that are not in a project
+    
++ Model (application/json)
+
+    JSON representation of Null Project Resource.
+
+    + Body
+
+            {
+                "applications": [],
+                "instances": [
+                    {
+                        "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
+                        "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
+                        "created_by": "username",
+                        "status": "active",
+                        "size_alias": "1",
+                        "machine_alias": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
+                        "machine_name": "Ubuntu 13.04 w/Docker 0.9",
+                        "machine_alias_hash": "3f8add823804dc73b221a6c8308a8ab2",
+                        "ip_address": "127.0.0.1",
+                        "start_date": "2014-05-14T18:17:18Z",
+                        "token": null,
+                        "has_shell": false,
+                        "has_vnc": false,
+                        "identity": {
+                            "id": 1,
+                            "created_by": "username",
+                            "provider": 1
+                        },
+                        "name": "Ubuntu 13.04 w/Docker 0.9",
+                        "tags": ["SpliceGrapher"],
+                        "projects": [
+                            1
+                        ]
+                    }
+                ],
+                "volumes": [
+                    {
+                        "alias": "132333c94-7864-4157-9cq-5441ff321F11",
+                        "created_by": 1,
+                        "name": "My_First_Volume",
+                        "description": "",
+                        "status": "available",
+                        "size": 1,
+                        "attach_data": {},
+                        "provider": 1,
+                        "identity": {
+                            "id": 1,
+                            "created_by": "HanSolo",
+                            "provider": 1
+                        },
+                        "projects": [
+                            1
+                        ],
+                        "start_date": "2014-05-13T00:24:58Z"
+                    }
+                ]
+            }
+
+### Retrieve a Project [GET]
++ Response 200 (application/json)
+
+    [Null Project][]
+
+# Group Maintenance
+Maintenance Messages are a way to inform the user of current or planned maintenance desks and possible downtown for the
+ Atmosphere cloud.
+
+## Maintenance Message [/maintenance/{id}]
+A single Maintenance Message object.
+
+Each Maintenance Message has the following properties:
+
+- **id**: the id of the message
+- **title**: a short title for the type of outage (planned, unplanned, network outage, maintenance, etc.)
+- **message**: the message
+- **provider_id**: the id of the provider this message is for
+- **disable_login**: whether login is disabled for the provider while this maintenance is occurring
+
++ Parameters
+    + id (required, Number, 1) ... Number `id` of the Maintenance Message.
+    
++ Model (application/json)
+
+    JSON representation of Maintenance Message Resource.
+
+    + Body
+
+            {
+                "id": 1,
+                "title": "Planned Maintenance",
+                "message": "Atmosphere Provider Cloud is under maintenance.",
+                "provider_id": 1,
+                "disable_login": true,
+                "start_date": "2014-07-21T06:05:40Z",
+                "end_date": null
+            }
+
+### Retrieve a Maintenance Message [GET]
++ Response 200 (application/json)
+
+    [Maintenance Message][]          
+
+## Maintenance Message Collection [/maintenance?active=true]
+Collection of all Maintenance Messages. You must pass in active=true if you only want the current messages.
+
++ Model (application/json)
+
+    JSON representation of Maintenance Message Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "title": "Planned Maintenance",
+                    "message": "Atmosphere Provider Cloud is under maintenance.",
+                    "provider_id": 1,
+                    "disable_login": true,
+                    "start_date": "2014-07-21T06:05:40Z",
+                    "end_date": null
+                }
+            ]
+
+### List all Maintenance Messages [GET]
++ Response 200 (application/json)
+
+    [Maintenance Message Collection][]
+
+# Group Instance History
+This endpoint returns a list of all instances that a user has launched since the time their account was created.
+
+## Instance History [/instance_history/{id}]
+A single Instance History object.
+
+Each Instance History has the following properties:
+
+- **alias**: id
+- **name**: name of the instance
+- **machine_alias**: which image the instance was based off.  Machines are image versions.
+- **machine_name**: the name of the image the instance was based off.
+- **size_alias**: the size of the instance when launched
+- **created_by**: username for the person who created the instance
+- **ip_address**: IP address you can use to connect to the machine.  Address that start with 196, 178, or 10 are private,
+ all others are public.  Instances with an IP address of 0.0.0.0 have not been assigned an IP address yet.
+- **provider**: which cloud the instance was launched on
+- **tags**: instance specific tags (array of strings)
+- **start_date**: the date the instance was launched
+- **end_date**: the date the instance was deleted
+- **alias_hash**: **[deprecated]**
+- **password**: **[deprecated]**
+- **machine_alias_hash**: **[deprecated]**
+- **token**: **[deprecated]**
+    
++ Parameters
+    + id (required, string, '36f0795e-f80b-11e3-8ef5-b2227cce2b55') ... String `alias` of the Instance.
+    
++ Model (application/json)
+
+    JSON representation of Instance History Resource.
+
+    + Body
+
+            {
+                "alias": "36f0795e-f80b-11e3-8ef5-b2227cce2b55",
+                "name": "Ubuntu 13.04 w/Docker 0.9",
+                "machine_alias": "75fdfca4-d49d-4b2d-b919-a3297bc6d7ae",
+                "machine_name": "Ubuntu 13.04 w/Docker 0.9",
+                "size_alias": "1",
+                "created_by": "username",
+                "ip_address": "127.0.0.1",
+                "provider": "iPlant Cloud - Tucson",
+                "tags": ["SpliceGrapher"],
+                "start_date": "2014-08-01T20:10:52Z",
+                "end_date": null,
+                "alias_hash": "c30430ab304a637e0fac9a0322edf7a4",
+                "machine_alias_hash": "3fb9e7221c139e3813a2a3aa3ea1b57b",
+                "password": "498f96cb-dbd5-42db-a97d-d9f5e786a931",
+                "token": "d66503d5-c324-4694-acf9-8b1c5b4d12e2"
+            }
+
+### Retrieve an Instance History [GET]
+Get a specific instance history object.
+
++ Response 200 (application/json)
+
+    [Instance History][]
+
+## Instance History Collection [/instance_history]
+The history of all of the user's instances since the date their account was created.
+    
++ Model (application/json)
+
+    JSON representation of Instances History Collection Resource.
+
+    + Body
+
+            {
+                "count": 1,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
+                        "alias": "36f0795e-f80b-11e3-8ef5-b2227cce2b55",
+                        "name": "Ubuntu 13.04 w/Docker 0.9",
+                        "machine_alias": "75fdfca4-d49d-4b2d-b919-a3297bc6d7ae",
+                        "machine_name": "Ubuntu 13.04 w/Docker 0.9",
+                        "size_alias": "1",
+                        "created_by": "username",
+                        "ip_address": "127.0.0.1",
+                        "provider": "iPlant Cloud - Tucson",
+                        "tags": ["SpliceGrapher"],
+                        "start_date": "2014-08-01T20:10:52Z",
+                        "end_date": null,
+                        "alias_hash": "c30430ab304a637e0fac9a0322edf7a4",
+                        "machine_alias_hash": "3fb9e7221c139e3813a2a3aa3ea1b57b",
+                        "password": "498f96cb-dbd5-42db-a97d-d9f5e786a931",
+                        "token": "d66503d5-c324-4694-acf9-8b1c5b4d12e2"
+                    }
+                ]
+            }
+    
+### List all Instances [GET]
+Get a list of all the instances the user has created.
+
++ Response 200 (application/json)
+
+    [Instance History Collection][]
