@@ -5,12 +5,12 @@ var notify = require('gulp-notify');
 var paths = {
   files: [
     './src/header.md',
+    './src/tag.md',
     './src/images.md',
     //'./src/group.md',
     './src/profile.md',
     './src/identity.md',
     './src/instance.md',
-    './src/tag.md',
     './src/provider.md',
     './src/provider_sizes.md',
     './src/volume.md',

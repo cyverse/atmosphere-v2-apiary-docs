@@ -24,7 +24,7 @@ Each Image has the following properties:
   includes the current version.  It also shows which cloud providers that image version is available for.
 
 + Parameters
-    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `uuid` of the Image.
+    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `id` of the Image.
     
 + Model (application/json)
 
@@ -38,8 +38,16 @@ Each Image has the following properties:
                 "created_by": "username",
                 "name": "Ubuntu 12.04 Updated NoGUI v1",
                 "tags": [
-                    "Ubuntu",
-                    "Featured"
+                    {
+                        "id": 4,
+                        "name": "Featured",
+                        "description": "Featured applications receive priority ordering over non-featured applications"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Ubuntu",
+                        "description": "A description of Ubuntu"
+                    }
                 ],
                 "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
                 "start_date": "2014-02-05T01:03:27.903Z",
@@ -66,6 +74,17 @@ Each Image has the following properties:
 
     [Image][]
 
+## Image Tags [/images/{id}/tags]
+Collection of Tags for the specified Image.
+
++ Parameters
+    + id (required, number, '1') ... Number `id` of the Image.
+
+### Get a Image's Tags [GET]
++ Response 200 (application/json)
+
+    [Tags Collection][]
+
 ## Image Collection [/images]
 Collection of all Images.
 
@@ -89,8 +108,16 @@ This is both a public and private endpoint.  If accessed without being authentic
                         "created_by": "username",
                         "name": "Ubuntu 12.04 Updated NoGUI v1",
                         "tags": [
-                            "Ubuntu",
-                            "Featured"
+                            {
+                                "id": 4,
+                                "name": "Featured",
+                                "description": "Featured applications receive priority ordering over non-featured applications"
+                            },
+                            {
+                                "id": 5,
+                                "name": "Ubuntu",
+                                "description": "A description of Ubuntu"
+                            }
                         ],
                         "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
                         "start_date": "2014-02-05T01:03:27.903Z",
