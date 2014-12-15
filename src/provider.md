@@ -1,21 +1,18 @@
 # Group Provider
 Providers represent the different cloud providers managed by Atmosphere.
 
-## Provider [/provider/{provider_id}]
+## Provider [/providers/{id}]
 A single Provider object.
 
 Each Provider has the following properties:
 
-- **type**: cloud provider (AWS, Azure, OpenStack, etc.)
-- **location**: the display name for the provider
-- **id**: unique id for the provider 
+- **id**: unique id for the provider
+- **name**: the display name for the provider
 - **description**: a description of the provider
-- **virtualization**: **[deprecated]**
-- **public**: **[deprecated]**
-- **traits**: **[deprecated]** 
+
 
 + Parameters
-    + provider_id (required, number, '1') ... Number `provider_id` of the Identity.
+    + id (required, number, '1') ... Number `id` of the Provider.
 
 + Model(application/json)
 
@@ -25,12 +22,8 @@ Each Provider has the following properties:
 
             {
                 "id": 1,
-                "type": "OpenStack",
-                "location": "planetTatooine",
-                "description": "planetTatooine",
-                "virtualization": 2,
-                "public": false,
-                "traits": []
+                "name": "planetTatooine",
+                "description": "planetTatooine"
             }              
 
 
@@ -39,28 +32,24 @@ Each Provider has the following properties:
 
     [Provider][]
 
-## Providers Collection [/provider]
+## Provider Collection [/providers]
 Collection of all Providers.
 
 + Model (application/json)
 
-    JSON representation of Providers Collection Resource.
+    JSON representation of Provider Collection Resource.
 
     + Body
 
             [
                 {
                     "id": 1,
-                    "type": "OpenStack",
-                    "location": "planetTatooine",
-                    "description": "planetTatooine",
-                    "virtualization": 2,
-                    "public": false,
-                    "traits": []
+                    "name": "planetTatooine",
+                    "description": "planetTatooine"
                 }
             ]
             
 ### List all Providers [GET]
 + Response 200 (application/json)
 
-    [Providers Collection][]
+    [Provider Collection][]
