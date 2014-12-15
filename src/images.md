@@ -66,7 +66,7 @@ Each Image has the following properties:
 
     [Image][]
 
-## Images Collection [/images]
+## Image Collection [/images]
 Collection of all Images.
 
 This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
