@@ -20,9 +20,9 @@ Each Tag has the following properties:
     + Body
 
             {
-                "description": "A description of Ubuntu",
                 "id": 5,
-                "name": "Ubuntu"
+                "name": "Ubuntu",
+                "description": "A description of Ubuntu"
             }
 
 ### Retrieve a Tag [GET]
@@ -41,29 +41,29 @@ Collection of all Tags.
 
             [
                 {
-                    "description": "A description of SpliceGrapher",
                     "id": 1,
-                    "name": "SpliceGrapher"
+                    "name": "SpliceGrapher",
+                    "description": "A description of SpliceGrapher"
                 },
                 {
-                    "description": "A description of xGDBvm",
                     "id": 2,
-                    "name": "xGDBvm"
+                    "name": "xGDBvm",
+                    "description": "A description of xGDBvm"
                 },
                 {
-                    "description": "A description of R",
                     "id": 3,
-                    "name": "R"
+                    "name": "R",
+                    "description": "A description of R"
                 },
                 {
-                    "description": "Featured applications receive priority ordering over non-featured applications",
                     "id": 4,
-                    "name": "Featured"
+                    "name": "Featured",
+                    "description": "Featured applications receive priority ordering over non-featured applications"
                 },
                 {
-                    "description": "A description of Ubuntu",
                     "id": 5,
-                    "name": "Ubuntu"
+                    "name": "Ubuntu",
+                    "description": "A description of Ubuntu"
                 }
             ]
 
