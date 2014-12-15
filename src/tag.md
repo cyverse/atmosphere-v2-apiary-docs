@@ -7,7 +7,6 @@ A single Tag object.
 Each Tag has the following properties:
 
 - **id**: the id of the tag
-- **user**: username of the person who created the tag (**todo:** inconsistent? Seen created_by used on other resources)
 - **name**: the name of the tag
 - **description**: a description of what the tag means
 
@@ -21,7 +20,6 @@ Each Tag has the following properties:
     + Body
 
             {
-                "user": null,
                 "description": "A description of Ubuntu",
                 "id": 5,
                 "name": "Ubuntu"
@@ -43,31 +41,26 @@ Collection of all Tags.
 
             [
                 {
-                    "user": null,
                     "description": "A description of SpliceGrapher",
                     "id": 1,
                     "name": "SpliceGrapher"
                 },
                 {
-                    "user": null,
                     "description": "A description of xGDBvm",
                     "id": 2,
                     "name": "xGDBvm"
                 },
                 {
-                    "user": null,
                     "description": "A description of R",
                     "id": 3,
                     "name": "R"
                 },
                 {
-                    "user": null,
                     "description": "Featured applications receive priority ordering over non-featured applications",
                     "id": 4,
                     "name": "Featured"
                 },
                 {
-                    "user": null,
                     "description": "A description of Ubuntu",
                     "id": 5,
                     "name": "Ubuntu"
