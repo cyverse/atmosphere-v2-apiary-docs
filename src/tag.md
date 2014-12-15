@@ -11,7 +11,7 @@ Each Tag has the following properties:
 - **description**: a description of what the tag means
 
 + Parameters
-    + name (required, string, `Featured`) ... String `name` of the Tag.
+    + id (required, number, `1`) ... String `id` of the Tag.
     
 + Model (application/json)
 
