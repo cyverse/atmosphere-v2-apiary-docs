@@ -1,4 +1,4 @@
-# Group Instance History
+# Group Instance History -updated-
 This endpoint returns a list of all instances that a user has launched since the time their account was created.
 
 ## Instance History [/instance_history/{id}]
@@ -6,7 +6,7 @@ A single Instance History object.
 
 Each Instance History has the following properties:
 
-- **alias**: id
+- **id**: id
 - **name**: name of the instance
 - **machine_alias**: which image the instance was based off.  Machines are image versions.
 - **machine_name**: the name of the image the instance was based off.
@@ -18,10 +18,7 @@ Each Instance History has the following properties:
 - **tags**: instance specific tags (array of strings)
 - **start_date**: the date the instance was launched
 - **end_date**: the date the instance was deleted
-- **alias_hash**: **[deprecated]**
-- **password**: **[deprecated]**
-- **machine_alias_hash**: **[deprecated]**
-- **token**: **[deprecated]**
+
     
 + Parameters
     + id (required, string, '36f0795e-f80b-11e3-8ef5-b2227cce2b55') ... String `alias` of the Instance.
@@ -33,7 +30,7 @@ Each Instance History has the following properties:
     + Body
 
             {
-                "alias": "36f0795e-f80b-11e3-8ef5-b2227cce2b55",
+                "id": "36f0795e-f80b-11e3-8ef5-b2227cce2b55",
                 "name": "Ubuntu 13.04 w/Docker 0.9",
                 "machine_alias": "75fdfca4-d49d-4b2d-b919-a3297bc6d7ae",
                 "machine_name": "Ubuntu 13.04 w/Docker 0.9",
@@ -43,11 +40,7 @@ Each Instance History has the following properties:
                 "provider": "iPlant Cloud - Tucson",
                 "tags": ["SpliceGrapher"],
                 "start_date": "2014-08-01T20:10:52Z",
-                "end_date": null,
-                "alias_hash": "c30430ab304a637e0fac9a0322edf7a4",
-                "machine_alias_hash": "3fb9e7221c139e3813a2a3aa3ea1b57b",
-                "password": "498f96cb-dbd5-42db-a97d-d9f5e786a931",
-                "token": "d66503d5-c324-4694-acf9-8b1c5b4d12e2"
+                "end_date": null
             }
 
 ### Retrieve an Instance History [GET]
@@ -72,7 +65,7 @@ The history of all of the user's instances since the date their account was crea
                 "previous": null,
                 "results": [
                     {
-                        "alias": "36f0795e-f80b-11e3-8ef5-b2227cce2b55",
+                        "id": "36f0795e-f80b-11e3-8ef5-b2227cce2b55",
                         "name": "Ubuntu 13.04 w/Docker 0.9",
                         "machine_alias": "75fdfca4-d49d-4b2d-b919-a3297bc6d7ae",
                         "machine_name": "Ubuntu 13.04 w/Docker 0.9",
@@ -82,11 +75,7 @@ The history of all of the user's instances since the date their account was crea
                         "provider": "iPlant Cloud - Tucson",
                         "tags": ["SpliceGrapher"],
                         "start_date": "2014-08-01T20:10:52Z",
-                        "end_date": null,
-                        "alias_hash": "c30430ab304a637e0fac9a0322edf7a4",
-                        "machine_alias_hash": "3fb9e7221c139e3813a2a3aa3ea1b57b",
-                        "password": "498f96cb-dbd5-42db-a97d-d9f5e786a931",
-                        "token": "d66503d5-c324-4694-acf9-8b1c5b4d12e2"
+                        "end_date": null
                     }
                 ]
             }

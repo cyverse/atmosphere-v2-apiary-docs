@@ -1,4 +1,4 @@
-# Group Volume
+# Group Volume -updated-
 Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
  different instance.
 
@@ -7,7 +7,7 @@ A single Volume object.
 
 Each Volume has the following properties:
 
-- **alias**: unique id for the volume
+- **id**: unique id for the volume
 - **created_by**: user id of the person who created the volume
 - **name**: name of the volume
 - **description**: description of the volume
@@ -30,7 +30,7 @@ Each Volume has the following properties:
     + Body
 
             {
-                "alias": "232333c94-7864-4157-9cq-5441ff321F11",
+                "id": "232333c94-7864-4157-9cq-5441ff321F11",
                 "created_by": 1,
                 "name": "My_Other_Volume",
                 "description": "",
@@ -64,7 +64,7 @@ Destroy a volume.
 ## Volume Actions [/provider/{providerId}/identity/{identityId}/instance/{id}/action]
 
 + Parameters
-    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `alias` of the Instance.
+    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `id` of the Instance.
     + providerId (required, number, '1') ... Number `id` of the Provider.
     + identityId (required, number, '1') ... Number `id` of the Identity.
 
@@ -119,7 +119,7 @@ Collection of all Volumes.
 
             [
                 {
-                    "alias": "132333c94-7864-4157-9cq-5441ff321F11",
+                    "id": "132333c94-7864-4157-9cq-5441ff321F11",
                     "created_by": 1,
                     "name": "My_First_Volume",
                     "description": "",

@@ -1,4 +1,4 @@
-# Group Project
+# Group Project -updated-
 Projects are a way for users to group related resources.  Right now users can add Instances and Volumes to a group, but
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
@@ -10,7 +10,7 @@ Each Project has the following properties:
 
 - **id**: the id of the project
 - **owner**: username of the person who created the project
-- **applications**: applications (images) in the project
+- **image**: applications (images) in the project
 - **instances**: instances in the project
 - **volumes**: volumes in the project
 - **name**: project name
@@ -30,7 +30,7 @@ Each Project has the following properties:
                 "owner": "HanSolo",
                 "name": "Project 1",
                 "description": "This is my project description",
-                "applications": [],
+                "images": [],
                 "instances": [
                     {
                         "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
@@ -122,7 +122,7 @@ Collection of all Projects.
                     "owner": "HanSolo",
                     "name": "Project 1",
                     "description": "This is my project description",
-                    "applications": [],
+                    "images": [],
                     "instances": [
                         {
                             "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
@@ -179,7 +179,7 @@ Collection of all Projects.
                     "owner": "HanSolo",
                     "name": "Project 2",
                     "description": "My second project.",
-                    "applications": [],
+                    "images": [],
                     "instances": [],
                     "volumes": [],
                     "start_date": "2014-05-01T19:27:40.910Z",

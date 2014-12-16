@@ -1,4 +1,4 @@
-# Group Instance
+# Group Instance -updated-
 Instances are virtual machines that users have created from an image (application).  When a user creates an instance
  it immediately starts deducting AU's from their account.
 
@@ -7,8 +7,7 @@ A single Instance object.
 
 Each Instance has the following properties:
 
-- **alias**: id
-- **alias_hash**: **[deprecated]**
+- **id**: id
 - **created_by**: username for the person who created the instance
 - **status**: the state the instance is in (active, suspended, shutoff, etc.)
 - **size_alias**: the id of the size resource for the instance (number of CPUs, RAM, and Disk Space)
@@ -16,7 +15,6 @@ Each Instance has the following properties:
 - **ip_address**: IP address you can use to connect to the machine.  Address that start with 196, 178, or 10 are private,
  all others are public.  Instances with an IP address of 0.0.0.0 have not been assigned an IP address yet.
 - **start_date**: the date the instance was created
-- **token**: **[deprecated]**
 - **has_shell**: true if a user can ssh into the instance
 - **has_vnc**: true if a user can remote desktop into the instance
 - **identity**: which account the instance deducts AU's from
@@ -24,7 +22,7 @@ Each Instance has the following properties:
 - **tags**: instance specific tags (array of strings)
     
 + Parameters
-    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `alias` of the Instance.
+    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `id` of the Instance.
     + providerId (required, number, '1') ... Number `id` of the Provider.
     + identityId (required, number, '1') ... Number `id` of the Identity.
     
@@ -35,8 +33,7 @@ Each Instance has the following properties:
     + Body
 
             {
-                "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
-                "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
+                "id": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
                 "created_by": "username",
                 "status": "active",
                 "size_alias": "1",
@@ -164,8 +161,7 @@ Collection of all Instances for a specific identity and provider.
 
             [
                 {
-                    "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
-                    "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
+                    "id": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
                     "created_by": "username",
                     "status": "active",
                     "size_alias": "1",

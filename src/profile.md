@@ -13,15 +13,9 @@ Each Profile has the following properties:
 - **email**: the users email address
 - **is_staff**: true if the user is iPlant staff
 - **is_superuser**: true if the user is a super user (comes with special privileges)
-- **groups**: **[deprecated]**
 - **send_emails**: true if the user wants to be notified via email when instances they've launched are ready
-- **quick_launch**: **[deprecated]**
-- **vnc_resolution**: **[deprecated]**
-- **default_size**: **[deprecated]**
-- **background**: **[deprecated]**
 - **icon_set**: the style of icons the user would like to see in the Atmosphere UI when no there is no custom icon to
  display
-- **selected_identity**: **[deprecated]**
 
 
 + Model (application/json)
@@ -36,27 +30,8 @@ Each Profile has the following properties:
                 "email": "username@example.com",
                 "is_staff": false,
                 "is_superuser": false,
-                "groups": [
-                    "username"
-                ],
                 "send_emails": true,
-                "quick_launch": true,
-                "vnc_resolution": "800x600",
-                "default_size": "m1.small",
-                "background": "default",
                 "icon_set": "default",
-                "selected_identity": {
-                    "quota": {
-                        "mem": 256,
-                        "suspended_count": 2,
-                        "storage": 1000,
-                        "cpu": 128,
-                        "storage_count": 10
-                    },
-                    "provider_id": 1,
-                    "id": 1,
-                    "provider": "planet tatooine"
-                }
             }
             
 ### Retrieve the Profile [GET]

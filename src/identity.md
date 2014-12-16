@@ -1,4 +1,4 @@
-# Group Identity
+# Group Identity -updated-
 Identities are like user account information. A user has at least one identity per provider, and each identity
  contains information about how many resources can be consumed on that provider.  If a user has multiple identities
  under a single provider, it means they can allocate more resources by using a different identity.
@@ -10,10 +10,8 @@ Each Identity has the following properties:
 
 - **id**: id of the Identity
 - **provider_id**: the id of the provider this identity is for
-- **provider**: **[deprecated]** the name of the provider 
 - **quota**: object describing the resources that can be allocated on the provider under this identity
 - **quota.mem**: the maximum amount of memory that can be allocated across all instances under this identity
-- **quota.suspended_count**: **[deprecated]** how many instances are currently suspended
 - **quota.storage**: the maximum storage space that can be allocated across all volumes under this identity
 - **quota.cpu**: the number of CPUs that can be allocated across all instance under this identity
 - **quota.storage_count**: the maximum number of volumes that can be created under this identity
