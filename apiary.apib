@@ -113,7 +113,7 @@ Create a Tag.  You must specify the following properties:
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 
-## Image [/images/{id}]
+## '/images/{id}' [/images/{id}]
 A single Image object.
 
 Each Image has the following properties:
@@ -131,7 +131,7 @@ Each Image has the following properties:
  used to schedule resources deletion by setting them at a future date.  This can also be used to give someone access to
  a resource for a limited time (such as for a workshop session).
 - **private**: if this field is true, it means the access to the image is limited to a group of people that includes you
-- **versions**: admittedly, this field is poorly named, but it represents all the previous versions of this image, which
+- **versions**: represents all the previous versions of this image, which
   includes the current version.  It also shows which cloud providers that image version is available for.
 
 + Parameters
@@ -170,14 +170,14 @@ Each Image has the following properties:
 ### Retrieve a Single Image [GET]
 + Response 200 (application/json)
 
-    [Image][]
+    ['/images/{id}'][]
     
 ### Edit an Image [GET]
 + Response 200 (application/json)
 
-    [Image][]
+    ['/images/{id}'][]
 
-## Image Collection [/images]
+## '/images' [/images]
 Collection of all Images.
 
 This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
@@ -224,7 +224,7 @@ This is both a public and private endpoint.  If accessed without being authentic
 
 + Response 200 (application/json)
 
-    [Image Collection][]
+    ['/images'][]
 
 ## Request an Image [/provider/{providerId}/identity/{identityId}/request_image/]
 Images are created by sending a request to Atmosphere support.  This is the endpoint used to make that request.
