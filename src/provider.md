@@ -1,7 +1,7 @@
 # Group Provider -updated-
 Providers represent the different cloud providers managed by Atmosphere.
 
-## Provider [/providers/{id}]
+## '/providers/{id}' [/providers/{id}]
 A single Provider object.
 
 Each Provider has the following properties:
@@ -30,9 +30,9 @@ Each Provider has the following properties:
 ### Retrieve a Provider [GET]
 + Response 200 (application/json)
 
-    [Provider][]
+    ['/providers/{id}'][]
 
-## Provider Collection [/providers]
+## '/providers' [/providers]
 Collection of all Providers.
 
 + Model (application/json)
@@ -52,4 +52,4 @@ Collection of all Providers.
 ### List all Providers [GET]
 + Response 200 (application/json)
 
-    [Provider Collection][]
+    ['/providers'][]
