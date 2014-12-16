@@ -37,7 +37,7 @@ Each Profile has the following properties:
 ### Retrieve the Profile [GET]
 + Response 200 (application/json)
 
-    [Profile][]
+    [/profile][]
     
 ### Update the Profile [PATCH]
 To update the profile, send a PATCH request that includes the fields you want to modify.  Currently the only modifiable
@@ -52,4 +52,4 @@ To update the profile, send a PATCH request that includes the fields you want to
 
 + Response 200 (application/json)
 
-    [Profile][]
+    [/profile][]

@@ -30,7 +30,7 @@ Each Provider has the following properties:
 ### Retrieve a Provider [GET]
 + Response 200 (application/json)
 
-    [Provider][]
+    [/providers/{id} ][]
 
 ## /providers [/providers]
 Collection of all Providers.
@@ -52,4 +52,4 @@ Collection of all Providers.
 ### List all Providers [GET]
 + Response 200 (application/json)
 
-    [Provider Collection][]
+    [/providers][]

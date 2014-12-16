@@ -86,7 +86,7 @@ Each Project has the following properties:
 ### Retrieve a Project [GET]
 + Response 200 (application/json)
 
-    [Project][]
+    [/project/{id}][]
         
 ### Update a Project [PUT]
 + Request (application/json)
@@ -97,7 +97,7 @@ Each Project has the following properties:
 
 + Response 200 (application/json)
 
-    [Project][]
+    [/project/{id}][]
     
 ### Delete a Project [DELETE]
 Delete a Project.  Projects can only be deleted once all resources (instances and volumes) have been transferred out of
@@ -105,7 +105,7 @@ Delete a Project.  Projects can only be deleted once all resources (instances an
 
 + Response 200 (application/json)
 
-    [Project][]
+    [/project/{id}][]
 
 ## /project [/project]
 Collection of all Projects.
@@ -190,7 +190,7 @@ Collection of all Projects.
 ### List all Projects [GET]
 + Response 200 (application/json)
 
-    [Projects Collection][]
+    [/project][]
 
 ### Create a Project [POST]
 Create a Project.  You must specify the following properties:
@@ -207,7 +207,7 @@ Create a Project.  You must specify the following properties:
 
 + Response 201 (application/json)
 
-    [Project][]
+    [/project][]
 
 ## /project/{id}/instance [/project/{id}/instance]
 The Instances in the Project.
@@ -218,7 +218,7 @@ The Instances in the Project.
 ### Retrieve a Project's Instances [GET]
 + Response 200 (application/json)
 
-    [Instances Collection][]
+    [/project/{id}/instance][]
     
 ## /project/{project_id}/instance/{instance_id} [/project/{project_id}/instance/{instance_id}]
 The endpoint to add or remove an Instance from a Project.
@@ -230,7 +230,7 @@ The endpoint to add or remove an Instance from a Project.
 ### Add Instance to Project [PUT]
 + Response 200 (application/json)
 
-    [Instance][]
+    [/project/{project_id}/instance/{instance_id}][]
     
 ### Remove Instance from Project [DELETE]
 + Response 204 (application/json)
@@ -244,7 +244,7 @@ The Volumes in the Project.
 ### Retrieve a Project's Volumes [GET]
 + Response 200 (application/json)
 
-    [Volumes Collection][]
+    [/project/{id}/volume][]
     
 ## /project/{project_id}/volume/{volume_id} [/project/{project_id}/volume/{volume_id}]
 The endpoint to add or remove a Volume from a Project.
@@ -256,7 +256,7 @@ The endpoint to add or remove a Volume from a Project.
 ### Add Volume to Project [PUT]
 + Response 200 (application/json)
 
-    [Volume][]
+    [/project/{project_id}/volume/{volume_id}][]
     
 ### Remove Volume from Project [DELETE]
 + Response 204 (application/json)

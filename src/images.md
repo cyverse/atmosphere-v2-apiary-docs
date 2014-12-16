@@ -67,12 +67,12 @@ Each Image has the following properties:
 ### Retrieve a Single Image [GET]
 + Response 200 (application/json)
 
-    [Image][]
+    [/image/{id}][]
     
 ### Edit an Image [GET]
 + Response 200 (application/json)
 
-    [Image][]
+    [/image/{id}[]
 
 ## /images/{id}/tags [/images/{id}/tags]
 Collection of Tags for the specified Image.
@@ -83,7 +83,7 @@ Collection of Tags for the specified Image.
 ### Get a Image's Tags [GET]
 + Response 200 (application/json)
 
-    [Tags Collection][]
+    [/image/{id}/tags][]
 
 ## /images [/images]
 Collection of all Images.
@@ -140,7 +140,7 @@ This is both a public and private endpoint.  If accessed without being authentic
 
 + Response 200 (application/json)
 
-    [Image Collection][]
+    [/image][]
 
 ## Request an Image [/provider/{providerId}/identity/{identityId}/request_image/]
 Images are created by sending a request to Atmosphere support.  This is the endpoint used to make that request.

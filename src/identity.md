@@ -42,7 +42,7 @@ Each Identity has the following properties:
 
 + Response 200 (application/json)
 
-    [Identity][]
+    [/identity/{id}][]
     
 ## /identity [/identity]
 Collection of all Identities.
@@ -72,4 +72,4 @@ Collection of all Identities.
 ### List all Identities [GET]
 + Response 200 (application/json)
 
-    [Identity Collection][]
+    [/identity/][]

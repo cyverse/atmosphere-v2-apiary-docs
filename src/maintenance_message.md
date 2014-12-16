@@ -35,7 +35,7 @@ Each Maintenance Message has the following properties:
 ### Retrieve a Maintenance Message [GET]
 + Response 200 (application/json)
 
-    [Maintenance Message][]          
+    [/maintenance/{id}][]
 
 ## /maintenance?active=true [/maintenance?active=true]
 Collection of all Maintenance Messages. You must pass in active=true if you only want the current messages.
@@ -61,4 +61,4 @@ Collection of all Maintenance Messages. You must pass in active=true if you only
 ### List all Maintenance Messages [GET]
 + Response 200 (application/json)
 
-    [Maintenance Message Collection][]
+    [/maintenance?active=true][]
