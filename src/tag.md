@@ -1,7 +1,7 @@
 # Group Tag -updated-
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
-## Tag [/tag/{id}]
+## /tag/{id} [/tag/{id}]
 A single Tag object.
 
 Each Tag has the following properties:
@@ -30,7 +30,7 @@ Each Tag has the following properties:
 
     [Tag][]          
 
-## Tags Collection [/tag]
+## /tag [/tag]
 Collection of all Tags.
 
 + Model (application/json)

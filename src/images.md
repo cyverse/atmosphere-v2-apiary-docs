@@ -2,7 +2,7 @@
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 
-## Image [/images/{id}]
+## /image/{id} [/images/{id}]
 A single Image object.
 
 Each Image has the following properties:
@@ -74,7 +74,7 @@ Each Image has the following properties:
 
     [Image][]
 
-## Image Tags [/images/{id}/tags]
+## /images/{id}/tags [/images/{id}/tags]
 Collection of Tags for the specified Image.
 
 + Parameters
@@ -85,7 +85,7 @@ Collection of Tags for the specified Image.
 
     [Tags Collection][]
 
-## Image Collection [/images]
+## /images [/images]
 Collection of all Images.
 
 This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public

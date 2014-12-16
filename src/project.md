@@ -3,7 +3,7 @@ Projects are a way for users to group related resources.  Right now users can ad
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
 
-## Project [/project/{id}]
+## /project/{id} [/project/{id}]
 A single Project object.
 
 Each Project has the following properties:
@@ -107,7 +107,7 @@ Delete a Project.  Projects can only be deleted once all resources (instances an
 
     [Project][]
 
-## Projects Collection [/project]
+## /project [/project]
 Collection of all Projects.
 
 + Model (application/json)
@@ -209,7 +209,7 @@ Create a Project.  You must specify the following properties:
 
     [Project][]
 
-## Project Instances [/project/{id}/instance]
+## /project/{id}/instance [/project/{id}/instance]
 The Instances in the Project.
 
 + Parameters
@@ -220,7 +220,7 @@ The Instances in the Project.
 
     [Instances Collection][]
     
-## Project Instance [/project/{project_id}/instance/{instance_id}]
+## /project/{project_id}/instance/{instance_id} [/project/{project_id}/instance/{instance_id}]
 The endpoint to add or remove an Instance from a Project.
 
 + Parameters
@@ -235,7 +235,7 @@ The endpoint to add or remove an Instance from a Project.
 ### Remove Instance from Project [DELETE]
 + Response 204 (application/json)
             
-## Project Volumes [/project/{id}/volume]
+## /project/{id}/volume [/project/{id}/volume]
 The Volumes in the Project.
 
 + Parameters
@@ -246,7 +246,7 @@ The Volumes in the Project.
 
     [Volumes Collection][]
     
-## Project Volume [/project/{project_id}/volume/{volume_id}]
+## /project/{project_id}/volume/{volume_id} [/project/{project_id}/volume/{volume_id}]
 The endpoint to add or remove a Volume from a Project.
 
 + Parameters

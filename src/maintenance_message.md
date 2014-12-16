@@ -2,7 +2,7 @@
 Maintenance Messages are a way to inform the user of current or planned maintenance desks and possible downtown for the
  Atmosphere cloud.
 
-## Maintenance Message [/maintenance/{id}]
+## /maintenance/{id} [/maintenance/{id}]
 A single Maintenance Message object.
 
 Each Maintenance Message has the following properties:
@@ -37,7 +37,7 @@ Each Maintenance Message has the following properties:
 
     [Maintenance Message][]          
 
-## Maintenance Message Collection [/maintenance?active=true]
+## /maintenance?active=true [/maintenance?active=true]
 Collection of all Maintenance Messages. You must pass in active=true if you only want the current messages.
 
 + Model (application/json)
