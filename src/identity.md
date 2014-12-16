@@ -3,7 +3,7 @@ Identities are like user account information. A user has at least one identity p
  contains information about how many resources can be consumed on that provider.  If a user has multiple identities
  under a single provider, it means they can allocate more resources by using a different identity.
 
-## Identity [/identity/{id}]
+## '/identity/{id}' [/identity/{id}]
 A single Identity object.
 
 Each Identity has the following properties:
@@ -42,9 +42,9 @@ Each Identity has the following properties:
 
 + Response 200 (application/json)
 
-    [Identity][]
+    ['/identity/{id}'][]
     
-## Identity Collection [/identity]
+## '/identity' [/identity]
 Collection of all Identities.
 
 + Model (application/json)
@@ -72,4 +72,4 @@ Collection of all Identities.
 ### List all Identities [GET]
 + Response 200 (application/json)
 
-    [Identity Collection][]
+    ['/identity'][]
