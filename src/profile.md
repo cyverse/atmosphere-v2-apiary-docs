@@ -3,7 +3,7 @@ The Profile contains information about the authenticated user. Profile can be th
  Atmosphere APIs. Once authenticated, a user can find their default provider and identity. The IDs for provider and
  Identity can be used to navigate the rest of the API.
 
-## Profile [/profile]
+## '/profile' [/profile]
 A single Profile object.
 
 Each Profile has the following properties:
@@ -37,7 +37,7 @@ Each Profile has the following properties:
 ### Retrieve the Profile [GET]
 + Response 200 (application/json)
 
-    [Profile][]
+    ['/profile'][]
     
 ### Update the Profile [PATCH]
 To update the profile, send a PATCH request that includes the fields you want to modify.  Currently the only modifiable
@@ -52,4 +52,4 @@ To update the profile, send a PATCH request that includes the fields you want to
 
 + Response 200 (application/json)
 
-    [Profile][]
+    ['/profile'][]
