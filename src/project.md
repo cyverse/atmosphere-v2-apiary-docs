@@ -3,7 +3,7 @@ Projects are a way for users to group related resources.  Right now users can ad
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
 
-## /project/{id} [/project/{id}]
+## Project [/project/{id}]
 A single Project object.
 
 Each Project has the following properties:
@@ -86,7 +86,7 @@ Each Project has the following properties:
 ### Retrieve a Project [GET]
 + Response 200 (application/json)
 
-    [/project/{id}][]
+    [Project][]
         
 ### Update a Project [PUT]
 + Request (application/json)
@@ -97,7 +97,7 @@ Each Project has the following properties:
 
 + Response 200 (application/json)
 
-    [/project/{id}][]
+    [Project][]
     
 ### Delete a Project [DELETE]
 Delete a Project.  Projects can only be deleted once all resources (instances and volumes) have been transferred out of
@@ -105,9 +105,9 @@ Delete a Project.  Projects can only be deleted once all resources (instances an
 
 + Response 200 (application/json)
 
-    [/project/{id}][]
+    [Project][]
 
-## /project [/project]
+## Projects Collection [/project]
 Collection of all Projects.
 
 + Model (application/json)
@@ -190,7 +190,7 @@ Collection of all Projects.
 ### List all Projects [GET]
 + Response 200 (application/json)
 
-    [/project][]
+    [Projects Collection][]
 
 ### Create a Project [POST]
 Create a Project.  You must specify the following properties:
@@ -207,9 +207,9 @@ Create a Project.  You must specify the following properties:
 
 + Response 201 (application/json)
 
-    [/project][]
+    [Project][]
 
-## /project/{id}/instance [/project/{id}/instance]
+## Project Instances [/project/{id}/instance]
 The Instances in the Project.
 
 + Parameters
@@ -218,9 +218,9 @@ The Instances in the Project.
 ### Retrieve a Project's Instances [GET]
 + Response 200 (application/json)
 
-    [/project/{id}/instance][]
+    [Instances Collection][]
     
-## /project/{project_id}/instance/{instance_id} [/project/{project_id}/instance/{instance_id}]
+## Project Instance [/project/{project_id}/instance/{instance_id}]
 The endpoint to add or remove an Instance from a Project.
 
 + Parameters
@@ -230,12 +230,12 @@ The endpoint to add or remove an Instance from a Project.
 ### Add Instance to Project [PUT]
 + Response 200 (application/json)
 
-    [/project/{project_id}/instance/{instance_id}][]
+    [Instance][]
     
 ### Remove Instance from Project [DELETE]
 + Response 204 (application/json)
             
-## /project/{id}/volume [/project/{id}/volume]
+## Project Volumes [/project/{id}/volume]
 The Volumes in the Project.
 
 + Parameters
@@ -244,9 +244,9 @@ The Volumes in the Project.
 ### Retrieve a Project's Volumes [GET]
 + Response 200 (application/json)
 
-    [/project/{id}/volume][]
+    [Volumes Collection][]
     
-## /project/{project_id}/volume/{volume_id} [/project/{project_id}/volume/{volume_id}]
+## Project Volume [/project/{project_id}/volume/{volume_id}]
 The endpoint to add or remove a Volume from a Project.
 
 + Parameters
@@ -256,7 +256,7 @@ The endpoint to add or remove a Volume from a Project.
 ### Add Volume to Project [PUT]
 + Response 200 (application/json)
 
-    [/project/{project_id}/volume/{volume_id}][]
+    [Volume][]
     
 ### Remove Volume from Project [DELETE]
 + Response 204 (application/json)

@@ -21,7 +21,7 @@ access to:
 # Group Tag -updated-
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
-## /tags/{id} [/tag/{id}]
+## Tag [/tag/{id}]
 A single Tag object.
 
 Each Tag has the following properties:
@@ -48,9 +48,9 @@ Each Tag has the following properties:
 ### Retrieve a Tag [GET]
 + Response 200 (application/json)
 
-    [/tags/{id} ][]
+    [Tag][]          
 
-## /tags [/tags]
+## Tags Collection [/tag]
 Collection of all Tags.
 
 + Model (application/json)
@@ -90,7 +90,7 @@ Collection of all Tags.
 ### List all Tags [GET]
 + Response 200 (application/json)
 
-    [/tags][]
+    [Tags Collection][]
 
 ### Create a Tag [POST]
 Create a Tag.  You must specify the following properties:
@@ -107,13 +107,13 @@ Create a Tag.  You must specify the following properties:
 
 + Response 201 (application/json)
 
-    [/tag/{id}][]
+    [Tag][]
 
 # Group Images -updated-
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 
-## /image/{id} [/images/{id}]
+## Image [/images/{id}]
 A single Image object.
 
 Each Image has the following properties:
@@ -135,7 +135,7 @@ Each Image has the following properties:
   includes the current version.  It also shows which cloud providers that image version is available for.
 
 + Parameters
-    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `id` of the Image.
+    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `uuid` of the Image.
     
 + Model (application/json)
 
@@ -149,16 +149,8 @@ Each Image has the following properties:
                 "created_by": "username",
                 "name": "Ubuntu 12.04 Updated NoGUI v1",
                 "tags": [
-                    {
-                        "id": 4,
-                        "name": "Featured",
-                        "description": "Featured applications receive priority ordering over non-featured applications"
-                    },
-                    {
-                        "id": 5,
-                        "name": "Ubuntu",
-                        "description": "A description of Ubuntu"
-                    }
+                    "Ubuntu",
+                    "Featured"
                 ],
                 "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
                 "start_date": "2014-02-05T01:03:27.903Z",
@@ -178,25 +170,14 @@ Each Image has the following properties:
 ### Retrieve a Single Image [GET]
 + Response 200 (application/json)
 
-    [/image/{id}][]
+    [Image][]
     
 ### Edit an Image [GET]
 + Response 200 (application/json)
 
-    [/image/{id}[]
+    [Image][]
 
-## /images/{id}/tags [/images/{id}/tags]
-Collection of Tags for the specified Image.
-
-+ Parameters
-    + id (required, number, '1') ... Number `id` of the Image.
-
-### Get a Image's Tags [GET]
-+ Response 200 (application/json)
-
-    [/image/{id}/tags][]
-
-## /images [/images]
+## Image Collection [/images]
 Collection of all Images.
 
 This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
@@ -219,16 +200,8 @@ This is both a public and private endpoint.  If accessed without being authentic
                         "created_by": "username",
                         "name": "Ubuntu 12.04 Updated NoGUI v1",
                         "tags": [
-                            {
-                                "id": 4,
-                                "name": "Featured",
-                                "description": "Featured applications receive priority ordering over non-featured applications"
-                            },
-                            {
-                                "id": 5,
-                                "name": "Ubuntu",
-                                "description": "A description of Ubuntu"
-                            }
+                            "Ubuntu",
+                            "Featured"
                         ],
                         "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
                         "start_date": "2014-02-05T01:03:27.903Z",
@@ -251,7 +224,7 @@ This is both a public and private endpoint.  If accessed without being authentic
 
 + Response 200 (application/json)
 
-    [/image][]
+    [Image Collection][]
 
 ## Request an Image [/provider/{providerId}/identity/{identityId}/request_image/]
 Images are created by sending a request to Atmosphere support.  This is the endpoint used to make that request.
@@ -299,7 +272,7 @@ The Profile contains information about the authenticated user. Profile can be th
  Atmosphere APIs. Once authenticated, a user can find their default provider and identity. The IDs for provider and
  Identity can be used to navigate the rest of the API.
 
-## /profile [/profile]
+## Profile [/profile]
 A single Profile object.
 
 Each Profile has the following properties:
@@ -333,7 +306,7 @@ Each Profile has the following properties:
 ### Retrieve the Profile [GET]
 + Response 200 (application/json)
 
-    [/profile][]
+    [Profile][]
     
 ### Update the Profile [PATCH]
 To update the profile, send a PATCH request that includes the fields you want to modify.  Currently the only modifiable
@@ -348,14 +321,14 @@ To update the profile, send a PATCH request that includes the fields you want to
 
 + Response 200 (application/json)
 
-    [/profile][]
+    [Profile][]
 
-# Group Identity -updated-
+# Group Identity
 Identities are like user account information. A user has at least one identity per provider, and each identity
  contains information about how many resources can be consumed on that provider.  If a user has multiple identities
  under a single provider, it means they can allocate more resources by using a different identity.
 
-## /identity/{id} [/identity/{id}]
+## Identity [/identity/{id}]
 A single Identity object.
 
 Each Identity has the following properties:
@@ -394,9 +367,9 @@ Each Identity has the following properties:
 
 + Response 200 (application/json)
 
-    [/identity/{id}][]
+    [Identity][]
     
-## /identity [/identity]
+## Identity Collection [/identity]
 Collection of all Identities.
 
 + Model (application/json)
@@ -424,7 +397,7 @@ Collection of all Identities.
 ### List all Identities [GET]
 + Response 200 (application/json)
 
-    [/identity/][]
+    [Identity Collection][]
 
 # Group Instance -updated-
 Instances are virtual machines that users have created from an image (application).  When a user creates an instance
@@ -643,7 +616,7 @@ Launch an instance of an application.  You must specify the following properties
 # Group Provider -updated-
 Providers represent the different cloud providers managed by Atmosphere.
 
-## /providers/{id} [/providers/{id}]
+## Provider [/providers/{id}]
 A single Provider object.
 
 Each Provider has the following properties:
@@ -672,9 +645,9 @@ Each Provider has the following properties:
 ### Retrieve a Provider [GET]
 + Response 200 (application/json)
 
-    [/providers/{id} ][]
+    [Provider][]
 
-## /providers [/providers]
+## Provider Collection [/providers]
 Collection of all Providers.
 
 + Model (application/json)
@@ -694,7 +667,7 @@ Collection of all Providers.
 ### List all Providers [GET]
 + Response 200 (application/json)
 
-    [/providers][]
+    [Provider Collection][]
 
 # Group Size
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
@@ -971,7 +944,7 @@ Projects are a way for users to group related resources.  Right now users can ad
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
 
-## /project/{id} [/project/{id}]
+## Project [/project/{id}]
 A single Project object.
 
 Each Project has the following properties:
@@ -1054,7 +1027,7 @@ Each Project has the following properties:
 ### Retrieve a Project [GET]
 + Response 200 (application/json)
 
-    [/project/{id}][]
+    [Project][]
         
 ### Update a Project [PUT]
 + Request (application/json)
@@ -1065,7 +1038,7 @@ Each Project has the following properties:
 
 + Response 200 (application/json)
 
-    [/project/{id}][]
+    [Project][]
     
 ### Delete a Project [DELETE]
 Delete a Project.  Projects can only be deleted once all resources (instances and volumes) have been transferred out of
@@ -1073,9 +1046,9 @@ Delete a Project.  Projects can only be deleted once all resources (instances an
 
 + Response 200 (application/json)
 
-    [/project/{id}][]
+    [Project][]
 
-## /project [/project]
+## Projects Collection [/project]
 Collection of all Projects.
 
 + Model (application/json)
@@ -1158,7 +1131,7 @@ Collection of all Projects.
 ### List all Projects [GET]
 + Response 200 (application/json)
 
-    [/project][]
+    [Projects Collection][]
 
 ### Create a Project [POST]
 Create a Project.  You must specify the following properties:
@@ -1175,9 +1148,9 @@ Create a Project.  You must specify the following properties:
 
 + Response 201 (application/json)
 
-    [/project][]
+    [Project][]
 
-## /project/{id}/instance [/project/{id}/instance]
+## Project Instances [/project/{id}/instance]
 The Instances in the Project.
 
 + Parameters
@@ -1186,9 +1159,9 @@ The Instances in the Project.
 ### Retrieve a Project's Instances [GET]
 + Response 200 (application/json)
 
-    [/project/{id}/instance][]
+    [Instances Collection][]
     
-## /project/{project_id}/instance/{instance_id} [/project/{project_id}/instance/{instance_id}]
+## Project Instance [/project/{project_id}/instance/{instance_id}]
 The endpoint to add or remove an Instance from a Project.
 
 + Parameters
@@ -1198,12 +1171,12 @@ The endpoint to add or remove an Instance from a Project.
 ### Add Instance to Project [PUT]
 + Response 200 (application/json)
 
-    [/project/{project_id}/instance/{instance_id}][]
+    [Instance][]
     
 ### Remove Instance from Project [DELETE]
 + Response 204 (application/json)
             
-## /project/{id}/volume [/project/{id}/volume]
+## Project Volumes [/project/{id}/volume]
 The Volumes in the Project.
 
 + Parameters
@@ -1212,9 +1185,9 @@ The Volumes in the Project.
 ### Retrieve a Project's Volumes [GET]
 + Response 200 (application/json)
 
-    [/project/{id}/volume][]
+    [Volumes Collection][]
     
-## /project/{project_id}/volume/{volume_id} [/project/{project_id}/volume/{volume_id}]
+## Project Volume [/project/{project_id}/volume/{volume_id}]
 The endpoint to add or remove a Volume from a Project.
 
 + Parameters
@@ -1224,7 +1197,7 @@ The endpoint to add or remove a Volume from a Project.
 ### Add Volume to Project [PUT]
 + Response 200 (application/json)
 
-    [/project/{project_id}/volume/{volume_id}][]
+    [Volume][]
     
 ### Remove Volume from Project [DELETE]
 + Response 204 (application/json)
@@ -1309,7 +1282,7 @@ Each Project has the following properties:
 Maintenance Messages are a way to inform the user of current or planned maintenance desks and possible downtown for the
  Atmosphere cloud.
 
-## /maintenance/{id} [/maintenance/{id}]
+## Maintenance Message [/maintenance/{id}]
 A single Maintenance Message object.
 
 Each Maintenance Message has the following properties:
@@ -1342,9 +1315,9 @@ Each Maintenance Message has the following properties:
 ### Retrieve a Maintenance Message [GET]
 + Response 200 (application/json)
 
-    [/maintenance/{id}][]
+    [Maintenance Message][]          
 
-## /maintenance?active=true [/maintenance?active=true]
+## Maintenance Message Collection [/maintenance?active=true]
 Collection of all Maintenance Messages. You must pass in active=true if you only want the current messages.
 
 + Model (application/json)
@@ -1368,7 +1341,7 @@ Collection of all Maintenance Messages. You must pass in active=true if you only
 ### List all Maintenance Messages [GET]
 + Response 200 (application/json)
 
-    [/maintenance?active=true][]
+    [Maintenance Message Collection][]
 
 # Group Instance History -updated-
 This endpoint returns a list of all instances that a user has launched since the time their account was created.

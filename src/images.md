@@ -2,7 +2,7 @@
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 
-## /image/{id} [/images/{id}]
+## Image [/images/{id}]
 A single Image object.
 
 Each Image has the following properties:
@@ -24,7 +24,7 @@ Each Image has the following properties:
   includes the current version.  It also shows which cloud providers that image version is available for.
 
 + Parameters
-    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `id` of the Image.
+    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `uuid` of the Image.
     
 + Model (application/json)
 
@@ -38,16 +38,8 @@ Each Image has the following properties:
                 "created_by": "username",
                 "name": "Ubuntu 12.04 Updated NoGUI v1",
                 "tags": [
-                    {
-                        "id": 4,
-                        "name": "Featured",
-                        "description": "Featured applications receive priority ordering over non-featured applications"
-                    },
-                    {
-                        "id": 5,
-                        "name": "Ubuntu",
-                        "description": "A description of Ubuntu"
-                    }
+                    "Ubuntu",
+                    "Featured"
                 ],
                 "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
                 "start_date": "2014-02-05T01:03:27.903Z",
@@ -67,25 +59,14 @@ Each Image has the following properties:
 ### Retrieve a Single Image [GET]
 + Response 200 (application/json)
 
-    [/image/{id}][]
+    [Image][]
     
 ### Edit an Image [GET]
 + Response 200 (application/json)
 
-    [/image/{id}[]
+    [Image][]
 
-## /images/{id}/tags [/images/{id}/tags]
-Collection of Tags for the specified Image.
-
-+ Parameters
-    + id (required, number, '1') ... Number `id` of the Image.
-
-### Get a Image's Tags [GET]
-+ Response 200 (application/json)
-
-    [/image/{id}/tags][]
-
-## /images [/images]
+## Image Collection [/images]
 Collection of all Images.
 
 This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
@@ -108,16 +89,8 @@ This is both a public and private endpoint.  If accessed without being authentic
                         "created_by": "username",
                         "name": "Ubuntu 12.04 Updated NoGUI v1",
                         "tags": [
-                            {
-                                "id": 4,
-                                "name": "Featured",
-                                "description": "Featured applications receive priority ordering over non-featured applications"
-                            },
-                            {
-                                "id": 5,
-                                "name": "Ubuntu",
-                                "description": "A description of Ubuntu"
-                            }
+                            "Ubuntu",
+                            "Featured"
                         ],
                         "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
                         "start_date": "2014-02-05T01:03:27.903Z",
@@ -140,7 +113,7 @@ This is both a public and private endpoint.  If accessed without being authentic
 
 + Response 200 (application/json)
 
-    [/image][]
+    [Image Collection][]
 
 ## Request an Image [/provider/{providerId}/identity/{identityId}/request_image/]
 Images are created by sending a request to Atmosphere support.  This is the endpoint used to make that request.
