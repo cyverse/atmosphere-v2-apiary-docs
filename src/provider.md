@@ -46,6 +46,11 @@ Collection of all Providers.
                     "id": 1,
                     "name": "planetTatooine",
                     "description": "planetTatooine"
+                },
+                {
+                    "id": 2,
+                    "name": "stormCloud",
+                    "description": "full of lightning"
                 }
             ]
             

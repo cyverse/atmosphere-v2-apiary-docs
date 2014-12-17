@@ -2,7 +2,7 @@
 Instances are virtual machines that users have created from an image (application).  When a user creates an instance
  it immediately starts deducting AU's from their account.
 
-## Instance [/provider/{providerId}/identity/{identityId}/instance/{id}]
+## '/instance/{id}' [/instance/{id}]
 A single Instance object.
 
 Each Instance has the following properties:
@@ -62,16 +62,16 @@ Get a specific instance.
 
 + Response 200 (application/json)
 
-    [Instance][]
+    ['/instance/{id}'][]
     
 ### Terminate an Instance [DELETE]
 Terminate an instance.
 
 + Response 200 (application/json)
 
-    [Instance][]
+    ['/instance/{id}'][]
     
-## Instance Actions [/provider/{providerId}/identity/{identityId}/instance/{id}/action]
+## '/instances/{id}/action' [/instances/{id}/action]
 
 + Parameters
     + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `alias` of the Instance.
@@ -146,7 +146,7 @@ Start a stopped instance.
             result: "success"
         }
 
-## Instances Collection [/provider/{providerId}/identity/{identityId}/instance]
+## '/instances' [/instances]
 Collection of all Instances for a specific identity and provider.
 
 + Parameters
@@ -191,7 +191,7 @@ Get a list of your instances created under the specific provider/identity.
 
 + Response 200 (application/json)
 
-    [Instances Collection][]
+    ['/instances'][]
         
 ### Launch an Instance [POST]
 Launch an instance of an application.  You must specify the following properties:
@@ -210,4 +210,4 @@ Launch an instance of an application.  You must specify the following properties
 
 + Response 201 (application/json)
 
-    [Instance][]
+    ['/instance/{id}'][]
