@@ -2,7 +2,7 @@
 Instances are virtual machines that users have created from an image (application).  When a user creates an instance
  it immediately starts deducting AU's from their account.
 
-## '/instance/{id}' [/instance/{id}]
+## '/instances/{id}' [/instances/{id}]
 A single Instance object.
 
 Each Instance has the following properties:
@@ -62,14 +62,14 @@ Get a specific instance.
 
 + Response 200 (application/json)
 
-    ['/instance/{id}'][]
+    ['/instances/{id}'][]
     
 ### Terminate an Instance [DELETE]
 Terminate an instance.
 
 + Response 200 (application/json)
 
-    ['/instance/{id}'][]
+    ['/instances/{id}'][]
     
 ## '/instances/{id}/action' [/instances/{id}/action]
 
@@ -210,4 +210,4 @@ Launch an instance of an application.  You must specify the following properties
 
 + Response 201 (application/json)
 
-    ['/instance/{id}'][]
+    ['/instances/{id}'][]
