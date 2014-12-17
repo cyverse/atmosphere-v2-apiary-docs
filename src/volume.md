@@ -2,7 +2,7 @@
 Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
  different instance.
 
-## Volume [/provider/{providerId}/identity/{identityId}/volume/{id}]
+## '/volumes/{id}'[/volumes/{id}]
 A single Volume object.
 
 Each Volume has the following properties:
@@ -52,16 +52,16 @@ Each Volume has the following properties:
 ### Retrieve a Volume [GET]
 + Response 200 (application/json)
 
-    [Volume][]
+    ['/volumes/{id}'][]
     
 ### Destroy a Volume [DELETE]
 Destroy a volume.
 
 + Response 200 (application/json)
 
-    [Volume][]
+    ['/volumes/{id}'][]
     
-## Volume Actions [/provider/{providerId}/identity/{identityId}/instance/{id}/action]
+## Volume Actions [/volumes/{id}/action]
 
 + Parameters
     + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `id` of the Instance.
@@ -104,7 +104,7 @@ Detach a volume from an instance.
             result: "success"
         }
 
-## Volumes Collection [/provider/{providerId}/identity/{identityId}/volume]
+## Volumes Collection [/volumes]
 Collection of all Volumes.
 
 + Parameters
@@ -164,7 +164,7 @@ Collection of all Volumes.
 ### List all Volumes [GET]
 + Response 200 (application/json)
 
-    [Volumes Collection][]
+    ['/volumes' ][]
 
 ### Create a Volume [POST]
 Create a volume.  You must specify the following properties:
@@ -183,4 +183,4 @@ Create a volume.  You must specify the following properties:
 
 + Response 201 (application/json)
 
-    [Volume][]
+    ['/volumes/{id}'][]

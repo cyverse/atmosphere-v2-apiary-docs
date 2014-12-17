@@ -218,7 +218,7 @@ The Instances in the Project.
 ### Retrieve a Project's Instances [GET]
 + Response 200 (application/json)
 
-    [Instances Collection][]
+    ['/instances'][]
     
 ## Project Instance [/project/{project_id}/instance/{instance_id}]
 The endpoint to add or remove an Instance from a Project.
@@ -230,7 +230,7 @@ The endpoint to add or remove an Instance from a Project.
 ### Add Instance to Project [PUT]
 + Response 200 (application/json)
 
-    [Instance][]
+    ['/instances/{id}'][]
     
 ### Remove Instance from Project [DELETE]
 + Response 204 (application/json)
@@ -244,7 +244,7 @@ The Volumes in the Project.
 ### Retrieve a Project's Volumes [GET]
 + Response 200 (application/json)
 
-    [Volumes Collection][]
+    ['/volumes'][]
     
 ## Project Volume [/project/{project_id}/volume/{volume_id}]
 The endpoint to add or remove a Volume from a Project.
@@ -256,7 +256,7 @@ The endpoint to add or remove a Volume from a Project.
 ### Add Volume to Project [PUT]
 + Response 200 (application/json)
 
-    [Volume][]
+    ['/volumes/{id}'][]
     
 ### Remove Volume from Project [DELETE]
 + Response 204 (application/json)
