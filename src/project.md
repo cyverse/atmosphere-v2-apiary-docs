@@ -244,7 +244,7 @@ The Volumes in the Project.
 ### Retrieve a Project's Volumes [GET]
 + Response 200 (application/json)
 
-    ['/volumes'][]
+    [Volumes Collection][]
     
 ## Project Volume [/project/{project_id}/volume/{volume_id}]
 The endpoint to add or remove a Volume from a Project.
@@ -256,7 +256,7 @@ The endpoint to add or remove a Volume from a Project.
 ### Add Volume to Project [PUT]
 + Response 200 (application/json)
 
-    ['/volumes/{id}'][]
+    [Volume][]
     
 ### Remove Volume from Project [DELETE]
 + Response 204 (application/json)
