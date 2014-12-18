@@ -1,8 +1,8 @@
-# Group Instance -updated-
+# Group Instances -updated-
 Instances are virtual machines that users have created from an image (application).  When a user creates an instance
  it immediately starts deducting AU's from their account.
 
-## '/instances/{id}' [/instances/{id}]
+## Instance [/instances/{id}]
 A single Instance object.
 
 Each Instance has the following properties:
