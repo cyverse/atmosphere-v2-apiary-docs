@@ -1,4 +1,4 @@
-# Group Status Messages
+# Group Status Messages -new-
 Status Messages are a way to communicate with the end users in an non-disabling of clouds fashion.
 
 ##  Status Message [/status_messages/{id}]

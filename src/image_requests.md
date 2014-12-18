@@ -1,4 +1,4 @@
-# Group Image Requests -updated-
+# Group Image Requests -new-
 Requests made for imaging of an instance.
 
 ## Image Request [/image_requests/{id}]
