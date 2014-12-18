@@ -14,6 +14,8 @@ var paths = {
     './src/instance.md',
     './src/instance_actions.md',
     './src/provider.md',
+    './src/provider_capacity.md',
+    './src/allocation.md',
     './src/provider_sizes.md',
     './src/volume.md',
     './src/volume_actions.md',
