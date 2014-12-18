@@ -56,11 +56,6 @@ Each Image has the following properties:
 + Response 200 (application/json)
 
     [Image Request][]
-    
-### Edit an Image [PATCH]
-+ Response 200 (application/json)
-
-    [Image Request][]
 
 ## Image Request Collection [/image_requests]
 Collection of all Image Requests.
@@ -102,7 +97,7 @@ Collection of all Image Requests.
                 ]
             }
 
-### List all Images [GET]
+### List all Image Requests [GET]
 
 + Response 200 (application/json)
 
