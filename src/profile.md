@@ -1,14 +1,14 @@
-# Group Profile
+# Group Profile -updated-
 The Profile contains information about the authenticated user. Profile can be thought of as the 'entry-point' to the
  Atmosphere APIs. Once authenticated, a user can find their default provider and identity. The IDs for provider and
  Identity can be used to navigate the rest of the API.
 
-## '/profile' [/profile]
+## Profile [/profile]
 A single Profile object.
 
 Each Profile has the following properties:
 
-- **user**: the id for the user this profile belongs to
+- **id**: the id for the user this profile belongs to
 - **username**: the username of the user this profile belongs to
 - **email**: the users email address
 - **is_staff**: true if the user is iPlant staff
@@ -25,7 +25,7 @@ Each Profile has the following properties:
     + Body
 
             {
-                "user": 1,
+                "id": 1,
                 "username": "username",
                 "email": "username@example.com",
                 "is_staff": false,
@@ -37,7 +37,7 @@ Each Profile has the following properties:
 ### Retrieve the Profile [GET]
 + Response 200 (application/json)
 
-    ['/profile'][]
+    [Profile][]
     
 ### Update the Profile [PATCH]
 To update the profile, send a PATCH request that includes the fields you want to modify.  Currently the only modifiable
@@ -52,4 +52,4 @@ To update the profile, send a PATCH request that includes the fields you want to
 
 + Response 200 (application/json)
 
-    ['/profile'][]
+    [Profile][]
