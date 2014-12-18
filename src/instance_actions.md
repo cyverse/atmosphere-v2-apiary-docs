@@ -76,7 +76,7 @@ Collection of all actions that can be performed on an instance.
             ]
     
 ### List all Instance Actions [GET]
-Get a list of your instances created under the specific provider/identity.
+List all actions that can be performed on an instance
 
 + Response 200 (application/json)
 
