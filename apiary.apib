@@ -21,7 +21,7 @@ access to:
 # Group Tag -updated-
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
-## '/tag/{id}' [/tag/{id}]
+## Tag [/tag/{id}]
 A single Tag object.
 
 Each Tag has the following properties:
@@ -48,9 +48,9 @@ Each Tag has the following properties:
 ### Retrieve a Tag [GET]
 + Response 200 (application/json)
 
-    ['/tag/{id}'][]
+    [Tag][]
 
-## '/tag' [/tag]
+## Tag Collection [/tag]
 Collection of all Tags.
 
 + Model (application/json)
@@ -90,7 +90,7 @@ Collection of all Tags.
 ### List all Tags [GET]
 + Response 200 (application/json)
 
-    ['/tag'][]
+    [Tag Collection][]
 
 ### Create a Tag [POST]
 Create a Tag.  You must specify the following properties:
@@ -107,7 +107,7 @@ Create a Tag.  You must specify the following properties:
 
 + Response 201 (application/json)
 
-    ['/tag/{id}'][]
+    [Tag][]
 
 # Group Images -updated-
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
