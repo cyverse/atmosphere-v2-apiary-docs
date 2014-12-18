@@ -11,6 +11,7 @@ var paths = {
     './src/profile.md',
     './src/identity.md',
     './src/instance.md',
+    './src/instance_actions.md',
     './src/provider.md',
     './src/provider_sizes.md',
     './src/volume.md',
