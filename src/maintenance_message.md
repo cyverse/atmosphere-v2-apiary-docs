@@ -1,8 +1,8 @@
-# Group Maintenance
+# Group Maintenance Messages
 Maintenance Messages are a way to inform the user of current or planned maintenance desks and possible downtown for the
  Atmosphere cloud.
 
-##  '/maintenance/{id}' [/maintenance/{id}]
+##  Maintenance Message [/maintenance_messages/{id}]
 A single Maintenance Message object.
 
 Each Maintenance Message has the following properties:
@@ -35,9 +35,9 @@ Each Maintenance Message has the following properties:
 ### Retrieve a Maintenance Message [GET]
 + Response 200 (application/json)
 
-    [ '/maintenance/{id}'][]
+    [Maintenance Message][]
 
-## '/maintenance?active=true' [/maintenance?active=true]
+## Maintenance Message Collection [/maintenance?active=true]
 Collection of all Maintenance Messages. You must pass in active=true if you only want the current messages.
 
 + Model (application/json)
@@ -61,4 +61,4 @@ Collection of all Maintenance Messages. You must pass in active=true if you only
 ### List all Maintenance Messages [GET]
 + Response 200 (application/json)
 
-    ['/maintenance?active=true'][]
+    [Maintenance Message Collection][]
