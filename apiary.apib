@@ -18,7 +18,7 @@ access to:
  - [Atmosphere Homepage](http://www.iplantcollaborative.org/ci/atmosphere)
  - [Atmosphere on GitHub](https://github.com/iPlantCollaborativeOpenSource/atmosphere)
 
-# Group Tag -updated-
+# Group Tags
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
 ## Tag [/tag/{id}]
@@ -118,7 +118,7 @@ Create a Tag.  You must specify the following properties:
 
     [Tag][]
 
-# Group Images -updated-
+# Group Images
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 
@@ -239,7 +239,7 @@ This is both a public and private endpoint.  If accessed without being authentic
 
     [Image Collection][]
 
-# Group Image Requests -new-
+# Group Image Requests
 Requests made for imaging of an instance.
 
 ## Image Request [/image_requests/{id}]
@@ -382,7 +382,7 @@ To request an image, you need to specify the following properties:
 
     [Image Request][]
 
-# Group Profile -updated-
+# Group Profile -deprecated-
 The Profile contains information about the authenticated user. Profile can be thought of as the 'entry-point' to the
  Atmosphere APIs. Once authenticated, a user can find their default provider and identity. The IDs for provider and
  Identity can be used to navigate the rest of the API.
@@ -438,7 +438,7 @@ To update the profile, send a PATCH request that includes the fields you want to
 
     [Profile][]
 
-# Group Identity -updated-
+# Group Identities
 Identities are like user account information. A user has at least one identity per provider, and each identity
  contains information about how many resources can be consumed on that provider.  If a user has multiple identities
  under a single provider, it means they can allocate more resources by using a different identity.
@@ -517,7 +517,7 @@ Collection of all Identities.
 
     [Identity Collection][]
 
-# Group Instances -updated-
+# Group Instances
 Instances are virtual machines that users have created from an image (application).  When a user creates an instance
  it immediately starts deducting AU's from their account.
 
@@ -680,7 +680,7 @@ Launch an instance of an image.  You must specify the following properties:
 
     [Instance][]
 
-# Group Instance Actions -new-
+# Group Instance Actions
 Actions that can be performed on instances.
 
 ## Instance Action [/instances/{instance_id}/actions/{id}]
@@ -764,7 +764,7 @@ List all actions that can be performed on an instance
 
     [Instance Action Collection][]
 
-# Group Providers -updated-
+# Group Providers
 Providers represent the different cloud providers managed by Atmosphere.
 
 ## Provider [/providers/{id}]
@@ -831,7 +831,7 @@ Stuff goes here?
 # Group Allocation -concept-
 Stuff goes here?
 
-# Group Provider Sizes -updatedish-
+# Group Provider Sizes -???-
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
  number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
 
@@ -914,7 +914,7 @@ A single Size object (in the specified provider) with all its details.
                 "mem": 512
             }
 
-# Group Volume -updated-
+# Group Volumes
 Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
  different instance.
 
@@ -1033,7 +1033,7 @@ Create a volume.  You must specify the following properties:
 
     [Volume][]
 
-# Group Volume Actions -new-
+# Group Volume Actions
 Actions that can be performed on volumes
 
 ## Volume Action [/volume_actions/{id}]
@@ -1104,7 +1104,7 @@ Detach a volume from an instance.
             result: "success"
         }
 
-# Group Project -updated-
+# Group Projects
 Projects are a way for users to group related resources.  Right now users can add Instances and Volumes to a group, but
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
@@ -1443,7 +1443,7 @@ Each Project has the following properties:
 
     [Null Project][]
 
-# Group Status Messages -new-
+# Group Status Messages -???-
 Status Messages are a way to communicate with the end users in an non-disabling of clouds fashion.
 
 ##  Status Message [/status_messages/{id}]
@@ -1504,7 +1504,7 @@ Collection of all Status Messages.
 
     [Status Message Collection][]
 
-# Group Maintenance Messages -updated-
+# Group Maintenance Messages -???-
 Maintenance Messages are a way to inform the user of current or planned maintenance desks and possible downtown for the
  Atmosphere cloud.
 
@@ -1569,7 +1569,7 @@ Collection of all Maintenance Messages. You must pass in active=true if you only
 
     [Maintenance Message Collection][]
 
-# Group Instance History -updated-
+# Group Instance History
 This endpoint returns a list of all instances that a user has launched since the time their account was created.
 
 ## Instance History [/instance_history/{id}]

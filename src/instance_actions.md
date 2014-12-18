@@ -1,4 +1,4 @@
-# Group Instance Actions -new-
+# Group Instance Actions
 Actions that can be performed on instances.
 
 ## Instance Action [/instances/{instance_id}/actions/{id}]

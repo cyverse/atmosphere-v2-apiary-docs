@@ -1,4 +1,4 @@
-# Group Instance History -updated-
+# Group Instance History
 This endpoint returns a list of all instances that a user has launched since the time their account was created.
 
 ## Instance History [/instance_history/{id}]

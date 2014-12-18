@@ -1,4 +1,4 @@
-# Group Profile -updated-
+# Group Profile -deprecated-
 The Profile contains information about the authenticated user. Profile can be thought of as the 'entry-point' to the
  Atmosphere APIs. Once authenticated, a user can find their default provider and identity. The IDs for provider and
  Identity can be used to navigate the rest of the API.

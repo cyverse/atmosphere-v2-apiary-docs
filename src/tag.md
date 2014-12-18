@@ -1,4 +1,4 @@
-# Group Tag -updated-
+# Group Tags
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
 ## Tag [/tag/{id}]

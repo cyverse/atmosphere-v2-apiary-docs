@@ -1,4 +1,4 @@
-# Group Volume Actions -new-
+# Group Volume Actions
 Actions that can be performed on volumes
 
 ## Volume Action [/volume_actions/{id}]

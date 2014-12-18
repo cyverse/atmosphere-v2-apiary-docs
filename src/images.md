@@ -1,4 +1,4 @@
-# Group Images -updated-
+# Group Images
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 

@@ -1,4 +1,4 @@
-# Group Volume -updated-
+# Group Volumes
 Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
  different instance.
 
