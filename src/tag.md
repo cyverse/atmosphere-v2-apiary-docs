@@ -11,7 +11,7 @@ Each Tag has the following properties:
 - **description**: a description of what the tag means
 
 + Parameters
-    + id (required, number, `1`) ... String `id` of the Tag.
+    + id (required, number, `1`) ... Number `id` of the Tag.
     
 + Model (application/json)
 
@@ -30,8 +30,12 @@ Each Tag has the following properties:
 
     [Tag][]
 
-## Tag Collection [/tag]
+## Tag Collection [/tag{?page,page_size}]
 Collection of all Tags.
+
++ Parameters
+    + page (string, optional) ... Page of results
+    + page_size (string, optional) ... Number of results
 
 + Model (application/json)
 
@@ -39,33 +43,38 @@ Collection of all Tags.
 
     + Body
 
-            [
-                {
-                    "id": 1,
-                    "name": "SpliceGrapher",
-                    "description": "A description of SpliceGrapher"
-                },
-                {
-                    "id": 2,
-                    "name": "xGDBvm",
-                    "description": "A description of xGDBvm"
-                },
-                {
-                    "id": 3,
-                    "name": "R",
-                    "description": "A description of R"
-                },
-                {
-                    "id": 4,
-                    "name": "Featured",
-                    "description": "Featured applications receive priority ordering over non-featured applications"
-                },
-                {
-                    "id": 5,
-                    "name": "Ubuntu",
-                    "description": "A description of Ubuntu"
-                }
-            ]
+            {
+                "count": 5,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
+                        "id": 1,
+                        "name": "SpliceGrapher",
+                        "description": "A description of SpliceGrapher"
+                    },
+                    {
+                        "id": 2,
+                        "name": "xGDBvm",
+                        "description": "A description of xGDBvm"
+                    },
+                    {
+                        "id": 3,
+                        "name": "R",
+                        "description": "A description of R"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Featured",
+                        "description": "Featured applications receive priority ordering over non-featured applications"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Ubuntu",
+                        "description": "A description of Ubuntu"
+                    }
+                ]
+            }
 
 ### List all Tags [GET]
 + Response 200 (application/json)

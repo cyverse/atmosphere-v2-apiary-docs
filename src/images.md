@@ -66,11 +66,15 @@ Each Image has the following properties:
 
     [Image][]
 
-## Image Collection [/images]
+## Image Collection [/images{?page,page_size}]
 Collection of all Images.
 
 This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
  images.  If authenticated, you will also get any private images you have permission to use.
+
++ Parameters
+    + page (string, optional) ... Page of results
+    + page_size (string, optional) ... Number of results
 
 + Model (application/json)
 
