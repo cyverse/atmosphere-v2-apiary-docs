@@ -1,9 +1,9 @@
-# Group Identity
+# Group Identity -updated-
 Identities are like user account information. A user has at least one identity per provider, and each identity
  contains information about how many resources can be consumed on that provider.  If a user has multiple identities
  under a single provider, it means they can allocate more resources by using a different identity.
 
-## '/identity/{id}' [/identity/{id}]
+## Identity [/identity/{id}]
 A single Identity object.
 
 Each Identity has the following properties:
@@ -27,8 +27,10 @@ Each Identity has the following properties:
 
             {
                 "id": 1,
-                "provider_id": 1,
-                "provider": "iPlant Cloud - Tucson",
+                "provider": {
+                    "id": "1"
+                    "iPlant Cloud - Tucson"
+                },
                 "quota": {
                     "mem": 256,
                     "suspended_count": 2,
@@ -38,13 +40,13 @@ Each Identity has the following properties:
                 }
             }
 
-### Retrieve a Single Identity [GET]
+### Retrieve an Identity [GET]
 
 + Response 200 (application/json)
 
-    ['/identity/{id}'][]
+    [Identity][]
     
-## '/identity' [/identity]
+## Identity Collection [/identities]
 Collection of all Identities.
 
 + Model (application/json)
@@ -56,8 +58,10 @@ Collection of all Identities.
             [
                 {
                     "id": 1,
-                    "provider_id": 1,
-                    "provider": "iPlant Cloud - Tucson",
+                    "provider": {
+                        "id": "1"
+                        "iPlant Cloud - Tucson"
+                    },
                     "quota": {
                         "mem": 256,
                         "suspended_count": 2,
@@ -66,10 +70,9 @@ Collection of all Identities.
                         "storage_count": 10
                     }
                 }
-                
             ]
             
 ### List all Identities [GET]
 + Response 200 (application/json)
 
-    ['/identity'][]
+    [Identity Collection][]
