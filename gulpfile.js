@@ -18,7 +18,8 @@ var paths = {
     './src/volume.md',
     './src/project.md',
     './src/null_project.md',
-    './src/maintenance_message.md',
+    './src/status_messages.md',
+    './src/maintenance_messages.md',
     './src/instance_history.md'
   ]
 };
