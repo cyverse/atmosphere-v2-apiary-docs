@@ -3,7 +3,7 @@ Projects are a way for users to group related resources.  Right now users can ad
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
 
-## 'project/{id}' [/project/{id}]
+## Project [/project/{id}]
 A single Project object.
 
 Each Project has the following properties:
@@ -86,7 +86,7 @@ Each Project has the following properties:
 ### Retrieve a Project [GET]
 + Response 200 (application/json)
 
-    ['project/{id}'][]
+    [Project][]
         
 ### Update a Project [PUT]
 + Request (application/json)
@@ -97,7 +97,7 @@ Each Project has the following properties:
 
 + Response 200 (application/json)
 
-    ['project/{id}'][]
+    [Project][]
     
 ### Delete a Project [DELETE]
 Delete a Project.  Projects can only be deleted once all resources (instances and volumes) have been transferred out of
@@ -105,7 +105,7 @@ Delete a Project.  Projects can only be deleted once all resources (instances an
 
 + Response 200 (application/json)
 
-    ['project/{id}'][]
+    [Project][]
 
 ## Projects Collection [/project]
 Collection of all Projects.
@@ -207,7 +207,7 @@ Create a Project.  You must specify the following properties:
 
 + Response 201 (application/json)
 
-    ['project/{id}'][]
+    [Project][]
 
 ## Project Instances [/project/{id}/instance]
 The Instances in the Project.
