@@ -113,7 +113,7 @@ Create a Tag.  You must specify the following properties:
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 
-## '/images/{id}' [/images/{id}]
+## Image [/images/{id}]
 A single Image object.
 
 Each Image has the following properties:
@@ -170,14 +170,14 @@ Each Image has the following properties:
 ### Retrieve a Single Image [GET]
 + Response 200 (application/json)
 
-    ['/images/{id}'][]
+    [Image][]
     
-### Edit an Image [GET]
+### Edit an Image [PATCH]
 + Response 200 (application/json)
 
-    ['/images/{id}'][]
+    [Image][]
 
-## '/images' [/images]
+## Image Collection [/images]
 Collection of all Images.
 
 This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
@@ -224,14 +224,117 @@ This is both a public and private endpoint.  If accessed without being authentic
 
 + Response 200 (application/json)
 
-    ['/images'][]
+    [Image Collection][]
 
-## Request an Image [/provider/{providerId}/identity/{identityId}/request_image/]
-Images are created by sending a request to Atmosphere support.  This is the endpoint used to make that request.
+# Group Image Requests -updated-
+Requests made for imaging of an instance.
+
+## Image Request [/image_requests/{id}]
+A single Image Request object.
+
+Each Image has the following properties:
+
+- **id**: unique id of the image
+- **name**: the name of the image
+- **instance**: alias property of the instance you want imaged
+- **provider**: the id of the provider you want the image to be created for
+- **description**: A description of the image for display purposes
+- **software**: What software is installed on the instance
+- **sys**: (**todo:** add details for what this field controls)
+- **exclude**: Files on the instance that should be excluded from the image, like ssh keys
+- **tags**: tags that should be applied to the image
+- **vis**: This field can be one of public, private, or a user-list. If public, everyone can view and create an instance
+  from the image.  If this field is private, the user who created the image will be able to see or launch it.  If user
+  specific, only those users that are listed will be able to see or launch the image.
 
 + Parameters
-    + id (required, string, 'b94d4964-8de3-4965-a87a-f4cf44d33165') ... String `alias` of the Instance.
-    + providerId (required, number, '4') ... Number `id` of the Provider.
+    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `uuid` of the Image.
+    
++ Model (application/json)
+
+    JSON representation of Image Resource.
+
+    + Body
+
+            {
+                "id": "bdc31c14-f807-11e3-8ef5-b2227cce2b54",
+                "icon": null,
+                "created_by": "username",
+                "name": "Ubuntu 12.04 Updated NoGUI v1",
+                "tags": [
+                    "Ubuntu",
+                    "Featured"
+                ],
+                "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
+                "start_date": "2014-02-05T01:03:27.903Z",
+                "end_date": null,
+                "private": false,
+                "versions": [
+                    {
+                        "alias": "813557f2-f808-11e3-8ef5-b2227cce2b54",
+                        "version": "1",
+                        "start_date": "2014-02-04T23:56:40.077Z",
+                        "end_date": null,
+                        "provider": 1
+                    }
+                ]
+            }
+
+### Retrieve an Image Request [GET]
++ Response 200 (application/json)
+
+    [Image Request][]
+    
+### Edit an Image [PATCH]
++ Response 200 (application/json)
+
+    [Image Request][]
+
+## Image Request Collection [/image_requests]
+Collection of all Image Requests.
+
++ Model (application/json)
+
+    JSON representation of the Images Collection.
+
+    + Body
+
+            {
+                "count": 1,
+                "next": null, 
+                "previous": null, 
+                "results": [
+                    {
+                        "id": "bdc31c14-f807-11e3-8ef5-b2227cce2b54",
+                        "icon": null,
+                        "created_by": "username",
+                        "name": "Ubuntu 12.04 Updated NoGUI v1",
+                        "tags": [
+                            "Ubuntu",
+                            "Featured"
+                        ],
+                        "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
+                        "start_date": "2014-02-05T01:03:27.903Z",
+                        "end_date": null,
+                        "private": false,
+                        "versions": [
+                            {
+                                "alias": "813557f2-f808-11e3-8ef5-b2227cce2b54",
+                                "version": "1",
+                                "start_date": "2014-02-04T23:56:40.077Z",
+                                "end_date": null,
+                                "provider": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+
+### List all Images [GET]
+
++ Response 200 (application/json)
+
+    [Image Request Collection][]
 
 ### Request an Image [POST]
 To request an image, you need to specify the following properties:
@@ -266,6 +369,10 @@ To request an image, you need to specify the following properties:
             ],
             vis: "public"
         }
+
++ Response 200 (application/json)
+
+    [Image Request][]
 
 # Group Profile -updated-
 The Profile contains information about the authenticated user. Profile can be thought of as the 'entry-point' to the

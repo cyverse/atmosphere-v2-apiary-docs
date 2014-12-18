@@ -7,6 +7,7 @@ var paths = {
     './src/header.md',
     './src/tag.md',
     './src/images.md',
+    './src/image_requests.md',
     //'./src/group.md',
     './src/profile.md',
     './src/identity.md',

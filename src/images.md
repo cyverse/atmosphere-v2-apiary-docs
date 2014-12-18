@@ -2,7 +2,7 @@
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 
-## '/images/{id}' [/images/{id}]
+## Image [/images/{id}]
 A single Image object.
 
 Each Image has the following properties:
@@ -59,14 +59,14 @@ Each Image has the following properties:
 ### Retrieve a Single Image [GET]
 + Response 200 (application/json)
 
-    ['/images/{id}'][]
+    [Image][]
     
-### Edit an Image [GET]
+### Edit an Image [PATCH]
 + Response 200 (application/json)
 
-    ['/images/{id}'][]
+    [Image][]
 
-## '/images' [/images]
+## Image Collection [/images]
 Collection of all Images.
 
 This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
@@ -113,45 +113,4 @@ This is both a public and private endpoint.  If accessed without being authentic
 
 + Response 200 (application/json)
 
-    ['/images'][]
-
-## Request an Image [/provider/{providerId}/identity/{identityId}/request_image/]
-Images are created by sending a request to Atmosphere support.  This is the endpoint used to make that request.
-
-+ Parameters
-    + id (required, string, 'b94d4964-8de3-4965-a87a-f4cf44d33165') ... String `alias` of the Instance.
-    + providerId (required, number, '4') ... Number `id` of the Provider.
-
-### Request an Image [POST]
-To request an image, you need to specify the following properties:
-
-- **name**: the name of the image
-- **instance**: alias property of the instance you want imaged
-- **provider**: the id of the provider you want the image to be created for
-- **description**: A description of the image for display purposes
-- **software**: What software is installed on the instance
-- **sys**: (**todo:** add details for what this field controls)
-- **exclude**: Files on the instance that should be excluded from the image, like ssh keys
-- **tags**: tags that should be applied to the image
-- **vis**: This field can be one of public, private, or a user-list. If public, everyone can view and create an instance
-  from the image.  If this field is private, the user who created the image will be able to see or launch it.  If user
-  specific, only those users that are listed will be able to see or launch the image.
-
-+ Request (application/json)
-
-        {
-            instance: "74089c18-f80a-11e3-8ef5-b2227cce2b54",
-            ip_address: "127.0.0.1",
-            provider: 1,
-            description: "I would like to request an image of this instance for [reasons].",
-            software: "Description of software installed on the machine.",
-            sys: "I'm not sure what this field means.",
-            exclude: "I do not need any files excluded from the image.",
-            tags: [
-                "ESD",
-                "BGF",
-                "apache2",
-                "SpliceGrapher"
-            ],
-            vis: "public"
-        }
+    [Image Collection][]
