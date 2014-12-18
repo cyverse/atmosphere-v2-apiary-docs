@@ -1,13 +1,13 @@
-# Group Size
+# Group Provider Sizes -updatedish-
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
  number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
 
-## Provider Sizes Collection [/provider/{providerId}/identity/{identityId}/size]
+## Provider Size Collection [/provider/{providerId}/identity/{identityId}/size]
 + Parameters
     + providerId (required, number, '1') ... Number `id` of the Provider.
     + identityId (required, number, '1') ... Number `id` of the Identity.
     
-### List all Sizes [GET]
+### List all Provider Sizes [GET]
 For a combination of provider and identity.
 
 + Response 200 (application/json)

@@ -812,16 +812,16 @@ Collection of all Providers.
 
     [Provider Collection][]
 
-# Group Size
+# Group Provider Sizes -updatedish-
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
  number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
 
-## Provider Sizes Collection [/provider/{providerId}/identity/{identityId}/size]
+## Provider Size Collection [/provider/{providerId}/identity/{identityId}/size]
 + Parameters
     + providerId (required, number, '1') ... Number `id` of the Provider.
     + identityId (required, number, '1') ... Number `id` of the Identity.
     
-### List all Sizes [GET]
+### List all Provider Sizes [GET]
 For a combination of provider and identity.
 
 + Response 200 (application/json)
@@ -1013,6 +1013,77 @@ Create a volume.  You must specify the following properties:
 + Response 201 (application/json)
 
     [Volume][]
+
+# Group Volume Actions -new-
+Actions that can be performed on volumes
+
+## Volume Action [/volume_actions/{id}]
+A single Volume Action object.
+
+Each Volume Action has the following properties:
+
+- **id**: unique id for the volume
+- **name**: name of the action
+- **description**: description of the action
+
++ Parameters
+    + id (required, number, '1') ... Number `id` of the Volume Action.
+    
++ Model (application/json)
+
+    JSON representation of Volume Resource.
+
+    + Body
+
+            {
+                "id": "1",
+                "name": "Attach",
+                "description": "Attach a volume to an instance"
+            }
+
+### Retrieve a Volume Action [GET]
++ Response 200 (application/json)
+
+    [Volume Action][]
+    
+## Volume Action Collection [/volume_actions]
+Collection of all volume actions.
+
+### Attach a Volume [POST]
+Attach a volume to an instance.
+
++ Request (application/json)
+
+        { 
+            action: "attach_volume",
+            volume_id: "21637611-d75c-4c94-a761-dcd58ed8324b"
+        }
+
++ Response 200 (application/json)
+
+        {
+            message: "The requested action <attach_volume> was run successfully",
+            object: null,
+            result: "success"
+        }
+
+### Detach a Volume [POST]
+Detach a volume from an instance.
+
++ Request (application/json)
+
+        { 
+            action: "detach_volume",
+            volume_id: "21637611-d75c-4c94-a761-dcd58ed8324b"
+        }
+
++ Response 200 (application/json)
+
+        {
+            message: "The requested action <detach_volume> was run successfully",
+            object: null,
+            result: "success"
+        }
 
 # Group Project -updated-
 Projects are a way for users to group related resources.  Right now users can add Instances and Volumes to a group, but

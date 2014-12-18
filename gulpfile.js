@@ -16,6 +16,7 @@ var paths = {
     './src/provider.md',
     './src/provider_sizes.md',
     './src/volume.md',
+    './src/volume_actions.md',
     './src/project.md',
     './src/null_project.md',
     './src/status_messages.md',
