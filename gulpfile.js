@@ -26,6 +26,7 @@ var paths = {
     './src/null_project.md',
     './src/status_messages.md',
     './src/maintenance_messages.md',
+    './src/quota_requests.md',
     './src/instance_history.md'
   ]
 };
