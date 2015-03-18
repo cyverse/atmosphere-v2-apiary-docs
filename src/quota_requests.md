@@ -56,7 +56,7 @@ Collection of all Quota Requests.
                         "id": 1,
                         "created_by": "User",
                         "admin_message": "Approved",
-                        "quota": "1000 CPU",
+                        "quota": null,
                         "status": "pending",
                         "request": "I want 10,000 CPUs",
                         "description": "Description of reason for request"
@@ -65,7 +65,7 @@ Collection of all Quota Requests.
                         "id": 2,
                         "created_by": "Other user",
                         "admin_message": "Nah",
-                        "quota": "1000 CPU",
+                        "quota": null,
                         "status": "pending",
                         "request": "I want 10,000 CPUs",
                         "description": "Description of reason for request"
