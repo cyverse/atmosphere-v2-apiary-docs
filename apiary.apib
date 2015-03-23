@@ -1601,9 +1601,13 @@ A single Quota Request object.
 
 Each quota request has the following properties:
 
-- **id**: the id of the tag
-- **name**: the name of the tag
-- **description**: a description of what the tag means
+- **id**: the id of the request
+- **created_by**: the name of the user who submitted the request
+- **admin_message: admin response to user request
+- **quota: quota to be granted to user
+- **status: current status of request
+- **request: the text field for user requests
+- **description**: more thorough user description of request and reason
 
 + Parameters
     + id (required, number, `1`) ... Number `id` of the quota request.
@@ -1654,14 +1658,14 @@ Collection of all Quota Requests.
     + Body
 
             {
-                "count": 2,
+                "count": 10,
                 "next": null,
                 "previous": null,
                 "results": [
                     {
                         "id": 1,
                         "created_by": "User",
-                        "admin_message": "Approved",
+                        "admin_message": "Default",
                         "quota": null,
                         "status": "pending",
                         "request": "I want 10,000 CPUs",
@@ -1669,12 +1673,84 @@ Collection of all Quota Requests.
                     },
                     {
                         "id": 2,
-                        "created_by": "Other user",
-                        "admin_message": "Nah",
+                        "created_by": "Other_user",
+                        "admin_message": "Default",
                         "quota": null,
                         "status": "pending",
                         "request": "I want 10,000 CPUs",
                         "description": "Description of reason for request"
+                    },
+                    {
+                        "id": 3,
+                        "created_by": "Science_person",
+                        "admin_message": "Default",
+                        "quota": null,
+                        "status": "pending",
+                        "request": "I want more everything",
+                        "description": "I like everything"
+                    },
+                    {
+                        "id": 4,
+                        "created_by": "Tornado_Tom",
+                        "admin_message": "Default",
+                        "quota": null,
+                        "status": "pending",
+                        "request": "Stuff",
+                        "description": "Purposes"
+                    },
+                    {
+                        "id": 5,
+                        "created_by": "Ragin_Ricardo",
+                        "admin_message": "Default",
+                        "quota": null,
+                        "status": "pending",
+                        "request": "Stuff",
+                        "description": "Purposes"
+                    },
+                    {
+                        "id": 6,
+                        "created_by": "Salad_Sally",
+                        "admin_message": "Default",
+                        "quota": null,
+                        "status": "Default",
+                        "request": "Stuff",
+                        "description": "Purposes"
+                    },
+                    {
+                        "id": 7,
+                        "created_by": "Zippy_Zardansen",
+                        "admin_message": "Default",
+                        "quota": null,
+                        "status": "pending",
+                        "request": "Stuff",
+                        "description": "Purposes"
+                    },
+                    {
+                        "id": 8,
+                        "created_by": "Flippin_Fernanda",
+                        "admin_message": "Default",
+                        "quota": null,
+                        "status": "pending",
+                        "request": "Stuff",
+                        "description": "Purposes"
+                    },
+                    {
+                        "id": 9,
+                        "created_by": "Chargin_Charlie",
+                        "admin_message": "Default",
+                        "quota": null,
+                        "status": "pending",
+                        "request": "Stuff",
+                        "description": "Purposes"
+                    },
+                    {
+                        "id": 10,
+                        "created_by": "Dancin_Dana",
+                        "admin_message": "Default",
+                        "quota": null,
+                        "status": "pending",
+                        "request": "Stuff",
+                        "description": "Purposes"
                     }
                 ]
             }
