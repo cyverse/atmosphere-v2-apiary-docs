@@ -10,17 +10,19 @@ Each Image has the following properties:
 - **id**: unique id of the image
 - **icon**: (optional) if a custom display icon has been uploaded for this image, this field will contain the relative
  path to that image (e.g. "/images/icon.png")
-- **created_by**: username of the person who created the image
-- **name**: name of the image
-- **tags**: tags applied to the image (an array of strings).
+- **uuid **: unique id
+- **name**: username of the person who is using(?) the image
 - **description**: description of the image
+- **icon**: icon of image
+- **created_by**: name of user who created the image
+- **tags**: image tags
 - **start_date**: the date the image was created
 - **end_date**: Atmosphere implements soft deletes for everything (or nearly everything).  Any images with an
  end_date before the moment the request was made will be filtered out of the result set.  however, end_dates can also be
  used to schedule resources deletion by setting them at a future date.  This can also be used to give someone access to
  a resource for a limited time (such as for a workshop session).
-- **private**: if this field is true, it means the access to the image is limited to a group of people that includes you
-- **versions**: represents all the previous versions of this image, which
+- **private(?)**: if this field is true, it means the access to the image is limited to a group of people that includes you
+- **versions(?)**: represents all the previous versions of this image, which
   includes the current version.  It also shows which cloud providers that image version is available for.
 
 + Parameters
