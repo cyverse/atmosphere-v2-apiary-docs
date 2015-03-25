@@ -1,137 +1,143 @@
-FORMAT: 1A
-HOST: https://atmobeta.iplantc.org/api/v2
+# Group Allocation
+Allocations represent Atmosphere AU values.
 
-# Atmosphere
-Atmosphere is a private, self-service cloud computing platform that supports research efforts in the plant sciences
-community.  It addresses the growing need for customized computational resources and provides the community with
-access to:
-  
-  1. Infrastructure as a Service (IaaS), accessible through a web portal or by API
-  2. Platform as a Service (PaaS), for developing and deploying software to the scientific community
-  3. Software as a Service (SaaS), with preconfigured, frequently used analysis routines, algorithms, and
-  datasets designed to accommodate computationally and data-intensive bioinformatics tasks.
+## Allocation [/allocations/{id}]
+A single Allocation object.
 
-<span style="color:orange;">NOTE: These API docs are currently IN DEVELOPMENT.</span>
- 
-## Useful Links
+Each Allocation has the following properties:
 
-   - [Atmosphere Homepage](http://www.iplantcollaborative.org/ci/atmosphere)
-   - [Atmosphere on GitHub](https://github.com/iPlantCollaborativeOpenSource/atmosphere)
+- **id**: unique id for the provider
+- **url**: url the allocation can be found at
+- **threshold**: amount of CPU minutes allocated
+- **delta**: a description of the provider
 
-## Pagination
-All collections that support pagination will return a paginated list.  The collections that do not support pagination
- will not return a paginated list (all results that exist will be returned).  Since Atmosphere uses Django Rest Framework
- as the API framework, it is reasonable to allow whatever is most natural to implement in that framework to flavor the
- language of the API.  To that end, the following query parameters control pagination:
-
-   - **page**: the page of results to return
-   - **page_size**: the number of results per page
-
-## Authorization
-Except where explicitly stated (images, tags) all endpoints require authorization.  This is achieved by obtaining an
- access token and placing the token in the Authorization Header like so:
-
-    Authorization: TOKEN [access_token]
-
-# Group Tags
-Tags are small labels users can apply to various resources and are primarily used to help focus searches.
-
-## Tag [/tag/{id}]
-A single Tag object.
-
-Each Tag has the following properties:
-
-- **id**: the id of the tag
-- **name**: the name of the tag
-- **description**: a description of what the tag means
 
 + Parameters
-    + id (required, number, `1`) ... Number `id` of the Tag.
+    + id (required, number, '1') ... Number `id` of the Provider.
+
++ Model(application/json)
+
+    JSON representation of Provider Resource
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "planetTatooine",
+                "description": "planetTatooine"
+            }
+
+
+### Retrieve an Allocation [GET]
++ Response 200 (application/json)
+
+    [Allocation][]
+
+## Allocation Collection [/allocations]
+Collection of all Providers.
+
++ Model (application/json)
+
+    JSON representation of Allocation Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "name": "planetTatooine",
+                    "description": "planetTatooine"
+                },
+                {
+                    "id": 2,
+                    "name": "stormCloud",
+                    "description": "full of lightning"
+                }
+            ]
+
+### List all Allocations [GET]
++ Response 200 (application/json)
+
+    [Allocation Collection][]
+
+# Group Identities
+Identities are like user account information. A user has at least one identity per provider, and each identity
+ contains information about how many resources can be consumed on that provider.  If a user has multiple identities
+ under a single provider, it means they can allocate more resources by using a different identity.
+
+## Identity [/identity/{id}]
+A single Identity object.
+
+Each Identity has the following properties:
+
+- **id**: id of the Identity
+- **provider_id**: the id of the provider this identity is for
+- **quota**: object describing the resources that can be allocated on the provider under this identity
+- **quota.mem**: the maximum amount of memory that can be allocated across all instances under this identity
+- **quota.storage**: the maximum storage space that can be allocated across all volumes under this identity
+- **quota.cpu**: the number of CPUs that can be allocated across all instance under this identity
+- **quota.storage_count**: the maximum number of volumes that can be created under this identity
+
++ Parameters
+    + id (required, number, 1) ... Number `id` of the Identity.
     
 + Model (application/json)
 
-    JSON representation of Tag Resource.
+    JSON representation of Identity Resource.
 
     + Body
 
             {
-                "id": 5,
-                "name": "Ubuntu",
-                "description": "A description of Ubuntu"
+                "id": 1,
+                "provider": {
+                    "id": "1"
+                    "iPlant Cloud - Tucson"
+                },
+                "quota": {
+                    "mem": 256,
+                    "suspended_count": 2,
+                    "storage": 1000,
+                    "cpu": 128,
+                    "storage_count": 10
+                }
             }
 
-### Retrieve a Tag [GET]
+### Retrieve an Identity [GET]
+
 + Response 200 (application/json)
 
-    [Tag][]
-
-## Tag Collection [/tag{?page,page_size}]
-Collection of all Tags.
-
-+ Parameters
-    + page (string, optional) ... Page of results
-    + page_size (string, optional) ... Number of results
+    [Identity][]
+    
+## Identity Collection [/identities]
+Collection of all Identities.
 
 + Model (application/json)
 
-    JSON representation of Tags Collection Resource.
+    JSON representation of Identity Collection Resource.
 
     + Body
 
-            {
-                "count": 5,
-                "next": null,
-                "previous": null,
-                "results": [
-                    {
-                        "id": 1,
-                        "name": "SpliceGrapher",
-                        "description": "A description of SpliceGrapher"
+            [
+                {
+                    "id": 1,
+                    "provider": {
+                        "id": "1"
+                        "iPlant Cloud - Tucson"
                     },
-                    {
-                        "id": 2,
-                        "name": "xGDBvm",
-                        "description": "A description of xGDBvm"
-                    },
-                    {
-                        "id": 3,
-                        "name": "R",
-                        "description": "A description of R"
-                    },
-                    {
-                        "id": 4,
-                        "name": "Featured",
-                        "description": "Featured applications receive priority ordering over non-featured applications"
-                    },
-                    {
-                        "id": 5,
-                        "name": "Ubuntu",
-                        "description": "A description of Ubuntu"
+                    "quota": {
+                        "mem": 256,
+                        "suspended_count": 2,
+                        "storage": 1000,
+                        "cpu": 128,
+                        "storage_count": 10
                     }
-                ]
-            }
-
-### List all Tags [GET]
+                }
+            ]
+            
+### List all Identities [GET]
 + Response 200 (application/json)
 
-    [Tag Collection][]
-
-### Create a Tag [POST]
-Create a Tag.  You must specify the following properties:
-
-- **name**: a name for the tag
-- **description**: a description of the tag
-
-+ Request (application/json)
-
-        {
-            "name": "Tag name",
-            "description": "A description of the tag."
-        }
-
-+ Response 201 (application/json)
-
-    [Tag][]
+    [Identity Collection][]
 
 # Group Images
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
@@ -254,284 +260,8 @@ This is both a public and private endpoint.  If accessed without being authentic
 
     [Image Collection][]
 
-# Group Image Requests
-Requests made for imaging of an instance.
-
-## Image Request [/image_requests/{id}]
-A single Image Request object.
-
-Each Image has the following properties:
-
-- **id**: unique id of the image
-- **name**: the name of the image
-- **instance**: alias property of the instance you want imaged
-- **provider**: the id of the provider you want the image to be created for
-- **description**: A description of the image for display purposes
-- **software**: What software is installed on the instance
-- **sys**: (**todo:** add details for what this field controls)
-- **exclude**: Files on the instance that should be excluded from the image, like ssh keys
-- **tags**: tags that should be applied to the image
-- **vis**: This field can be one of public, private, or a user-list. If public, everyone can view and create an instance
-  from the image.  If this field is private, the user who created the image will be able to see or launch it.  If user
-  specific, only those users that are listed will be able to see or launch the image.
-
-+ Parameters
-    + id (required, string, `bdc31c14-f807-11e3-8ef5-b2227cce2b54`) ... String `uuid` of the Image.
-    
-+ Model (application/json)
-
-    JSON representation of Image Resource.
-
-    + Body
-
-            {
-                "id": "bdc31c14-f807-11e3-8ef5-b2227cce2b54",
-                "icon": null,
-                "created_by": "username",
-                "name": "Ubuntu 12.04 Updated NoGUI v1",
-                "tags": [
-                    "Ubuntu",
-                    "Featured"
-                ],
-                "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
-                "start_date": "2014-02-05T01:03:27.903Z",
-                "end_date": null,
-                "private": false,
-                "versions": [
-                    {
-                        "alias": "813557f2-f808-11e3-8ef5-b2227cce2b54",
-                        "version": "1",
-                        "start_date": "2014-02-04T23:56:40.077Z",
-                        "end_date": null,
-                        "provider": 1
-                    }
-                ]
-            }
-
-### Retrieve an Image Request [GET]
-+ Response 200 (application/json)
-
-    [Image Request][]
-
-## Image Request Collection [/image_requests]
-Collection of all Image Requests.
-
-+ Model (application/json)
-
-    JSON representation of the Images Collection.
-
-    + Body
-
-            {
-                "count": 1,
-                "next": null, 
-                "previous": null, 
-                "results": [
-                    {
-                        "id": "bdc31c14-f807-11e3-8ef5-b2227cce2b54",
-                        "icon": null,
-                        "created_by": "username",
-                        "name": "Ubuntu 12.04 Updated NoGUI v1",
-                        "tags": [
-                            "Ubuntu",
-                            "Featured"
-                        ],
-                        "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
-                        "start_date": "2014-02-05T01:03:27.903Z",
-                        "end_date": null,
-                        "private": false,
-                        "versions": [
-                            {
-                                "alias": "813557f2-f808-11e3-8ef5-b2227cce2b54",
-                                "version": "1",
-                                "start_date": "2014-02-04T23:56:40.077Z",
-                                "end_date": null,
-                                "provider": 1
-                            }
-                        ]
-                    }
-                ]
-            }
-
-### List all Image Requests [GET]
-
-+ Response 200 (application/json)
-
-    [Image Request Collection][]
-
-### Request an Image [POST]
-To request an image, you need to specify the following properties:
-
-- **name**: the name of the image
-- **instance**: alias property of the instance you want imaged
-- **provider**: the id of the provider you want the image to be created for
-- **description**: A description of the image for display purposes
-- **software**: What software is installed on the instance
-- **sys**: (**todo:** add details for what this field controls)
-- **exclude**: Files on the instance that should be excluded from the image, like ssh keys
-- **tags**: tags that should be applied to the image
-- **vis**: This field can be one of public, private, or a user-list. If public, everyone can view and create an instance
-  from the image.  If this field is private, the user who created the image will be able to see or launch it.  If user
-  specific, only those users that are listed will be able to see or launch the image.
-
-+ Request (application/json)
-
-        {
-            instance: "74089c18-f80a-11e3-8ef5-b2227cce2b54",
-            ip_address: "127.0.0.1",
-            provider: 1,
-            description: "I would like to request an image of this instance for [reasons].",
-            software: "Description of software installed on the machine.",
-            sys: "I'm not sure what this field means.",
-            exclude: "I do not need any files excluded from the image.",
-            tags: [
-                "ESD",
-                "BGF",
-                "apache2",
-                "SpliceGrapher"
-            ],
-            vis: "public"
-        }
-
-+ Response 200 (application/json)
-
-    [Image Request][]
-
-# Group Profile -deprecated-
-The Profile contains information about the authenticated user. Profile can be thought of as the 'entry-point' to the
- Atmosphere APIs. Once authenticated, a user can find their default provider and identity. The IDs for provider and
- Identity can be used to navigate the rest of the API.
-
-## Profile [/profile]
-A single Profile object.
-
-Each Profile has the following properties:
-
-- **id**: the id for the user this profile belongs to
-- **username**: the username of the user this profile belongs to
-- **email**: the users email address
-- **is_staff**: true if the user is iPlant staff
-- **is_superuser**: true if the user is a super user (comes with special privileges)
-- **send_emails**: true if the user wants to be notified via email when instances they've launched are ready
-- **icon_set**: the style of icons the user would like to see in the Atmosphere UI when no there is no custom icon to
- display
-
-
-+ Model (application/json)
-
-    JSON representation of Profile Resource.
-
-    + Body
-
-            {
-                "id": 1,
-                "username": "username",
-                "email": "username@example.com",
-                "is_staff": false,
-                "is_superuser": false,
-                "send_emails": true,
-                "icon_set": "default",
-            }
-            
-### Retrieve the Profile [GET]
-+ Response 200 (application/json)
-
-    [Profile][]
-    
-### Update the Profile [PATCH]
-To update the profile, send a PATCH request that includes the fields you want to modify.  Currently the only modifiable
- fields are **send_emails** and **icon_set**
-
-+ Request (application/json)
-
-        {
-            "send_emails": true,
-            "icon_set": "robots"
-        }
-
-+ Response 200 (application/json)
-
-    [Profile][]
-
-# Group Identities
-Identities are like user account information. A user has at least one identity per provider, and each identity
- contains information about how many resources can be consumed on that provider.  If a user has multiple identities
- under a single provider, it means they can allocate more resources by using a different identity.
-
-## Identity [/identity/{id}]
-A single Identity object.
-
-Each Identity has the following properties:
-
-- **id**: id of the Identity
-- **provider_id**: the id of the provider this identity is for
-- **quota**: object describing the resources that can be allocated on the provider under this identity
-- **quota.mem**: the maximum amount of memory that can be allocated across all instances under this identity
-- **quota.storage**: the maximum storage space that can be allocated across all volumes under this identity
-- **quota.cpu**: the number of CPUs that can be allocated across all instance under this identity
-- **quota.storage_count**: the maximum number of volumes that can be created under this identity
-
-+ Parameters
-    + id (required, number, 1) ... Number `id` of the Identity.
-    
-+ Model (application/json)
-
-    JSON representation of Identity Resource.
-
-    + Body
-
-            {
-                "id": 1,
-                "provider": {
-                    "id": "1"
-                    "iPlant Cloud - Tucson"
-                },
-                "quota": {
-                    "mem": 256,
-                    "suspended_count": 2,
-                    "storage": 1000,
-                    "cpu": 128,
-                    "storage_count": 10
-                }
-            }
-
-### Retrieve an Identity [GET]
-
-+ Response 200 (application/json)
-
-    [Identity][]
-    
-## Identity Collection [/identities]
-Collection of all Identities.
-
-+ Model (application/json)
-
-    JSON representation of Identity Collection Resource.
-
-    + Body
-
-            [
-                {
-                    "id": 1,
-                    "provider": {
-                        "id": "1"
-                        "iPlant Cloud - Tucson"
-                    },
-                    "quota": {
-                        "mem": 256,
-                        "suspended_count": 2,
-                        "storage": 1000,
-                        "cpu": 128,
-                        "storage_count": 10
-                    }
-                }
-            ]
-            
-### List all Identities [GET]
-+ Response 200 (application/json)
-
-    [Identity Collection][]
-
+# Image Bookmarks
+Image Bookmarks go here
 # Group Instances
 Instances are virtual machines that users have created from an image (application).  When a user creates an instance
  it immediately starts deducting AU's from their account.
@@ -695,489 +425,10 @@ Launch an instance of an image.  You must specify the following properties:
 
     [Instance][]
 
-# Group Instance Actions
-Actions that can be performed on instances.
-
-## Instance Action [/instances/{instance_id}/actions/{id}]
-An action that can be performed on an instance, such as start, stop, suspend or delete.
-
-Each Action has the following properties:
-
-- **id**: id
-- **name**: the name of the action
-- **description**: a description of what the action does
-    
-+ Parameters
-    + instance_id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `id` of the Instance.
-    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `id` of the Instance.
-    
-+ Model (application/json)
-
-    JSON representation of Instance Resource.
-
-    + Body
-
-            {
-                "id": "26f0123a-f80b-11d3-8ef5-b2227cce2b54",
-                "name": "suspend",
-                "description": "suspends an instance"
-            }
-
-### Retrieve an Instance Action [GET]
-Get a specific instance.
-
-+ Response 200 (application/json)
-
-    [Instance Action][]
-
-
-### Execute an instance action [POST]
-Perform the specified action on an instance
-
-+ Response 204 (application/json)
-
-    [Instance Action][]
-    
-## Instance Action Collection [/instances/{id}/actions]
-Collection of all actions that can be performed on an instance.
-
-+ Parameters
-    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `alias` of the Instance.
-    
-+ Model (application/json)
-
-    JSON representation of Instances Collection Resource.
-
-    + Body
-
-            [
-                {
-                    "id": "1",
-                    "name": "start",
-                    "description": "Start a stopped instance."
-                },{
-                    "id": "2",
-                    "name": "stop",
-                    "description": "Stop a running instance.  Stopped instances continue to reduce the AU's."
-                },
-                {
-                    "id": "3",
-                    "name": "suspend",
-                    "description": "Suspend a running instance.  This will also stop subtracting AU's."
-                },
-                {
-                  "id": "4",
-                  "name": "resume",
-                   "description": "Resume a suspended instance.  This will also start subtracting AU's again."
-                }
-            ]
-    
-### List all Instance Actions [GET]
-List all actions that can be performed on an instance
-
-+ Response 200 (application/json)
-
-    [Instance Action Collection][]
-
-# Group Providers
-Providers represent the different cloud providers managed by Atmosphere.
-
-## Provider [/providers/{id}]
-A single Provider object.
-
-Each Provider has the following properties:
-
-- **id**: unique id for the provider
-- **name**: the display name for the provider
-- **description**: a description of the provider
-
-
-+ Parameters
-    + id (required, number, '1') ... Number `id` of the Provider.
-
-+ Model(application/json)
-
-    JSON representation of Provider Resource
-
-    + Body
-
-            {
-                "id": 1,
-                "name": "planetTatooine",
-                "description": "planetTatooine"
-            }              
-
-
-### Retrieve a Provider [GET]
-+ Response 200 (application/json)
-
-    [Provider][]
-
-## Provider Collection [/providers]
-Collection of all Providers.
-
-+ Model (application/json)
-
-    JSON representation of Provider Collection Resource.
-
-    + Body
-
-            [
-                {
-                    "id": 1,
-                    "name": "planetTatooine",
-                    "description": "planetTatooine"
-                },
-                {
-                    "id": 2,
-                    "name": "stormCloud",
-                    "description": "full of lightning"
-                }
-            ]
-            
-### List all Providers [GET]
-+ Response 200 (application/json)
-
-    [Provider Collection][]
-
-# Group Provider Capacity -concept-
-Stuff goes here?
-
-# Group Allocation
-Allocations represent Atmosphere AU values.
-
-## Allocation [/allocations/{id}]
-A single Allocation object.
-
-Each Allocation has the following properties:
-
-- **id**: unique id for the provider
-- **url**: url the allocation can be found at
-- **threshold**: amount of CPU minutes allocated
-- **delta**: a description of the provider
-
-
-+ Parameters
-    + id (required, number, '1') ... Number `id` of the Provider.
-
-+ Model(application/json)
-
-    JSON representation of Provider Resource
-
-    + Body
-
-            {
-                "id": 1,
-                "name": "planetTatooine",
-                "description": "planetTatooine"
-            }
-
-
-### Retrieve an Allocation [GET]
-+ Response 200 (application/json)
-
-    [Allocation][]
-
-## Allocation Collection [/allocations]
-Collection of all Providers.
-
-+ Model (application/json)
-
-    JSON representation of Allocation Collection Resource.
-
-    + Body
-
-            [
-                {
-                    "id": 1,
-                    "name": "planetTatooine",
-                    "description": "planetTatooine"
-                },
-                {
-                    "id": 2,
-                    "name": "stormCloud",
-                    "description": "full of lightning"
-                }
-            ]
-
-### List all Allocations [GET]
-+ Response 200 (application/json)
-
-    [Allocation Collection][]
-
-# Group Provider Sizes -???-
-Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
- number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
-
-## Provider Size Collection [/provider/{providerId}/identity/{identityId}/size]
-+ Parameters
-    + providerId (required, number, '1') ... Number `id` of the Provider.
-    + identityId (required, number, '1') ... Number `id` of the Identity.
-    
-### List all Provider Sizes [GET]
-For a combination of provider and identity.
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "occupancy": 0,
-                "total": 1,
-                "remaining": 1,
-                "active": true,
-                "alias": "1",
-                "name": "m1.tiny",
-                "provider": 1,
-                "cpu": 1,
-                "disk": 0,
-                "root": 1,
-                "mem": 512
-            },
-            {
-                "occupancy": 0,
-                "total": 1,
-                "remaining": 1,
-                "active": true,
-                "alias": "2",
-                "name": "m1.small",
-                "provider": 1,
-                "cpu": 1,
-                "disk": 0,
-                "root": 20,
-                "mem": 2048
-            },
-            {
-                "occupancy": 0,
-                "total": 1,
-                "remaining": 1,
-                "active": true,
-                "alias": "3",
-                "name": "m1.medium",
-                "provider": 1,
-                "cpu": 2,
-                "disk": 0,
-                "root": 40,
-                "mem": 4096
-            }
-        ]
-        
-## Provider Size [/provider/{providerId}/identity/{identityId}/size/{id}]
-A single Size object (in the specified provider) with all its details.
-
-+ Parameters
-    + id (required, string, 'b24ce221-1ed4-4317-av7q-b4yf4q4qe3239') ... String `alias` of the Size.
-    + providerId (required, number, '1') ... Number `id` of the Provider.
-    + identityId (required, number, '1') ... Number `id` of the Identity.
-
-### Retrieve a Size [GET]
-+ Response 200 (application/json)
-
-    + Body
-
-            {
-                "occupancy": 0,
-                "total": 1,
-                "remaining": 1,
-                "active": true,
-                "alias": "1",
-                "name": "m1.tiny",
-                "provider": 1,
-                "cpu": 1,
-                "disk": 0,
-                "root": 1,
-                "mem": 512
-            }
-
-# Group Volumes
-Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
- different instance.
-
-## Volume [/provider/{providerId}/identity/{identityId}/volume/{id}]
-A single Volume object.
-
-Each Volume has the following properties:
-
-- **id**: unique id for the volume
-- **created_by**: user id of the person who created the volume
-- **name**: name of the volume
-- **description**: description of the volume
-- **status**: status of the volume (detaching, attaching, available or in-use)
-- **size**: size of the volume in Gigabytes
-- **attach_data**: if the volume is attached to an instance, provides details about which instance it's attached to and
- where the volume is mounted to on the instance
-- **provider**: provider the volume is created on
-- **identity**: identity that created the volume
-
-+ Parameters
-    + id (required, string, '13138b97-786a-4e57-9acc-5d41cfd21f75') ... String `alias` of the Volume.
-    
-+ Model (application/json)
-
-    JSON representation of Volume Resource.
-
-    + Body
-
-            {
-                "id": "232333c94-7864-4157-9cq-5441ff321F11",
-                "name": "My_Other_Volume",
-                "created_by": 1,
-                "description": "",
-                "status": "available",
-                "size": 1,
-                "attach_data": {},
-                "provider": {
-                  "id": "1",
-                  "name": "iPlant Tucson"
-                },
-                "identity": {
-                    "id": 1,
-                    "created_by": "username",
-                    "provider_id": 1
-                },
-                "start_date": "2014-05-13T00:24:58Z"
-            }
-
-### Retrieve a Volume [GET]
-+ Response 200 (application/json)
-
-    [Volume][]
-    
-### Destroy a Volume [DELETE]
-Destroy a volume.
-
-+ Response 200 (application/json)
-
-    [Volume][]
-
-## Volume Collection [/volumes]
-Collection of all Volumes.
-    
-+ Model (application/json)
-
-    JSON representation of Volumes Collection Resource.
-
-    + Body
-
-            [
-                {
-                    "id": "232333c94-7864-4157-9cq-5441ff321F11",
-                    "name": "My_Other_Volume",
-                    "created_by": 1,
-                    "description": "",
-                    "status": "available",
-                    "size": 1,
-                    "attach_data": {
-                        "instance_id": "bac30113-423d-44bd-8d7a-41136e9ers34",
-                        "device": "/dev/vdc"
-                    },
-                    "provider": {
-                      "id": "1",
-                      "name": "iPlant Tucson"
-                    },
-                    "identity": {
-                        "id": 1,
-                        "created_by": "username",
-                        "provider_id": 1
-                    },
-                    "start_date": "2014-05-13T00:24:58Z"
-                }
-            ]
-    
-### List all Volumes [GET]
-+ Response 200 (application/json)
-
-    [Volume Collection][]
-
-### Create a Volume [POST]
-Create a volume.  You must specify the following properties:
-
-- **name**: the name of the volume
-- **size**: the size of the volume in Gigabytes
-- **description**: a description of the volume
-
-+ Request (application/json)
-
-        {
-            "name": "New Volume",
-            "size": 1,
-            "description": "Description of new volume"
-        }
-
-+ Response 201 (application/json)
-
-    [Volume][]
-
-# Group Volume Actions
-Actions that can be performed on volumes
-
-## Volume Action [/volume_actions/{id}]
-A single Volume Action object.
-
-Each Volume Action has the following properties:
-
-- **id**: unique id for the volume
-- **name**: name of the action
-- **description**: description of the action
-
-+ Parameters
-    + id (required, number, '1') ... Number `id` of the Volume Action.
-    
-+ Model (application/json)
-
-    JSON representation of Volume Resource.
-
-    + Body
-
-            {
-                "id": "1",
-                "name": "Attach",
-                "description": "Attach a volume to an instance"
-            }
-
-### Retrieve a Volume Action [GET]
-+ Response 200 (application/json)
-
-    [Volume Action][]
-    
-## Volume Action Collection [/volume_actions]
-Collection of all volume actions.
-
-### Attach a Volume [POST]
-Attach a volume to an instance.
-
-+ Request (application/json)
-
-        { 
-            action: "attach_volume",
-            volume_id: "21637611-d75c-4c94-a761-dcd58ed8324b"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            message: "The requested action <attach_volume> was run successfully",
-            object: null,
-            result: "success"
-        }
-
-### Detach a Volume [POST]
-Detach a volume from an instance.
-
-+ Request (application/json)
-
-        { 
-            action: "detach_volume",
-            volume_id: "21637611-d75c-4c94-a761-dcd58ed8324b"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            message: "The requested action <detach_volume> was run successfully",
-            object: null,
-            result: "success"
-        }
-
+#Instance Tags
+Instance Tags go here
+#Platform Types
+Platforms Types go here
 # Group Projects
 Projects are a way for users to group related resources.  Right now users can add Instances and Volumes to a group, but
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
@@ -1447,213 +698,154 @@ Stuff goes here?
 # Group Project Volumes -concept-
 Stuff goes here?
 
-# Group Project Images -concept-
-Stuff goes here?
+# Group Providers
+Providers represent the different cloud providers managed by Atmosphere.
 
-# Group Non-Project Resources
-Because the API does enforce the concept that resources are in projects, we've provided a way to find out if the user
- has any projects that are not associated with a project.
+## Provider [/providers/{id}]
+A single Provider object.
 
-## Null Project [/project/null]
-This endpoint returns a list of all resources that are not associated with a project.
+Each Provider has the following properties:
 
-Each Project has the following properties:
+- **id**: unique id for the provider
+- **name**: the display name for the provider
+- **description**: a description of the provider
 
-- **applications**: images that are not in a project
-- **instances**: instances that are not in a project
-- **volumes**: volumes that are not in a project
-    
-+ Model (application/json)
-
-    JSON representation of Null Project Resource.
-
-    + Body
-
-            {
-                "applications": [],
-                "instances": [
-                    {
-                        "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
-                        "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
-                        "created_by": "username",
-                        "status": "active",
-                        "size_alias": "1",
-                        "machine_alias": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
-                        "machine_name": "Ubuntu 13.04 w/Docker 0.9",
-                        "machine_alias_hash": "3f8add823804dc73b221a6c8308a8ab2",
-                        "ip_address": "127.0.0.1",
-                        "start_date": "2014-05-14T18:17:18Z",
-                        "token": null,
-                        "has_shell": false,
-                        "has_vnc": false,
-                        "identity": {
-                            "id": 1,
-                            "created_by": "username",
-                            "provider": 1
-                        },
-                        "name": "Ubuntu 13.04 w/Docker 0.9",
-                        "tags": ["SpliceGrapher"],
-                        "projects": [
-                            1
-                        ]
-                    }
-                ],
-                "volumes": [
-                    {
-                        "alias": "132333c94-7864-4157-9cq-5441ff321F11",
-                        "created_by": 1,
-                        "name": "My_First_Volume",
-                        "description": "",
-                        "status": "available",
-                        "size": 1,
-                        "attach_data": {},
-                        "provider": 1,
-                        "identity": {
-                            "id": 1,
-                            "created_by": "HanSolo",
-                            "provider": 1
-                        },
-                        "projects": [
-                            1
-                        ],
-                        "start_date": "2014-05-13T00:24:58Z"
-                    }
-                ]
-            }
-
-### Retrieve a Project [GET]
-+ Response 200 (application/json)
-
-    [Null Project][]
-
-# Sizes
-Sizes go here
-# Group Status Messages -???-
-Status Messages are a way to communicate with the end users in an non-disabling of clouds fashion.
-
-##  Status Message [/status_messages/{id}]
-A single Status Message object.
-
-Each Status Message has the following properties:
-
-- **id**: the id of the message
-- **title**: a short title for the type of outage (planned, unplanned, network outage, maintenance, etc.)
-- **message**: the message
-- **provider_id**: the id of the provider this message is for
 
 + Parameters
-    + id (required, Number, 1) ... Number `id` of the Maintenance Message.
-    
-+ Model (application/json)
+    + id (required, number, '1') ... Number `id` of the Provider.
 
-    JSON representation of Maintenance Message Resource.
++ Model(application/json)
+
+    JSON representation of Provider Resource
 
     + Body
 
             {
                 "id": 1,
-                "title": "Status Update",
-                "message": "Atmosphere Provider Cloud has a message for you.",
-                "provider_id": 1,
-                "start_date": "2014-07-21T06:05:40Z",
-                "end_date": null
-            }
+                "name": "planetTatooine",
+                "description": "planetTatooine"
+            }              
 
-### Retrieve a Status Message [GET]
+
+### Retrieve a Provider [GET]
 + Response 200 (application/json)
 
-    [Status Message][]
+    [Provider][]
 
-## Status Message Collection [/status_messages]
-Collection of all Status Messages.
+## Provider Collection [/providers]
+Collection of all Providers.
 
 + Model (application/json)
 
-    JSON representation of Status Message Collection Resource.
+    JSON representation of Provider Collection Resource.
 
     + Body
 
             [
                 {
                     "id": 1,
-                    "title": "Status Update",
-                    "message": "Atmosphere Provider Cloud has a message for you.",
-                    "provider_id": 1,
-                    "start_date": "2014-07-21T06:05:40Z",
-                    "end_date": null
+                    "name": "planetTatooine",
+                    "description": "planetTatooine"
+                },
+                {
+                    "id": 2,
+                    "name": "stormCloud",
+                    "description": "full of lightning"
                 }
             ]
-
-### List all Status Messages [GET]
+            
+### List all Providers [GET]
 + Response 200 (application/json)
 
-    [Status Message Collection][]
+    [Provider Collection][]
 
-# Group Maintenance Messages -???-
-Maintenance Messages are a way to inform the user of current or planned maintenance desks and possible downtown for the
- Atmosphere cloud.
+#Provider Machines
+Provider Machines go here
+# Group Provider Sizes -???-
+Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
+ number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
 
-##  Maintenance Message [/maintenance_messages/{id}]
-A single Maintenance Message object.
+## Provider Size Collection [/provider/{providerId}/identity/{identityId}/size]
++ Parameters
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
+    
+### List all Provider Sizes [GET]
+For a combination of provider and identity.
 
-Each Maintenance Message has the following properties:
++ Response 200 (application/json)
 
-- **id**: the id of the message
-- **title**: a short title for the type of outage (planned, unplanned, network outage, maintenance, etc.)
-- **message**: the message
-- **provider_id**: the id of the provider this message is for
-- **disable_login**: whether login is disabled for the provider while this maintenance is occurring
+        [
+            {
+                "occupancy": 0,
+                "total": 1,
+                "remaining": 1,
+                "active": true,
+                "alias": "1",
+                "name": "m1.tiny",
+                "provider": 1,
+                "cpu": 1,
+                "disk": 0,
+                "root": 1,
+                "mem": 512
+            },
+            {
+                "occupancy": 0,
+                "total": 1,
+                "remaining": 1,
+                "active": true,
+                "alias": "2",
+                "name": "m1.small",
+                "provider": 1,
+                "cpu": 1,
+                "disk": 0,
+                "root": 20,
+                "mem": 2048
+            },
+            {
+                "occupancy": 0,
+                "total": 1,
+                "remaining": 1,
+                "active": true,
+                "alias": "3",
+                "name": "m1.medium",
+                "provider": 1,
+                "cpu": 2,
+                "disk": 0,
+                "root": 40,
+                "mem": 4096
+            }
+        ]
+        
+## Provider Size [/provider/{providerId}/identity/{identityId}/size/{id}]
+A single Size object (in the specified provider) with all its details.
 
 + Parameters
-    + id (required, Number, 1) ... Number `id` of the Maintenance Message.
-    
-+ Model (application/json)
+    + id (required, string, 'b24ce221-1ed4-4317-av7q-b4yf4q4qe3239') ... String `alias` of the Size.
+    + providerId (required, number, '1') ... Number `id` of the Provider.
+    + identityId (required, number, '1') ... Number `id` of the Identity.
 
-    JSON representation of Maintenance Message Resource.
+### Retrieve a Size [GET]
++ Response 200 (application/json)
 
     + Body
 
             {
-                "id": 1,
-                "title": "Planned Maintenance",
-                "message": "Atmosphere Provider Cloud is under maintenance.",
-                "provider_id": 1,
-                "disable_login": true,
-                "start_date": "2014-07-21T06:05:40Z",
-                "end_date": null
+                "occupancy": 0,
+                "total": 1,
+                "remaining": 1,
+                "active": true,
+                "alias": "1",
+                "name": "m1.tiny",
+                "provider": 1,
+                "cpu": 1,
+                "disk": 0,
+                "root": 1,
+                "mem": 512
             }
 
-### Retrieve a Maintenance Message [GET]
-+ Response 200 (application/json)
-
-    [Maintenance Message][]
-
-## Maintenance Message Collection [/maintenance?active=true]
-Collection of all Maintenance Messages. You must pass in active=true if you only want the current messages.
-
-+ Model (application/json)
-
-    JSON representation of Maintenance Message Collection Resource.
-
-    + Body
-
-            [
-                {
-                    "id": 1,
-                    "title": "Planned Maintenance",
-                    "message": "Atmosphere Provider Cloud is under maintenance.",
-                    "provider_id": 1,
-                    "disable_login": true,
-                    "start_date": "2014-07-21T06:05:40Z",
-                    "end_date": null
-                }
-            ]
-
-### List all Maintenance Messages [GET]
-+ Response 200 (application/json)
-
-    [Maintenance Message Collection][]
-
+#Provider Types
+Provider Types go here
 # Group Quota Requests
 Quota requests are user requests for quota increases
 
@@ -1838,91 +1030,223 @@ Create a Quota Request.  You must specify the following properties:
 
     [Quota Request][]
 
-# Group Instance History
-This endpoint returns a list of all instances that a user has launched since the time their account was created.
+# Group Tags
+Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
-## Instance History [/instance_history/{id}]
-A single Instance History object.
+## Tag [/tag/{id}]
+A single Tag object.
 
-Each Instance History has the following properties:
+Each Tag has the following properties:
 
-- **id**: id
-- **name**: name of the instance
-- **machine_alias**: which image the instance was based off.  Machines are image versions.
-- **machine_name**: the name of the image the instance was based off.
-- **size_alias**: the size of the instance when launched
-- **created_by**: username for the person who created the instance
-- **ip_address**: IP address you can use to connect to the machine.  Address that start with 196, 178, or 10 are private,
- all others are public.  Instances with an IP address of 0.0.0.0 have not been assigned an IP address yet.
-- **provider**: which cloud the instance was launched on
-- **tags**: instance specific tags (array of strings)
-- **start_date**: the date the instance was launched
-- **end_date**: the date the instance was deleted
+- **id**: the id of the tag
+- **name**: the name of the tag
+- **description**: a description of what the tag means
 
-    
 + Parameters
-    + id (required, string, '36f0795e-f80b-11e3-8ef5-b2227cce2b55') ... String `alias` of the Instance.
+    + id (required, number, `1`) ... Number `id` of the Tag.
     
 + Model (application/json)
 
-    JSON representation of Instance History Resource.
+    JSON representation of Tag Resource.
 
     + Body
 
             {
-                "id": "36f0795e-f80b-11e3-8ef5-b2227cce2b55",
-                "name": "Ubuntu 13.04 w/Docker 0.9",
-                "machine_alias": "75fdfca4-d49d-4b2d-b919-a3297bc6d7ae",
-                "machine_name": "Ubuntu 13.04 w/Docker 0.9",
-                "size_alias": "1",
-                "created_by": "username",
-                "ip_address": "127.0.0.1",
-                "provider": "iPlant Cloud - Tucson",
-                "tags": ["SpliceGrapher"],
-                "start_date": "2014-08-01T20:10:52Z",
-                "end_date": null
+                "id": 5,
+                "name": "Ubuntu",
+                "description": "A description of Ubuntu"
             }
 
-### Retrieve an Instance History [GET]
-Get a specific instance history object.
-
+### Retrieve a Tag [GET]
 + Response 200 (application/json)
 
-    [Instance History][]
+    [Tag][]
 
-## Instance History Collection [/instance_history]
-The history of all of the user's instances since the date their account was created.
-    
+## Tag Collection [/tag{?page,page_size}]
+Collection of all Tags.
+
++ Parameters
+    + page (string, optional) ... Page of results
+    + page_size (string, optional) ... Number of results
+
 + Model (application/json)
 
-    JSON representation of Instances History Collection Resource.
+    JSON representation of Tags Collection Resource.
 
     + Body
 
             {
-                "count": 1,
+                "count": 5,
                 "next": null,
                 "previous": null,
                 "results": [
                     {
-                        "id": "36f0795e-f80b-11e3-8ef5-b2227cce2b55",
-                        "name": "Ubuntu 13.04 w/Docker 0.9",
-                        "machine_alias": "75fdfca4-d49d-4b2d-b919-a3297bc6d7ae",
-                        "machine_name": "Ubuntu 13.04 w/Docker 0.9",
-                        "size_alias": "1",
-                        "created_by": "username",
-                        "ip_address": "127.0.0.1",
-                        "provider": "iPlant Cloud - Tucson",
-                        "tags": ["SpliceGrapher"],
-                        "start_date": "2014-08-01T20:10:52Z",
-                        "end_date": null
+                        "id": 1,
+                        "name": "SpliceGrapher",
+                        "description": "A description of SpliceGrapher"
+                    },
+                    {
+                        "id": 2,
+                        "name": "xGDBvm",
+                        "description": "A description of xGDBvm"
+                    },
+                    {
+                        "id": 3,
+                        "name": "R",
+                        "description": "A description of R"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Featured",
+                        "description": "Featured applications receive priority ordering over non-featured applications"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Ubuntu",
+                        "description": "A description of Ubuntu"
                     }
                 ]
             }
+
+### List all Tags [GET]
++ Response 200 (application/json)
+
+    [Tag Collection][]
+
+### Create a Tag [POST]
+Create a Tag.  You must specify the following properties:
+
+- **name**: a name for the tag
+- **description**: a description of the tag
+
++ Request (application/json)
+
+        {
+            "name": "Tag name",
+            "description": "A description of the tag."
+        }
+
++ Response 201 (application/json)
+
+    [Tag][]
+
+#Users
+Users go here
+# Group Volumes
+Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
+ different instance.
+
+## Volume [/provider/{providerId}/identity/{identityId}/volume/{id}]
+A single Volume object.
+
+Each Volume has the following properties:
+
+- **id**: unique id for the volume
+- **created_by**: user id of the person who created the volume
+- **name**: name of the volume
+- **description**: description of the volume
+- **status**: status of the volume (detaching, attaching, available or in-use)
+- **size**: size of the volume in Gigabytes
+- **attach_data**: if the volume is attached to an instance, provides details about which instance it's attached to and
+ where the volume is mounted to on the instance
+- **provider**: provider the volume is created on
+- **identity**: identity that created the volume
+
++ Parameters
+    + id (required, string, '13138b97-786a-4e57-9acc-5d41cfd21f75') ... String `alias` of the Volume.
     
-### List all Instances [GET]
-Get a list of all the instances the user has created.
++ Model (application/json)
+
+    JSON representation of Volume Resource.
+
+    + Body
+
+            {
+                "id": "232333c94-7864-4157-9cq-5441ff321F11",
+                "name": "My_Other_Volume",
+                "created_by": 1,
+                "description": "",
+                "status": "available",
+                "size": 1,
+                "attach_data": {},
+                "provider": {
+                  "id": "1",
+                  "name": "iPlant Tucson"
+                },
+                "identity": {
+                    "id": 1,
+                    "created_by": "username",
+                    "provider_id": 1
+                },
+                "start_date": "2014-05-13T00:24:58Z"
+            }
+
+### Retrieve a Volume [GET]
++ Response 200 (application/json)
+
+    [Volume][]
+    
+### Destroy a Volume [DELETE]
+Destroy a volume.
 
 + Response 200 (application/json)
 
-    [Instance History Collection][]
+    [Volume][]
+
+## Volume Collection [/volumes]
+Collection of all Volumes.
+    
++ Model (application/json)
+
+    JSON representation of Volumes Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "id": "232333c94-7864-4157-9cq-5441ff321F11",
+                    "name": "My_Other_Volume",
+                    "created_by": 1,
+                    "description": "",
+                    "status": "available",
+                    "size": 1,
+                    "attach_data": {
+                        "instance_id": "bac30113-423d-44bd-8d7a-41136e9ers34",
+                        "device": "/dev/vdc"
+                    },
+                    "provider": {
+                      "id": "1",
+                      "name": "iPlant Tucson"
+                    },
+                    "identity": {
+                        "id": 1,
+                        "created_by": "username",
+                        "provider_id": 1
+                    },
+                    "start_date": "2014-05-13T00:24:58Z"
+                }
+            ]
+    
+### List all Volumes [GET]
++ Response 200 (application/json)
+
+    [Volume Collection][]
+
+### Create a Volume [POST]
+Create a volume.  You must specify the following properties:
+
+- **name**: the name of the volume
+- **size**: the size of the volume in Gigabytes
+- **description**: a description of the volume
+
++ Request (application/json)
+
+        {
+            "name": "New Volume",
+            "size": 1,
+            "description": "Description of new volume"
+        }
+
++ Response 201 (application/json)
+
+    [Volume][]

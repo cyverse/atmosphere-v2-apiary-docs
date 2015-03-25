@@ -1,2 +1,0 @@
-# Sizes
-Sizes go here
