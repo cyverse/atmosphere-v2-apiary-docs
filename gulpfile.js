@@ -24,6 +24,7 @@ var paths = {
     './src/project_volumes.md',
     './src/project_images.md',
     './src/null_project.md',
+    './src/sizes.md',
     './src/status_messages.md',
     './src/maintenance_messages.md',
     './src/quota_requests.md',
