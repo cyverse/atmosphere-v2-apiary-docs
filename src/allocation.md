@@ -28,17 +28,17 @@ Each Allocation has the following properties:
             }
 
 
-### Retrieve a Provider [GET]
+### Retrieve an Allocation [GET]
 + Response 200 (application/json)
 
-    [Provider][]
+    [Allocation][]
 
-## Provider Collection [/providers]
+## Allocation Collection [/allocations]
 Collection of all Providers.
 
 + Model (application/json)
 
-    JSON representation of Provider Collection Resource.
+    JSON representation of Allocation Collection Resource.
 
     + Body
 
@@ -55,7 +55,7 @@ Collection of all Providers.
                 }
             ]
 
-### List all Providers [GET]
+### List all Allocations [GET]
 + Response 200 (application/json)
 
-    [Provider Collection][]
+    [Allocation Collection][]
