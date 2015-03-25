@@ -4,10 +4,10 @@ var notify = require('gulp-notify');
 
 var paths = {
   files: [
+    './src/header.md',
     './src/allocations.md',
     './src/identities.md',
     //'./src/group.md',
-    //'./src/header.md',
     './src/images.md',
     './src/image_bookmarks.md',
     //'./src/image_requests.md',
