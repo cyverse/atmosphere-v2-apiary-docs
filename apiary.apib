@@ -58,8 +58,9 @@ Each Allocation has the following properties:
 
             {
                 "id": 1,
-                "name": "planetTatooine",
-                "description": "planetTatooine"
+                "url": "https://atmobeta.iplantc.org/api/v2/allocations/1",
+                "threshold": 10080,
+                "delta": 20160
             }
 
 
@@ -77,17 +78,22 @@ Collection of all Providers.
 
     + Body
 
-            [
-                {
-                    "id": 1,
-                    "name": "planetTatooine",
-                    "description": "planetTatooine"
-                },
-                {
-                    "id": 2,
-                    "name": "stormCloud",
-                    "description": "full of lightning"
-                }
+            "count": 2,
+            "next": [/allocations]?page=2,
+            "previous": null,
+            "results": [
+              {
+                  "id": 1,
+                  "url": "https://atmobeta.iplantc.org/api/v2/allocations/1",
+                  "threshold": 10080,
+                  "delta": 20160
+              },
+              {
+                  "id": 2,
+                  "url": "https://atmobeta.iplantc.org/api/v2/allocations/2",
+                  "threshold": 20160,
+                  "delta": 20160
+              }
             ]
 
 ### List all Allocations [GET]
