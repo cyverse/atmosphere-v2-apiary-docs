@@ -35,6 +35,10 @@ Each Allocation has the following properties:
 ## Allocation Collection [/allocations]
 Collection of all Providers.
 
++ Parameters
+    + page (string, optional) ... Page of results
+    + page_size (string, optional) ... Number of results
+
 + Model (application/json)
 
     JSON representation of Allocation Collection Resource.
