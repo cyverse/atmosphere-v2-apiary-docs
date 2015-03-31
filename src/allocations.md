@@ -7,7 +7,6 @@ A single Allocation object.
 Each Allocation has the following properties:
 
 - **id**: unique id for the provider
-- **url**: url the allocation can be found at
 - **threshold**: amount of CPU minutes allocated
 - **delta**: a description of the provider
 
@@ -23,7 +22,6 @@ Each Allocation has the following properties:
 
             {
                 "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/allocations/1",
                 "threshold": 10080,
                 "delta": 20160
             }
@@ -49,13 +47,11 @@ Collection of all Providers.
             "results": [
               {
                   "id": 1,
-                  "url": "https://atmobeta.iplantc.org/api/v2/allocations/1",
                   "threshold": 10080,
                   "delta": 20160
               },
               {
                   "id": 2,
-                  "url": "https://atmobeta.iplantc.org/api/v2/allocations/2",
                   "threshold": 20160,
                   "delta": 20160
               }
