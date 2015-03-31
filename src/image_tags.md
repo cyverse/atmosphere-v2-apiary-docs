@@ -1,4 +1,4 @@
-# Image Tags
+# Image Tag
 An image tag is a link between an image and a tag
 
 ## Image Tag [/image_tags/{id}]
