@@ -31,7 +31,7 @@ Each Image Bookmark has the following properties:
     [Image Bookmark][]
 
 ## Image Bookmark Collection [/image_bookmarks]
-Collection of all Image Tags.
+Collection of all Image Bookmarks.
 
 + Parameters
     + page (string, optional) ... Page of results
