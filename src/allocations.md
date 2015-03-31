@@ -44,7 +44,7 @@ Collection of all Providers.
     + Body
 
             "count": 2,
-            "next": [/allocations]?page=2,
+            "next": null,
             "previous": null,
             "results": [
               {
