@@ -3,84 +3,111 @@ Projects are a way for users to group related resources.  Right now users can ad
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
 
-## Project [/project/{id}]
+## Project [/projects/{id}]
 A single Project object.
 
 Each Project has the following properties:
 
 - **id**: the id of the project
-- **owner**: username of the person who created the project
-- **image**: applications (images) in the project
-- **instances**: instances in the project
-- **volumes**: volumes in the project
 - **name**: project name
 - **description**: project description
+- **owner**: username of the person who created the project
+- **instances**: instances in the project
+- **volumes**: volumes in the project
+- **images**: applications (images) in the project
+- **start_date**: date of project creation
+- **end_date**: date of project deletion
 
 + Parameters
-    + id (required, number, '1') ... Number `id` of the Project.
+    + id (number, required) ... id of the Project.
     
 + Model (application/json)
 
     JSON representation of Project Resource.
 
     + Body
-
             {
+            "id": 1,
+            "url": "https://atmobeta.iplantc.org/api/v2/projects/1",
+            "name": "project",
+            "description": "my project full of things",
+            "owner": {
                 "id": 1,
-                "owner": "HanSolo",
-                "name": "Project 1",
-                "description": "This is my project description",
-                "images": [],
-                "instances": [
-                    {
-                        "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
-                        "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
-                        "created_by": "username",
-                        "status": "active",
-                        "size_alias": "1",
-                        "machine_alias": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
-                        "machine_name": "Ubuntu 13.04 w/Docker 0.9",
-                        "machine_alias_hash": "3f8add823804dc73b221a6c8308a8ab2",
-                        "ip_address": "127.0.0.1",
-                        "start_date": "2014-05-14T18:17:18Z",
-                        "token": null,
-                        "has_shell": false,
-                        "has_vnc": false,
-                        "identity": {
-                            "id": 1,
-                            "created_by": "username",
-                            "provider": 1
-                        },
-                        "name": "Ubuntu 13.04 w/Docker 0.9",
-                        "tags": ["SpliceGrapher"],
-                        "projects": [
-                            1
-                        ]
-                    }
-                ],
-                "volumes": [
-                    {
-                        "alias": "132333c94-7864-4157-9cq-5441ff321F11",
-                        "created_by": 1,
-                        "name": "My_First_Volume",
-                        "description": "",
-                        "status": "available",
-                        "size": 1,
-                        "attach_data": {},
-                        "provider": 1,
-                        "identity": {
-                            "id": 1,
-                            "created_by": "HanSolo",
-                            "provider": 1
-                        },
-                        "projects": [
-                            1
-                        ],
-                        "start_date": "2014-05-13T00:24:58Z"
-                    }
-                ],
-                "start_date": "2014-04-11T17:51:11.511Z",
-                "end_date": null
+                "url": "https://atmobeta.iplantc.org/api/v2/users/1",
+                "username": "user",
+                "first_name": "user",
+                "last_name": "name",
+                "email": "useremail@useremail.com",
+                "is_staff": false,
+                "is_superuser": false,
+                "date_joined": "2015-02-11T22:37:24Z"
+            },
+            "instances": [
+                {
+                    "id": 1,
+                    "uuid": "1b99ab3a-d7d9-11e4-b9d6-1681e6b88ec1",
+                    "url": "https://atmobeta.iplantc.org/api/v2/instances/1",
+                    "name": "test",
+                    "status": "suspended",
+                    "size": {
+                        "id": 23,
+                        "url": "https://atmobeta.iplantc.org/api/v2/sizes/23",
+                        "alias": "1",
+                        "name": "tiny1",
+                        "cpu": 1,
+                        "disk": 0,
+                        "mem": 4096,
+                        "active": true,
+                        "start_date": "2014-02-04T19:09:07.655411Z",
+                        "end_date": null
+                    },
+                    "ip_address": "0.0.0.0",
+                    "shell": false,
+                    "vnc": false,
+                    "identity": {
+                        "id": 1,
+                        "uuid": "1b99ab3a-d7d9-11e4-b9d6-1681e6b88ec2",
+                        "url": "https://atmobeta.iplantc.org/api/v2/identities/1",
+                        "provider": 1
+                    },
+                    "user": 1,
+                    "provider": 1,
+                    "image": {
+                        "id": 868,
+                        "url": "https://atmobeta.iplantc.org/api/v2/images/868",
+                        "uuid": "1b99ab3a-d7d9-11e4-b9d6-1681e6b88ec3",
+                        "name": "functional genomics_v1.0",
+                        "description": "For practice bioinfomatics data tools",
+                        "icon": null,
+                        "start_date": "2014-09-05T18:08:12Z",
+                        "end_date": null
+                    },
+                    "start_date": "2015-03-03T19:08:06Z",
+                    "end_date": null
+                }
+            ],
+            "volumes": [
+                {
+                    "id": 1,
+                    "uuid": "",
+                    "url": "https://atmobeta.iplantc.org/api/v2/volumes/1",
+                    "name": "test",
+                    "size": 4,
+                    "identity": {
+                        "id": 1,
+                        "uuid": "1b99ab3a-d7d9-11e4-b9d6-1681e6b88ec4",
+                        "url": "https://atmobeta.iplantc.org/api/v2/identities/1",
+                        "provider": 1
+                    },
+                    "provider": 1,
+                    "start_date": "2015-02-16T19:53:36.190034Z",
+                    "end_date": null
+                }
+            ],
+            "images": [],
+            "start_date": "2015-03-16T19:32:18.070860Z",
+            "end_date": null
+
             }
 
 ### Retrieve a Project [GET]
@@ -107,7 +134,7 @@ Delete a Project.  Projects can only be deleted once all resources (instances an
 
     [Project][]
 
-## Projects Collection [/project]
+## Projects Collection [/projects]
 Collection of all Projects.
 
 + Model (application/json)
@@ -116,76 +143,99 @@ Collection of all Projects.
 
     + Body
 
-            [
-                {
-                    "id": 1,
-                    "owner": "HanSolo",
-                    "name": "Project 1",
-                    "description": "This is my project description",
-                    "images": [],
-                    "instances": [
-                        {
-                            "alias": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
-                            "alias_hash": "b30430ab304a637e0fac9a0322edf7a3",
-                            "created_by": "username",
-                            "status": "active",
-                            "size_alias": "1",
-                            "machine_alias": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
-                            "machine_name": "Ubuntu 13.04 w/Docker 0.9",
-                            "machine_alias_hash": "3f8add823804dc73b221a6c8308a8ab2",
-                            "ip_address": "127.0.0.1",
-                            "start_date": "2014-05-14T18:17:18Z",
-                            "token": null,
-                            "has_shell": false,
-                            "has_vnc": false,
-                            "identity": {
-                                "id": 1,
-                                "created_by": "username",
-                                "provider": 1
-                            },
-                            "name": "Ubuntu 13.04 w/Docker 0.9",
-                            "tags": ["SpliceGrapher"],
-                            "projects": [
-                                1
-                            ]
-                        }
-                    ],
-                    "volumes": [
-                        {
-                            "alias": "132333c94-7864-4157-9cq-5441ff321F11",
-                            "created_by": 1,
-                            "name": "My_First_Volume",
-                            "description": "",
-                            "status": "available",
-                            "size": 1,
-                            "attach_data": {},
-                            "provider": 1,
-                            "identity": {
-                                "id": 1,
-                                "created_by": "HanSolo",
-                                "provider": 1
-                            },
-                            "projects": [
-                                1
-                            ],
-                            "start_date": "2014-05-13T00:24:58Z"
-                        }
-                    ],
-                    "start_date": "2014-04-11T17:51:11.511Z",
-                    "end_date": null
-                },
-                {
-                    "id": 2,
-                    "owner": "HanSolo",
-                    "name": "Project 2",
-                    "description": "My second project.",
-                    "images": [],
-                    "instances": [],
-                    "volumes": [],
-                    "start_date": "2014-05-01T19:27:40.910Z",
-                    "end_date": "2014-05-02T19:47:30.055Z"
-                }
-            ]
+        {
+          "count": 1,
+          "next": null,
+          "previous": null,
+          "results":
+          [
+            {
+              "id": 1,
+              "url": "https://atmobeta.iplantc.org/api/v2/projects/1",
+              "name": "project",
+              "description": "my project full of things",
+              "owner": {
+                  "id": 1,
+                  "url": "https://atmobeta.iplantc.org/api/v2/users/1",
+                  "username": "user",
+                  "first_name": "user",
+                  "last_name": "name",
+                  "email": "useremail@useremail.com",
+                  "is_staff": false,
+                  "is_superuser": false,
+                  "date_joined": "2015-02-11T22:37:24Z"
+              },
+              "instances": [
+                  {
+                      "id": 1,
+                      "uuid": "1b99ab3a-d7d9-11e4-b9d6-1681e6b88ec1",
+                      "url": "https://atmobeta.iplantc.org/api/v2/instances/1",
+                      "name": "test",
+                      "status": "suspended",
+                      "size": {
+                          "id": 23,
+                          "url": "https://atmobeta.iplantc.org/api/v2/sizes/23",
+                          "alias": "1",
+                          "name": "tiny1",
+                          "cpu": 1,
+                          "disk": 0,
+                          "mem": 4096,
+                          "active": true,
+                          "start_date": "2014-02-04T19:09:07.655411Z",
+                          "end_date": null
+                      },
+                      "ip_address": "0.0.0.0",
+                      "shell": false,
+                      "vnc": false,
+                      "identity": {
+                          "id": 1,
+                          "uuid": "1b99ab3a-d7d9-11e4-b9d6-1681e6b88ec2",
+                          "url": "https://atmobeta.iplantc.org/api/v2/identities/1",
+                          "provider": 1
+                      },
+                      "user": 1,
+                      "provider": 1,
+                      "image": {
+                          "id": 868,
+                          "url": "https://atmobeta.iplantc.org/api/v2/images/868",
+                          "uuid": "1b99ab3a-d7d9-11e4-b9d6-1681e6b88ec3",
+                          "name": "functional genomics_v1.0",
+                          "description": "For practice bioinfomatics data tools",
+                          "icon": null,
+                          "start_date": "2014-09-05T18:08:12Z",
+                          "end_date": null
+                      },
+                      "start_date": "2015-03-03T19:08:06Z",
+                      "end_date": null
+                  }
+              ],
+              "volumes": [
+                  {
+                      "id": 1,
+                      "uuid": "",
+                      "url": "https://atmobeta.iplantc.org/api/v2/volumes/1",
+                      "name": "test",
+                      "size": 4,
+                      "identity": {
+                          "id": 1,
+                          "uuid": "1b99ab3a-d7d9-11e4-b9d6-1681e6b88ec4",
+                          "url": "https://atmobeta.iplantc.org/api/v2/identities/1",
+                          "provider": 1
+                      },
+                      "provider": 1,
+                      "start_date": "2015-02-16T19:53:36.190034Z",
+                      "end_date": null
+                  }
+              ], s
+              "images": [],
+              "start_date": "2015-03-16T19:32:18.070860Z",
+              "end_date": null
+
+            }
+          ]
+
+        }
+
 
 ### List all Projects [GET]
 + Response 200 (application/json)
@@ -209,7 +259,7 @@ Create a Project.  You must specify the following properties:
 
     [Project][]
 
-## Project Instances [/project/{id}/instance]
+## Project Instances [/project/{id}/instances]
 The Instances in the Project.
 
 + Parameters
@@ -220,14 +270,23 @@ The Instances in the Project.
 
     [Instance Collection][]
     
-## Project Instance [/project/{project_id}/instance/{instance_id}]
+## Project Instance [/project_instances]
 The endpoint to add or remove an Instance from a Project.
 
-+ Parameters
-    + project_id (required, number, '1') ... Number `id` of the Project.
-    + instance_id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... Number `alias` of the Instance.
     
-### Add Instance to Project [PUT]
+### Add Instance to Project [POST]
+Add instance to project. You must specify the following properties:
+
+ - **project**: project id
+ - **instance**: instance id
+
+ + Request (application/json)
+
+        {
+          "project": 1,
+          "instance": 1
+        }
+
 + Response 200 (application/json)
 
     [Instance][]
@@ -235,7 +294,7 @@ The endpoint to add or remove an Instance from a Project.
 ### Remove Instance from Project [DELETE]
 + Response 204 (application/json)
             
-## Project Volumes [/project/{id}/volume]
+## Project Volumes [/project/{id}/volumes]
 The Volumes in the Project.
 
 + Parameters
@@ -246,11 +305,11 @@ The Volumes in the Project.
 
     [Volume Collection][]
     
-## Project Volume [/project/{project_id}/volume/{volume_id}]
+## Project Volume [/project/{project_id}/volumes/{volume_id}]
 The endpoint to add or remove a Volume from a Project.
 
 + Parameters
-    + project_id (required, number, '1') ... Number `id` of the Project.
+    + project_id (number, required) ... id of the Project.
     + volume_id (required, string, '13138b97-786a-4e57-9acc-5d41cfd21f75') ... Number `alias` of the Volume.
     
 ### Add Volume to Project [PUT]
