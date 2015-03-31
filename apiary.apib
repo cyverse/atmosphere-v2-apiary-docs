@@ -545,22 +545,24 @@ A single Instance object.
 Each Instance has the following properties:
 
 - **id**: id
+- **uuid**: unique id
 - **name**: name of the instance
-- **start_date**: the date the instance was created
-- **created_by**: username for the person who created the instance
 - **status**: the state the instance is in (active, suspended, shutoff, etc.)
-- **tags**: instance specific tags (array of strings)
 - **size**: the size of the instance (number of CPUs, RAM, and Disk Space)
-- **provider**: the provider the instance is on
-- **identity**: which account the instance deducts AU's from
-- **image_version**: The specific version of an image the instance was created from
 - **ip_address**: IP address you can use to connect to the machine.  Address that start with 196, 178, or 10 are private,
  all others are public.  Instances with an IP address of 0.0.0.0 have not been assigned an IP address yet.
-- **has_shell**: true if a user can ssh into the instance
-- **has_vnc**: true if a user can remote desktop into the instance
-    
+- **shell**: true if a user can ssh into the instance
+- **vnc**: true if a user can remote desktop into the instance
+- **identity**: which account the instance deducts AU's from
+- **user**: username for the person who created the instance
+- **provider**: the provider the instance is on
+- **image**: The specific version of an image the instance was created from
+- **projects**: id of projects the instance is a part of
+- **start_date**: date the instance was created
+- **end_date**: end date of instance
+
 + Parameters
-    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `id` of the Instance.
+    + id (required, '1') ... integer id of the Instance.
     
 + Model (application/json)
 
@@ -569,40 +571,24 @@ Each Instance has the following properties:
     + Body
 
             {
-                "id": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
-                "name": "Ubuntu 13.04 w/Docker 0.9",
-                "start_date": "2014-05-14T18:17:18Z",
-                "created_by": "username",
-                "status": "active",
-                "tags": [{
-                  "id": 5,
-                  "name": "Ubuntu",
-                  "description": "A description of Ubuntu"
-                }]
-                "size": {
-                    "id": "1",
-                    "name": "m1.tiny",
-                    "cpu": 1,
-                    "disk": 0,
-                    "root": 1,
-                    "mem": 512
-                },
-                "provider": {
-                  "id": "1",
-                  "name": "iPlant Tucson"
-                },
-                "identity": {
-                    "id": 1,
-                    "created_by": "username",
-                    "provider_id": 1
-                },
-                "image_version": {
-                  "id": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
-                  "Ubuntu 13.04 w/Docker 0.9"
-                },
-                "ip_address": "127.0.0.1",
-                "has_shell": false,
-                "has_vnc": false
+                "id": 1,
+                "uuid": "1",
+                "url": "https://atmobeta.iplantc.org/api/v2/instances/1",
+                "name": "instance",
+                "status": "suspended",
+                "size": 23,
+                "ip_address": "0.0.0.0",
+                "shell": false,
+                "vnc": false,
+                "identity": 1,
+                "user": 1,
+                "provider": 1,
+                "image": 1,
+                "projects": [
+                    1
+                ],
+                "start_date": "2015-03-03T19:08:06Z",
+                "end_date": null
             }
 
 ### Retrieve an Instance [GET]
@@ -629,44 +615,53 @@ Collection of all Instances
 
     + Body
 
-            [
-                {
-                    "id": "26f0795e-f80b-11e3-8ef5-b2227cce2b54",
-                    "name": "Ubuntu 13.04 w/Docker 0.9",
-                    "start_date": "2014-05-14T18:17:18Z",
-                    "created_by": "username",
-                    "status": "active",
-                    "tags": [{
-                      "id": 5,
-                      "name": "Ubuntu",
-                      "description": "A description of Ubuntu"
-                    }]
-                    "size": {
-                        "id": "1",
-                        "name": "m1.tiny",
-                        "cpu": 1,
-                        "disk": 0,
-                        "root": 1,
-                        "mem": 512
-                    },
-                    "provider": {
-                      "id": "1",
-                      "name": "iPlant Tucson"
-                    },
-                    "identity": {
+            {
+                "count": 2,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
                         "id": 1,
-                        "created_by": "username",
-                        "provider_id": 1
+                        "uuid": "1",
+                        "url": "https://atmobeta.iplantc.org/api/v2/instances/1",
+                        "name": "instance",
+                        "status": "suspended",
+                        "size": 1,
+                        "ip_address": "0.0.0.0",
+                        "shell": false,
+                        "vnc": false,
+                        "identity": 1,
+                        "user": 1,
+                        "provider": 1,
+                        "image": 1,
+                        "projects": [
+                            1
+                        ],
+                        "start_date": "2015-03-03T19:08:06Z",
+                        "end_date": null
                     },
-                    "image_version": {
-                      "id": "4a254940-f80b-11e3-8ef5-b2227cce2b54",
-                      "Ubuntu 13.04 w/Docker 0.9"
-                    },
-                    "ip_address": "127.0.0.1",
-                    "has_shell": false,
-                    "has_vnc": false
-                }
-            ]
+                    {
+                        "id": 2,
+                        "uuid": "1",
+                        "url": "https://atmobeta.iplantc.org/api/v2/instances/2",
+                        "name": "instance",
+                        "status": "suspended",
+                        "size": 1,
+                        "ip_address": "0.0.0.0",
+                        "shell": false,
+                        "vnc": false,
+                        "identity": 2,
+                        "user": 2,
+                        "provider": 1,
+                        "image": 1,
+                        "projects": [
+                            2
+                        ],
+                        "start_date": "2015-03-03T19:08:06Z",
+                        "end_date": null
+                    }
+                ]
+            }
     
 ### List all Instances [GET]
 Get a list of your instances created under the specific provider/identity.
