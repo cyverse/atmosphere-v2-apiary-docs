@@ -1111,13 +1111,12 @@ The Instances in the Project.
 + Parameters
     + id (required, number, '1') ... Number `id` of the Project.
     
-### Retrieve a Project's Instances [GET]
-+ Response 200 (application/json)
+## Project Instance [/project_instances{?project__id}]
 
-    [Instance Collection][]
-    
-## Project Instance [/project_instances]
-The endpoint to add or remove an Instance from a Project.
+### List all project instances [GET]
+
++ Parameters
+    + project__id (number, optional) ... id of the specific project.
 
     
 ### Add Instance to Project [POST]
@@ -1140,7 +1139,7 @@ Add instance to project. You must specify the following properties:
 ### Remove Instance from Project [DELETE]
 + Response 204 (application/json)
             
-## Project Volumes [/project/{id}/volumes]
+## Project Volumes [/projects/{id}/volumes]
 The Volumes in the Project.
 
 + Parameters
