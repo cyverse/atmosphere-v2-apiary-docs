@@ -1,66 +1,41 @@
-# Group Provider Sizes -???-
+# Group Sizes
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
  number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
 
-## Provider Size Collection [/provider/{providerId}/identity/{identityId}/size]
-+ Parameters
-    + providerId (required, number, '1') ... Number `id` of the Provider.
-    + identityId (required, number, '1') ... Number `id` of the Identity.
+## Size Collection [/sizes]
+
+The follow parameters can be used to filter responses:
+
+- **provider__id**: show only sizes that are available on this provider
     
-### List all Provider Sizes [GET]
+### List all Sizes [GET]
 For a combination of provider and identity.
 
 + Response 200 (application/json)
 
         [
             {
-                "occupancy": 0,
-                "total": 1,
-                "remaining": 1,
-                "active": true,
-                "alias": "1",
-                "name": "m1.tiny",
-                "provider": 1,
-                "cpu": 1,
-                "disk": 0,
-                "root": 1,
-                "mem": 512
-            },
-            {
-                "occupancy": 0,
-                "total": 1,
-                "remaining": 1,
-                "active": true,
-                "alias": "2",
-                "name": "m1.small",
-                "provider": 1,
-                "cpu": 1,
-                "disk": 0,
-                "root": 20,
-                "mem": 2048
-            },
-            {
-                "occupancy": 0,
-                "total": 1,
-                "remaining": 1,
-                "active": true,
+                "id": 1,
                 "alias": "3",
-                "name": "m1.medium",
-                "provider": 1,
+                "name": "small1",
                 "cpu": 2,
                 "disk": 0,
-                "root": 40,
-                "mem": 4096
+                "mem": 8192,
+                "active": true,
+                "provider": {
+                    "id": 1,
+                    "uuid": "9e002b3c-d7d2-11e4-8cb8-8bda92940e85"
+                },
+                "start_date": "2014-02-04T21:04:30Z",
+                "end_date": null
             }
         ]
         
-## Provider Size [/provider/{providerId}/identity/{identityId}/size/{id}]
-A single Size object (in the specified provider) with all its details.
+## Size [/size/{id}]
+A single Size object with all its details.
 
 + Parameters
-    + id (required, string, 'b24ce221-1ed4-4317-av7q-b4yf4q4qe3239') ... String `alias` of the Size.
-    + providerId (required, number, '1') ... Number `id` of the Provider.
-    + identityId (required, number, '1') ... Number `id` of the Identity.
+    + id (required, number, 1) ... Number `id` of the Size.
 
 ### Retrieve a Size [GET]
 + Response 200 (application/json)
@@ -68,15 +43,17 @@ A single Size object (in the specified provider) with all its details.
     + Body
 
             {
-                "occupancy": 0,
-                "total": 1,
-                "remaining": 1,
-                "active": true,
-                "alias": "1",
-                "name": "m1.tiny",
-                "provider": 1,
-                "cpu": 1,
+                "id": 1,
+                "alias": "3",
+                "name": "small1",
+                "cpu": 2,
                 "disk": 0,
-                "root": 1,
-                "mem": 512
+                "mem": 8192,
+                "active": true,
+                "provider": {
+                    "id": 1,
+                    "uuid": "9e002b3c-d7d2-11e4-8cb8-8bda92940e85"
+                },
+                "start_date": "2014-02-04T21:04:30Z",
+                "end_date": null
             }
