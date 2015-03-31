@@ -2,7 +2,7 @@
 Image Bookmarks go here
 
 ## Image Bookmark [/image_bookmarks/{id}]
-A single Allocation object.
+A single Image Bookmark object.
 
 Each Image Bookmark has the following properties:
 
