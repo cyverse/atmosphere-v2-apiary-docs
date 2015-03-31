@@ -2,14 +2,13 @@
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
  number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
 
-## Size Collection [/sizes]
-
-The follow parameters can be used to filter responses:
-
-- **provider__id**: show only sizes that are available on this provider
+## Size Collection [/sizes{?provider__id}]
     
 ### List all Sizes [GET]
 For a combination of provider and identity.
+
++ Parameters
+    + provider__id (number, optional) ... `id` of the Provider.
 
 + Response 200 (application/json)
 
