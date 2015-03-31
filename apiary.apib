@@ -42,7 +42,6 @@ A single Allocation object.
 Each Allocation has the following properties:
 
 - **id**: unique id for the provider
-- **url**: url the allocation can be found at
 - **threshold**: amount of CPU minutes allocated
 - **delta**: a description of the provider
 
@@ -58,7 +57,6 @@ Each Allocation has the following properties:
 
             {
                 "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/allocations/1",
                 "threshold": 10080,
                 "delta": 20160
             }
@@ -84,13 +82,11 @@ Collection of all Providers.
             "results": [
               {
                   "id": 1,
-                  "url": "https://atmobeta.iplantc.org/api/v2/allocations/1",
                   "threshold": 10080,
                   "delta": 20160
               },
               {
                   "id": 2,
-                  "url": "https://atmobeta.iplantc.org/api/v2/allocations/2",
                   "threshold": 20160,
                   "delta": 20160
               }
@@ -112,12 +108,11 @@ A single Identity object.
 Each Identity has the following properties:
 
 - **id**: id of the Identity
-- **provider_id**: the id of the provider this identity is for
-- **quota**: object describing the resources that can be allocated on the provider under this identity
-- **quota.mem**: the maximum amount of memory that can be allocated across all instances under this identity
-- **quota.storage**: the maximum storage space that can be allocated across all volumes under this identity
-- **quota.cpu**: the number of CPUs that can be allocated across all instance under this identity
-- **quota.storage_count**: the maximum number of volumes that can be created under this identity
+- **uuid**: unique identifier for of Identity
+- **quota**: quota of Identity
+- **allocation**: allocation of Identity
+- **provider**: provider of Identity
+- **user**: user of Identity
 
 + Parameters
     + id (required, number, 1) ... Number `id` of the Identity.
@@ -130,16 +125,39 @@ Each Identity has the following properties:
 
             {
                 "id": 1,
-                "provider": {
-                    "id": "1"
-                    "iPlant Cloud - Tucson"
-                },
+                "uuid": "abcde-fghij-klmno-pqrst-uvwxy-z"
                 "quota": {
-                    "mem": 256,
-                    "suspended_count": 2,
-                    "storage": 1000,
-                    "cpu": 128,
-                    "storage_count": 10
+                    "id": 1,
+                    "cpu" 16,
+                    "memory": 16,
+                    "storage": 16,
+                    "storage_count": 16,
+                    "suspended_count": 16
+                },
+                "allocation": {
+                    "id": 1,
+                    "threshold": 10080,
+                    "delta": 10080
+                },
+                "provider": {
+                    "id": 1,
+                    "uuid": "abcde-fghij-klmno-pqrst-uvqxy-z",
+                    "name": "iPlant Cloud - Tucson",
+                    "description": "<No Description Provided>",
+                    "public": true,
+                    "active": true,
+                    "start_date": "1999-09-09T00:00.000000Z",
+                    "end_date": null
+                },
+                "user":{
+                    "id": 1,
+                    "username": "atmouser",
+                    "first_name": "atmo",
+                    "last_name": "user",
+                    "email": "atmouser@atmoemail.com",
+                    "is_staff": false,
+                    "is_superuser": false,
+                    "date_joined": "1999-09-09T00:00.000000Z"
                 }
             }
 
@@ -158,22 +176,87 @@ Collection of all Identities.
 
     + Body
 
-            [
+            {
+            "count": 2,
+            "next": null,
+            "prev": null,
+            "results": [
                 {
                     "id": 1,
-                    "provider": {
-                        "id": "1"
-                        "iPlant Cloud - Tucson"
-                    },
+                    "uuid": "abcde-fghij-klmno-pqrst-uvwxy-z",
                     "quota": {
-                        "mem": 256,
-                        "suspended_count": 2,
-                        "storage": 1000,
-                        "cpu": 128,
-                        "storage_count": 10
+                        "id": 1,
+                        "cpu" 16,
+                        "memory": 16,
+                        "storage": 16,
+                        "storage_count": 16,
+                        "suspended_count": 16
+                    },
+                    "allocation": {
+                        "id": 1,
+                        "threshold": 10080,
+                        "delta": 10080
+                    },
+                    "provider": {
+                        "id": 1,
+                        "uuid": "abcde-fghij-klmno-pqrst-uvqxy-z",
+                        "name": "iPlant Cloud - Tucson",
+                        "description": "<No Description Provided>",
+                        "public": true,
+                        "active": true,
+                        "start_date": "1999-09-09T00:00.000000Z",
+                        "end_date": null
+                    },
+                    "user":{
+                        "id": 1,
+                        "username": "atmouser",
+                        "first_name": "atmo",
+                        "last_name": "user",
+                        "email": "atmouser@atmoemail.com",
+                        "is_staff": false,
+                        "is_superuser": false,
+                        "date_joined": "1999-09-09T00:00.000000Z"
+                    }
+                },
+                {
+                    "id": 2,
+                    "uuid": "zyxwv-utsrq-ponml-kjihg-fedcb-a",
+                    "quota": {
+                        "id": 1,
+                        "cpu" 16,
+                        "memory": 16,
+                        "storage": 16,
+                        "storage_count": 16,
+                        "suspended_count": 16
+                    },
+                    "allocation": {
+                        "id": 1,
+                        "threshold": 10080,
+                        "delta": 10080
+                    },
+                    "provider": {
+                        "id": 2,
+                        "uuid": "zyxwv-utsrq-ponml-kjihg-fedcb-a",
+                        "name": "iPlant Workshop Cloud - Tucson",
+                        "description": "<No Description Provided>",
+                        "public": true,
+                        "active": true,
+                        "start_date": "1999-09-09T00:00.000000Z",
+                        "end_date": null
+                    },
+                    "user":{
+                        "id": 2,
+                        "username": "atmouser2",
+                        "first_name": "atmo",
+                        "last_name": "user2",
+                        "email": "atmouser2@atmoemail.com",
+                        "is_staff": false,
+                        "is_superuser": false,
+                        "date_joined": "1999-09-09T00:00.000000Z"
                     }
                 }
             ]
+            }
             
 ### List all Identities [GET]
 + Response 200 (application/json)
