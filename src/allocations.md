@@ -44,7 +44,7 @@ Collection of all Providers.
     JSON representation of Allocation Collection Resource.
 
     + Body
-
+        {
             "count": 2,
             "next": null,
             "previous": null,
@@ -60,6 +60,7 @@ Collection of all Providers.
                   "delta": 20160
               }
             ]
+        }
 
 ### List all Allocations [GET]
 + Response 200 (application/json)
