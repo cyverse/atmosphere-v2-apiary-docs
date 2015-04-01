@@ -1,3 +1,4 @@
+# Group Provider Machines
 ## Provider Machine [/provider_machines/{id}]
 A single Provider Machine object.
 
