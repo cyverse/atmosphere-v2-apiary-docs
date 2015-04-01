@@ -248,14 +248,12 @@ Create a Project.  You must specify the following properties:
 
 - **name**: a name for the project
 - **description**: a description of the project
-- **start_date**: time of project creation
 
 + Request (application/json)
 
         {
             "name": "My Awesome Project",
-            "description": "A description of my awesome project.",
-            "start_date": "YYYY-MM-DDThh:mm[:ss[.uuuuuu]][+HH:MM|-HH:MM|Z]"
+            "description": "A description of my awesome project."
         }
 
 + Response 201 (application/json)
