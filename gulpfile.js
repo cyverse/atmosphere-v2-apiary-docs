@@ -20,6 +20,8 @@ var paths = {
     //'./src/null_project.md',
     './src/platform_types.md',
     './src/projects.md',
+    './src/project_instances.md',
+    './src/project_volumes.md',
     //'./src/project_images.md',
     //'./src/project_instances.md',
     //'./src/project_volumes.md',
