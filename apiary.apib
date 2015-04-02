@@ -302,22 +302,67 @@ Each Image has the following properties:
 
     + Body
 
-            {
+        {
+            "id": 964,
+            "url": "https://atmobeta.iplantc.org/api/v2/images/964",
+            "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+            "name": "copy of ubuntu14.04",
+            "description": "Testing description",
+            "icon": null,
+            "created_by": {
                 "id": 1,
-                "uuid": "bdc31c14-f807-11e3-8ef5-b2227cce2b54",
-                "name": "Ubuntu 12.04 Updated NoGUI v1",
-                "description": "Descriptiong for Ubuntu 12.04 Updated NoGUI v1",
-                "icon": null,
-                "created_by": 1,
-                "tags": [
-                    "Ubuntu",
-                    "Featured"
-                ],
-                "start_date": "2014-02-05T01:03:27.903Z",
-                "end_date": null,
-                "private": false,
-                "provider_images": "?"
-            }
+                "url": "https://atmobeta.iplantc.org/api/v2/users/1",
+                "username": "user",
+                "first_name": "User",
+                "last_name": "Name",
+                "email": "user@iplantcollaborative.org",
+                "is_staff": true,
+                "is_superuser": true,
+                "date_joined": "2013-05-21T21:12:09.158109Z"
+            },
+            "tags": [
+                {
+                    "id": 3,
+                    "url": "https://atmobeta.iplantc.org/api/v2/tags/3",
+                    "name": "R",
+                    "description": ""
+                },
+                {
+                    "id": 22,
+                    "url": "https://atmobeta.iplantc.org/api/v2/tags/22",
+                    "name": "Python2.7",
+                    "description": ""
+                },
+                {
+                    "id": 283,
+                    "url": "https://atmobeta.iplantc.org/api/v2/tags/283",
+                    "name": "Featured",
+                    "description": "Featured applications receive priority ordering over non-featured applications"
+                }
+            ],
+            "start_date": "2015-03-30T18:30:45.501948Z",
+            "end_date": null,
+            "provider_images": [
+                {
+                    "id": 872,
+                    "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+                    "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/872",
+                    "provider": {
+                        "id": 4,
+                        "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+                        "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
+                        "name": "iPlant Cloud - Tucson",
+                        "description": "<No Description Provided>",
+                        "public": true,
+                        "active": true,
+                        "start_date": "2014-02-04T19:09:20.713175Z",
+                        "end_date": null
+                    },
+                    "start_date": "2015-03-30T18:30:45.678261Z",
+                    "end_date": null
+                }
+            ]
+        }
 
 ### Retrieve a Single Image [GET]
 + Response 200 (application/json)
@@ -345,46 +390,75 @@ This is both a public and private endpoint.  If accessed without being authentic
 
     + Body
 
-
         {
-            "count": 752,
-            "next": "https://atmobeta.iplantc.org/api/v2/images?page=2",
-            "previous": null,
-            "results": [
-                {
+          "count": 1,
+          "next": "https://atmobeta.iplantc.org/api/v2/images?page=2",
+          "previous": null,
+          "results": [
+              {
+                "id": 964,
+                "url": "https://atmobeta.iplantc.org/api/v2/images/964",
+                "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+                "name": "copy of ubuntu14.04",
+                "description": "Testing description",
+                "icon": null,
+                "created_by": {
                     "id": 1,
-                    "uuid": "bdc31c14-f807-11e3-8ef5-b2227cce2b54",
-                    "name": "Ubuntu 12.04 Updated NoGUI v1",
-                    "description": "Description for Ubuntu 12.04 Updated NoGUI v1",
-                    "icon": null,
-                    "created_by": 1,
-                    "tags": [
-                        "Ubuntu",
-                        "Featured"
-                    ],
-                    "start_date": "2014-02-05T01:03:27.903Z",
-                    "end_date": null,
-                    "private": false,
-                    "provider_images": "?"
+                    "url": "https://atmobeta.iplantc.org/api/v2/users/1",
+                    "username": "user",
+                    "first_name": "User",
+                    "last_name": "Name",
+                    "email": "user@iplantcollaborative.org",
+                    "is_staff": true,
+                    "is_superuser": true,
+                    "date_joined": "2013-05-21T21:12:09.158109Z"
                 },
-                {
-                    "id": 2,
-                    "uuid": "bdc31c14-f807-11e3-8ef5-b2227cce2b55",
-                    "name": "Ubuntu 12.04 Updated NoGUI v2",
-                    "description": "Description for Ubuntu 12.04 Updated NoGUI v2",
-                    "icon": null,
-                    "created_by": 2,
-                    "tags": [
-                        "Ubuntu",
-                        "Featured"
-                    ],
-                    "start_date": "2014-02-05T01:03:27.903Z",
-                    "end_date": null,
-                    "private": false,
-                    "provider_images": "?"
-                }
-            ]
+                "tags": [
+                    {
+                        "id": 3,
+                        "url": "https://atmobeta.iplantc.org/api/v2/tags/3",
+                        "name": "R",
+                        "description": ""
+                    },
+                    {
+                        "id": 22,
+                        "url": "https://atmobeta.iplantc.org/api/v2/tags/22",
+                        "name": "Python2.7",
+                        "description": ""
+                    },
+                    {
+                        "id": 283,
+                        "url": "https://atmobeta.iplantc.org/api/v2/tags/283",
+                        "name": "Featured",
+                        "description": "Featured applications receive priority ordering over non-featured applications"
+                    }
+                ],
+                "start_date": "2015-03-30T18:30:45.501948Z",
+                "end_date": null,
+                "provider_images": [
+                    {
+                        "id": 872,
+                        "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+                        "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/872",
+                        "provider": {
+                            "id": 4,
+                            "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+                            "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
+                            "name": "iPlant Cloud - Tucson",
+                            "description": "<No Description Provided>",
+                            "public": true,
+                            "active": true,
+                            "start_date": "2014-02-04T19:09:20.713175Z",
+                            "end_date": null
+                        },
+                        "start_date": "2015-03-30T18:30:45.678261Z",
+                        "end_date": null
+                    }
+                ]
+            }
+          ]
         }
+
 
 ### List all Images [GET]
 
@@ -2149,7 +2223,7 @@ Each Provider Machine has the following properties:
 
 - **id**: provider machine id
 - **uuid**: unique universal id
-- **image**:
+- **image**: image installed on this provider machine
 - **provider**:
 - **created_by**:
 - **start_date**:
