@@ -26,7 +26,7 @@ Each Identity has the following properties:
 
             {
                 "id": 1,
-                "uuid": "abcde-fghij-klmno-pqrst-uvwxy-z"
+                "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1"
                 "quota": {
                     "id": 1,
                     "cpu" 16,
@@ -42,7 +42,7 @@ Each Identity has the following properties:
                 },
                 "provider": {
                     "id": 1,
-                    "uuid": "abcde-fghij-klmno-pqrst-uvqxy-z",
+                    "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
                     "name": "iPlant Cloud - Tucson",
                     "description": "<No Description Provided>",
                     "public": true,
@@ -84,7 +84,7 @@ Collection of all Identities.
             "results": [
                 {
                     "id": 1,
-                    "uuid": "abcde-fghij-klmno-pqrst-uvwxy-z",
+                    "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
                     "quota": {
                         "id": 1,
                         "cpu" 16,
@@ -100,7 +100,7 @@ Collection of all Identities.
                     },
                     "provider": {
                         "id": 1,
-                        "uuid": "abcde-fghij-klmno-pqrst-uvqxy-z",
+                        "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
                         "name": "iPlant Cloud - Tucson",
                         "description": "<No Description Provided>",
                         "public": true,
@@ -121,7 +121,7 @@ Collection of all Identities.
                 },
                 {
                     "id": 2,
-                    "uuid": "zyxwv-utsrq-ponml-kjihg-fedcb-a",
+                    "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec2",
                     "quota": {
                         "id": 1,
                         "cpu" 16,
@@ -137,7 +137,7 @@ Collection of all Identities.
                     },
                     "provider": {
                         "id": 2,
-                        "uuid": "zyxwv-utsrq-ponml-kjihg-fedcb-a",
+                        "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec2",
                         "name": "iPlant Workshop Cloud - Tucson",
                         "description": "<No Description Provided>",
                         "public": true,
