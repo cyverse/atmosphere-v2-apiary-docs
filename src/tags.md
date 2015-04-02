@@ -30,6 +30,18 @@ Each Tag has the following properties:
 
     [Tag][]
 
+### Update a Tag [PATCH]
+
++ Request (application/json)
+
+        {
+            description: "new description of tag"
+        }
+
++ Response 201 (application/json)
+
+    [Tag][]
+
 ## Tag Collection [/tag{?page,page_size}]
 Collection of all Tags.
 
@@ -92,19 +104,6 @@ Create a Tag.  You must specify the following properties:
         {
             "name": "Tag name",
             "description": "A description of the tag."
-        }
-
-+ Response 201 (application/json)
-
-    [Tag][]
-
-### Update a Tag [PATCH]
-Update a tag.
-
-+ Request (application/json)
-
-        {
-            description: "new description of tag"
         }
 
 + Response 201 (application/json)
