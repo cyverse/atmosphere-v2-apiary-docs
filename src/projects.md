@@ -1,4 +1,4 @@
-# Group Projects
+# Group Projects -done-
 Projects are a way for users to group related resources.  Right now users can add Instances and Volumes to a group, but
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
@@ -115,7 +115,7 @@ Each Project has the following properties:
 
     [Project][]
         
-### Update a Project [PUT]
+### Update a Project [PATCH]
 + Request (application/json)
 
         {
@@ -257,3 +257,4 @@ Create a Project.  You must specify the following properties:
         }
 
 + Response 201 (application/json)
+  [Project][]
