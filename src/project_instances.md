@@ -1,4 +1,4 @@
-# Group Project Instances -done-
+# Group Project Instances
 
 ## Project Instance [/project_instances/{id}]
 Get a single project instance
