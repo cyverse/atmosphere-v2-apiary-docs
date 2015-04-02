@@ -20,7 +20,7 @@ Each Image has the following properties:
  end_date before the moment the request was made will be filtered out of the result set.  however, end_dates can also be
  used to schedule resources deletion by setting them at a future date.  This can also be used to give someone access to
  a resource for a limited time (such as for a workshop session).
-- **provider_images**:
+- **provider_images**: provider images this image is associated with
 
 
 + Parameters
@@ -33,11 +33,11 @@ Each Image has the following properties:
     + Body
 
         {
-            "id": 964,
-            "url": "https://atmobeta.iplantc.org/api/v2/images/964",
+            "id": 1,
+            "url": "https://atmobeta.iplantc.org/api/v2/images/1",
             "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
-            "name": "copy of ubuntu14.04",
-            "description": "Testing description",
+            "name": "name",
+            "description": "description",
             "icon": null,
             "created_by": {
                 "id": 1,
@@ -75,11 +75,11 @@ Each Image has the following properties:
             "provider_images": [
                 {
                     "id": 872,
-                    "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+                    "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
                     "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/872",
                     "provider": {
                         "id": 4,
-                        "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+                        "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
                         "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
                         "name": "iPlant Cloud - Tucson",
                         "description": "<No Description Provided>",
@@ -122,70 +122,70 @@ This is both a public and private endpoint.  If accessed without being authentic
 
         {
           "count": 1,
-          "next": "https://atmobeta.iplantc.org/api/v2/images?page=2",
+          "next": "null",
           "previous": null,
           "results": [
               {
-                "id": 964,
-                "url": "https://atmobeta.iplantc.org/api/v2/images/964",
-                "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
-                "name": "copy of ubuntu14.04",
-                "description": "Testing description",
-                "icon": null,
-                "created_by": {
-                    "id": 1,
-                    "url": "https://atmobeta.iplantc.org/api/v2/users/1",
-                    "username": "user",
-                    "first_name": "User",
-                    "last_name": "Name",
-                    "email": "user@iplantcollaborative.org",
-                    "is_staff": true,
-                    "is_superuser": true,
-                    "date_joined": "2013-05-21T21:12:09.158109Z"
-                },
-                "tags": [
-                    {
-                        "id": 3,
-                        "url": "https://atmobeta.iplantc.org/api/v2/tags/3",
-                        "name": "R",
-                        "description": ""
-                    },
-                    {
-                        "id": 22,
-                        "url": "https://atmobeta.iplantc.org/api/v2/tags/22",
-                        "name": "Python2.7",
-                        "description": ""
-                    },
-                    {
-                        "id": 283,
-                        "url": "https://atmobeta.iplantc.org/api/v2/tags/283",
-                        "name": "Featured",
-                        "description": "Featured applications receive priority ordering over non-featured applications"
-                    }
-                ],
-                "start_date": "2015-03-30T18:30:45.501948Z",
-                "end_date": null,
-                "provider_images": [
-                    {
-                        "id": 872,
-                        "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
-                        "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/872",
-                        "provider": {
-                            "id": 4,
-                            "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
-                            "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
-                            "name": "iPlant Cloud - Tucson",
-                            "description": "<No Description Provided>",
-                            "public": true,
-                            "active": true,
-                            "start_date": "2014-02-04T19:09:20.713175Z",
-                            "end_date": null
-                        },
-                        "start_date": "2015-03-30T18:30:45.678261Z",
-                        "end_date": null
-                    }
-                ]
-            }
+                  "id": 1,
+                  "url": "https://atmobeta.iplantc.org/api/v2/images/1",
+                  "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
+                  "name": "name",
+                  "description": "description",
+                  "icon": null,
+                  "created_by": {
+                      "id": 1,
+                      "url": "https://atmobeta.iplantc.org/api/v2/users/1",
+                      "username": "user",
+                      "first_name": "User",
+                      "last_name": "Name",
+                      "email": "user@iplantcollaborative.org",
+                      "is_staff": true,
+                      "is_superuser": true,
+                      "date_joined": "2013-05-21T21:12:09.158109Z"
+                  },
+                  "tags": [
+                      {
+                          "id": 3,
+                          "url": "https://atmobeta.iplantc.org/api/v2/tags/3",
+                          "name": "R",
+                          "description": ""
+                      },
+                      {
+                          "id": 22,
+                          "url": "https://atmobeta.iplantc.org/api/v2/tags/22",
+                          "name": "Python2.7",
+                          "description": ""
+                      },
+                      {
+                          "id": 283,
+                          "url": "https://atmobeta.iplantc.org/api/v2/tags/283",
+                          "name": "Featured",
+                          "description": "Featured applications receive priority ordering over non-featured applications"
+                      }
+                  ],
+                  "start_date": "2015-03-30T18:30:45.501948Z",
+                  "end_date": null,
+                  "provider_images": [
+                      {
+                          "id": 872,
+                          "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                          "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/872",
+                          "provider": {
+                              "id": 4,
+                              "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                              "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
+                              "name": "iPlant Cloud - Tucson",
+                              "description": "<No Description Provided>",
+                              "public": true,
+                              "active": true,
+                              "start_date": "2014-02-04T19:09:20.713175Z",
+                              "end_date": null
+                          },
+                          "start_date": "2015-03-30T18:30:45.678261Z",
+                          "end_date": null
+                      }
+                  ]
+              }
           ]
         }
 
