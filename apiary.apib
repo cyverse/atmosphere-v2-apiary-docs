@@ -2409,21 +2409,20 @@ Collection of all Provider Types.
 
     [Provider Type Collection][]
 
-# Group Quota Requests
+# Group Quota
 Quota requests are user requests for quota increases
 
-## Quota Request [/quota_requests/{id}]
-A single Quota Request object.
+## Quota [/quota/{id}]
+A single Quota object.
 
 Each quota request has the following properties:
 
 - **id**: the id of the request
-- **created_by**: the name of the user who submitted the request
-- **admin_message**: admin response to user request
-- **quota**: quota to be granted to user
-- **status**: current status of request
-- **request**: the text field for user requests
-- **description**: more thorough user description of request and reason
+- **cpu**: CPUs allotted to quota
+- **memory**: Memory allotted to quota
+- **storage**: Storage allotted to quota
+- **storage_count**: number of storage units allotted to quota
+- **suspended_count**: quota suspended count
 
 + Parameters
     + id (required, number, `1`) ... Number `id` of the quota request.
@@ -2434,34 +2433,34 @@ Each quota request has the following properties:
 
     + Body
 
-            {
-                "id": 1,
-                "created_by": "User",
-                "admin_message": "Approved",
-                "quota": "1000 CPU",
-                "status": "pending",
-                "request": "I want 10,000 CPUs",
-                "description": "Description of reason for request"
-            }
+        {
+            "id": 2,
+            "url": "https://atmobeta.iplantc.org/api/v2/quotas/2",
+            "cpu": 12,
+            "memory": 32,
+            "storage": 50,
+            "storage_count": 1,
+            "suspended_count": 2
+        }
 
-### Retrieve a quota request [GET]
+### Retrieve a quota [GET]
 + Response 200 (application/json)
 
-    [Quota Request][]
+    [Quota][]
 
-### Update a Quota Request [PUT]
+### Update a Quota [PATCH]
 + Request (application/json)
 
         {
-          "quota": 1
+          "storage": 50
         }
 
 + Response 200 (application/json)
 
-    [Quota Request][]
+    [Quota][]
 
-## Quota Request Collection [/quota_requests{?page,page_size}]
-Collection of all Quota Requests.
+## Quota Collection [/quotas{?page,page_size}]
+Collection of all Quotas.
 
 + Parameters
     + page (string, optional) ... Page of results
@@ -2469,129 +2468,40 @@ Collection of all Quota Requests.
 
 + Model (application/json)
 
-    JSON representation of Quota Request Collection Resource.
+    JSON representation of Quota Collection Resource.
 
     + Body
 
             {
-                "count": 10,
+                "count": 2,
                 "next": null,
                 "previous": null,
                 "results": [
                     {
-                        "id": 1,
-                        "created_by": "User",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "I want 10,000 CPUs",
-                        "description": "Description of reason for request"
-                    },
-                    {
                         "id": 2,
-                        "created_by": "Other_user",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "I want 10,000 CPUs",
-                        "description": "Description of reason for request"
+                        "url": "https://atmobeta.iplantc.org/api/v2/quotas/2",
+                        "cpu": 12,
+                        "memory": 32,
+                        "storage": 50,
+                        "storage_count": 1,
+                        "suspended_count": 2
                     },
                     {
                         "id": 3,
-                        "created_by": "Science_person",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "I want more everything",
-                        "description": "I like everything"
+                        "url": "https://atmobeta.iplantc.org/api/v2/quotas/3",
+                        "cpu": 8,
+                        "memory": 24,
+                        "storage": 50,
+                        "storage_count": 1,
+                        "suspended_count": 2
                     },
-                    {
-                        "id": 4,
-                        "created_by": "Tornado_Tom",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "Stuff",
-                        "description": "Purposes"
-                    },
-                    {
-                        "id": 5,
-                        "created_by": "Ragin_Ricardo",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "Stuff",
-                        "description": "Purposes"
-                    },
-                    {
-                        "id": 6,
-                        "created_by": "Salad_Sally",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "Default",
-                        "request": "Stuff",
-                        "description": "Purposes"
-                    },
-                    {
-                        "id": 7,
-                        "created_by": "Zippy_Zardansen",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "Stuff",
-                        "description": "Purposes"
-                    },
-                    {
-                        "id": 8,
-                        "created_by": "Flippin_Fernanda",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "Stuff",
-                        "description": "Purposes"
-                    },
-                    {
-                        "id": 9,
-                        "created_by": "Chargin_Charlie",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "Stuff",
-                        "description": "Purposes"
-                    },
-                    {
-                        "id": 10,
-                        "created_by": "Dancin_Dana",
-                        "admin_message": "Default",
-                        "quota": null,
-                        "status": "pending",
-                        "request": "Stuff",
-                        "description": "Purposes"
-                    }
                 ]
             }
 
-### List all Quota Requests [GET]
+### List all Quotas [GET]
 + Response 200 (application/json)
 
-    [Quota Request Collection][]
-
-### Create a Quota Request [POST]
-Create a Quota Request.  You must specify the following properties:
-
-- **name**: a name for the tag
-- **description**: a description of the tag
-
-+ Request (application/json)
-
-        {
-            "name": "Tag name",
-            "description": "A description of the tag."
-        }
-
-+ Response 201 (application/json)
-
-    [Quota Request][]
+    [Quota Collection][]
 
 # Group Sizes -done-
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
