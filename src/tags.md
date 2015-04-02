@@ -97,3 +97,16 @@ Create a Tag.  You must specify the following properties:
 + Response 201 (application/json)
 
     [Tag][]
+
+### Update a Tag [PATCH]
+Update a tag.
+
++ Request (application/json)
+
+        {
+            description: "new description of tag"
+        }
+
++ Response 201 (application/json)
+
+    [Tag][]
