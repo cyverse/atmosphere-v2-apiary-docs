@@ -1201,15 +1201,24 @@ Each Project Instance has the following properties
               "end_date": null
         }
 
+### Retrieve a single Project Instance [GET]
 
-### List all project instances [GET]
++ Response 200 (application/json)
+
+    [Project Instance][]
+
+## Project Instance Collection [/project_instances{?page,page_size}]
 
 + Parameters
-    + project__id (number, optional) ... id of the specific project.
+    + page (string, optional) ... Page of results
+    + page_size (string, optional) ... Number of results
 
-+ Response 200(application/json)
++ Model (application/json)
 
-     + Body
+    JSON representation of the Project Instances Collection.
+
+    + Body
+
         {
             "count": 1,
             "next": null,
@@ -1294,6 +1303,13 @@ Each Project Instance has the following properties
                 }
             ]
         }
+
+### List all project instances [GET]
+
++ Response 200(application/json)
+
+    [Project Instance Collection][]
+
 
 ### Add Instance to Project [POST]
 Add instance to project. You must specify the following properties:
