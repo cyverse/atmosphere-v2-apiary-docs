@@ -109,7 +109,7 @@ Each Project Instance has the following properties
     [Project Instance][]
 
 
-## Single Project Instances[/project_instances{?project__id}]
+## Single Project Instance Collection [/project_instances{?project__id}]
 Get instances of a single project
 
 + Parameters
@@ -283,7 +283,7 @@ Get instances of a single project
 ### Get instances [GET]
 
   + Response 200 (application/json)
-    [Single Project Instances][]
+    [Single Project Instance Collection][]
 
 ## Project Instance Collection [/project_instances{?page,page_size}]
 
