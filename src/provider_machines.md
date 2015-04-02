@@ -60,7 +60,7 @@ Each Provider Machine has the following properties:
             "end_date": null
         }
 
-### Retrieve an Allocation [GET]
+### Retrieve a Provider Machine [GET]
 + Response 200 (application/json)
 
     [Provider Machine][]
