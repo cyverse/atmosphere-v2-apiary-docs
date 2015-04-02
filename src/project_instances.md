@@ -101,6 +101,21 @@ Each Project Instance has the following properties
 
     [Project Instance][]
 
+### Remove Instance from Project [DELETE]
+
+  + Response 204 (application/json)
+
+    [Project Instance][]
+
+
+## Single Project Instances[/project_instances{?project__id}]
+Get instances in a single project.
+
+### Get instances [GET]
+
+  + Response 200 (application/json)
+  [Project Instance][]
+
 ## Project Instance Collection [/project_instances{?page,page_size}]
 
 + Parameters
@@ -221,10 +236,3 @@ Add instance to project. You must specify the following properties:
 + Response 200 (application/json)
 
     [Instance][]
-
-### Remove Instance from Project [DELETE]
-+ Response 204 (application/json)
-
-
-## Single Project Instances[/project_instances{?project__id}]
-Get instances in a single project.

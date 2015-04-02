@@ -1207,6 +1207,21 @@ Each Project Instance has the following properties
 
     [Project Instance][]
 
+### Remove Instance from Project [DELETE]
+
+  + Response 204 (application/json)
+
+    [Project Instance][]
+
+
+## Single Project Instances[/project_instances{?project__id}]
+Get instances in a single project.
+
+### Get instances [GET]
+
+  + Response 200 (application/json)
+  [Project Instance][]
+
 ## Project Instance Collection [/project_instances{?page,page_size}]
 
 + Parameters
@@ -1328,14 +1343,7 @@ Add instance to project. You must specify the following properties:
 
     [Instance][]
 
-### Remove Instance from Project [DELETE]
-+ Response 204 (application/json)
-
-
-## Single Project Instances[/project_instances{?project__id}]
-Get instances in a single project.
-
-
+# Group Project Volumes
 
 ## Project Volumes [/projects/{id}/volumes]
 The Volumes in the Project.
@@ -1368,6 +1376,7 @@ Add volume to project. You must specify the following properties:
 
 ### Remove Volume from Project [DELETE]
 + Response 204 (application/json)
+
 # Group Providers
 Providers represent the different cloud providers managed by Atmosphere.
 
