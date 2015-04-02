@@ -9,7 +9,7 @@ The Volumes in the Project.
 ### Retrieve a Project's Volumes [GET]
 + Response 200 (application/json)
 
-    [Volume Collection][]
+    [Project Volume Collection][]
 
 
 ### Add Volume to Project [POST]
@@ -57,7 +57,7 @@ Add volume to project. You must specify the following properties:
                     "start_date": "2015-03-17T01:50:51.966674Z",
                     "end_date": null
                 },
-                "volume": {
+                "instance": {
                     "id": 1,
                     "uuid": "c2b139c4-d8a6-11e4-b9d6-1681e6b88ec1",
                     "url": "https://atmobeta.iplantc.org/api/v2/instances/1",
@@ -127,8 +127,4 @@ Add volume to project. You must specify the following properties:
 
 
 ### List all project volumes [GET]
-
-+ Response 200(application/json)
-
-    [Project Volume Collection][]
 
