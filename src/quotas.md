@@ -1,5 +1,5 @@
 # Group Quota -done?-
-Quotas are available resource allocations on Atmospere
+Quotas are available resource allocations on Atmosphere
 
 ## Quota [/quota/{id}]
 A single Quota object.
