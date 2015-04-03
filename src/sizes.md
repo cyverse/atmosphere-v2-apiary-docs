@@ -5,7 +5,6 @@ Sizes represent the different instance configurations offered by that cloud prov
 ## Size Collection [/sizes{?provider__id}]
     
 ### List all Sizes [GET]
-For a combination of provider and identity.
 
 + Parameters
     + provider__id (number, optional) ... `id` of the Provider.
