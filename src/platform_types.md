@@ -1,3 +1,5 @@
+# Group Platform Types
+
 ## Platform Type [/platform_types/{id}]
 A single Platform Type object.
 
