@@ -107,6 +107,13 @@ Each Instance has the following properties:
 
 ### Update an Instance [PATCH]
 
++ Request
+
+    + Body
+        {
+        description: "new description"
+        }
+
 + Response 200 (application/json)
 
     [Instance][]
