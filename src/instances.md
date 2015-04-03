@@ -1,5 +1,5 @@
-# Group Instances
-Instances are virtual machines that users have created from an image (application).  When a user creates an instance
+# Group Instances -done-
+Instances are virtual machines that users have created from an image.  When a user creates an instance
  it immediately starts deducting AU's from their account.
 
 ## Instance [/instances/{id}]
@@ -20,12 +20,11 @@ Each Instance has the following properties:
 - **user**: username for the person who created the instance
 - **provider**: the provider the instance is on
 - **image**: The specific version of an image the instance was created from
-- **projects**: id of projects the instance is a part of
 - **start_date**: date the instance was created
 - **end_date**: end date of instance
 
 + Parameters
-    + id (required, '1') ... integer id of the Instance.
+    + id (required, number) ... 'id' of the Instance.
     
 + Model (application/json)
 
@@ -36,65 +35,29 @@ Each Instance has the following properties:
         {
             "id": 1,
             "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
-            "url": "https://atmobeta.iplantc.org/api/v2/instances/1",
             "name": "Ubuntu 12.04.5 - iPlant Base",
             "status": "suspended",
             "size": {
-                "id": 23,
-                "url": "https://atmobeta.iplantc.org/api/v2/sizes/23",
-                "alias": "1",
-                "name": "tiny1",
-                "cpu": 1,
-                "disk": 0,
-                "mem": 4096,
-                "active": true,
-                "start_date": "2014-02-04T19:09:07.655411Z",
-                "end_date": null
+                "id": 23
             },
             "ip_address": "0.0.0.0",
             "shell": true,
             "vnc": true,
             "identity": {
                 "id": 6512,
-                "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
-                "url": "https://atmobeta.iplantc.org/api/v2/identities/6512",
-                "provider": 4
+                "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5"
             },
             "user": {
-                "id": 3178,
-                "url": "https://atmobeta.iplantc.org/api/v2/users/3178",
-                "username": "user",
-                "first_name": "User",
-                "last_name": "Name",
-                "email": "user@iplantcollaborative.org",
-                "is_staff": true,
-                "is_superuser": true,
-                "date_joined": "2015-02-11T22:37:24Z"
+                "id": 3178
             },
             "provider": {
                 "id": 4,
-                "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
-                "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
-                "name": "iPlant Cloud - Tucson",
-                "description": "<No Description Provided>",
-                "public": true,
-                "active": true,
-                "start_date": "2014-02-04T19:09:20.713175Z",
-                "end_date": null
+                "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5"
             },
             "image": {
                 "id": 868,
-                "url": "https://atmobeta.iplantc.org/api/v2/images/868",
-                "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
-                "name": "functional genomics_v1.0",
-                "description": "For practice bioinfomatics data tools",
-                "icon": null,
-                "start_date": "2014-09-05T18:08:12Z",
-                "end_date": null
+                "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5"
             },
-            "projects": [
-                3076
-            ],
             "start_date": "2015-02-16T19:24:26Z",
             "end_date": null
         }
@@ -110,15 +73,10 @@ Each Instance has the following properties:
 + Request
 
     + Body
+    
         {
-        description: "new description"
+            "description": "new description"
         }
-
-+ Response 200 (application/json)
-
-    [Instance][]
-
-### Terminate an Instance [DELETE]
 
 + Response 200 (application/json)
 
@@ -133,106 +91,47 @@ Collection of all Instances
     JSON representation of Instances Collection Resource.
 
     + Body
-
-            {
-                "count": 1,
-                "next": null,
-                "previous": null,
-                "results": [
-                   {
-                      "id": 1,
-                      "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
-                      "url": "https://atmobeta.iplantc.org/api/v2/instances/1",
-                      "name": "Ubuntu 12.04.5 - iPlant Base",
-                      "status": "suspended",
-                      "size": {
-                          "id": 23,
-                          "url": "https://atmobeta.iplantc.org/api/v2/sizes/23",
-                          "alias": "1",
-                          "name": "tiny1",
-                          "cpu": 1,
-                          "disk": 0,
-                          "mem": 4096,
-                          "active": true,
-                          "start_date": "2014-02-04T19:09:07.655411Z",
-                          "end_date": null
-                      },
-                      "ip_address": "0.0.0.0",
-                      "shell": true,
-                      "vnc": true,
-                      "identity": {
-                          "id": 6512,
-                          "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
-                          "url": "https://atmobeta.iplantc.org/api/v2/identities/6512",
-                          "provider": 4
-                      },
-                      "user": {
-                          "id": 3178,
-                          "url": "https://atmobeta.iplantc.org/api/v2/users/3178",
-                          "username": "user",
-                          "first_name": "User",
-                          "last_name": "Name",
-                          "email": "user@iplantcollaborative.org",
-                          "is_staff": true,
-                          "is_superuser": true,
-                          "date_joined": "2015-02-11T22:37:24Z"
-                      },
-                      "provider": {
-                          "id": 4,
-                          "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
-                          "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
-                          "name": "iPlant Cloud - Tucson",
-                          "description": "<No Description Provided>",
-                          "public": true,
-                          "active": true,
-                          "start_date": "2014-02-04T19:09:20.713175Z",
-                          "end_date": null
-                      },
-                      "image": {
-                          "id": 868,
-                          "url": "https://atmobeta.iplantc.org/api/v2/images/868",
-                          "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
-                          "name": "functional genomics_v1.0",
-                          "description": "For practice bioinfomatics data tools",
-                          "icon": null,
-                          "start_date": "2014-09-05T18:08:12Z",
-                          "end_date": null
-                      },
-                      "projects": [
-                          3076
-                      ],
-                      "start_date": "2015-02-16T19:24:26Z",
-                      "end_date": null
-                   }
-                ]
-            }
+    
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 1,
+                    "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                    "name": "Ubuntu 12.04.5 - iPlant Base",
+                    "status": "suspended",
+                    "size": {
+                        "id": 23
+                    },
+                    "ip_address": "0.0.0.0",
+                    "shell": true,
+                    "vnc": true,
+                    "identity": {
+                        "id": 6512,
+                        "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5"
+                    },
+                    "user": {
+                        "id": 3178
+                    },
+                    "provider": {
+                        "id": 4,
+                        "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5"
+                    },
+                    "image": {
+                        "id": 868,
+                        "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5"
+                    },
+                    "start_date": "2015-02-16T19:24:26Z",
+                    "end_date": null  
+                }
+            ]
+        }
     
 ### List all Instances [GET]
-Get a list of your instances created under the specific provider/identity.
+Get a list of your instances.
 
 + Response 200 (application/json)
 
     [Instance Collection][]
-        
-### Launch an Instance [POST]
-Launch an instance of an image.  You must specify the following properties:
-
-- **name**: the name of your instance
-- **image_version_id**: the id of the image version version you want to launch
-- **size_id**: the id of the size of the virtual machine you need
-- **provider_id**: id of the provider that you want the instance launched on
-- **identity_id**: id of the identity you want to use to launch the instance
-
-+ Request (application/json)
-
-        { 
-            "name": "Instance Name",
-            "image_version_id": "237f983e-f80d-11e3-8ef5-b2227cce2b54"
-            "size_id": 1,
-            "provider_id": 1
-            "identity_id": 1
-        }
-
-+ Response 201 (application/json)
-
-    [Instance][]
