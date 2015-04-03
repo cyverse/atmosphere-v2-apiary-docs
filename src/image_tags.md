@@ -12,7 +12,7 @@ Each Image Tag has the following properties:
 
 
 + Parameters
-    + id (required, number, '1') ... Number `id` of the Provider.
+    + id (required, number, '1') ... Number `id` of the image tag.
 
 + Model(application/json)
 
