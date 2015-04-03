@@ -1,4 +1,4 @@
-# Group Allocation -done?-
+# Group Allocation -done-
 Allocations represent Atmosphere AU values.
 
 ## Allocation [/allocations/{id}]
@@ -8,11 +8,10 @@ Each Allocation has the following properties:
 
 - **id**: unique id for the provider
 - **threshold**: amount of CPU minutes allocated
-- **delta**: a description of the provider
-
+- **delta**: estimated number of minutes before allocation runs out
 
 + Parameters
-    + id (required, number, '1') ... Number `id` of the Provider.
+    + id (required, number) ... `id` of the Allocation.
 
 + Model(application/json)
 
@@ -34,10 +33,6 @@ Each Allocation has the following properties:
 
 ## Allocation Collection [/allocations]
 Collection of all Providers.
-
-+ Parameters
-    + page (string, optional) ... Page of results
-    + page_size (string, optional) ... Number of results
 
 + Model (application/json)
 
