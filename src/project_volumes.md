@@ -166,23 +166,6 @@ Collection of all project volume relationships
 
   [Project Volume Collection][]
 
-### Add Volume to Project [POST]
-Add volume to project. You must specify the following properties:
-
- - **project**: project id
- - **volume**: volume id
-
- + Request (application/json)
-
-        {
-          "project": 1,
-          "volume": 1
-        }
-
-+ Response 200 (application/json)
-
-    [Project Volume][]
-
 
 ## Single Project Volume Collection [/project_volumes{?project__id}]
 Get volumes of a single project
@@ -261,3 +244,19 @@ JSON Representation of Single Project Volume collection
 
     [Single Project Volume Collection][]
 
+### Add Volume to Project [POST]
+Add volume to project. You must specify the following properties:
+
+ - **project**: project id
+ - **volume**: volume id
+
+ + Request (application/json)
+
+        {
+          "project": 1,
+          "volume": 1
+        }
+
++ Response 200 (application/json)
+
+    [Single Project Volume Collection][]
