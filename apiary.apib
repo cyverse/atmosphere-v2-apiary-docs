@@ -3069,6 +3069,12 @@ Each Tag has the following properties:
 
     [Tag][]
 
+
+### Delete a Tag [DELETE]
+
++ Response 200 (application/json)
+
+
 ## Tag Collection [/tag{?page,page_size}]
 Collection of all Tags.
 
@@ -3295,6 +3301,13 @@ Each Volume has the following properties:
 + Response 200 (application/json)
 
     [Volume][]
+
+### Update a Volume [PATCH]
++ Request
+    + Body
+        {
+        name: "new name"
+        }
     
 ### Destroy a Volume [DELETE]
 Destroy a volume.

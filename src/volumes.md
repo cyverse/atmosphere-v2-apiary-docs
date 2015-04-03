@@ -70,6 +70,13 @@ Each Volume has the following properties:
 + Response 200 (application/json)
 
     [Volume][]
+
+### Update a Volume [PATCH]
++ Request
+    + Body
+        {
+        name: "new name"
+        }
     
 ### Destroy a Volume [DELETE]
 Destroy a volume.
