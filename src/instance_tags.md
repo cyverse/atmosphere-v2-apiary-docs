@@ -1,18 +1,18 @@
-# Group Instance Tag
+# Group Instance Tag -done-
 An instance tag is a link between an image and a tag
 
 ## Instance Tag [/instance_tags/{id}]
-A single Image Tag object.
+A single Instance Tag object.
 
-Each Image Tag has the following properties:
+Each Instance Tag has the following properties:
 
 - **id**: id for the instance tag
-- **image**: id of instance with tag attached
-- **tag**: id of tag attached to image
+- **instance**: instance tagged
+- **tag**: tag applied to the instance
 
 
 + Parameters
-    + id (required, number, '1') ... Number `id` of the Provider.
+    + id (required, number) ... `id` of the Instance Tag.
 
 + Model(application/json)
 
@@ -22,7 +22,7 @@ Each Image Tag has the following properties:
 
             {
                 "id": 1,
-                "image":{
+                "instance":{
                     "id": 1
                 },
                 "tag":{
@@ -39,12 +39,8 @@ Each Image Tag has the following properties:
 ### Delete an Instance Tag [DELETE]
 + Response 200 (application/json)
 
-## Instance Tag Collection [/instance_tags]
+## Instance Tag Collection [/instance_tags{?instance__id}]
 Collection of all Instance Tags.
-
-+ Parameters
-    + page (string, optional) ... Page of results
-    + page_size (string, optional) ... Number of results
 
 + Model (application/json)
 
@@ -52,31 +48,40 @@ Collection of all Instance Tags.
 
     + Body
 
-            "count": 2,
+            "count": 1,
             "next": null,
             "previous": null,
             "results": [
                 {
                     "id": 1,
-                    "image":{
+                    "instance":{
                         "id": 1
                     },
                     "tag":{
                         "id": 1
-                    }
-                },
-                {
-                    "id": 2,
-                    "image":{
-                        "id": 2
-                    },
-                    "tag":{
-                        "id": 2
                     }
                 }
             ]
 
 ### List all Instance Tags [GET]
+
+
++ Parameters
+    + instance__id (number, optional) ... `id` of the Instance.
+
 + Response 200 (application/json)
 
     [Instance Tag Collection][]
+
+### Create an Instance Tag [POST]
+
++ Request (application/json)
+
+        {
+            "instance": 1,
+            "tag": 1
+        }
+
++ Response 201 (application/json)
+
+    [Instance Tag][]
