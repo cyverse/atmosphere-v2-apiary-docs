@@ -1,5 +1,5 @@
-# Group Quota -done-
-Quota requests are user requests for quota increases
+# Group Quota -done?-
+Quotas are available resource allocations on Atmospere
 
 ## Quota [/quota/{id}]
 A single Quota object.

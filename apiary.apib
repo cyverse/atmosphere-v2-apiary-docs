@@ -33,7 +33,7 @@ Except where explicitly stated (images, tags) all endpoints require authorizatio
 
     Authorization: TOKEN [access_token]
 
-# Group Allocation -done-
+# Group Allocation -done?-
 Allocations represent Atmosphere AU values.
 
 ## Allocation [/allocations/{id}]
@@ -102,7 +102,7 @@ Collection of all Providers.
 
     [Allocation Collection][]
 
-# Group Identities -done-
+# Group Identities -done?-
 Identities are like user account information. A user has at least one identity per provider, and each identity
  contains information about how many resources can be consumed on that provider.  If a user has multiple identities
  under a single provider, it means they can allocate more resources by using a different identity.
@@ -1003,7 +1003,7 @@ Collection of all Platform Types.
 
     [Platform Type Collection][]
 
-# Group Projects -done-
+# Group Projects -done?-
 Projects are a way for users to group related resources.  Right now users can add Instances and Volumes to a group, but
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
@@ -1937,7 +1937,7 @@ Add volume to project. You must specify the following properties:
 + Response 200 (application/json)
 
     [Single Project Volume Collection][]
-# Group Providers -done-
+# Group Providers -done?-
 Providers represent the different cloud providers managed by Atmosphere.
 
 ## Provider [/providers/{id}]
@@ -2600,7 +2600,7 @@ Collection of all Providers.
 
     [Provider Collection][]
 
-# Group Provider Machines -done-
+# Group Provider Machines -done?-
 ## Provider Machine [/provider_machines/{id}]
 A single Provider Machine object.
 
@@ -2794,8 +2794,8 @@ Collection of all Provider Types.
 
     [Provider Type Collection][]
 
-# Group Quota -done-
-Quota requests are user requests for quota increases
+# Group Quota -done?-
+Quotas are available resource allocations on Atmospere
 
 ## Quota [/quota/{id}]
 A single Quota object.
@@ -2953,7 +2953,7 @@ A single Size object with all its details.
                 "end_date": null
             }
 
-# Group Tags -done-
+# Group Tags -done?-
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
 ## Tag [/tag/{id}]
@@ -3065,7 +3065,7 @@ Create a Tag.  You must specify the following properties:
 
     [Tag][]
 
-# Group Users -done-
+# Group Users -done?-
 
 ## User [/users/{id}]
 A single User object.
@@ -3151,7 +3151,7 @@ Collection of all Users
 
     [User Collection][]
 
-# Group Volumes -done-
+# Group Volumes -done?-
 Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
  different instance.
 
