@@ -1,5 +1,5 @@
-# Image Bookmarks
-Image Bookmarks go here
+# Group Image Bookmarks
+Image Bookmarks
 
 ## Image Bookmark [/image_bookmarks/{id}]
 A single Image Bookmark object.
