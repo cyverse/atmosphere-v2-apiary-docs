@@ -36,6 +36,9 @@ Each Image Tag has the following properties:
 
     [Instance Tag][]
 
+### Delete an Instance Tag [DELETE]
++ Response 200 (application/json)
+
 ## Instance Tag Collection [/instance_tags]
 Collection of all Instance Tags.
 
