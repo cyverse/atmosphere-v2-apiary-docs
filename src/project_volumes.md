@@ -1,16 +1,170 @@
 # Group Project Volumes
 
-## Project Volumes [/projects/{id}/volumes]
-The Volumes in the Project.
+## Project Volume [/project_volumes/{id}]
+A single Project Volume object
+
+Each Project Volume has the following properties:
+- **id**: id of project volume relationship
+- **project**: project with volume attached
+- **volume**: volume attached to project
 
 + Parameters
-    + id (required, number, '1') ... Number `id` of the Project.
+    + id (number, required) ... integer id of the project volume relationship
 
-### Retrieve a Project's Volumes [GET]
++ Model (application/json)
+
+    JSON representation of Project Volume resource
+
+    + Body
+
+        {
+            "id": 1,
+            "url": "https://atmobeta.iplantc.org/api/v2/project_volumes/1",
+            "project": {
+                "id": 1,
+                "url": "https://atmobeta.iplantc.org/api/v2/projects/1",
+                "name": "name",
+                "description": "description",
+                "owner": "user",
+                "start_date": "2015-03-17T01:50:51.966674Z",
+                "end_date": null
+            },
+            "volume": {
+                "id": 1,
+                "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                "url": "https://atmobeta.iplantc.org/api/v2/volumes/1",
+                "name": "name",
+                "size": 4,
+                "user": {
+                    "id": 3178,
+                    "url": "https://atmobeta.iplantc.org/api/v2/users/3178",
+                    "username": "user",
+                    "first_name": "User",
+                    "last_name": "Name",
+                    "email": "user@iplantcollaborative.org",
+                    "is_staff": true,
+                    "is_superuser": true,
+                    "date_joined": "2015-02-11T22:37:24Z"
+                },
+                "provider": {
+                    "id": 4,
+                    "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                    "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
+                    "name": "iPlant Cloud - Tucson",
+                    "description": "<No Description Provided>",
+                    "public": true,
+                    "active": true,
+                    "start_date": "2014-02-04T19:09:20.713175Z",
+                    "end_date": null
+                },
+                "identity": {
+                    "id": 1,
+                    "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                    "url": "https://atmobeta.iplantc.org/api/v2/identities/1",
+                    "provider": 4
+                },
+                "projects": [
+                    1
+                ],
+                "start_date": "2015-02-16T19:53:36.190034Z",
+                "end_date": null
+            }
+        }
+
+### Retrieve a Project Volume resource [GET]
+Get a specific Project Volume
+
 + Response 200 (application/json)
+    [Project Volume][]
 
-    [Project Volume Collection][]
+### Update a Project Volume [PATCH]
+Update a Project Volume
 
++ Response 204 (application/json)
+    [Project Volume][]
+
+### Delete a Project Volume [DELETE]
+Remove a volume from a project
+
++ Response 204 (application/json)
+
+
+
+## Project Volume Collection [/project_volumes]
+Collection of all project volume relationships
+
++ Model (application/json)
+    JSON representation of Project Volume collection
+
+    + Body
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 1,
+                    "url": "https://atmobeta.iplantc.org/api/v2/project_volumes/1",
+                    "project": {
+                        "id": 1,
+                        "url": "https://atmobeta.iplantc.org/api/v2/projects/1",
+                        "name": "name",
+                        "description": "description",
+                        "owner": "user",
+                        "start_date": "2015-03-17T01:50:51.966674Z",
+                        "end_date": null
+                    },
+                    "volume": {
+                        "id": 1,
+                        "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                        "url": "https://atmobeta.iplantc.org/api/v2/volumes/1",
+                        "name": "name",
+                        "size": 4,
+                        "user": {
+                            "id": 3178,
+                            "url": "https://atmobeta.iplantc.org/api/v2/users/3178",
+                            "username": "user",
+                            "first_name": "User",
+                            "last_name": "Name",
+                            "email": "user@iplantcollaborative.org",
+                            "is_staff": true,
+                            "is_superuser": true,
+                            "date_joined": "2015-02-11T22:37:24Z"
+                        },
+                        "provider": {
+                            "id": 4,
+                            "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                            "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
+                            "name": "iPlant Cloud - Tucson",
+                            "description": "<No Description Provided>",
+                            "public": true,
+                            "active": true,
+                            "start_date": "2014-02-04T19:09:20.713175Z",
+                            "end_date": null
+                        },
+                        "identity": {
+                            "id": 1,
+                            "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                            "url": "https://atmobeta.iplantc.org/api/v2/identities/1",
+                            "provider": 4
+                        },
+                        "projects": [
+                            1
+                        ],
+                        "start_date": "2015-02-16T19:53:36.190034Z",
+                        "end_date": null
+                    }
+                }
+            ]
+        }
+
+
+
+### Get all project volumes [GET]
+
++ Response 200(application/json)
+
+  [Project Volume Collection][]
 
 ### Add Volume to Project [POST]
 Add volume to project. You must specify the following properties:
@@ -27,104 +181,83 @@ Add volume to project. You must specify the following properties:
 
 + Response 200 (application/json)
 
-    [Volume][]
+    [Project Volume][]
 
-### Remove Volume from Project [DELETE]
-+ Response 204 (application/json)
 
-## Project Volume Collection [/project_volumes]
+## Single Project Volume Collection [/project_volumes{?project__id}]
+Get volumes of a single project
+
++ Parameters
+    +project__id (number, optional) ... id of the Project
 
 + Model (application/json)
+JSON Representation of Single Project Volume collection
 
-    JSON representation of the Project Volume Collection.
-
-    + Body
-
-        {
+      + Body
+          {
             "count": 1,
             "next": null,
             "previous": null,
             "results": [
                 {
-                "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/project_volumes/1",
-                "project": {
                     "id": 1,
-                    "url": "https://atmobeta.iplantc.org/api/v2/projects/1",
-                    "name": "project",
-                    "description": "description",
-                    "owner": "user",
-                    "start_date": "2015-03-17T01:50:51.966674Z",
-                    "end_date": null
-                },
-                "instance": {
-                    "id": 1,
-                    "uuid": "c2b139c4-d8a6-11e4-b9d6-1681e6b88ec1",
-                    "url": "https://atmobeta.iplantc.org/api/v2/instances/1",
-                    "name": "instance",
-                    "status": "suspended",
-                    "size": {
-                        "id": 23,
-                        "url": "https://atmobeta.iplantc.org/api/v2/sizes/23",
-                        "alias": "1",
-                        "name": "tiny1",
-                        "cpu": 1,
-                        "disk": 0,
-                        "mem": 4096,
-                        "active": true,
-                        "start_date": "2014-02-04T19:09:07.655411Z",
-                        "end_date": null
-                    },
-                    "ip_address": "0.0.0.0",
-                    "shell": false,
-                    "vnc": false,
-                    "identity": {
+                    "url": "https://atmobeta.iplantc.org/api/v2/project_volumes/1",
+                    "project": {
                         "id": 1,
-                        "uuid": "c2b139c4-d8a6-11e4-b9d6-1681e6b88ec1",
-                        "url": "https://atmobeta.iplantc.org/api/v2/identities/1",
-                        "provider": 4
+                        "url": "https://atmobeta.iplantc.org/api/v2/projects/1",
+                        "name": "name",
+                        "description": "description",
+                        "owner": "user",
+                        "start_date": "2015-03-17T01:50:51.966674Z",
+                        "end_date": null
                     },
-                    "user": {
+                    "volume": {
                         "id": 1,
-                        "url": "https://atmobeta.iplantc.org/api/v2/users/1",
-                        "username": "user",
-                        "first_name": "User",
-                        "last_name": "User",
-                        "email": "user@useremail.com",
-                        "is_staff": true,
-                        "is_superuser": true,
-                        "date_joined": "2015-02-11T22:37:24Z"
-                    },
-                    "provider": {
-                        "id": 4,
-                        "uuid": "c2b139c4-d8a6-11e4-b9d6-1681e6b88ec1",
-                        "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
-                        "name": "iPlant Cloud - Tucson",
-                        "description": "<No Description Provided>",
-                        "public": true,
-                        "active": true,
-                        "start_date": "2014-02-04T19:09:20.713175Z",
+                        "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                        "url": "https://atmobeta.iplantc.org/api/v2/volumes/1",
+                        "name": "name",
+                        "size": 4,
+                        "user": {
+                            "id": 3178,
+                            "url": "https://atmobeta.iplantc.org/api/v2/users/3178",
+                            "username": "user",
+                            "first_name": "User",
+                            "last_name": "Name",
+                            "email": "user@iplantcollaborative.org",
+                            "is_staff": true,
+                            "is_superuser": true,
+                            "date_joined": "2015-02-11T22:37:24Z"
+                        },
+                        "provider": {
+                            "id": 4,
+                            "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                            "url": "https://atmobeta.iplantc.org/api/v2/providers/4",
+                            "name": "iPlant Cloud - Tucson",
+                            "description": "<No Description Provided>",
+                            "public": true,
+                            "active": true,
+                            "start_date": "2014-02-04T19:09:20.713175Z",
+                            "end_date": null
+                        },
+                        "identity": {
+                            "id": 1,
+                            "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                            "url": "https://atmobeta.iplantc.org/api/v2/identities/1",
+                            "provider": 4
+                        },
+                        "projects": [
+                            1
+                        ],
+                        "start_date": "2015-02-16T19:53:36.190034Z",
                         "end_date": null
-                    },
-                    "image": {
-                        "id": 868,
-                        "url": "https://atmobeta.iplantc.org/api/v2/images/868",
-                        "uuid": "c2b139c4-d8a6-11e4-b9d6-1681e6b88ec1",
-                        "name": "functional genomics_v1.0",
-                        "description": "For practice bioinfomatics data tools",
-                        "icon": null,
-                        "start_date": "2014-09-05T18:08:12Z",
-                        "end_date": null
-                    },
-                    "projects": [
-                        1
-                    ],
-                    "start_date": "2015-03-03T19:08:06Z",
-                    "end_date": null
+                    }
                 }
             ]
         }
 
 
-### List all project volumes [GET]
+### Retrieve a Single Project's Volumes [GET]
++ Response 200 (application/json)
+
+    [Single Project Volume Collection][]
 
