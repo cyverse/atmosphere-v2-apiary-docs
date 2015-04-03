@@ -410,7 +410,7 @@ You must specify the following properties. The user will be set to you.
 
     [Image Bookmark][]
 
-# Group Image Tags
+# Group Image Tags -done-
 An image tag is a link between an image and a tag
 
 ## Image Tag [/image_tags/{id}]
@@ -419,38 +419,25 @@ A single Image Tag object.
 Each Image Tag has the following properties:
 
 - **id**: id for the image tag
-- **image**: image with tag attached
+- **image**: image that is tagged
 - **tag**: tag attached to image
 
 
 + Parameters
-    + id (required, number, '1') ... Number `id` of the image tag.
+    + id (required, number) ... `id` of the Image Tag.
 
 + Model(application/json)
-
-    JSON representation of Provider Resource
 
     + Body
 
         {
             "id": 1,
-            "url": "https://atmobeta.iplantc.org/api/v2/image_tags/1",
             "image": {
                 "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/images/1",
-                "uuid": "f85e84e6-0851-57a5-a2dc-fb702e5a66a4",
-                "name": "name",
-                "description": "description",
-                "icon": "https://atmobeta.iplantc.org/resources/machine_images/bsa.png",
-                "start_date": "2011-11-04T16:05:09Z",
-                "end_date": null
+                "uuid": "f85e84e6-0851-57a5-a2dc-fb702e5a66a4"
             },
             "tag": {
-                "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/tags/1",
-                "name": "tag",
-                "description": "description",
-                "user": null
+                "id": 1
             }
         }
 
@@ -460,20 +447,14 @@ Each Image Tag has the following properties:
 
     [Image Tag][]
 
-### Update an Image Tag [PATCH]
-+ Response 204 (application/json)
-
-     [Image Tag][]
-
 ### Delete an Image Tag [DELETE]
 + Response 204 (application/json)
 
-## Image Tag Collection [/image_tags]
+## Image Tag Collection [/image_tags{?application__id}]
 Collection of all Image Tags.
 
 + Parameters
-    + page (string, optional) ... Page of results
-    + page_size (string, optional) ... Number of results
+    + application__id (number, optional) ... return Image Tags belong to the Image with this 'id'
 
 + Model (application/json)
 
@@ -487,23 +468,12 @@ Collection of all Image Tags.
         "results": [
             {
                 "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/image_tags/1",
                 "image": {
                     "id": 1,
-                    "url": "https://atmobeta.iplantc.org/api/v2/images/1",
-                    "uuid": "f85e84e6-0851-57a5-a2dc-fb702e5a66a4",
-                    "name": "name",
-                    "description": "description",
-                    "icon": "https://atmobeta.iplantc.org/resources/machine_images/bsa.png",
-                    "start_date": "2011-11-04T16:05:09Z",
-                    "end_date": null
+                    "uuid": "f85e84e6-0851-57a5-a2dc-fb702e5a66a4"
                 },
                 "tag": {
-                    "id": 1,
-                    "url": "https://atmobeta.iplantc.org/api/v2/tags/1",
-                    "name": "tag",
-                    "description": "description",
-                    "user": null
+                    "id": 1
                 }
             }
         ]
@@ -514,7 +484,14 @@ Collection of all Image Tags.
     [Image Tag Collection][]
 
 ### Create an Image Tag [POST]
- + Response 200 (application/json)
++ Request (application/json)
+
+    {
+        "image": 1,
+        "tag": 1
+    }
+        
++ Response 200 (application/json)
 
     [Image Tag][]
 
