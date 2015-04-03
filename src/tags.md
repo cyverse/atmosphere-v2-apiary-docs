@@ -42,6 +42,12 @@ Each Tag has the following properties:
 
     [Tag][]
 
+
+### Delete a Tag [DELETE]
+
++ Response 200 (application/json)
+
+
 ## Tag Collection [/tag{?page,page_size}]
 Collection of all Tags.
 
