@@ -100,3 +100,8 @@ Collection of all Image Tags.
 + Response 200 (application/json)
 
     [Image Tag Collection][]
+
+### Create an Image Tag [POST]
+ + Response 200 (application/json)
+
+    [Image Tag][]
