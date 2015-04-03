@@ -52,7 +52,7 @@ Each Image Bookmark has the following properties:
     [Image Bookmark][]
 
 
-### Retrieve an Image Bookmark [DELETE]
+### Delete an Image Bookmark [DELETE]
 + Response 204 (application/json)
 
 
