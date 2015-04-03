@@ -8,7 +8,6 @@ Each Allocation has the following properties:
 
 - **id**: unique id for the provider
 - **threshold**: amount of CPU minutes allocated
-- **delta**: estimated number of minutes before allocation runs out
 
 + Parameters
     + id (required, number) ... `id` of the Allocation.
@@ -21,8 +20,7 @@ Each Allocation has the following properties:
 
             {
                 "id": 1,
-                "threshold": 10080,
-                "delta": 20160
+                "threshold": 10080
             }
 
 
@@ -44,16 +42,14 @@ Collection of all Providers.
             "next": null,
             "previous": null,
             "results": [
-              {
-                  "id": 1,
-                  "threshold": 10080,
-                  "delta": 20160
-              },
-              {
-                  "id": 2,
-                  "threshold": 20160,
-                  "delta": 20160
-              }
+                {
+                    "id": 1,
+                    "threshold": 10080
+                },
+                {
+                    "id": 2,
+                    "threshold": 20160
+                }
             ]
         }
 
