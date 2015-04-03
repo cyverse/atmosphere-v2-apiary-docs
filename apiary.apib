@@ -475,8 +475,8 @@ A single Image Bookmark object.
 Each Image Bookmark has the following properties:
 
 - **id**: id for the bookmark
-- **uuid**: unique universal identifier for bookmark
-
+- **image**: image bookmarked
+- **user**: user who created the bookmark
 
 + Parameters
     + id (required, number, '1') ... Number `id` of the Provider.
@@ -487,16 +487,42 @@ Each Image Bookmark has the following properties:
 
     + Body
 
-            {
+        {
+            "id": 1,
+            "url": "https://atmobeta.iplantc.org/api/v2/image_bookmarks/1",
+            "image": {
                 "id": 1,
-                "uuid": 1
+                "url": "https://atmobeta.iplantc.org/api/v2/images/1",
+                "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                "name": "copy of ubuntu14.04",
+                "description": "description",
+                "icon": null,
+                "start_date": "2015-03-30T18:30:45.501948Z",
+                "end_date": null
+            },
+            "user": {
+                "id": 1,
+                "url": "https://atmobeta.iplantc.org/api/v2/users/1",
+                "username": "user",
+                "first_name": "User",
+                "last_name": "Name",
+                "email": "user@iplantcollaborative.org",
+                "is_staff": true,
+                "is_superuser": true,
+                "date_joined": "2015-02-11T22:37:24Z"
             }
+        }
 
 
 ### Retrieve an Image Bookmark [GET]
 + Response 200 (application/json)
 
     [Image Bookmark][]
+
+
+### Retrieve an Image Bookmark [DELETE]
++ Response 204 (application/json)
+
 
 ## Image Bookmark Collection [/image_bookmarks]
 Collection of all Image Bookmarks.
@@ -511,18 +537,35 @@ Collection of all Image Bookmarks.
 
     + Body
 
-            "count": 2,
+            "count": 1,
             "next": null,
             "previous": null,
             "results": [
-              {
-                  "id": 1,
-                  "uuid": 1
-              },
-              {
-                  "id": 2,
-                  "uuid": 2
-              }
+                {
+                    "id": 1,
+                    "url": "https://atmobeta.iplantc.org/api/v2/image_bookmarks/1",
+                    "image": {
+                        "id": 1,
+                        "url": "https://atmobeta.iplantc.org/api/v2/images/1",
+                        "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5",
+                        "name": "copy of ubuntu14.04",
+                        "description": "description",
+                        "icon": null,
+                        "start_date": "2015-03-30T18:30:45.501948Z",
+                        "end_date": null
+                    },
+                    "user": {
+                        "id": 1,
+                        "url": "https://atmobeta.iplantc.org/api/v2/users/1",
+                        "username": "user",
+                        "first_name": "User",
+                        "last_name": "Name",
+                        "email": "user@iplantcollaborative.org",
+                        "is_staff": true,
+                        "is_superuser": true,
+                        "date_joined": "2015-02-11T22:37:24Z"
+                    }
+                }
             ]
 
 ### List all Image Bookmarks [GET]
