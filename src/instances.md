@@ -104,7 +104,13 @@ Each Instance has the following properties:
 + Response 200 (application/json)
 
     [Instance][]
-    
+
+### Update an Instance [PATCH]
+
++ Response 200 (application/json)
+
+    [Instance][]
+
 ### Terminate an Instance [DELETE]
 
 + Response 200 (application/json)
