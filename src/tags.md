@@ -15,8 +15,6 @@ Each Tag has the following properties:
     
 + Model (application/json)
 
-    JSON representation of Tag Resource.
-
     + Body
 
             {
@@ -31,10 +29,12 @@ Each Tag has the following properties:
     [Tag][]
 
 ### Update a Tag [PATCH]
+Currently only Atmosphere staff can update tag information.
 
 + Request (application/json)
 
         {
+            name: "new-name",
             description: "new description of tag"
         }
 
@@ -53,12 +53,10 @@ Collection of all Tags.
 
 + Model (application/json)
 
-    JSON representation of Tags Collection Resource.
-
     + Body
 
             {
-                "count": 5,
+                "count": 1,
                 "next": null,
                 "previous": null,
                 "results": [
@@ -66,26 +64,6 @@ Collection of all Tags.
                         "id": 1,
                         "name": "SpliceGrapher",
                         "description": "A description of SpliceGrapher"
-                    },
-                    {
-                        "id": 2,
-                        "name": "xGDBvm",
-                        "description": "A description of xGDBvm"
-                    },
-                    {
-                        "id": 3,
-                        "name": "R",
-                        "description": "A description of R"
-                    },
-                    {
-                        "id": 4,
-                        "name": "Featured",
-                        "description": "Featured applications receive priority ordering over non-featured applications"
-                    },
-                    {
-                        "id": 5,
-                        "name": "Ubuntu",
-                        "description": "A description of Ubuntu"
                     }
                 ]
             }
