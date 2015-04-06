@@ -34,7 +34,7 @@ var paths = {
     './src/sizes.md',
     //'./src/status_messages.md',
     './src/tags.md',
-    './src/users.md',
+    //'./src/users.md',
     './src/volumes.md'
     //'./src/volume_actions.md',
   ]
