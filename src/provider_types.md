@@ -1,4 +1,5 @@
 # Group Provider Types -done-
+The types of cloud providers that Atmosphere supports (OpenStack, Eucalyptus, Amazon EC2, etc.)
 
 ## Provider Type [/provider_types/{id}]
 A single Provider Type object.
@@ -11,17 +12,15 @@ Each Provider Type has the following properties:
 - **end_date**: date of provider type deletion
 
 + Parameters
-    + id (number, required,) ... `id` of the Provider.
+    + id (number, required) ... `id` of the Provider.
 
 + Model(application/json)
 
-    JSON representation of Provider Type
-
     + Body
+    
         {
             "id": 1,
-            "url": "https://atmobeta.iplantc.org/api/v2/provider_types/1",
-            "name": "Eucalyptus",
+            "name": "OpenStack",
             "start_date": "2012-10-29T23:21:36.253000Z",
             "end_date": null
         }
@@ -46,8 +45,7 @@ Collection of all Provider Types.
         "results": [
             {
               "id": 1,
-              "url": "https://atmobeta.iplantc.org/api/v2/provider_types/1",
-              "name": "Eucalyptus",
+              "name": "OpenStack",
               "start_date": "2012-10-29T23:21:36.253000Z",
               "end_date": null
             }
