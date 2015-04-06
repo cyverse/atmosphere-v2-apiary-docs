@@ -7,7 +7,7 @@ A single Provider object.
 Each Provider has the following properties:
 
 - **id**: the id for the provider
-- **uuid**: unique id for provider
+- **uuid**: uuid for provider
 - **name**: name of the provider
 - **description**: description of the provider
 - **public**: if provider is publicly accessible
