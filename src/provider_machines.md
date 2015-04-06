@@ -13,7 +13,7 @@ Each Provider Machine has the following properties:
 - **end_date**: date of machine termination
 
 + Parameters
-    + id (required, number, '1') ... Number `id` of the Provider.
+    + id (number, required) ... `id` of the Provider.
 
 + Model(application/json)
 

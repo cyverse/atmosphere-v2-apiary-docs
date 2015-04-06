@@ -1,17 +1,17 @@
-# Group Provider Types -done?-
+# Group Provider Types -done-
 
 ## Provider Type [/provider_types/{id}]
 A single Provider Type object.
 
 Each Provider Type has the following properties:
 
-- **id**: provider type id
+- **id**: id for the provider type
 - **name**: text name of provider type
 - **start_date**: date of provider type creation
 - **end_date**: date of provider type deletion
 
 + Parameters
-    + id (required, number, '1') ... Number `id` of the Provider.
+    + id (number, required,) ... `id` of the Provider.
 
 + Model(application/json)
 
@@ -33,10 +33,6 @@ Each Provider Type has the following properties:
 
 ## Provider Type Collection [/provider_machines]
 Collection of all Provider Types.
-
-+ Parameters
-    + page (string, optional) ... Page of results
-    + page_size (string, optional) ... Number of results
 
 + Model (application/json)
 
