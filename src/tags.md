@@ -1,7 +1,7 @@
-# Group Tags -done?-
+# Group Tags -done-
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
-## Tag [/tag/{id}]
+## Tag [/tags/{id}]
 A single Tag object.
 
 Each Tag has the following properties:
@@ -11,7 +11,7 @@ Each Tag has the following properties:
 - **description**: a description of what the tag means
 
 + Parameters
-    + id (required, number, `1`) ... Number `id` of the Tag.
+    + id (number, required) ... `id` of the Tag.
     
 + Model (application/json)
 
@@ -38,22 +38,18 @@ Each Tag has the following properties:
             description: "new description of tag"
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     [Tag][]
 
 
 ### Delete a Tag [DELETE]
 
-+ Response 200 (application/json)
++ Response 204 (application/json)
 
 
-## Tag Collection [/tag{?page,page_size}]
+## Tag Collection [/tag]
 Collection of all Tags.
-
-+ Parameters
-    + page (string, optional) ... Page of results
-    + page_size (string, optional) ... Number of results
 
 + Model (application/json)
 
