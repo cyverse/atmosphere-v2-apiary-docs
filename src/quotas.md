@@ -1,7 +1,7 @@
-# Group Quota -done?-
+# Group Quota -done-
 Quotas are available resource allocations on Atmosphere
 
-## Quota [/quota/{id}]
+## Quota [/quotas/{id}]
 A single Quota object.
 
 Each quota request has the following properties:
@@ -14,7 +14,7 @@ Each quota request has the following properties:
 - **suspended_count**: quota suspended count
 
 + Parameters
-    + id (required, number, `1`) ... Number `id` of the quota request.
+    + id (number, required) ... `id` of the quota request.
     
 + Model (application/json)
 
@@ -37,23 +37,8 @@ Each quota request has the following properties:
 
     [Quota][]
 
-### Update a Quota [PATCH]
-+ Request (application/json)
-
-        {
-          "storage": 50
-        }
-
-+ Response 200 (application/json)
-
-    [Quota][]
-
-## Quota Collection [/quotas{?page,page_size}]
+## Quota Collection [/quotas]
 Collection of all Quotas.
-
-+ Parameters
-    + page (string, optional) ... Page of results
-    + page_size (string, optional) ... Number of results
 
 + Model (application/json)
 
