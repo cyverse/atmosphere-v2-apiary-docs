@@ -1,5 +1,6 @@
 # Group Quota -done-
-Quotas are available resource allocations on Atmosphere
+Quotas are available resource allocations on Atmosphere.  They determine the maximum amount of combined CPU, memory,
+disk and number of volumes that a user can launch.
 
 ## Quota [/quotas/{id}]
 A single Quota object.
@@ -18,13 +19,10 @@ Each quota request has the following properties:
     
 + Model (application/json)
 
-    JSON representation of Quota Request Resource.
-
     + Body
 
         {
             "id": 2,
-            "url": "https://atmobeta.iplantc.org/api/v2/quotas/2",
             "cpu": 12,
             "memory": 32,
             "storage": 50,
@@ -42,33 +40,21 @@ Collection of all Quotas.
 
 + Model (application/json)
 
-    JSON representation of Quota Collection Resource.
-
     + Body
 
             {
-                "count": 2,
+                "count": 1,
                 "next": null,
                 "previous": null,
                 "results": [
                     {
                         "id": 2,
-                        "url": "https://atmobeta.iplantc.org/api/v2/quotas/2",
                         "cpu": 12,
                         "memory": 32,
                         "storage": 50,
                         "storage_count": 1,
                         "suspended_count": 2
-                    },
-                    {
-                        "id": 3,
-                        "url": "https://atmobeta.iplantc.org/api/v2/quotas/3",
-                        "cpu": 8,
-                        "memory": 24,
-                        "storage": 50,
-                        "storage_count": 1,
-                        "suspended_count": 2
-                    },
+                    }
                 ]
             }
 
