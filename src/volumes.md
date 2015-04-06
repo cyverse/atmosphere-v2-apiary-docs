@@ -14,7 +14,6 @@ Each Volume has the following properties:
 - **user**: user the volume belongs to
 - **provider**: provider volume is stored on
 - **identity**: identity of volume
-- **project**: projects volume is associated with
 - **start_date**: date of volume creation
 - **end_date**: date of volume deletion
 
@@ -23,13 +22,11 @@ Each Volume has the following properties:
     
 + Model (application/json)
 
-    JSON representation of Volume Resource.
-
     + Body
+    
         {
             "id": 1483,
             "uuid": "7ef79cdd-9ac6-4202-8057-7069748c8a0f",
-            "url": "https://atmobeta.iplantc.org/api/v2/volumes/1483",
             "name": "name",
             "size": 4,
             "user": {
@@ -56,7 +53,9 @@ Each Volume has the following properties:
 
 ### Update a Volume [PATCH]
 + Request
+
     + Body
+    
         {
             name: "new name"
         }
@@ -67,9 +66,8 @@ Collection of all Volumes.
     
 + Model (application/json)
 
-    JSON representation of Volumes Collection Resource.
-
     + Body
+    
         {
             "count": 1,
             "next": null,
@@ -78,7 +76,6 @@ Collection of all Volumes.
                 {
                     "id": 1483,
                     "uuid": "7ef79cdd-9ac6-4202-8057-7069748c8a0f",
-                    "url": "https://atmobeta.iplantc.org/api/v2/volumes/1483",
                     "name": "name",
                     "size": 4,
                     "user": {
@@ -92,7 +89,6 @@ Collection of all Volumes.
                         "id": 6512,
                         "uuid": "f712fa8c-8371-5ffd-a91a-532ef316d3f4"
                     },
-                    "projects": [],
                     "start_date": "2015-02-16T19:53:36.190034Z",
                     "end_date": null
                 }
