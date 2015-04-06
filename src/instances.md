@@ -1,4 +1,4 @@
-# Group Instances -done-
+# Group Instances
 Instances are virtual machines that users have created from an image.  When a user creates an instance
  it immediately starts deducting AU's from their account.
 

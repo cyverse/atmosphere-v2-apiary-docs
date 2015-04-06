@@ -1,4 +1,4 @@
-# Group Allocation -done-
+# Group Allocation
 Allocations represent Atmosphere AU values.
 
 ## Allocation [/allocations/{id}]

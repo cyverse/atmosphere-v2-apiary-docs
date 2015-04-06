@@ -1,4 +1,4 @@
-# Group Users -done-
+# Group Users
 
 ## User [/users/{id}]
 A single User object.

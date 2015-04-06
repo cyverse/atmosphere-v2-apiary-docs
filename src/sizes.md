@@ -1,4 +1,4 @@
-# Group Sizes -done-
+# Group Sizes
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
  number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
 

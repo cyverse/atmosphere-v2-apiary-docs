@@ -33,7 +33,7 @@ Except where explicitly stated (images, tags) all endpoints require authorizatio
 
     Authorization: TOKEN [access_token]
 
-# Group Allocation -done-
+# Group Allocation
 Allocations represent Atmosphere AU values.
 
 ## Allocation [/allocations/{id}]
@@ -93,7 +93,7 @@ Collection of all Providers.
 
     [Allocation Collection][]
 
-# Group Identities -done-
+# Group Identities
 Identities are like user account information. A user has at least one identity per provider, and each identity
  contains information about how many resources can be consumed on that provider.  If a user has multiple identities
  under a single provider, it means they can allocate more resources by using a different identity.
@@ -199,7 +199,7 @@ Collection of all Identities.
 
     [Identity Collection][]
 
-# Group Images -done-
+# Group Images
 Images are snapshots of an instance at some point in time, including all programs and files.  They can be used to create
  a clone of an instance for others to use, or simply to save the state of an instance as a backup or recovery.
 
@@ -321,7 +321,7 @@ This is both a public and private endpoint.  If accessed without being authentic
 
     [Image Collection][]
 
-# Group Image Bookmarks -done-
+# Group Image Bookmarks
 Image Bookmarks
 
 ## Image Bookmark [/image_bookmarks/{id}]
@@ -410,7 +410,7 @@ You must specify the following properties. The user will be set to you.
 
     [Image Bookmark][]
 
-# Group Image Tags -done-
+# Group Image Tags
 An image tag is a link between an image and a tag
 
 ## Image Tag [/image_tags/{id}]
@@ -495,7 +495,7 @@ Collection of all Image Tags.
 
     [Image Tag][]
 
-# Group Instances -done-
+# Group Instances
 Instances are virtual machines that users have created from an image.  When a user creates an instance
  it immediately starts deducting AU's from their account.
 
@@ -633,7 +633,7 @@ Get a list of your instances.
 
     [Instance Collection][]
 
-# Group Instance Tag -done-
+# Group Instance Tag
 An instance tag is a link between an image and a tag
 
 ## Instance Tag [/instance_tags/{id}]
@@ -721,7 +721,7 @@ Collection of all Instance Tags.
 
     [Instance Tag][]
 
-# Group Platform Types -done-
+# Group Platform Types
 
 ## Platform Type [/platform_types/{id}]
 A single Platform Type object.
@@ -784,7 +784,7 @@ Collection of all Platform Types.
 
     [Platform Type Collection][]
 
-# Group Projects -done-
+# Group Projects
 Projects are a way for users to group related resources.  Right now users can add Instances and Volumes to a project, but
  we also plan to support adding documents, hyperlinks, Images, and letting users control access to their
  Projects (i.e. adding users, removing users, and specifying permissions such as read-only access or modifying content)
@@ -898,7 +898,7 @@ Create a Project.  You must specify the following properties:
 + Response 201 (application/json)
   [Project][]
 
-# Group Project Instances -done-
+# Group Project Instances
 
 ## Project Instance [/project_instances/{id}]
 Get a single project instance
@@ -990,7 +990,7 @@ Add instance to project. You must specify the following properties:
 
     [Project Instance][]
 
-# Group Project Volumes -done-
+# Group Project Volumes
 
 ## Project Volume [/project_volumes/{id}]
 A single Project Volume object
@@ -1089,7 +1089,7 @@ Add volume to project. You must specify the following properties:
 
     [Project Volume Collection][]
 
-# Group Providers -done-
+# Group Providers
 Providers represent the different cloud providers managed by Atmosphere.
 
 ## Provider [/providers/{id}]
@@ -1176,7 +1176,7 @@ Collection of all Providers.
 
     [Provider Collection][]
 
-# Group Provider Machines -done-
+# Group Provider Machines
 Represent the physical virtual machine snapshot that gets launched on a provider.  Whether a provider_machine exists
 for a given image and provider determines whether that image can be launched on that provider.
  
@@ -1258,7 +1258,7 @@ Collection of all Provider Machines.
 
     [Provider Machine Collection][]
 
-# Group Provider Types -done-
+# Group Provider Types
 The types of cloud providers that Atmosphere supports (OpenStack, Eucalyptus, Amazon EC2, etc.)
 
 ## Provider Type [/provider_types/{id}]
@@ -1316,7 +1316,7 @@ Collection of all Provider Types.
 
     [Provider Type Collection][]
 
-# Group Quota -done-
+# Group Quota
 Quotas are available resource allocations on Atmosphere.  They determine the maximum amount of combined CPU, memory,
 disk and number of volumes that a user can launch.
 
@@ -1381,7 +1381,7 @@ Collection of all Quotas.
 
     [Quota Collection][]
 
-# Group Sizes -done-
+# Group Sizes
 Sizes represent the different instance configurations offered by that cloud provider.  Each configuration includes the
  number of CPUs, memory, and disk space.  Sizes with fewer resources will consume AUs at a slower rate.
 
@@ -1445,7 +1445,7 @@ A single Size object with all its details.
                 "end_date": null
             }
 
-# Group Tags -done-
+# Group Tags
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
 ## Tag [/tags/{id}]
@@ -1537,7 +1537,7 @@ Create a Tag.  You must specify the following properties:
 
     [Tag][]
 
-# Group Volumes -done-
+# Group Volumes
 Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a
  different instance.
 

@@ -1,4 +1,4 @@
-# Group Provider Types -done-
+# Group Provider Types
 The types of cloud providers that Atmosphere supports (OpenStack, Eucalyptus, Amazon EC2, etc.)
 
 ## Provider Type [/provider_types/{id}]

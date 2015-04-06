@@ -1,4 +1,4 @@
-# Group Instance Tag -done-
+# Group Instance Tag
 An instance tag is a link between an image and a tag
 
 ## Instance Tag [/instance_tags/{id}]

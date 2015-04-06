@@ -1,4 +1,4 @@
-# Group Image Tags -done-
+# Group Image Tags
 An image tag is a link between an image and a tag
 
 ## Image Tag [/image_tags/{id}]

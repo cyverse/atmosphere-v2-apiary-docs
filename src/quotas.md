@@ -1,4 +1,4 @@
-# Group Quota -done-
+# Group Quota
 Quotas are available resource allocations on Atmosphere.  They determine the maximum amount of combined CPU, memory,
 disk and number of volumes that a user can launch.
 

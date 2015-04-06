@@ -1,4 +1,4 @@
-# Group Image Bookmarks -done-
+# Group Image Bookmarks
 Image Bookmarks
 
 ## Image Bookmark [/image_bookmarks/{id}]

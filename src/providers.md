@@ -1,4 +1,4 @@
-# Group Providers -done-
+# Group Providers
 Providers represent the different cloud providers managed by Atmosphere.
 
 ## Provider [/providers/{id}]

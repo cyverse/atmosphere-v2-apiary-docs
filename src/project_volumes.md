@@ -1,4 +1,4 @@
-# Group Project Volumes -done-
+# Group Project Volumes
 
 ## Project Volume [/project_volumes/{id}]
 A single Project Volume object
