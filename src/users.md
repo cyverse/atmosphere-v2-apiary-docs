@@ -1,11 +1,11 @@
-# Group Users -done?-
+# Group Users -done-
 
 ## User [/users/{id}]
 A single User object.
 
 Each Instance has the following properties:
 
-- **id**: id
+- **id**: id of the user
 - **username**: username of user
 - **first_name**: user's first name
 - **last_name**: user's last name
@@ -15,7 +15,7 @@ Each Instance has the following properties:
 - **date_joined**: date user joined
 
 + Parameters
-    + id (required, '1') ... integer id of the Instance.
+    + id (number, required) ... 'id' of the Instance.
     
 + Model (application/json)
 
@@ -37,13 +37,6 @@ Each Instance has the following properties:
 
 ### Retrieve a User [GET]
 Get a specific user.
-
-+ Response 200 (application/json)
-
-    [User][]
-    
-### Delete a User [DELETE]
-Delete a user.
 
 + Response 200 (application/json)
 
