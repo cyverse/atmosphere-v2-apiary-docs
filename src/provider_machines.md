@@ -1,4 +1,7 @@
 # Group Provider Machines -done-
+Represent the physical virtual machine snapshot that gets launched on a provider.  Whether a provider_machine exists
+for a given image and provider determines whether that image can be launched on that provider.
+ 
 ## Provider Machine [/provider_machines/{id}]
 A single Provider Machine object.
 
