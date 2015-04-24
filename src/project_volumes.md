@@ -81,8 +81,7 @@ Collection of all project volume relationships
 
 
 ### Add Volume to Project [POST]
-Add volume to project. You must specify the following properties:
-
+Add a volume to a project. You must specify the following properties:
 - **project**: project id
 - **volume**: volume id
 

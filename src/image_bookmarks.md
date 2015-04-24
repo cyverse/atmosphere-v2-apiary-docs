@@ -74,7 +74,6 @@ Collection of all Image Bookmarks.
 
 ### Create an Image Bookmark [POST]
 You must specify the following properties. The user will be set to you.
-
 - **image**: the image to bookmark
 
 + Request (application/json)

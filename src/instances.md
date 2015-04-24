@@ -70,7 +70,7 @@ Each Instance has the following properties:
 
 ### Update an Instance [PATCH]
 
-+ Request
++ Request (application/json)
 
     + Body
     

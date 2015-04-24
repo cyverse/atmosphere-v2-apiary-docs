@@ -75,7 +75,6 @@ Collection of all Tags.
 
 ### Create a Tag [POST]
 Create a Tag.  You must specify the following properties:
-
 - **name**: a name for the tag
 - **description**: a description of the tag
 

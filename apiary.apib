@@ -260,7 +260,7 @@ Each Image has the following properties:
 ### Edit an Image [PATCH]
 Images can only be edited by the user who created it.
 
-+ Request
++ Request (application/json)
     + Body
         {
             "name": "new name",
@@ -397,7 +397,6 @@ Collection of all Image Bookmarks.
 
 ### Create an Image Bookmark [POST]
 You must specify the following properties. The user will be set to you.
-
 - **image**: the image to bookmark
 
 + Request (application/json)
@@ -567,7 +566,7 @@ Each Instance has the following properties:
 
 ### Update an Instance [PATCH]
 
-+ Request
++ Request (application/json)
 
     + Body
     
@@ -884,7 +883,6 @@ Collection of all Projects.
 
 ### Create a Project [POST]
 Create a Project.  You must specify the following properties:
-
 - **name**: a name for the project
 - **description**: a description of the project
 
@@ -974,10 +972,9 @@ Each Project Instance has the following properties
 
 
 ### Add Instance to Project [POST]
-Add instance to project. You must specify the following properties:
-
- - **project**: project id
- - **instance**: instance id
+Add an instance to a project. You must specify the following properties:
+- **project**: project id
+- **instance**: instance id
 
 + Request (application/json)
 
@@ -1073,8 +1070,7 @@ Collection of all project volume relationships
 
 
 ### Add Volume to Project [POST]
-Add volume to project. You must specify the following properties:
-
+Add a volume to a project. You must specify the following properties:
 - **project**: project id
 - **volume**: volume id
 
@@ -1522,7 +1518,6 @@ Collection of all Tags.
 
 ### Create a Tag [POST]
 Create a Tag.  You must specify the following properties:
-
 - **name**: a name for the tag
 - **description**: a description of the tag
 
@@ -1591,7 +1586,7 @@ Each Volume has the following properties:
     [Volume][]
 
 ### Update a Volume [PATCH]
-+ Request
++ Request (application/json)
 
     + Body
     

@@ -74,10 +74,9 @@ Each Project Instance has the following properties
 
 
 ### Add Instance to Project [POST]
-Add instance to project. You must specify the following properties:
-
- - **project**: project id
- - **instance**: instance id
+Add an instance to a project. You must specify the following properties:
+- **project**: project id
+- **instance**: instance id
 
 + Request (application/json)
 

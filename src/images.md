@@ -59,7 +59,7 @@ Each Image has the following properties:
 ### Edit an Image [PATCH]
 Images can only be edited by the user who created it.
 
-+ Request
++ Request (application/json)
     + Body
         {
             "name": "new name",

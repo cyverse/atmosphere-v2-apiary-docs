@@ -98,7 +98,6 @@ Collection of all Projects.
 
 ### Create a Project [POST]
 Create a Project.  You must specify the following properties:
-
 - **name**: a name for the project
 - **description**: a description of the project
 

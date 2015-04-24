@@ -105,7 +105,6 @@ Collection of all Image Requests.
 
 ### Request an Image [POST]
 To request an image, you need to specify the following properties:
-
 - **name**: the name of the image
 - **instance**: alias property of the instance you want imaged
 - **provider**: the id of the provider you want the image to be created for

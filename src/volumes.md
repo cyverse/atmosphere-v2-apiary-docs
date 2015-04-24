@@ -52,7 +52,7 @@ Each Volume has the following properties:
     [Volume][]
 
 ### Update a Volume [PATCH]
-+ Request
++ Request (application/json)
 
     + Body
     
