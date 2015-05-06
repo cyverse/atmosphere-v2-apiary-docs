@@ -31,6 +31,7 @@ var paths = {
     './src/provider_machines.md',
     './src/provider_types.md',
     './src/quotas.md',
+    './src/service_unavailable_test.md',
     './src/sizes.md',
     //'./src/status_messages.md',
     './src/tags.md',
