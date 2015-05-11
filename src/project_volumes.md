@@ -33,11 +33,6 @@ Each Project Volume has the following properties:
 + Response 200 (application/json)
     [Project Volume][]
 
-### Update a Project Volume [PATCH]
-
-+ Response 204 (application/json)
-    [Project Volume][]
-
 ### Delete a Project Volume [DELETE]
 
 + Response 204 (application/json)
