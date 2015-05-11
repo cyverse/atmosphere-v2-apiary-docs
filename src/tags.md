@@ -29,7 +29,9 @@ Each Tag has the following properties:
     [Tag][]
 
 ### Update a Tag [PATCH]
-Currently only Atmosphere staff can update tag information.
+Currently only Atmosphere staff can update tag information. The following properties can be updated:
+- **name**: a name of the tag
+- **description**: a description of the tag
 
 + Request (application/json)
 
