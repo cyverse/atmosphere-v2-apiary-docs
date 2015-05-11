@@ -72,7 +72,7 @@ Collection of all Image Tags.
     [Image Tag Collection][]
 
 ### Create an Image Tag [POST]
-You must specify the following properties. The user will be set to you.
+You must specify the following properties.
 - **image**: the id of the image to tag
 - **tag**: the id of the tag to apply
 

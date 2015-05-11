@@ -74,6 +74,9 @@ Collection of all Instance Tags.
     [Instance Tag Collection][]
 
 ### Create an Instance Tag [POST]
+You must specify the following properties.
+- **image**: the id of the instance to tag
+- **tag**: the id of the tag to apply
 
 + Request (application/json)
 
