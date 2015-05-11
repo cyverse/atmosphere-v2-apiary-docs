@@ -69,6 +69,8 @@ Each Instance has the following properties:
     [Instance][]
 
 ### Update an Instance [PATCH]
+You can update the following properties for instances you own:
+- **name**: the name of the instance
 
 + Request (application/json)
 
