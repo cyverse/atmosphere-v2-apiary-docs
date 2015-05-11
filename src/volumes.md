@@ -52,6 +52,9 @@ Each Volume has the following properties:
     [Volume][]
 
 ### Update a Volume [PATCH]
+You can update the following properties for volumes you own:
+- **name**: the name of the volume
+
 + Request (application/json)
 
     + Body
