@@ -42,9 +42,9 @@ Each Project has the following properties:
     [Project][]
         
 ### Update a Project [PATCH]
-You can update the following properties for instances you own:
-- **name**: the name of the instance
-- **description**: the description of the instance
+You can update the following properties for projects you own:
+- **name**: the name of the project
+- **description**: the description of the project
 
 + Request (application/json)
   
