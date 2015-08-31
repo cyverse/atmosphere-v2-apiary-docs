@@ -6,7 +6,7 @@ A single Allocation object.
 
 Each Allocation has the following properties:
 
-- **id**: unique id for the provider
+- **id**: unique id for the allocation
 - **threshold**: amount of CPU minutes allocated
 
 + Parameters
@@ -14,7 +14,7 @@ Each Allocation has the following properties:
 
 + Model(application/json)
 
-    JSON representation of Provider Resource
+    JSON representation of Allocation Resource
 
     + Body
 

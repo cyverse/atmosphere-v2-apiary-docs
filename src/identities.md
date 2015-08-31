@@ -12,6 +12,7 @@ Each Identity has the following properties:
 - **uuid**: uuid for the identity
 - **quota**: quota assigned to the identity
 - **allocation**: allocation assigned to the identity
+- **usage**: current allocation usage for the identity
 - **provider**: provider the identity is for
 - **user**: user this identity belongs to
 
@@ -28,10 +29,16 @@ Each Identity has the following properties:
                 "id": 1,
                 "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1"
                 "quota": {
-                    "id": 1
+                    "id": 1,
                 },
                 "allocation": {
                     "id": 1
+                },
+                "usage": {
+                    "threshold": 168,
+                    "current": 112,
+                    "remaining": 46,
+                    "ttz": "2015-09-01T10:10:10.100Z"
                 },
                 "provider": {
                     "id": 1,
@@ -71,6 +78,12 @@ Collection of all Identities.
                     "allocation": {
                         "id": 1
                     },
+                    "usage": {
+                        "threshold": 168,
+                        "current": 112,
+                        "remaining": 46,
+                        "ttz": "2015-09-01T10:10:10.100Z"
+                    },
                     "provider": {
                         "id": 1,
                         "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1"
@@ -87,6 +100,12 @@ Collection of all Identities.
                     },
                     "allocation": {
                         "id": 1
+                    },
+                    "usage": {
+                        "threshold": 168,
+                        "current": 112,
+                        "remaining": 46,
+                        "ttz": "2015-09-01T10:10:10.100Z"
                     },
                     "provider": {
                         "id": 2,
