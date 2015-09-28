@@ -9,6 +9,7 @@ var paths = {
     './src/identities.md',
     //'./src/group.md',
     './src/images.md',
+    './src/metrics.md',
     './src/image_versions.md',
     './src/image_bookmarks.md',
     //'./src/image_requests.md',
