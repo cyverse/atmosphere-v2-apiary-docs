@@ -1,4 +1,4 @@
-# Atmosphere API Docs for Apiary
+# Atmosphere's API Docs for Apiary
 
 ## Usage
 
