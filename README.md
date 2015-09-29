@@ -23,3 +23,18 @@ Then, run gulp to regenerate the apiary.apib file.  This repository is linked to
 ```shell
 gulp
 ```
+
+## Development
+
+Apiary provides tools to see your docs locally before they are hosted online.
+
+```shell
+sudo gem install apiaryio
+```
+
+Now start a server on localhost:8080, in the directory containing the apiary.apib.
+This server will watch for changes (after running `gulp`).
+
+```shell
+apiary preview --server
+```
