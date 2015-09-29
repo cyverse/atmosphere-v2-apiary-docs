@@ -1,4 +1,5 @@
 # Atmosphere's API Docs for Apiary
+[view online](http://docs.atmospherev2.apiary.io/#)
 
 ## Usage
 
