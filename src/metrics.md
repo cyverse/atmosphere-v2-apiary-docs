@@ -1,141 +1,59 @@
 # Group Metrics
-Metrics are served per instance concerning cpu usage, memory, rx (bytes read
-over the network), and rt (bytes transferred). Metrics can be fetched with
+Collect metrics on an instance. Currently metrics are stored in a 2 week
+window, with a per minute granularity. This api can query for the following
+instance metrics.
+
+- cpu usage 
+- memory 
+- rx (bytes read over the network) 
+- tx (bytes transferred) 
+- state 
+
+Metrics can be fetched with
 varying resolution, and varying duration. Ex. you can get metrics every 5
 minutes for the past week.
 
 
-## All metrics [/metrics/{uuid}]
-Fetch all the metrics for a given instance
-
-Each Image has the following properties:
-
-- **id**: id of the image
-- **uuid**: unique id of image
-- **name**: name of image
-- **created_by**: id of user who created the image
-- **description**: description of image
-- **end_date**: Atmosphere implements soft deletes for everything (or nearly everything).  Any images with an
- end_date before the moment the request was made will be filtered out of the result set.  however, end_dates can also be
- used to schedule resources deletion by setting them at a future date.  This can also be used to give someone access to
- a resource for a limited time (such as for a workshop session).
-- **is_public**: true if the image is publicly visible, false if it is private
-- **icon**: (optional) if a custom display icon has been uploaded for this image, this field will contain the relative
- path to that image (e.g. "/images/icon.png")
-- **start_date**: the date the image was created
-- **tags**: image tags
-- **versions**: list of different versions of the image
-
+## Fetch metrics [/metrics/{uuid}.json{?field,res,size,fun}]
+Fetch an instance's metrics over an interval of time
 
 + Parameters
-    + id (required, number) ... id of the Image.
-    
-+ Model (application/json)
+    + uuid (required, string) - the uuid of the instance
+    + field (required, enum(string)) - type of metric 
 
-    JSON representation of Image Resource.
+        + Members
+            + `cpu` - the total cpu time the instance has been running 
+            + `mem` - the memory consumed by the vm  
+            + `rx` - bytes read over the network 
+            + `tx` - bytes sent out over the network  
+            + `state` - A numeral determining whether the vm is
+active/suspended/shutoff
+
+    + res (required, number) - number of minutes per datapoint
+    + size (required, number) - number of datapoints
+    + fun (optional, string) - transform the datapoints
+
+        + Members
+            + `perSecond` - Apply derivative to datapoints
+    
+
++ Model(application/json)
+
+    Here is an exapmle JSON response, for the following request:
+
+    `metrics/7e17079c-2c31-4c22-8f31-8e4d22114e56.json?field=cpu&res=1&size=3`
+
 
     + Body
 
-        {
-            "id": 1,
-            "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
-            "name": "name",
-            "created_by": {
-                "id": 1
+        [
+            { 
+                "target": "stats.sl1r2_iplantcollaborative_org.7e17079c-2c31-4c22-8f31-8e4d22114e56.cpu",
+                "datapoints":[[238294.3,1443539820],[238311.9,1443539880],[null,1443539940]]
             },
-            "description": "description",
-            "end_date": null,
-            "is_public": true,
-            "icon": null, 
-            "start_date": "2015-03-30T18:30:45.501948Z",
-            "tags": [
-                {
-                    "id": 1
-                },
-                {
-                    "id": 2
-                }
-            ],
-            "versions": [
-                {
-                    "id": 1
-                }
-            ]
-        }
+        ]
 
-### Retrieve a Single Image [GET]
+### Fetch metrics [GET]
 + Response 200 (application/json)
 
-    [Image][]
-    
-### Edit an Image [PATCH]
-Images can only be edited by the user who created it.
-
-+ Request (application/json)
-    + Body
-        {
-            "name": "new name",
-            "description": "new description",
-        }
-        
-+ Response 200 (application/json)
-
-    [Image][]
-
-## Image Collection [/images{?created_by__username,tags__name,search}]
-Collection of all Images.
-
-This is both a public and private endpoint.  If accessed without being authenticated you will get a list of all public
- images.  If authenticated, you will also get any private images you have permission to use.
-
-+ Model (application/json)
-
-    JSON representation of the Images Collection.
-
-    + Body
-
-        {
-            "count": 1,
-            "next": "null",
-            "previous": null,
-            "results": [
-                {
-                    "id": 1,
-                    "uuid": "f268aebc-d956-11e4-b9d6-1681e6b88ec1",
-                    "name": "name",
-                    "created_by": {
-                        "id": 1
-                    },
-                    "description": "description",
-                    "end_date": null,
-                    "is_public": true,
-                    "icon": null, 
-                    "start_date": "2015-03-30T18:30:45.501948Z",
-                    "tags": [
-                        {
-                            "id": 1
-                        },
-                        {
-                            "id": 2
-                        }
-                    ],
-                    "versions": [
-                        {
-                            "id": 1
-                        }
-                    ]
-                }
-            ]
-        }
-
-
-### List all Images [GET]
-
-+ Parameters
-    + created_by__username (string, optional) ... return images created by user with `username`
-    + tags__name (string, optional) ... return images with a tag of this `name`
-    + search (string, optional) ... return images whose name, description, or tag name or description match the search criteria
-
-+ Response 200 (application/json)
-
-    [Image Collection][]
+    [Fetch metrics][]

@@ -9,11 +9,11 @@ var paths = {
     './src/identities.md',
     //'./src/group.md',
     './src/images.md',
-    './src/metrics.md',
     './src/image_versions.md',
     './src/image_bookmarks.md',
     //'./src/image_requests.md',
     './src/image_tags.md',
+    './src/metrics.md',
     './src/instances.md',
     //'./src/instance_actions.md',
     //'./src/instance_history.md'
