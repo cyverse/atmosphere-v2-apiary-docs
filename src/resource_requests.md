@@ -3,7 +3,7 @@ Resource requests are made by users who require more than the default amount of 
 
 ## Resource Requests Collection [/resource_requests{?status__name}]
 
-### List all Resource Requests
+### List all Resource Requests [GET]
 
 + Parameters
     + status__name (string, optional) ... 'name' of status type eg. 'approved' or 'pending'
@@ -47,6 +47,7 @@ Resource requests are made by users who require more than the default amount of 
             "current_allocation": 9
         }
     ]
+}
 
 ## Resource Request [/resource_requests/{id}]
 A single Resource Request object with all its details.

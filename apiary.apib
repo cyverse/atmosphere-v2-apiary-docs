@@ -1558,9 +1558,9 @@ disk and number of volumes that a user can launch.
 ## Quota [/quotas/{id}]
 A single Quota object.
 
-Each quota request has the following properties:
+Each quota has the following properties:
 
-- **id**: the id of the request
+- **id**: the id of the quota
 - **cpu**: CPUs allotted to quota
 - **memory**: Memory allotted to quota
 - **storage**: Storage allotted to quota
@@ -1568,7 +1568,7 @@ Each quota request has the following properties:
 - **suspended_count**: quota suspended count
 
 + Parameters
-    + id (number, required) ... `id` of the quota request.
+    + id (number, required) ... `id` of the quota.
     
 + Model (application/json)
 
@@ -1621,7 +1621,7 @@ Resource requests are made by users who require more than the default amount of 
 
 ## Resource Requests Collection [/resource_requests{?status__name}]
 
-### List all Resource Requests
+### List all Resource Requests [GET]
 
 + Parameters
     + status__name (string, optional) ... 'name' of status type eg. 'approved' or 'pending'
@@ -1665,9 +1665,27 @@ Resource requests are made by users who require more than the default amount of 
             "current_allocation": 9
         }
     ]
+}
 
 ## Resource Request [/resource_requests/{id}]
 A single Resource Request object with all its details.
+
+Each resource request has the following properties:
+- **id**: the id of the request
+- **uuid**: the UUID of the request
+- **request**: the request itself
+- **description**: user's reason for making the request
+- **status**: the current status of the request
+- **created_by**: the user who created the request
+- **user**: the user whom this request is for
+- **identity**: the user's identity for the provider the request was made for
+- **provider**: the provider the user made the request for
+- **admin_message**: the admin's response to the request
+- **quota**: the new quota set after the request has been acted on
+- **alocation**: the new allocation set after the request has been acted on
+- **current_quota**: the id of user's current quota
+- **current_allocation**: the id of the user's current allocation
+
 
 + Parameters
     + id (required, number, 1) ... Number `id` of the Resource Request.
