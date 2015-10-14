@@ -5,9 +5,9 @@ disk and number of volumes that a user can launch.
 ## Quota [/quotas/{id}]
 A single Quota object.
 
-Each quota request has the following properties:
+Each quota has the following properties:
 
-- **id**: the id of the request
+- **id**: the id of the quota
 - **cpu**: CPUs allotted to quota
 - **memory**: Memory allotted to quota
 - **storage**: Storage allotted to quota
@@ -15,7 +15,7 @@ Each quota request has the following properties:
 - **suspended_count**: quota suspended count
 
 + Parameters
-    + id (number, required) ... `id` of the quota request.
+    + id (number, required) ... `id` of the quota.
     
 + Model (application/json)
 
