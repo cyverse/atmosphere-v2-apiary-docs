@@ -110,4 +110,57 @@ A single Resource Request object with all its details.
             "current_quota": 25,
             "current_allocation": 9
         }
-       
+
+### Update an Instance [PATCH]
+Admins can update the following properties for a resource request:
+- **quota**: the user's new quota
+- **allocation**: the user's new allocation
+- **status**: the request's new status
+- **admin_message**: the response to the request, which will be emailed to the user
+
++ Request (application/json)
+
+    + Body
+    
+        {
+            "quota": 1,
+            "allocation": 1,
+            "status": 4,
+            "admin_message": "We have approved your request."
+        }
+
++ Response 200 (application/json)
+    
+    + Body
+         {
+            "id": 1,
+            "uuid": "748b002b-894e-43c6-a0a4-c5945dd5e511",
+            "request": "1000 AU",
+            "description": "To do things X and Y",
+            "status": {
+                "id": 4,
+                "name": "approved"
+            },
+            "created_by": {
+                "id": 0000,
+                "username": "username"
+            },
+            "user": {
+                "id": 0000,
+                "username": "username"
+            },
+            "identity": {
+                "id": "0",
+                "uuid": "748b002b-894e-43c6-a0a4-c5945dd5e511"
+                "provider": 4
+            },
+            "provider": {
+                "id": 4,
+                "uuid": "748b002b-894e-43c6-a0a4-c5945dd5e511",
+            },
+            "admin_message": "We have approved your request",
+            "quota": 1,
+            "allocation": 1,
+            "current_quota": 1,
+            "current_allocation": 1
+        }
