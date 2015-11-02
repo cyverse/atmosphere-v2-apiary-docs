@@ -49,7 +49,7 @@ npm install api-blueprint-validator
 node ./node_modules/.bin/api-blueprint-validator apiary.apib
 # An example of what an error would look like:
 Error: Undefined resource model Image Version Boot Script on line 1034
-# An example of what a success message looks like:
+# An example of what a success message looks like: (Note that it also produces an 'error')
 /opt/dev/atmosphere-v2-apiary-docs/node_modules/api-blueprint-validator/src/validator.js:74
       result.warnings.forEach(function (warning) {
                       ^
