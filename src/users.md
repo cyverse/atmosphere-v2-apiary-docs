@@ -6,13 +6,8 @@ A single User object.
 Each Instance has the following properties:
 
 - **id**: id of the user
+- **url**: url of the user
 - **username**: username of user
-- **first_name**: user's first name
-- **last_name**: user's last name
-- **email**: user's email address
-- **is_staff**: boolean true if user is staff
-- **is_superuser**: boolean true if user is superuser
-- **date_joined**: date user joined
 
 + Parameters
     + id (number, required) ... 'id' of the Instance.
@@ -25,14 +20,8 @@ Each Instance has the following properties:
 
       {
         "id": 1,
-        "url": "https://atmobeta.iplantc.org/api/v2/users/1",
-        "username": "user",
-        "first_name": "User",
-        "last_name": "Name",
-        "email": "user@iplantcollaborative.org",
-        "is_staff": false,
-        "is_superuser": false,
-        "date_joined": "2014-03-04T17:16:01.667744Z"
+        "url": "https://atmobeta.iplantc.org/api/v2/users/1337f0ef-a112-45a8-b15f-e75a75963d64",
+        "username": "example_user",
       }
 
 ### Retrieve a User [GET]
@@ -58,15 +47,9 @@ Collection of all Users
             "previous": null,
             "results": [
                 {
-                  "id": 1,
-                  "url": "https://atmobeta.iplantc.org/api/v2/users/1",
-                  "username": "user",
-                  "first_name": "User",
-                  "last_name": "Name",
-                  "email": "user@iplantcollaborative.org",
-                  "is_staff": false,
-                  "is_superuser": false,
-                  "date_joined": "2014-03-04T17:16:01.667744Z"
+                    "id": 1,
+                    "url": "https://atmobeta.iplantc.org/api/v2/users/1337f0ef-a112-45a8-b15f-e75a75963d64",
+                    "username": "example_user",
                 }
             ]
         }
