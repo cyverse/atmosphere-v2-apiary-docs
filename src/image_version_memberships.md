@@ -1,20 +1,20 @@
-# Group image_version memberships
+# Group Image Version Memberships
 
-## image_version membership [/image_version_memberships/{id}]
-Get a single image_version membership
+## Image Version Membership [/image_version_memberships/{id}]
+Get a single Image Version Membership
 
-Each image_version membership has the following properties
+Each Image Version Membership has the following properties
 
 - **id**: the id of the image_version_membership pairing
-- **image_version**: image_version the membership is associated with
-- **membership** membership that is associated with the image_version
+- **image_version**: Image Version the membership is associated with
+- **membership** membership that is associated with the Image Version
 
 + Parameters
-  + id (number, required) ... 'id' of the image_version membership.
+  + id (number, required) ... 'id' of the Image Version membership.
 
 + Model (application/json)
 
-    JSON representation of image_version Resource
+    JSON representation of Image Version Resource
 
     + Body
     
@@ -34,20 +34,20 @@ Each image_version membership has the following properties
             }
         }
 
-### Retrieve a single image_version membership [GET]
+### Retrieve a single Image Version membership [GET]
 
 + Response 200 (application/json)
 
-    [image_version membership][]
+    [Image Version Membership][]
 
-### Remove membership from image_version [DELETE]
+### Remove membership from Image Version [DELETE]
 
   + Response 204 (application/json)
 
-## image_version membership Collection [/image_version_memberships{?version_id}]
+## Image Version Membership Collection [/image_version_memberships{?version_id}]
 
 + Parameters
-  + version_id (number, optional) ... 'id' of image_version to filter by
+  + version_id (number, optional) ... 'id' of Image Version to filter by
 
 + Model (application/json)
 
@@ -76,16 +76,16 @@ Each image_version membership has the following properties
             ]
         }
 
-### List all image_version memberships [GET]
+### List all Image Version Memberships [GET]
 
 + Response 200(application/json)
 
-    [image_version membership Collection][]
+    [Image Version Membership Collection][]
 
 
-### Add membership to image_version [POST]
-Add an membership to a image_version. You must specify the following properties:
-- **image_version**: image_version uuid
+### Add Membership to Image Version [POST]
+Add an membership to a Image Version. You must specify the following properties:
+- **image_version**: Image Version uuid
 - **membership**: membership uuid
 
 + Request (application/json)
@@ -97,4 +97,4 @@ Add an membership to a image_version. You must specify the following properties:
 
 + Response 200 (application/json)
 
-    [image_version membership][]
+    [Image Version Membership][]

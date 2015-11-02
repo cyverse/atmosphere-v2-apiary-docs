@@ -1,20 +1,20 @@
-# Group image_version boot_scripts
+# Group Image Version Boot Scripts
 
-## image_version boot_script [/image_version_boot_scripts/{id}]
-Get a single image_version boot_script
+## Image Version Boot Script [/image_version_boot_scripts/{id}]
+Get a single image version boot script
 
-Each image_version boot_script has the following properties
+Each image version boot script has the following properties
 
 - **id**: the id of the image_version_boot_script pairing
-- **image_version**: image_version the boot_script is associated with
-- **boot_script** boot_script that is associated with the image_version
+- **image_version**: image version the boot script is associated with
+- **boot_script** boot script that is associated with the image version
 
 + Parameters
-  + id (number, required) ... 'id' of the image_version boot_script.
+  + id (number, required) ... 'id' of the image version boot script.
 
 + Model (application/json)
 
-    JSON representation of image_version Resource
+    JSON representation of image version Resource
 
     + Body
     
@@ -35,20 +35,20 @@ Each image_version boot_script has the following properties
             }
         }
 
-### Retrieve a single image_version boot_script [GET]
+### Retrieve a single Image Version Boot Script [GET]
 
 + Response 200 (application/json)
 
-    [image_version boot_script][]
+    [Image Version Boot Script][]
 
-### Remove boot_script from image_version [DELETE]
+### Remove Boot Script from Image Version [DELETE]
 
   + Response 204 (application/json)
 
-## image_version boot_script Collection [/image_version_boot_scripts{?version_id}]
+## Image Version Boot Script Collection [/image_version_boot_scripts{?version_id}]
 
 + Parameters
-  + version_id (number, optional) ... 'id' of image_version to filter by
+  + version_id (number, optional) ... 'id' of image version to filter by
 
 + Model (application/json)
 
@@ -78,17 +78,17 @@ Each image_version boot_script has the following properties
             ]
         }
 
-### List all image_version boot_scripts [GET]
+### List all Image Version Boot Scripts [GET]
 
 + Response 200(application/json)
 
-    [image_version boot_script Collection][]
+    [Image Version Boot Script Collection][]
 
 
-### Add boot_script to image_version [POST]
-Add an boot_script to a image_version. You must specify the following properties:
-- **image_version**: image_version uuid
-- **boot_script**: boot_script uuid
+### Add Boot Script to Image Version [POST]
+Add an boot script to a image version. You must specify the following properties:
+- **image_version**: image version uuid
+- **boot_script**: boot script uuid
 
 + Request (application/json)
 
@@ -99,4 +99,4 @@ Add an boot_script to a image_version. You must specify the following properties
 
 + Response 200 (application/json)
 
-    [image_version boot_script][]
+    [Image Version Boot Script][]

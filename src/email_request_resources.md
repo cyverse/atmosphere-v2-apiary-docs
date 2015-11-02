@@ -34,4 +34,6 @@ Create a Resource Request Email.  You must specify the following properties *(Fu
         }
 
 + Response 201 (application/json)
+
+        {}
   [Email Resource Request][]

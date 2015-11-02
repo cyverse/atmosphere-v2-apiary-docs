@@ -36,4 +36,6 @@ Create a Feedback Email.  You must specify the following properties *(Future Fea
         }
 
 + Response 201 (application/json)
+
+        {}
   [Email Feedback][]

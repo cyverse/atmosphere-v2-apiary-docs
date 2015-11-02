@@ -1,20 +1,20 @@
-# Group image_version licenses
+# Group Image Version Licenses
 
-## image_version license [/image_version_licenses/{id}]
-Get a single image_version license
+## Image Version License [/image_version_licenses/{id}]
+Get a single Image Version License
 
-Each image_version license has the following properties
+Each Image Version License has the following properties
 
 - **id**: the id of the image_version_license pairing
-- **image_version**: image_version the license is associated with
-- **license** license that is associated with the image_version
+- **image_version**: Image Version the license is associated with
+- **license** license that is associated with the Image Version
 
 + Parameters
-  + id (number, required) ... 'id' of the image_version license.
+  + id (number, required) ... 'id' of the Image Version license.
 
 + Model (application/json)
 
-    JSON representation of image_version Resource
+    JSON representation of Image Version Resource
 
     + Body
     
@@ -36,20 +36,20 @@ Each image_version license has the following properties
             }
         }
 
-### Retrieve a single image_version license [GET]
+### Retrieve a single Image Version License [GET]
 
 + Response 200 (application/json)
 
-    [image_version license][]
+    [Image Version License][]
 
-### Remove license from image_version [DELETE]
+### Remove License from Image Version [DELETE]
 
   + Response 204 (application/json)
 
-## image_version license Collection [/image_version_licenses{?version_id}]
+## Image Version License Collection [/image_version_licenses{?version_id}]
 
 + Parameters
-  + version_id (number, optional) ... 'id' of image_version to filter by
+  + version_id (number, optional) ... 'id' of Image Version to filter by
 
 + Model (application/json)
 
@@ -73,25 +73,25 @@ Each image_version license has the following properties
             ]
         }
 
-### List all image_version licenses [GET]
+### List all Image Version Licenses [GET]
 
 + Response 200(application/json)
 
-    [image_version license Collection][]
+    [Image Version License Collection][]
 
 
-### Add license to image_version [POST]
-Add an license to a image_version. You must specify the following properties:
-- **image_version**: image_version id
+### Add license to Image Version [POST]
+Add an license to a Image Version. You must specify the following properties:
+- **Image Version**: Image Version id
 - **license**: license id
 
 + Request (application/json)
 
         {
-            "image_version": "0005099e-bdbd-4964-9c81-e1a5a4788fc6",
+            "Image Version": "0005099e-bdbd-4964-9c81-e1a5a4788fc6",
             "license": "d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6"
         }
 
 + Response 200 (application/json)
 
-    [image_version license][]
+    [Image Version License][]

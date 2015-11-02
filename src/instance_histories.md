@@ -19,7 +19,7 @@ Each Instance History object has the following properties:
 
     
 + Parameters
-    + id (required, string, '36f0795e-f80b-11e3-8ef5-b2227cce2b55') ... String `alias` of the Instance.
+    + uuid (required, string, '36f0795e-f80b-11e3-8ef5-b2227cce2b55') ... String `uuid` of the Instance.
     
 + Model (application/json)
 

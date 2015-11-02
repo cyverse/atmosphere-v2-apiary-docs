@@ -36,4 +36,6 @@ Create a Support Email.  You must specify the following properties *(Future Feat
         }
 
 + Response 201 (application/json)
+
+        {}
   [Email Support][]
