@@ -111,6 +111,23 @@ A single Resource Request object with all its details.
             "current_allocation": 9
         }
 
+### Create a Resource Request [POST]
+Authenticated users can create resource requests by sending a POST request with the following info:
+- **request**: Textual representation of what the user is asking for, eg. A 4 CPU instance running for one week, or an additional 200 AU.
+- **description**: More in-depth explanation of why the user is requesting these resources
+- **identity**: id of the identity the resources are being requested for
+
++ Request (application/json)
+    + Body
+        {
+            "request": 100 AU,
+            "description": "to do more science",
+            "identity": 1
+        }
+
++ Response 201 (application/json)
+            
+
 ### Update a Resource Request [PATCH]
 Admins can update the following properties for a resource request:
 - **quota**: the user's new quota
