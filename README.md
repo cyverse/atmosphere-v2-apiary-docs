@@ -38,3 +38,21 @@ This server will watch for changes (after running `gulp`).
 ```shell
 apiary preview --server
 ```
+
+## Debugging changes made to the API Blueprint
+
+For now, the best API Blueprint validator is here: https://github.com/JakubOnderka/api-blueprint-validator
+To validate the latest changes you made (After running `gulp`):
+
+```shell
+npm install api-blueprint-validator
+node ./node_modules/.bin/api-blueprint-validator apiary.apib
+# An example of what an error would look like:
+Error: Undefined resource model Image Version Boot Script on line 1034
+# An example of what a success message looks like: (Note that it also produces an 'error')
+/opt/dev/atmosphere-v2-apiary-docs/node_modules/api-blueprint-validator/src/validator.js:74
+      result.warnings.forEach(function (warning) {
+                      ^
+TypeError: Cannot call method 'forEach' of undefined
+    at /opt/dev/atmosphere-v2-apiary-docs/node_modules/api-blueprint-validator/src/validator.js:74:23
+```

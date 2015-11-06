@@ -93,6 +93,444 @@ Collection of all Providers.
 
     [Allocation Collection][]
 
+# Group Boot Scripts
+Boot Scripts are used to launch a custom program, script, or daemon after your instance has been deployed. Boot Scripts can be added to an image, where they will be required for all future launches. They can also be added to an instance as part of the launch process. Boot Scripts can include all of the text required to 'write' the script in a copy-and-paste format, or you can provide a URL to allow for future changes after the script has been created.
+ Future plans for boot script include: a more defined concept of 'public/private' for boot scripts.
+
+## Boot Script [/boot_scripts/{id}]
+A single Boot Script object.
+
+Each Boot Script has the following properties:
+
+- **id**: the id of the boot_script *(DEPRECATED)*
+- **uuid**: the uuid of the boot_script
+- **url**: the URL of the boot_script
+- **title**: the title of the boot_script
+- **text**: the contents of the boot_script
+- **type**: the type of the boot_script *(Raw Text or URL ONLY)*
+- **created_by**: user who created the boot_script
+
++ Parameters
+    + uuid (number, required) ... uuid of the Boot Script.
+    
++ Model (application/json)
+
+    JSON representation of Boot Script Resource.
+
+    + Body
+    
+        {
+            "id": 1,
+            "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
+            "url": "https://atmobeta.iplantc.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
+            "created_by": "example_user",
+            "title": "Sample boot_script",
+            "text": "#!/usr/bin/env python\nprint 'Hello World'",
+            "type": "Raw Text"
+        }
+
+### Retrieve a Boot Script [GET]
++ Response 200 (application/json)
+
+    [Boot Script][]
+        
+### Update a Boot Script [PATCH]
+You can update the following properties for boot_scripts you own:
+- **title**: the title of the boot_script
+- **text**: the contents of the boot_script
+- **type**: the type of the boot_script (Raw Text or URL *ONLY*)
+
++ Request (application/json)
+  
+        {
+            "title": "Updated boot_script",
+            "text": "https://atmobeta.iplantc.org/init_files/boot_scripts/hello_world.py",
+            "type": "URL"
+        }
+
++ Response 200 (application/json)
+
+    [Boot Script][]
+    
+### Delete a Boot Script [DELETE]
+Delete a Boot Script.  Boot Scripts can only be deleted if you were the one who created it. Deleteing a Boot Script will stop the
+ boot script from being executed on any instances that have selected it again.
+
++ Response 200 (application/json)
+
+    [Boot Script][]
+
+
+## Boot Scripts Collection [/boot_scripts]
+Collection of all Boot Scripts.
+
++ Model (application/json)
+
+    JSON representation of Boot Scripts Collection Resource.
+
+    + Body
+
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results":
+            [
+                {
+                    "id": 1,
+                    "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
+                    "url": "https://atmobeta.iplantc.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
+                    "created_by": "example_user",
+                    "title": "Sample boot_script",
+                    "text": "#!/usr/bin/env python\nprint 'Hello World'",
+                    "type": "Raw Text"
+                }
+            ]
+        }
+
+
+### List all Boot Scripts [GET]
++ Response 200 (application/json)
+
+    [Boot Scripts Collection][]
+
+### Create a Boot Script [POST]
+Create a Boot Script.  You must specify the following properties:
+- **title**: the title of the boot_script
+- **text**: the contents of the boot_script
+- **type**: the type of the boot_script (Raw Text or URL *ONLY*)
+
++ Request (application/json)
+
+        {
+            "created_by": "example_user",
+            "title": "Sample boot_script",
+            "text": "#!/usr/bin/env python\nprint 'Hello World'",
+            "type": "Raw Text"
+        }
+
++ Response 201 (application/json)
+  [Boot Script][]
+
+# Group Credentials
+Credentials are the identifying information relared to your account. Using credentials you can connect to the Cloud Provider externally.
+ Future support will allow users to bring their own credentials and modify those credentials that they have brought.
+ Sharing Credentials is accomplished by creating a new identity and sharing that identity with the group(s) that require access.
+ Be careful when sharing access to your own Credentials!
+
+## Credential [/credentials/{id}]
+A single Credential object.
+
+Each Credential has the following properties:
+
+- **id**: the id of the credential *(DEPRECATED)*
+- **uuid**: the uuid of the credential
+- **url**: the URL of the credential
+- **identity**: The identity that 'owns' the credential
+- **key**: the key-name of the credential
+- **value**: the value of the credential
+
++ Parameters
+    + uuid (number, required) ... uuid of the Credential.
+    
++ Model (application/json)
+
+    JSON representation of Credential Resource.
+
+    + Body
+    
+        {
+            "id": 1,
+            "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
+            "url": "https://atmobeta.iplantc.org/api/v2/credentials/3f048788-258e-4819-be88-9271553cc2ce",
+            "identity": {
+                "id": "1",
+                "uuid": "4bb68750-ecdb-41b6-974b-6b1771c9ea77",
+                "url": "https://atmobeta.iplantc.org/api/v2/identities/4bb68750-ecdb-41b6-974b-6b1771c9ea77",
+                "provider": 1
+            },
+            "key": "ex_tenant_name",
+            "value": "example_user"
+        }
+
+### Retrieve a Credential [GET]
++ Response 200 (application/json)
+
+    [Credential][]
+        
+### Update a Credential [PATCH]
+You can update the following properties for credentials you own *( Future Feature)*:
+- **key**: the key-name of the credential
+- **value**: the value of the credential
+
++ Request (application/json)
+  
+        {
+            "key": "ex_project_name",
+            "value": "example_project"
+        }
+
++ Response 200 (application/json)
+
+    [Credential][]
+    
+### Delete a Credential [DELETE]
+Delete a Credential.  Credentials can only be deleted if you were the one who created it. Deleteing a Credential will stop any
+ connected identities from being able to connect to the cloud. *( Future Feature)*
+
++ Response 200 (application/json)
+
+    [Credential][]
+
+
+## Credentials Collection [/credentials]
+Collection of all Credentials.
+
++ Model (application/json)
+
+    JSON representation of Credentials Collection Resource.
+
+    + Body
+
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results":
+            [
+                {
+                    "id": 1,
+                    "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
+                    "url": "https://atmobeta.iplantc.org/api/v2/credentials/3f048788-258e-4819-be88-9271553cc2ce",
+                    "identity": {
+                        "id": "1",
+                        "uuid": "4bb68750-ecdb-41b6-974b-6b1771c9ea77",
+                        "url": "https://atmobeta.iplantc.org/api/v2/identities/4bb68750-ecdb-41b6-974b-6b1771c9ea77",
+                        "provider": 1
+                    },
+                    "key": "ex_tenant_name",
+                    "value": "example_user"
+                }
+            ]
+        }
+
+
+### List all Credentials [GET]
++ Response 200 (application/json)
+
+    [Credentials Collection][]
+
+### Create a Credential [POST]
+Create a Credential.  You must specify the following properties *(Future Feature)*:
+- **identity**: The identity that 'owns' the credential
+- **key**: the key-name of the credential
+- **value**: the value of the credential
+
++ Request (application/json)
+
+        {
+            "identity": "4bb68750-ecdb-41b6-974b-6b1771c9ea77",
+            "key": "key",
+            "value": "username"
+        }
+
++ Response 201 (application/json)
+  [Credential][]
+
+# Group Email Feedback
+To Email Feedback you can use this RESTful endpoint. This endpoint only accepts POST requests, and provides no additional functionality.
+
+
+## Email Feedback Collection [/email_feedback]
+This endpoint accepts POST requests ONLY. There is no 'GET' feedback for email_feedback.
+
++ Model (application/json)
+
+    JSON representation of Email Feedback Collection Resource.
+
+    + Body
+
+        {
+            "detail": "Method \"GET\" not allowed.",
+        }
+
+
+### List all Email Feedback [GET]
++ Response 405 (application/json)
+
+    [Email Feedback Collection][]
+
+### Create a Feedback Email [POST]
+Create a Feedback Email.  You must specify the following properties *(Future Feature)*:
+- **subject**: The subject of the feedback email.
+- **message**: The message of the feedback email.
+- **user-interface**: The UI that the feedback email was sent from (Airport, Troposphere).
+
++ Request (application/json)
+
+        {
+            "subject": "This is the Subject of the Email",
+            "message": "This is the full-body of the E-mail that will be sent.",
+            "user-interface": "Troposphere"
+        }
+
++ Response 201 (application/json)
+
+        {}
+  [Email Feedback][]
+
+# Group Email Resource Request
+To Email Resource Request you can use this RESTful endpoint. This endpoint only accepts POST requests, and provides no additional functionality.
+
+
+## Email Resource Request Collection [/email_request_resources]
+This endpoint accepts POST requests ONLY. There is no 'GET' request_resources for email_request_resources.
+
++ Model (application/json)
+
+    JSON representation of Email Resource Request Collection Resource.
+
+    + Body
+
+        {
+            "detail": "Method \"GET\" not allowed.",
+        }
+
+
+### List all Email Resource Request [GET]
++ Response 405 (application/json)
+
+    [Email Resource Request Collection][]
+
+### Create a Resource Request Email [POST]
+Create a Resource Request Email.  You must specify the following properties *(Future Feature)*:
+- **quota**: The quota requested in the request_resources email.
+- **reason**: The reason for making the request_resources email.
+
++ Request (application/json)
+
+        {
+            "quota": "I would like 16 CPU and 64 GB RAM",
+            "reason": "This is required by R to do gene sequencing.",
+        }
+
++ Response 201 (application/json)
+
+        {}
+  [Email Resource Request][]
+
+# Group Email Support
+To Email Support you can use this RESTful endpoint. This endpoint only accepts POST requests, and provides no additional functionality.
+
+
+## Email Support Collection [/email_support]
+This endpoint accepts POST requests ONLY. There is no 'GET' support for email_support.
+
++ Model (application/json)
+
+    JSON representation of Email Support Collection Resource.
+
+    + Body
+
+        {
+            "detail": "Method \"GET\" not allowed.",
+        }
+
+
+### List all Email Support [GET]
++ Response 405 (application/json)
+
+    [Email Support Collection][]
+
+### Create a Support Email [POST]
+Create a Support Email.  You must specify the following properties *(Future Feature)*:
+- **subject**: The subject of the feedback email.
+- **message**: The message of the feedback email.
+- **user-interface**: The UI that the feedback email was sent from (Airport, Troposphere).
+
++ Request (application/json)
+
+        {
+            "subject": "This is the Subject of the Email",
+            "message": "This is the full-body of the E-mail that will be sent.",
+            "user-interface": "Troposphere"
+        }
+
++ Response 201 (application/json)
+
+        {}
+  [Email Support][]
+
+# Group Group
+Every User is assigned to a Group of their own name initially. This 'usergroup' is then in charge of all the identities, providers, instances, and applications which can be shared among other, larger groups, but can still be tracked back to the original user who made the API request.
+
+## Group [/group/{groupname}]
+A single Group object.
+
+Each Group has the following properties:
+
+- **id**: id of the user
+- **url**: url of the user
+- **name**: name of the group
+- **users**: list of users that are included in the group
+
++ Parameters
+    + groupname (required, number, `nameOfGroup`) ... String `nameOfGroup` Retrieve details about a specific group.
+
++ Model (application/json)
+
+    JSON representation of Group Resource.
+
+    + Body
+
+             {
+                "id": 1,
+                "url": "https://atmobeta.iplantc.org/api/v2/groups/21e5963b-d968-4dff-bcdc-054c75ce903c",
+                "name": "example_group",
+                "users": [
+                    {
+                        "id": 1,
+                        "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
+                        "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                        "username": "example_user"
+                    }
+                ]
+             }
+
+### Retrieve a Single Group [GET]
++ Response 200 (application/json)
+
+    [Group][]
+
+## Groups Collection [/group]
+Collection of all Groups
+
++ Model (application/json)
+
+    JSON representation of Group Collection Resource
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "url": "https://atmobeta.iplantc.org/api/v2/groups/21e5963b-d968-4dff-bcdc-054c75ce903c",
+                    "name": "example_group",
+                    "users": [
+                        {
+                            "id": 1,
+                            "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
+                            "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                            "username": "example_user"
+                        }
+                    ]
+                }
+            ]
+
+### List all Groups [GET]
++ Response 200 (application/json)
+    [Groups Collection][]
+
 # Group Identities
 Identities are like user account information. A user has at least one identity per provider, and each identity
  contains information about how many resources can be consumed on that provider.  If a user has multiple identities
@@ -492,6 +930,308 @@ This is both a public and private endpoint.  If accessed without being authentic
 
     [Image Version Collection][]
 
+# Group Image Version Boot Scripts
+
+## Image Version Boot Script [/image_version_boot_scripts/{id}]
+Get a single image version boot script
+
+Each image version boot script has the following properties
+
+- **id**: the id of the image_version_boot_script pairing
+- **image_version**: image version the boot script is associated with
+- **boot_script** boot script that is associated with the image version
+
++ Parameters
+  + id (number, required) ... 'id' of the image version boot script.
+
++ Model (application/json)
+
+    JSON representation of image version Resource
+
+    + Body
+    
+        {
+            "id": 156,
+            "url": "https://atmobeta.iplantc.org/api/v2/image_version_boot_scripts/156",
+            "image_version": {
+                "id": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                "url": "https://atmobeta.iplantc.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                "name": "1.0"
+            },
+            "boot_script": {
+                "id": 1,
+                "url": "https://atmobeta.iplantc.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
+                "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
+                "title": "Testing",
+                "type": "Raw Text"
+            }
+        }
+
+### Retrieve a single Image Version Boot Script [GET]
+
++ Response 200 (application/json)
+
+    [Image Version Boot Script][]
+
+### Remove Boot Script from Image Version [DELETE]
+
+  + Response 204 (application/json)
+
+## Image Version Boot Script Collection [/image_version_boot_scripts{?version_id}]
+
++ Parameters
+  + version_id (number, optional) ... 'id' of image version to filter by
+
++ Model (application/json)
+
+    + Body
+
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 156,
+                    "url": "https://atmobeta.iplantc.org/api/v2/image_version_boot_scripts/156",
+                    "image_version": {
+                        "id": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                        "url": "https://atmobeta.iplantc.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                        "name": "1.0"
+                    },
+                    "boot_script": {
+                        "id": 1,
+                        "url": "https://atmobeta.iplantc.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
+                        "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
+                        "title": "Testing",
+                        "type": "Raw Text"
+                    }
+                }
+            ]
+        }
+
+### List all Image Version Boot Scripts [GET]
+
++ Response 200(application/json)
+
+    [Image Version Boot Script Collection][]
+
+
+### Add Boot Script to Image Version [POST]
+Add an boot script to a image version. You must specify the following properties:
+- **image_version**: image version uuid
+- **boot_script**: boot script uuid
+
++ Request (application/json)
+
+        {
+            "image_version": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+            "boot_script": "3f048788-258e-4819-be88-9271553cc2ce"
+        }
+
++ Response 200 (application/json)
+
+    [Image Version Boot Script][]
+
+# Group Image Version Licenses
+
+## Image Version License [/image_version_licenses/{id}]
+Get a single Image Version License
+
+Each Image Version License has the following properties
+
+- **id**: the id of the image_version_license pairing
+- **image_version**: Image Version the license is associated with
+- **license** license that is associated with the Image Version
+
++ Parameters
+  + id (number, required) ... 'id' of the Image Version license.
+
++ Model (application/json)
+
+    JSON representation of Image Version Resource
+
+    + Body
+    
+        {
+            "id": 1,
+            "url": "https://atmobeta.iplantc.org/api/v2/image_version_licenses/1",
+            "image_version": {
+                "id": "0005099e-bdbd-4964-9c81-e1a5a4788fc6",
+                "url": "https://atmobeta.iplantc.org/api/v2/image_versions/0005099e-bdbd-4964-9c81-e1a5a4788fc6",
+                "name": "1.0"
+            },
+            "license": {
+                "id": 1,
+                "url": "https://atmobeta.iplantc.org/api/v2/licenses/d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
+                "uuid": "d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
+                "title": "Testing",
+                "type": "Full Text",
+                "text": "Testing the update method"
+            }
+        }
+
+### Retrieve a single Image Version License [GET]
+
++ Response 200 (application/json)
+
+    [Image Version License][]
+
+### Remove License from Image Version [DELETE]
+
+  + Response 204 (application/json)
+
+## Image Version License Collection [/image_version_licenses{?version_id}]
+
++ Parameters
+  + version_id (number, optional) ... 'id' of Image Version to filter by
+
++ Model (application/json)
+
+    + Body
+
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 1,
+                    "image_version": {
+                        "id": 1
+                    },
+                    "license": {
+                        "id": 1,
+                        "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5"
+                    }
+                }
+            ]
+        }
+
+### List all Image Version Licenses [GET]
+
++ Response 200(application/json)
+
+    [Image Version License Collection][]
+
+
+### Add license to Image Version [POST]
+Add an license to a Image Version. You must specify the following properties:
+- **image_version**: Image Version id
+- **license**: license id
+
++ Request (application/json)
+
+        {
+            "image_version": "0005099e-bdbd-4964-9c81-e1a5a4788fc6",
+            "license": "d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6"
+        }
+
++ Response 200 (application/json)
+
+    [Image Version License][]
+
+# Group Image Version Memberships
+
+## Image Version Membership [/image_version_memberships/{id}]
+Get a single Image Version Membership
+
+Each Image Version Membership has the following properties
+
+- **id**: the id of the image_version_membership pairing
+- **image_version**: Image Version the membership is associated with
+- **membership** membership that is associated with the Image Version
+
++ Parameters
+  + id (number, required) ... 'id' of the Image Version membership.
+
++ Model (application/json)
+
+    JSON representation of Image Version Resource
+
+    + Body
+    
+        {
+            "id": 156,
+            "url": "https://atmobeta.iplantc.org/api/v2/image_version_memberships/156",
+            "image_version": {
+                "id": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                "url": "https://atmobeta.iplantc.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                "name": "1.0"
+            },
+            "group": {
+                "id": 598,
+                "uuid": "6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
+                "url": "https://atmobeta.iplantc.org/api/v2/groups/6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
+                "name": "estevetest03"
+            }
+        }
+
+### Retrieve a single Image Version membership [GET]
+
++ Response 200 (application/json)
+
+    [Image Version Membership][]
+
+### Remove membership from Image Version [DELETE]
+
+  + Response 204 (application/json)
+
+## Image Version Membership Collection [/image_version_memberships{?version_id}]
+
++ Parameters
+  + version_id (number, optional) ... 'id' of Image Version to filter by
+
++ Model (application/json)
+
+    + Body
+
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 156,
+                    "url": "https://atmobeta.iplantc.org/api/v2/image_version_memberships/156",
+                    "image_version": {
+                        "id": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                        "url": "https://atmobeta.iplantc.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                        "name": "1.0"
+                    },
+                    "group": {
+                        "id": 1,
+                        "uuid": "6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
+                        "url": "https://atmobeta.iplantc.org/api/v2/groups/6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
+                        "name": "example_group"
+                    }
+                }
+            ]
+        }
+
+### List all Image Version Memberships [GET]
+
++ Response 200(application/json)
+
+    [Image Version Membership Collection][]
+
+
+### Add Membership to Image Version [POST]
+Add an membership to a Image Version. You must specify the following properties:
+- **image_version**: Image Version uuid
+- **membership**: membership uuid
+
++ Request (application/json)
+
+        {
+            "image_version": "0005099e-bdbd-4964-9c81-e1a5a4788fc6",
+            "membership": "d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6"
+        }
+
++ Response 200 (application/json)
+
+    [Image Version Membership][]
+
 # Group Image Bookmarks
 Image Bookmarks
 
@@ -869,6 +1609,260 @@ Get a list of your instances.
 
     [Instance Collection][]
 
+# Group Instance Actions
+Actions that can be performed on instances.
+
+## Instance Action [/instances/{instance_id}/actions/{id}]
+An action that can be performed on an instance, such as start, stop, suspend or delete.
+
+Each Action has the following properties:
+
+- **id**: id
+- **name**: the name of the action
+- **description**: a description of what the action does
+    
++ Parameters
+    + instance_id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `id` of the Instance.
+    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `id` of the Instance.
+    
++ Model (application/json)
+
+    JSON representation of Instance Resource.
+
+    + Body
+
+            {
+                "id": "26f0123a-f80b-11d3-8ef5-b2227cce2b54",
+                "name": "suspend",
+                "description": "suspends an instance"
+            }
+
+    
+## Instance Action Collection [/instances/{id}/actions]
+Collection of all actions that can be performed on an instance.
+
++ Parameters
+    + id (required, string, '26f0795e-f80b-11e3-8ef5-b2227cce2b54') ... String `alias` of the Instance.
+    
++ Model (application/json)
+
+    JSON representation of Instances Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "id": "1",
+                    "name": "start",
+                    "description": "Start a stopped instance."
+                },{
+                    "id": "2",
+                    "name": "stop",
+                    "description": "Stop a running instance.  Stopped instances continue to reduce the AU's."
+                },
+                {
+                    "id": "3",
+                    "name": "suspend",
+                    "description": "Suspend a running instance.  This will also stop subtracting AU's."
+                },
+                {
+                  "id": "4",
+                  "name": "resume",
+                   "description": "Resume a suspended instance.  This will also start subtracting AU's again."
+                }
+            ]
+
+### List all Instance Actions [GET]
+List all actions that can be performed on an instance
+
++ Response 200 (application/json)
+
+    [Instance Action Collection][]
+
+### Execute an instance action [POST]
+Perform the specified action on an instance
+
++ Response 204 (application/json)
+
+    [Instance Action Collection][]
+
+# Group Instance Histories
+This endpoint returns a list of all instances that a user has launched since the time their account was created.
+
+## Instance Histories [/instance_histories/{id}]
+A single Instance History object.
+
+Each Instance History object has the following properties:
+
+- **id**: id
+- **uuid**: unique id
+- **url**: The URL for the details page for this instance history.
+- **instance**: The instance object that 'owns' this history.
+- **status**: The status name applied to this history.
+- **size**: The instance size that was applied to this history.
+- **provider**: The provider that created the instance (and its history).
+- **image**: The image the instance was based off.
+- **start_date**: the date the instance was launched
+- **end_date**: the date the instance was deleted
+
+    
++ Parameters
+    + uuid (required, string, '36f0795e-f80b-11e3-8ef5-b2227cce2b55') ... String `uuid` of the Instance.
+    
++ Model (application/json)
+
+    JSON representation of Instance Histories Resource.
+
+    + Body
+
+            {
+                "id": 86732,
+                "uuid": "a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
+                "url": "https://atmobeta.iplantc.org/api/v2/instance_histories/a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
+                "instance": {
+                    "id": 21513,
+                    "uuid": "edf972fb-81f4-4425-a0eb-c427caeb46d7",
+                    "url": "https://atmobeta.iplantc.org/api/v2/instances/edf972fb-81f4-4425-a0eb-c427caeb46d7",
+                    "name": "austin localdev",
+                    "status": "suspended",
+                    "ip_address": "0.0.0.0",
+                    "shell": false,
+                    "vnc": false,
+                    "user": 1,
+                    "provider": 6,
+                    "start_date": "2015-10-08T15:49:18Z",
+                    "end_date": null
+                },
+                "status": "suspended",
+                "size": {
+                    "id": 122,
+                    "uuid": "2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
+                    "url": "https://atmobeta.iplantc.org/api/v2/sizes/2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
+                    "alias": "1",
+                    "name": "tiny",
+                    "cpu": 1,
+                    "disk": 0,
+                    "mem": 4096,
+                    "active": true,
+                    "start_date": "2014-10-29T18:18:17.492359Z",
+                    "end_date": null
+                },
+                "provider": {
+                    "id": 6,
+                    "uuid": "d9ec29bb-b93c-430d-8f1b-29217c6348d4",
+                    "url": "https://atmobeta.iplantc.org/api/v2/providers/d9ec29bb-b93c-430d-8f1b-29217c6348d4",
+                    "name": "iPlant Cloud - Austin",
+                    "description": "Reserved for image developers, tool developers, and prepublication preparation. Allocation is granted by separate science committee, based on availability and the nature of the project.",
+                    "public": false,
+                    "active": true,
+                    "start_date": "2014-10-29T18:15:13.712495Z",
+                    "end_date": null
+                },
+                "image": {
+                    "id": 1192,
+                    "url": "https://atmobeta.iplantc.org/api/v2/images/3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
+                    "uuid": "3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
+                    "name": "Ubuntu 12.04 Unity GUI v2",
+                    "description": "Imported Application - Ubuntu 12.04 Unity GUI v2",
+                    "icon": null,
+                    "start_date": "2015-09-24T23:26:03.611509Z",
+                    "end_date": null,
+                    "user": 1926
+                },
+                "start_date": "2015-10-30T03:12:03.436847Z",
+                "end_date": null
+                "end_date": null
+            }
+
+### Retrieve an Instance Histories [GET]
+Get a specific instance history object.
+
++ Response 200 (application/json)
+
+    [Instance Histories][]
+
+## Instance Histories Collection [/instance_histories]
+The history of all of the user's instances since the date their account was created.
+    
++ Model (application/json)
+
+    JSON representation of Instances Histories Collection Resource.
+
+    + Body
+
+            {
+                "count": 1,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
+                        "id": 86732,
+                        "uuid": "a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
+                        "url": "https://atmobeta.iplantc.org/api/v2/instance_histories/a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
+                        "instance": {
+                            "id": 21513,
+                            "uuid": "edf972fb-81f4-4425-a0eb-c427caeb46d7",
+                            "url": "https://atmobeta.iplantc.org/api/v2/instances/edf972fb-81f4-4425-a0eb-c427caeb46d7",
+                            "name": "austin localdev",
+                            "status": "suspended",
+                            "ip_address": "0.0.0.0",
+                            "shell": false,
+                            "vnc": false,
+                            "user": 1,
+                            "provider": 6,
+                            "start_date": "2015-10-08T15:49:18Z",
+                            "end_date": null
+                        },
+                        "status": "suspended",
+                        "size": {
+                            "id": 122,
+                            "uuid": "2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
+                            "url": "https://atmobeta.iplantc.org/api/v2/sizes/2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
+                            "alias": "1",
+                            "name": "tiny",
+                            "cpu": 1,
+                            "disk": 0,
+                            "mem": 4096,
+                            "active": true,
+                            "start_date": "2014-10-29T18:18:17.492359Z",
+                            "end_date": null
+                        },
+                        "provider": {
+                            "id": 6,
+                            "uuid": "d9ec29bb-b93c-430d-8f1b-29217c6348d4",
+                            "url": "https://atmobeta.iplantc.org/api/v2/providers/d9ec29bb-b93c-430d-8f1b-29217c6348d4",
+                            "name": "iPlant Cloud - Austin",
+                            "description": "Reserved for image developers, tool developers, and prepublication preparation. Allocation is granted by separate science committee, based on availability and the nature of the project.",
+                            "public": false,
+                            "active": true,
+                            "start_date": "2014-10-29T18:15:13.712495Z",
+                            "end_date": null
+                        },
+                        "image": {
+                            "id": 1192,
+                            "url": "https://atmobeta.iplantc.org/api/v2/images/3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
+                            "uuid": "3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
+                            "name": "Ubuntu 12.04 Unity GUI v2",
+                            "description": "Imported Application - Ubuntu 12.04 Unity GUI v2",
+                            "icon": null,
+                            "start_date": "2015-09-24T23:26:03.611509Z",
+                            "end_date": null,
+                            "user": 1926
+                        },
+                        "start_date": "2015-10-30T03:12:03.436847Z",
+                        "end_date": null
+                    }
+                ]
+            }
+    
+### List all Instances [GET]
+Get a list of all the instances the user has created.
+
++ Response 200 (application/json)
+
+    [Instance Histories Collection][]
+
+
 # Group Instance Tag
 An instance tag is a link between an image and a tag
 
@@ -959,6 +1953,196 @@ You must specify the following properties.
 + Response 201 (application/json)
 
     [Instance Tag][]
+
+# Group Licenses
+Licenses are used to control who and how an instance gets used. Licenses are added by image creators. Once the image has been created, any user who wants to launch a copy of this instance will be required to agree to the license. All licenses are public and can seen by all users. Only the owner can edit or delete a license. Licenses that are deleted will also be removed from all images that previously required the license.
+
+## License [/licenses/{id}]
+A single License object.
+
+Each License has the following properties:
+
+- **id**: the id of the license *(DEPRECATED)*
+- **uuid**: the uuid of the license
+- **url**: the URL of the license
+- **title**: the title of the license
+- **text**: the contents of the license
+- **type**: the type of the license *(Full Text or URL ONLY)*
+- **created_by**: username of the user who created the license
+
++ Parameters
+    + uuid (number, required) ... uuid of the License.
+    
++ Model (application/json)
+
+    JSON representation of License Resource.
+
+    + Body
+    
+        {
+            "id": 1,
+            "url": "https://atmobeta.iplantc.org/api/v2/licenses/d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
+            "uuid": "d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
+            "created_by": "example_user",
+            "title": "Testing",
+            "text": "Testing the update method",
+            "type": {
+                "id": 2,
+                "name": "Full Text",
+                "description": "A full-text copy of the license (HTML Okay)"
+            }
+        }
+
+### Retrieve a License [GET]
++ Response 200 (application/json)
+
+    [License][]
+        
+### Update a License [PATCH]
+You can update the following properties for licenses you own:
+- **title**: the title of the license
+- **text**: the contents of the license
+- **type**: the type of the license (Full Text or URL *ONLY*)
+
++ Request (application/json)
+  
+        {
+            "title": "Updated license",
+            "text": "https://atmobeta.iplantc.org/init_files/licenses/hello_world.py",
+            "type": "URL"
+        }
+
++ Response 200 (application/json)
+
+    [License][]
+    
+### Delete a License [DELETE]
+Delete a License.  Licenses can only be deleted if you were the one who created it. Deleteing a License will stop the
+ boot script from being executed on any instances that have selected it again.
+
++ Response 200 (application/json)
+
+    [License][]
+
+
+## Licenses Collection [/licenses]
+Collection of all Licenses.
+
++ Model (application/json)
+
+    JSON representation of Licenses Collection Resource.
+
+    + Body
+
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results":
+            [
+                {
+                    "id": 1,
+                    "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
+                    "url": "https://atmobeta.iplantc.org/api/v2/licenses/3f048788-258e-4819-be88-9271553cc2ce",
+                    "created_by": "example_user",
+                    "title": "Sample license",
+                    "text": "#!/usr/bin/env python\nprint 'Hello World'",
+                    "type": "Full Text"
+                }
+            ]
+        }
+
+
+### List all Licenses [GET]
++ Response 200 (application/json)
+
+    [Licenses Collection][]
+
+### Create a License [POST]
+Create a License.  You must specify the following properties:
+- **title**: the title of the license
+- **text**: the contents of the license
+- **type**: the type of the license (Full Text or URL *ONLY*)
+
++ Request (application/json)
+
+        {
+            "created_by": "example_user",
+            "title": "Sample license",
+            "text": "This is a license. It must be accepted before you can continue to launch your instance.
+            "type": "Full Text"
+        }
+
++ Response 201 (application/json)
+  [License][]
+
+# Group Maintenance Records
+Maintenance Records are a way to inform the user of current or planned maintenance desks and possible downtown for the
+ Atmosphere cloud.
+
+##  Maintenance Record [/maintenance_records/{id}]
+A single Maintenance Record object.
+
+Each Maintenance Record has the following properties:
+
+- **id**: the id of the record
+- **url**: the url of the record details
+- **title**: a short title for the type of outage (planned, unplanned, network outage, maintenance, etc.) (Internal Usage ONLY)
+- **message**: the message that should be displayed to users.
+- **provider_id**: the id of the provider this record is for (If null - Treat maintenance as *global* so it affects *all providers*)
+- **disable_login**: whether login is disabled for the provider while this maintenance is occurring
+- **start_date**: the date the machine_request was requested
+- **end_date**: the date the machine_request was completed
+
++ Parameters
+    + id (required, Number, 1) ... Number `id` of the Maintenance Record.
+    
++ Model (application/json)
+
+    JSON representation of Maintenance Record Resource.
+
+    + Body
+
+            {
+                "id": 1,
+                "title": "Planned Maintenance",
+                "message": "Atmosphere Provider Cloud is under maintenance.",
+                "provider_id": 1,
+                "disable_login": true,
+                "start_date": "2014-07-21T06:05:40Z",
+                "end_date": null
+            }
+
+### Retrieve a Maintenance Record [GET]
++ Response 200 (application/json)
+
+    [Maintenance Record][]
+
+## Maintenance Record Collection [/maintenance_records?active=true]
+Collection of all Maintenance Records. You must pass in active=true if you only want the current records.
+
++ Model (application/json)
+
+    JSON representation of Maintenance Record Collection Resource.
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "title": "Planned Maintenance",
+                    "message": "Atmosphere Provider Cloud is under maintenance.",
+                    "provider_id": 1,
+                    "disable_login": true,
+                    "start_date": "2014-07-21T06:05:40Z",
+                    "end_date": null
+                }
+            ]
+
+### List all Maintenance Records [GET]
++ Response 200 (application/json)
+
+    [Maintenance Record Collection][]
 
 # Group Platform Types
 
@@ -1882,6 +3066,73 @@ A single Size object with all its details.
                 "end_date": null
             }
 
+# Group Status Types
+Status Types are an enumeration of all possible 'states' of a 'Request' object in Atmosphere. Example states are "pending", "closed", "approved", and "rejected".
+
+## Status Type [/status_types/{id}]
+A single Status Type object.
+
+Each Status Type has the following properties:
+
+- **id**: id for the status type
+- **url**: url for the status type
+- **uuid**: uuid for the status type
+- **name**: text name of status type
+- **description**: Longer decription of when/how this status type is used.
+- **start_date**: date of status type creation
+- **end_date**: date of status type deletion
+
++ Parameters
+    + id (number, required) ... `id` of the Status Type.
+
++ Model(application/json)
+
+    + Body
+    
+        {
+            "id": 1,
+            "url": "https://atmobeta.iplantc.org/api/v2/status_types/e69f3223-f64d-46e7-a933-c2d68f7088ec",
+            "uuid": "e69f3223-f64d-46e7-a933-c2d68f7088ec",
+            "name": "pending",
+            "description": "",
+            "start_date": "2015-01-26T07:00:00Z",
+            "end_date": null
+        }
+
+### Retrieve a Status Type [GET]
++ Response 200 (application/json)
+
+    [Status Type][]
+
+## Status Type Collection [/status_types]
+Collection of all Status Types.
+
++ Model (application/json)
+
+    JSON representation of Status Type Collection Resource.
+
+    + Body
+
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "url": "https://atmobeta.iplantc.org/api/v2/status_types/e69f3223-f64d-46e7-a933-c2d68f7088ec",
+                "uuid": "e69f3223-f64d-46e7-a933-c2d68f7088ec",
+                "name": "pending",
+                "description": "",
+                "start_date": "2015-01-26T07:00:00Z",
+                "end_date": null
+            }
+        ]
+
+### List all Status Types [GET]
++ Response 200 (application/json)
+
+    [Status Type Collection][]
+
 # Group Tags
 Tags are small labels users can apply to various resources and are primarily used to help focus searches.
 
@@ -1974,6 +3225,170 @@ Create a Tag.  You must specify the following properties:
 + Response 201 (application/json)
 
     [Tag][]
+
+# Group Tokens
+Tokens are used to gain API or UI access to Atmosphere.
+
+## Token [/tokens/{key}]
+A single Token object.
+
+Each Token has the following properties:
+
+- **key**: the key of the token
+- **url**: the key of the token detail page
+- **user**: the owner of the token
+- **issuedTime**: The datetime that the token was created
+- **issuer**: How this token was created *This field can be null*
+- **expireTime**: The datetime that this token will expire *This field can be null*
+- **remote_ip**: The IP address of the request that created *This field can be null*
+- **api_server_url**: What API server is this token scoped to? *This field can be null*
+
++ Parameters
+    + key (number, required) ... `key` of the Token.
+    
++ Model (application/json)
+
+    + Body
+
+            {
+                "key": "TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.iplantc.org",
+                "url": "https://atmobeta.iplantc.org/api/v2/tokens/TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.iplantc.org",
+                "user": {
+                    "id": 1,
+                    "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
+                    "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                    "username": "example_user"
+                },
+                "api_server_url": null,
+                "remote_ip": null,
+                "issuer": null,
+                "issuedTime": "2015-10-30T03:11:59.733913Z",
+                "expireTime": null
+            }
+
+### Retrieve a Token [GET]
++ Response 200 (application/json)
+
+    [Token][]
+
+### Update a Token [PATCH]
+Currently only Atmosphere staff can update token information. The following properties can be updated:
+- **user**: a user of the token
+- **issuer**: a description of the token
+
++ Request (application/json)
+
+        {
+            user: "new-user",
+            issuer: "new description of token"
+        }
+
++ Response 200 (application/json)
+
+    [Token][]
+
+
+### Delete a Token [DELETE]
+
++ Response 204 (application/json)
+
+
+## Token Collection [/tokens]
+Collection of all Tokens.
+
++ Model (application/json)
+
+    + Body
+
+            {
+                "count": 1,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
+                        "key": "TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.iplantc.org",
+                        "url": "https://atmobeta.iplantc.org/api/v2/tokens/TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.iplantc.org",
+                        "user": {
+                            "id": 1,
+                            "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
+                            "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                            "username": "example_user"
+                        },
+                        "api_server_url": null,
+                        "remote_ip": null,
+                        "issuer": null,
+                        "issuedTime": "2015-10-30T03:11:59.733913Z",
+                        "expireTime": null
+                    }
+                ]
+            }
+
+### List current Tokens [GET]
++ Response 200 (application/json)
+
+    [Token Collection][]
+
+# Group Users
+
+## User [/users/{id}]
+A single User object.
+
+Each Instance has the following properties:
+
+- **id**: id of the user
+- **url**: url of the user
+- **username**: username of user
+
++ Parameters
+    + id (number, required) ... 'id' of the Instance.
+    
++ Model (application/json)
+
+    JSON representation of Instance Resource.
+
+    + Body
+
+      {
+        "id": 1,
+        "url": "https://atmobeta.iplantc.org/api/v2/users/1337f0ef-a112-45a8-b15f-e75a75963d64",
+        "username": "example_user",
+      }
+
+### Retrieve a User [GET]
+Get a specific user.
+
++ Response 200 (application/json)
+
+    [User][]
+
+
+## User Collection [/users]
+Collection of all Users
+    
++ Model (application/json)
+
+    JSON representation of Instances Collection Resource.
+
+    + Body
+
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 1,
+                    "url": "https://atmobeta.iplantc.org/api/v2/users/1337f0ef-a112-45a8-b15f-e75a75963d64",
+                    "username": "example_user",
+                }
+            ]
+        }
+    
+### List all Users [GET]
+
++ Response 200 (application/json)
+
+    [User Collection][]
 
 # Group Volumes
 Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a

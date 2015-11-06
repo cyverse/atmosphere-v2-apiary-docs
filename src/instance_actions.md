@@ -26,20 +26,6 @@ Each Action has the following properties:
                 "description": "suspends an instance"
             }
 
-### Retrieve an Instance Action [GET]
-Get a specific instance.
-
-+ Response 200 (application/json)
-
-    [Instance Action][]
-
-
-### Execute an instance action [POST]
-Perform the specified action on an instance
-
-+ Response 204 (application/json)
-
-    [Instance Action][]
     
 ## Instance Action Collection [/instances/{id}/actions]
 Collection of all actions that can be performed on an instance.
@@ -74,10 +60,17 @@ Collection of all actions that can be performed on an instance.
                    "description": "Resume a suspended instance.  This will also start subtracting AU's again."
                 }
             ]
-    
+
 ### List all Instance Actions [GET]
 List all actions that can be performed on an instance
 
 + Response 200 (application/json)
+
+    [Instance Action Collection][]
+
+### Execute an instance action [POST]
+Perform the specified action on an instance
+
++ Response 204 (application/json)
 
     [Instance Action Collection][]
