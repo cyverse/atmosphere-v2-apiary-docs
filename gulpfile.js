@@ -23,7 +23,7 @@ var paths = {
     './src/machine_requests.md',
     './src/metrics.md',
     './src/instances.md',
-    //'./src/instance_actions.md',
+    './src/instance_actions.md',
     './src/instance_histories.md',
     './src/instance_tags.md',
     './src/licenses.md',
