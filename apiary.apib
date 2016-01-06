@@ -103,12 +103,13 @@ A single Boot Script object.
 Each Boot Script has the following properties:
 
 - **id**: the id of the boot_script *(DEPRECATED)*
-- **uuid**: the uuid of the boot_script
 - **url**: the URL of the boot_script
+- **uuid**: the uuid of the boot_script
+- **created_by**: user who created the boot_script
 - **title**: the title of the boot_script
 - **text**: the contents of the boot_script
 - **type**: the type of the boot_script *(Raw Text or URL ONLY)*
-- **created_by**: user who created the boot_script
+
 
 + Parameters
     + uuid (number, required) ... uuid of the Boot Script.
@@ -3388,6 +3389,55 @@ Collection of all Users
 + Response 200 (application/json)
 
     [User Collection][]
+
+# Group Version
+The version endpoint allows users to see the version of Atmosphere they are currently using. The Troposphere version can be viewed at /tropo-api/version
+
+## AtmoVersion [/version]
+Retrieve the current Atmosphere version
+
++ Model (application/json)
+
+    + Body
+            {
+               "git_sha": "d95baa954c53583452b207de0f7bcc4de633976",
+                "git_sha_abbrev": "@d95baa",
+                "short": "0.14.3",
+                "verbose": "0.14.3 dev 0 @d95baa",
+                "normal": "0.14.3 dev 0",
+                "commit_date": "2016-01-06T10:24:22-07:00",
+                "git_branch": "kicking-kestrel",
+                "branch": "0.14",
+                "tertiary": ".3" 
+            }
+
+
+## TropoVersion [/tropo-api/version]
+Retrieve the current Troposphere version
+
++ Model (application/json)
+
+    + Body
+            {
+                git_sha": "3f524b5c3eac7262925ca9bad39931efb8b9eb1", 
+                "git_sha_abbrev": "@3f524b", 
+                "git_branch": "kicking-kestrel", 
+                "commit_date": "2016-01-05T16:42:22-07:00"
+            }
+
+
+
+
+### Retrieve Atmosphere version [GET]
++ Response 200 (application/json)
+
+    [AtmoVersion][]
+
+### Retrieve Troposphere version [GET]
++ Response 200 (application/json)
+       
+    [TropoVersion][]
+
 
 # Group Volumes
 Volumes are network based storage that a user can attach to any instance.  They can then be detached and attached to a

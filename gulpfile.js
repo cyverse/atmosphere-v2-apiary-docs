@@ -48,6 +48,7 @@ var paths = {
     './src/tags.md',
     './src/tokens.md',
     './src/users.md',
+		'./src/version.md',
     './src/volumes.md'
     //'./src/volume_actions.md',
   ]
