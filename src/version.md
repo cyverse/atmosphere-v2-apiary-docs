@@ -1,7 +1,7 @@
 # Group Version
 The version endpoint allows users to see the version of Atmosphere they are currently using. The Troposphere version can be viewed at /tropo-api/version
 
-## AtmoVersion [/version]
+## Atmosphere Version [/version]
 Retrieve the current Atmosphere version
 
 + Model (application/json)
@@ -19,8 +19,13 @@ Retrieve the current Atmosphere version
                 "tertiary": ".3" 
             }
 
+### Retrieve Atmosphere version [GET]
++ Response 200 (application/json)
 
-## TropoVersion [/tropo-api/version]
+    [Atmosphere Version][]
+
+
+## Troposphere Version [/tropo-api/version]
 Retrieve the current Troposphere version
 
 + Model (application/json)
@@ -33,16 +38,8 @@ Retrieve the current Troposphere version
                 "commit_date": "2016-01-05T16:42:22-07:00"
             }
 
-
-
-
-### Retrieve Atmosphere version [GET]
-+ Response 200 (application/json)
-
-    [AtmoVersion][]
-
 ### Retrieve Troposphere version [GET]
 + Response 200 (application/json)
        
-    [TropoVersion][]
+    [Troposphere Version][]
 

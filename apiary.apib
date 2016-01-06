@@ -103,13 +103,12 @@ A single Boot Script object.
 Each Boot Script has the following properties:
 
 - **id**: the id of the boot_script *(DEPRECATED)*
-- **url**: the URL of the boot_script
 - **uuid**: the uuid of the boot_script
-- **created_by**: user who created the boot_script
+- **url**: the URL of the boot_script
 - **title**: the title of the boot_script
 - **text**: the contents of the boot_script
 - **type**: the type of the boot_script *(Raw Text or URL ONLY)*
-
+- **created_by**: user who created the boot_script
 
 + Parameters
     + uuid (number, required) ... uuid of the Boot Script.
@@ -3393,7 +3392,7 @@ Collection of all Users
 # Group Version
 The version endpoint allows users to see the version of Atmosphere they are currently using. The Troposphere version can be viewed at /tropo-api/version
 
-## AtmoVersion [/version]
+## Atmosphere Version [/version]
 Retrieve the current Atmosphere version
 
 + Model (application/json)
@@ -3411,8 +3410,13 @@ Retrieve the current Atmosphere version
                 "tertiary": ".3" 
             }
 
+### Retrieve Atmosphere version [GET]
++ Response 200 (application/json)
 
-## TropoVersion [/tropo-api/version]
+    [Atmosphere Version][]
+
+
+## Troposphere Version [/tropo-api/version]
 Retrieve the current Troposphere version
 
 + Model (application/json)
@@ -3425,18 +3429,10 @@ Retrieve the current Troposphere version
                 "commit_date": "2016-01-05T16:42:22-07:00"
             }
 
-
-
-
-### Retrieve Atmosphere version [GET]
-+ Response 200 (application/json)
-
-    [AtmoVersion][]
-
 ### Retrieve Troposphere version [GET]
 + Response 200 (application/json)
        
-    [TropoVersion][]
+    [Troposphere Version][]
 
 
 # Group Volumes
