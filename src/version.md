@@ -1,5 +1,5 @@
 # Group Version
-The version endpoint allows users to see the version of Atmosphere they are currently using. The Troposphere version can be viewed at /tropo-api/version
+The version endpoint allows users to see the version of Atmosphere they are currently using. The Troposphere version can be viewed at https://iplantc.org/tropo-api/version
 
 ## Atmosphere Version [/version]
 Retrieve the current Atmosphere version
@@ -25,7 +25,7 @@ Retrieve the current Atmosphere version
     [Atmosphere Version][]
 
 
-## Troposphere Version [/tropo-api/version]
+## Troposphere Version [/version]
 Retrieve the current Troposphere version
 
 + Model (application/json)
