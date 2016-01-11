@@ -1,6 +1,7 @@
 # Group Quota
 Quotas are available resource allocations on Atmosphere.  They determine the maximum amount of combined CPU, memory,
 disk and number of volumes that a user can launch.
+**NOTE: Quotas are visible to Staff and CloudAdministrators ONLY**
 
 ## Quota [/quotas/{id}]
 A single Quota object.

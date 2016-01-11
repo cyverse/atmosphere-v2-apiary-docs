@@ -1,5 +1,6 @@
 # Group Allocation
 Allocations represent Atmosphere AU values.
+**NOTE: Allocations are visible to Staff and CloudAdministrators ONLY**
 
 ## Allocation [/allocations/{id}]
 A single Allocation object.
