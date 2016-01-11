@@ -1610,6 +1610,42 @@ Get a list of your instances.
 
     [Instance Collection][]
 
+### Create an Instance [POST]
+To Create a new instance, you need to specify the following properties:
+- **title**: The title of the Maintenance Record
+- **message**: The message that will be displayed to the user when they attempt to access the part of the API that is under maintenance.
+- **disable_login**: _(Default: True)_ Disable users from logging in while this maintenance record is active.
+- **provider**: _(optional)_ The ID of the provider you want the machine request to be created for. (If null, Maintenance record affects **ALL** providers)
+- **start_date**: _(optional)_ The date/time to start the maitenance record. (If null, Maintenance record will start immediately)
+- **end_date**: _(Optional)_ The date/time that the maintenance record will no longer be active. (If null, Maintenance record will be active indefinitely).
+
++ Request (application/json)
+
+        {
+            "identity": "b3c83812-10d8-4ae5-8f2a-dc922182e65e",
+            "name": "My First Instance",
+            "project": "fae4003e-7125-43b8-b466-c59b6a2d120a",
+            "size_alias": "1",
+            "source_alias": "d559c236-53ef-437a-999e-02ae16c4b5f0",
+            "scripts": [],
+            "deploy": true,
+            "extra": {}
+        }
++ Response 201 (application/json)
+        {
+            "provider_uuid": "d97037cf-2b2d-44a8-93cc-2a82c0ae193a",
+            "identity": "b3c83812-10d8-4ae5-8f2a-dc922182e65e",
+            "name": "My First Instance",
+            "project": "fae4003e-7125-43b8-b466-c59b6a2d120a",
+            "size_alias": "1",
+            "source_alias": "d559c236-53ef-437a-999e-02ae16c4b5f0",
+            "scripts": [],
+            "deploy": true,
+            "extra": {}
+        }
+
+    [Instance][]
+
 # Group Instance Actions
 Actions that can be performed on instances.
 
@@ -2146,7 +2182,7 @@ Collection of all Maintenance Records. You must pass in active=true if you only 
     [Maintenance Record Collection][]
 
 ### Create a Maintenance Record [POST]
-To reate a new Maintenance record for the Atmosphere API, you need to specify the following properties:
+To Create a new Maintenance record for the Atmosphere API, you need to specify the following properties:
 - **title**: The title of the Maintenance Record
 - **message**: The message that will be displayed to the user when they attempt to access the part of the API that is under maintenance.
 - **disable_login**: _(Default: True)_ Disable users from logging in while this maintenance record is active.

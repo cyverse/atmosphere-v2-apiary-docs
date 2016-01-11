@@ -67,7 +67,7 @@ Collection of all Maintenance Records. You must pass in active=true if you only 
     [Maintenance Record Collection][]
 
 ### Create a Maintenance Record [POST]
-To reate a new Maintenance record for the Atmosphere API, you need to specify the following properties:
+To Create a new Maintenance record for the Atmosphere API, you need to specify the following properties:
 - **title**: The title of the Maintenance Record
 - **message**: The message that will be displayed to the user when they attempt to access the part of the API that is under maintenance.
 - **disable_login**: _(Default: True)_ Disable users from logging in while this maintenance record is active.
