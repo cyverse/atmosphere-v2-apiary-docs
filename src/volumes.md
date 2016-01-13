@@ -62,6 +62,14 @@ You can update the following properties for volumes you own:
         {
             name: "new name"
         }
+    [Volume][]
+
+### Terminate a Volume [DELETE]
+Terminate a volume.
+
++ Response 200 (application/json)
+
+    [Volume][]
 
 
 ## Volume Collection [/volumes]

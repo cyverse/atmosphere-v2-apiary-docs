@@ -84,6 +84,13 @@ You can update the following properties for instances you own:
 
     [Instance][]
 
+### Terminate an Instance [DELETE]
+Terminate an instance.
+
++ Response 200 (application/json)
+
+    [Instance][]
+
 
 ## Instance Collection [/instances]
 Collection of all Instances
