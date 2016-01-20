@@ -1619,12 +1619,14 @@ Get a list of your instances.
 
 ### Create an Instance [POST]
 To Create a new instance, you need to specify the following properties:
-- **title**: The title of the Maintenance Record
-- **message**: The message that will be displayed to the user when they attempt to access the part of the API that is under maintenance.
-- **disable_login**: _(Default: True)_ Disable users from logging in while this maintenance record is active.
-- **provider**: _(optional)_ The ID of the provider you want the machine request to be created for. (If null, Maintenance record affects **ALL** providers)
-- **start_date**: _(optional)_ The date/time to start the maitenance record. (If null, Maintenance record will start immediately)
-- **end_date**: _(Optional)_ The date/time that the maintenance record will no longer be active. (If null, Maintenance record will be active indefinitely).
+- **name**: The name of your new instance
+- **identity**: The identity you want to use to create your instance. (This also determines what cloud provider you will be launching on)
+- **size_alias**: The alias/identifier of the size/flavor you want when creating your instance.
+- **source_alias**: The alias/identifier of the machine or volume that you want to use as the 'source' of your instance.
+- **deploy**: _(Default: True)_ If true, run Ansible deployments on this instance. If false, the instance will show 'active' after a floating IP address has been associated.
+- **project**: _(Optional)_ The UUID of the project that you want to add this instance to. (If not selected, you will be required to add it to a project in the Troposphere UI)
+- **scripts**: _(Optional)_ A list of script IDs to be included/deployed with your instance after it has made it to 'active'.
+- **extra**: _(Optional)_ This is a dictionary/map of additional key/value pairs. It is NOT required to launch, but can be used to adjust/fine-tune your instance launch. *DEVELOPERS/STAFF/ADVANCED USERS ONLY*
 
 + Request (application/json)
 
