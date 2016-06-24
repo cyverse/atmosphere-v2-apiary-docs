@@ -11,6 +11,7 @@ var paths = {
     './src/email_feedback.md',
     './src/email_request_resources.md',
     './src/email_support.md',
+    './src/external_links.md',
     './src/group.md',
     './src/identities.md',
     './src/images.md',
