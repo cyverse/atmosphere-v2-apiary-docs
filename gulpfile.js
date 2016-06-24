@@ -33,7 +33,7 @@ var paths = {
     './src/projects.md',
     './src/project_instances.md',
     './src/project_volumes.md',
-    //'./src/project_images.md',
+    './src/project_images.md',
     //'./src/profile.md',
     './src/providers.md',
     //'./src/provider_capacity.md',
