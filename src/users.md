@@ -20,7 +20,7 @@ Each Instance has the following properties:
 
       {
         "id": 1,
-        "url": "https://atmobeta.iplantc.org/api/v2/users/1337f0ef-a112-45a8-b15f-e75a75963d64",
+        "url": "https://atmobeta.cyverse.org/api/v2/users/1337f0ef-a112-45a8-b15f-e75a75963d64",
         "username": "example_user",
       }
 
@@ -48,7 +48,7 @@ Collection of all Users
             "results": [
                 {
                     "id": 1,
-                    "url": "https://atmobeta.iplantc.org/api/v2/users/1337f0ef-a112-45a8-b15f-e75a75963d64",
+                    "url": "https://atmobeta.cyverse.org/api/v2/users/1337f0ef-a112-45a8-b15f-e75a75963d64",
                     "username": "example_user",
                 }
             ]

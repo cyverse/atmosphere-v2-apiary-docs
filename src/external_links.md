@@ -25,14 +25,14 @@ Each External Link has the following properties:
     
         {
             "id": "3f048788-258e-4819-be88-9271553cc2ce",
-            "url": "https://atmobeta.iplantc.org/api/v2/links/3f048788-258e-4819-be88-9271553cc2ce",
+            "url": "https://atmobeta.cyverse.org/api/v2/links/3f048788-258e-4819-be88-9271553cc2ce",
             "title": "Sample external link to google",
             "description": "This link will take you to google",
             "link": "https://www.google.com/",
             "created_by": {
                 "id": 1,
                 "uuid": "0b0e48f9-84fa-4946-b518-f7c86890459d",
-                "url": "https://atmobeta.iplantc.org/api/v2/users/0b0e48f9-84fa-4946-b518-f7c86890459d",
+                "url": "https://atmobeta.cyverse.org/api/v2/users/0b0e48f9-84fa-4946-b518-f7c86890459d",
                 "username": "sgregory"
             }
         }
@@ -86,14 +86,14 @@ Collection of all External Links.
             [
                 {
                     "id": "3f048788-258e-4819-be88-9271553cc2ce",
-                    "url": "https://atmobeta.iplantc.org/api/v2/links/3f048788-258e-4819-be88-9271553cc2ce",
+                    "url": "https://atmobeta.cyverse.org/api/v2/links/3f048788-258e-4819-be88-9271553cc2ce",
                     "title": "Sample external link to google",
                     "description": "This link will take you to google",
                     "link": "https://www.google.com/",
                     "created_by": {
                         "id": 1,
                         "uuid": "0b0e48f9-84fa-4946-b518-f7c86890459d",
-                        "url": "https://atmobeta.iplantc.org/api/v2/users/0b0e48f9-84fa-4946-b518-f7c86890459d",
+                        "url": "https://atmobeta.cyverse.org/api/v2/users/0b0e48f9-84fa-4946-b518-f7c86890459d",
                         "username": "sgregory"
                     }
                 }

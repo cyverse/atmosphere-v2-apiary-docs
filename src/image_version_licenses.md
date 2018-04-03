@@ -20,15 +20,15 @@ Each Image Version License has the following properties
     
         {
             "id": 1,
-            "url": "https://atmobeta.iplantc.org/api/v2/image_version_licenses/1",
+            "url": "https://atmobeta.cyverse.org/api/v2/image_version_licenses/1",
             "image_version": {
                 "id": "0005099e-bdbd-4964-9c81-e1a5a4788fc6",
-                "url": "https://atmobeta.iplantc.org/api/v2/image_versions/0005099e-bdbd-4964-9c81-e1a5a4788fc6",
+                "url": "https://atmobeta.cyverse.org/api/v2/image_versions/0005099e-bdbd-4964-9c81-e1a5a4788fc6",
                 "name": "1.0"
             },
             "license": {
                 "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/licenses/d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
+                "url": "https://atmobeta.cyverse.org/api/v2/licenses/d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
                 "uuid": "d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
                 "title": "Testing",
                 "type": "Full Text",

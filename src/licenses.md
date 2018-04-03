@@ -25,7 +25,7 @@ Each License has the following properties:
     
         {
             "id": 1,
-            "url": "https://atmobeta.iplantc.org/api/v2/licenses/d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
+            "url": "https://atmobeta.cyverse.org/api/v2/licenses/d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
             "uuid": "d4d143cc-bf99-4ec4-8d15-e0702d0f6ee6",
             "created_by": "example_user",
             "title": "Testing",
@@ -52,7 +52,7 @@ You can update the following properties for licenses you own:
   
         {
             "title": "Updated license",
-            "text": "https://atmobeta.iplantc.org/init_files/licenses/hello_world.py",
+            "text": "https://atmobeta.cyverse.org/init_files/licenses/hello_world.py",
             "type": "URL"
         }
 
@@ -87,7 +87,7 @@ Collection of all Licenses.
                 {
                     "id": 1,
                     "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
-                    "url": "https://atmobeta.iplantc.org/api/v2/licenses/3f048788-258e-4819-be88-9271553cc2ce",
+                    "url": "https://atmobeta.cyverse.org/api/v2/licenses/3f048788-258e-4819-be88-9271553cc2ce",
                     "created_by": "example_user",
                     "title": "Sample license",
                     "text": "#!/usr/bin/env python\nprint 'Hello World'",

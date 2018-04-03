@@ -26,7 +26,7 @@ Each Project has the following properties:
     
         {
             "id": 1,
-            "url": "https://atmobeta.iplantc.org/api/v2/projects/1",
+            "url": "https://atmobeta.cyverse.org/api/v2/projects/1",
             "name": "project",
             "description": "my project full of things",
             "owner": {

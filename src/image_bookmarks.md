@@ -56,7 +56,7 @@ Collection of all Image Bookmarks.
             "results": [
                 {
                     "id": 1,
-                    "url": "https://atmobeta.iplantc.org/api/v2/image_bookmarks/1",
+                    "url": "https://atmobeta.cyverse.org/api/v2/image_bookmarks/1",
                     "image": {
                         "id": 1,
                         "uuid": "923222d2-a508-4b2c-b19e-00a29f1a5bb5"

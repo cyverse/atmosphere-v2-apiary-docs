@@ -22,13 +22,13 @@ Each Group has the following properties:
 
              {
                 "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/groups/21e5963b-d968-4dff-bcdc-054c75ce903c",
+                "url": "https://atmobeta.cyverse.org/api/v2/groups/21e5963b-d968-4dff-bcdc-054c75ce903c",
                 "name": "example_group",
                 "users": [
                     {
                         "id": 1,
                         "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
-                        "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                        "url": "https://atmobeta.cyverse.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
                         "username": "example_user"
                     }
                 ]
@@ -51,13 +51,13 @@ Collection of all Groups
             [
                 {
                     "id": 1,
-                    "url": "https://atmobeta.iplantc.org/api/v2/groups/21e5963b-d968-4dff-bcdc-054c75ce903c",
+                    "url": "https://atmobeta.cyverse.org/api/v2/groups/21e5963b-d968-4dff-bcdc-054c75ce903c",
                     "name": "example_group",
                     "users": [
                         {
                             "id": 1,
                             "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
-                            "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                            "url": "https://atmobeta.cyverse.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
                             "username": "example_user"
                         }
                     ]

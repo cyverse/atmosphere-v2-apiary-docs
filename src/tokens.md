@@ -23,12 +23,12 @@ Each Token has the following properties:
     + Body
 
             {
-                "key": "TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.iplantc.org",
-                "url": "https://atmobeta.iplantc.org/api/v2/tokens/TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.iplantc.org",
+                "key": "TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.cyverse.org",
+                "url": "https://atmobeta.cyverse.org/api/v2/tokens/TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.cyverse.org",
                 "user": {
                     "id": 1,
                     "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
-                    "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                    "url": "https://atmobeta.cyverse.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
                     "username": "example_user"
                 },
                 "api_server_url": null,
@@ -78,12 +78,12 @@ Collection of all Tokens.
                 "previous": null,
                 "results": [
                     {
-                        "key": "TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.iplantc.org",
-                        "url": "https://atmobeta.iplantc.org/api/v2/tokens/TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.iplantc.org",
+                        "key": "TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.cyverse.org",
+                        "url": "https://atmobeta.cyverse.org/api/v2/tokens/TGT-5028365-cwkmbeSTOtX9Tbi0hAehRVoGVmeNwrp60fgl7vRM5SRWGm0HSA-auth.cyverse.org",
                         "user": {
                             "id": 1,
                             "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
-                            "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                            "url": "https://atmobeta.cyverse.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
                             "username": "example_user"
                         },
                         "api_server_url": null,

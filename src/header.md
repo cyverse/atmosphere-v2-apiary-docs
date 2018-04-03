@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://atmobeta.iplantc.org/api/v2
+HOST: https://atmobeta.cyverse.org/api/v2
 
 # Atmosphere
 Atmosphere is a private, self-service cloud computing platform that supports research efforts in the plant sciences

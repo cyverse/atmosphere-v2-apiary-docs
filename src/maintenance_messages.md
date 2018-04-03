@@ -88,7 +88,7 @@ To Create a new Maintenance record for the Atmosphere API, you need to specify t
 + Response 201 (application/json)
         {
             "id": 1,
-            "url": "https://atmobeta.iplantc.org/api/v2/maintenance_records/1",
+            "url": "https://atmobeta.cyverse.org/api/v2/maintenance_records/1",
             "start_date": "2016-01-01T00:00:00Z",
             "end_date": "2016-01-12T12:00:00Z",
             "title": "2016 Maintenance Record",

@@ -20,16 +20,16 @@ Each Image Version Membership has the following properties
     
         {
             "id": 156,
-            "url": "https://atmobeta.iplantc.org/api/v2/image_version_memberships/156",
+            "url": "https://atmobeta.cyverse.org/api/v2/image_version_memberships/156",
             "image_version": {
                 "id": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
-                "url": "https://atmobeta.iplantc.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                "url": "https://atmobeta.cyverse.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
                 "name": "1.0"
             },
             "group": {
                 "id": 598,
                 "uuid": "6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
-                "url": "https://atmobeta.iplantc.org/api/v2/groups/6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
+                "url": "https://atmobeta.cyverse.org/api/v2/groups/6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
                 "name": "estevetest03"
             }
         }
@@ -60,16 +60,16 @@ Each Image Version Membership has the following properties
             "results": [
                 {
                     "id": 156,
-                    "url": "https://atmobeta.iplantc.org/api/v2/image_version_memberships/156",
+                    "url": "https://atmobeta.cyverse.org/api/v2/image_version_memberships/156",
                     "image_version": {
                         "id": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
-                        "url": "https://atmobeta.iplantc.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                        "url": "https://atmobeta.cyverse.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
                         "name": "1.0"
                     },
                     "group": {
                         "id": 1,
                         "uuid": "6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
-                        "url": "https://atmobeta.iplantc.org/api/v2/groups/6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
+                        "url": "https://atmobeta.cyverse.org/api/v2/groups/6139dc6d-0a50-4a83-9e6d-edf4b8e5d611",
                         "name": "example_group"
                     }
                 }

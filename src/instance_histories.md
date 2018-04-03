@@ -30,11 +30,11 @@ Each Instance History object has the following properties:
             {
                 "id": 86732,
                 "uuid": "a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
-                "url": "https://atmobeta.iplantc.org/api/v2/instance_histories/a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
+                "url": "https://atmobeta.cyverse.org/api/v2/instance_histories/a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
                 "instance": {
                     "id": 21513,
                     "uuid": "edf972fb-81f4-4425-a0eb-c427caeb46d7",
-                    "url": "https://atmobeta.iplantc.org/api/v2/instances/edf972fb-81f4-4425-a0eb-c427caeb46d7",
+                    "url": "https://atmobeta.cyverse.org/api/v2/instances/edf972fb-81f4-4425-a0eb-c427caeb46d7",
                     "name": "austin localdev",
                     "status": "suspended",
                     "ip_address": "0.0.0.0",
@@ -49,7 +49,7 @@ Each Instance History object has the following properties:
                 "size": {
                     "id": 122,
                     "uuid": "2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
-                    "url": "https://atmobeta.iplantc.org/api/v2/sizes/2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
+                    "url": "https://atmobeta.cyverse.org/api/v2/sizes/2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
                     "alias": "1",
                     "name": "tiny",
                     "cpu": 1,
@@ -62,7 +62,7 @@ Each Instance History object has the following properties:
                 "provider": {
                     "id": 6,
                     "uuid": "d9ec29bb-b93c-430d-8f1b-29217c6348d4",
-                    "url": "https://atmobeta.iplantc.org/api/v2/providers/d9ec29bb-b93c-430d-8f1b-29217c6348d4",
+                    "url": "https://atmobeta.cyverse.org/api/v2/providers/d9ec29bb-b93c-430d-8f1b-29217c6348d4",
                     "name": "iPlant Cloud - Austin",
                     "description": "Reserved for image developers, tool developers, and prepublication preparation. Allocation is granted by separate science committee, based on availability and the nature of the project.",
                     "public": false,
@@ -72,7 +72,7 @@ Each Instance History object has the following properties:
                 },
                 "image": {
                     "id": 1192,
-                    "url": "https://atmobeta.iplantc.org/api/v2/images/3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
+                    "url": "https://atmobeta.cyverse.org/api/v2/images/3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
                     "uuid": "3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
                     "name": "Ubuntu 12.04 Unity GUI v2",
                     "description": "Imported Application - Ubuntu 12.04 Unity GUI v2",
@@ -110,11 +110,11 @@ The history of all of the user's instances since the date their account was crea
                     {
                         "id": 86732,
                         "uuid": "a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
-                        "url": "https://atmobeta.iplantc.org/api/v2/instance_histories/a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
+                        "url": "https://atmobeta.cyverse.org/api/v2/instance_histories/a5c3b562-fecd-4f3b-abd6-7ac1ab5924d4",
                         "instance": {
                             "id": 21513,
                             "uuid": "edf972fb-81f4-4425-a0eb-c427caeb46d7",
-                            "url": "https://atmobeta.iplantc.org/api/v2/instances/edf972fb-81f4-4425-a0eb-c427caeb46d7",
+                            "url": "https://atmobeta.cyverse.org/api/v2/instances/edf972fb-81f4-4425-a0eb-c427caeb46d7",
                             "name": "austin localdev",
                             "status": "suspended",
                             "ip_address": "0.0.0.0",
@@ -129,7 +129,7 @@ The history of all of the user's instances since the date their account was crea
                         "size": {
                             "id": 122,
                             "uuid": "2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
-                            "url": "https://atmobeta.iplantc.org/api/v2/sizes/2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
+                            "url": "https://atmobeta.cyverse.org/api/v2/sizes/2d60f4d1-8cb4-4248-80fe-b560a5f7f1e7",
                             "alias": "1",
                             "name": "tiny",
                             "cpu": 1,
@@ -142,7 +142,7 @@ The history of all of the user's instances since the date their account was crea
                         "provider": {
                             "id": 6,
                             "uuid": "d9ec29bb-b93c-430d-8f1b-29217c6348d4",
-                            "url": "https://atmobeta.iplantc.org/api/v2/providers/d9ec29bb-b93c-430d-8f1b-29217c6348d4",
+                            "url": "https://atmobeta.cyverse.org/api/v2/providers/d9ec29bb-b93c-430d-8f1b-29217c6348d4",
                             "name": "iPlant Cloud - Austin",
                             "description": "Reserved for image developers, tool developers, and prepublication preparation. Allocation is granted by separate science committee, based on availability and the nature of the project.",
                             "public": false,
@@ -152,7 +152,7 @@ The history of all of the user's instances since the date their account was crea
                         },
                         "image": {
                             "id": 1192,
-                            "url": "https://atmobeta.iplantc.org/api/v2/images/3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
+                            "url": "https://atmobeta.cyverse.org/api/v2/images/3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
                             "uuid": "3ef5fc54-b9db-4977-b82e-6ee9d14e8419",
                             "name": "Ubuntu 12.04 Unity GUI v2",
                             "description": "Imported Application - Ubuntu 12.04 Unity GUI v2",

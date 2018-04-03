@@ -28,11 +28,11 @@ Each Credential has the following properties:
         {
             "id": 1,
             "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
-            "url": "https://atmobeta.iplantc.org/api/v2/credentials/3f048788-258e-4819-be88-9271553cc2ce",
+            "url": "https://atmobeta.cyverse.org/api/v2/credentials/3f048788-258e-4819-be88-9271553cc2ce",
             "identity": {
                 "id": "1",
                 "uuid": "4bb68750-ecdb-41b6-974b-6b1771c9ea77",
-                "url": "https://atmobeta.iplantc.org/api/v2/identities/4bb68750-ecdb-41b6-974b-6b1771c9ea77",
+                "url": "https://atmobeta.cyverse.org/api/v2/identities/4bb68750-ecdb-41b6-974b-6b1771c9ea77",
                 "provider": 1
             },
             "key": "ex_tenant_name",
@@ -87,11 +87,11 @@ Collection of all Credentials.
                 {
                     "id": 1,
                     "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
-                    "url": "https://atmobeta.iplantc.org/api/v2/credentials/3f048788-258e-4819-be88-9271553cc2ce",
+                    "url": "https://atmobeta.cyverse.org/api/v2/credentials/3f048788-258e-4819-be88-9271553cc2ce",
                     "identity": {
                         "id": "1",
                         "uuid": "4bb68750-ecdb-41b6-974b-6b1771c9ea77",
-                        "url": "https://atmobeta.iplantc.org/api/v2/identities/4bb68750-ecdb-41b6-974b-6b1771c9ea77",
+                        "url": "https://atmobeta.cyverse.org/api/v2/identities/4bb68750-ecdb-41b6-974b-6b1771c9ea77",
                         "provider": 1
                     },
                     "key": "ex_tenant_name",

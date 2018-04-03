@@ -54,17 +54,17 @@ Each Machine Request has the following properties:
         {
             "id": 1,
             "uuid": "5b8db071-27eb-477a-bd3a-8fef850ff581",
-            "url": "https://atmobeta.iplantc.org/api/v2/machine_requests/5b8db071-27eb-477a-bd3a-8fef850ff581",
+            "url": "https://atmobeta.cyverse.org/api/v2/machine_requests/5b8db071-27eb-477a-bd3a-8fef850ff581",
             "instance": {
                 "id": 20397,
                 "uuid": "554c5a89-6905-4d77-a752-1aec64b98480",
-                "url": "https://atmobeta.iplantc.org/api/v2/instances/554c5a89-6905-4d77-a752-1aec64b98480",
+                "url": "https://atmobeta.cyverse.org/api/v2/instances/554c5a89-6905-4d77-a752-1aec64b98480",
                 "name": "Development",
                 "status": "active",
                 "size": {
                     "id": 23,
                     "uuid": "39169ae0-bb4f-454f-bd5c-251d7b1ca319",
-                    "url": "https://atmobeta.iplantc.org/api/v2/sizes/39169ae0-bb4f-454f-bd5c-251d7b1ca319",
+                    "url": "https://atmobeta.cyverse.org/api/v2/sizes/39169ae0-bb4f-454f-bd5c-251d7b1ca319",
                     "alias": "1",
                     "name": "tiny1",
                     "cpu": 1,
@@ -80,14 +80,14 @@ Each Machine Request has the following properties:
                 "identity": {
                     "id": "2360",
                     "uuid": "b33e5137-2337-45ae-9b80-523b87bc2873",
-                    "url": "https://atmobeta.iplantc.org/api/v2/identities/b33e5137-2337-45ae-9b80-523b87bc2873",
+                    "url": "https://atmobeta.cyverse.org/api/v2/identities/b33e5137-2337-45ae-9b80-523b87bc2873",
                     "provider": 4
                 },
                 "user": 1,
                 "provider": 4,
                 "image": {
                     "id": 1155,
-                    "url": "https://atmobeta.iplantc.org/api/v2/images/92818a5f-38f9-4c0f-adad-c987359ff0ae",
+                    "url": "https://atmobeta.cyverse.org/api/v2/images/92818a5f-38f9-4c0f-adad-c987359ff0ae",
                     "uuid": "92818a5f-38f9-4c0f-adad-c987359ff0ae",
                     "name": "IDAC Server",
                     "description": "Updating description of the original application",
@@ -102,12 +102,12 @@ Each Machine Request has the following properties:
             "identity": {
                 "id": "2360",
                 "uuid": "b33e5137-2337-45ae-9b80-523b87bc2873",
-                "url": "https://atmobeta.iplantc.org/api/v2/identities/b33e5137-2337-45ae-9b80-523b87bc2873",
+                "url": "https://atmobeta.cyverse.org/api/v2/identities/b33e5137-2337-45ae-9b80-523b87bc2873",
                 "provider": 4
             },
             "status": {
                 "id": 2,
-                "url": "https://atmobeta.iplantc.org/api/v2/status_types/50643816-5aa7-4334-a7cd-e857bb902265",
+                "url": "https://atmobeta.cyverse.org/api/v2/status_types/50643816-5aa7-4334-a7cd-e857bb902265",
                 "uuid": "50643816-5aa7-4334-a7cd-e857bb902265",
                 "name": "closed",
                 "description": "",
@@ -118,11 +118,11 @@ Each Machine Request has the following properties:
             "parent_machine": {
                 "id": 1981,
                 "uuid": "4a67757e-4818-485f-9c1d-d1db0b0e4148",
-                "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/4a67757e-4818-485f-9c1d-d1db0b0e4148",
+                "url": "https://atmobeta.cyverse.org/api/v2/provider_machines/4a67757e-4818-485f-9c1d-d1db0b0e4148",
                 "provider": {
                     "id": 4,
                     "uuid": "c734f3bc-e16d-499d-88db-f7319d2dd5a7",
-                    "url": "https://atmobeta.iplantc.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
+                    "url": "https://atmobeta.cyverse.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
                     "name": "iPlant Cloud - Tucson",
                     "description": "General purpose default provider. Allocation increases are based on availability, fair share, and a user's request history.",
                     "public": true,
@@ -156,7 +156,7 @@ Each Machine Request has the following properties:
             "new_machine_provider": {
                 "id": 4,
                 "uuid": "c734f3bc-e16d-499d-88db-f7319d2dd5a7",
-                "url": "https://atmobeta.iplantc.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
+                "url": "https://atmobeta.cyverse.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
                 "name": "iPlant Cloud - Tucson",
                 "description": "General purpose default provider. Allocation increases are based on availability, fair share, and a user's request history.",
                 "public": true,
@@ -167,7 +167,7 @@ Each Machine Request has the following properties:
             "new_machine_owner": {
                 "id": 1,
                 "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
-                "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                "url": "https://atmobeta.cyverse.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
                 "username": "example_user"
             },
             "start_date": "2015-10-06T17:11:06.494038Z",
@@ -175,11 +175,11 @@ Each Machine Request has the following properties:
             "new_machine": {
                 "id": 2073,
                 "uuid": "88753132-e71b-4867-a15b-fe825804854f",
-                "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/88753132-e71b-4867-a15b-fe825804854f",
+                "url": "https://atmobeta.cyverse.org/api/v2/provider_machines/88753132-e71b-4867-a15b-fe825804854f",
                 "provider": {
                     "id": 4,
                     "uuid": "c734f3bc-e16d-499d-88db-f7319d2dd5a7",
-                    "url": "https://atmobeta.iplantc.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
+                    "url": "https://atmobeta.cyverse.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
                     "name": "iPlant Cloud - Tucson",
                     "description": "General purpose default provider. Allocation increases are based on availability, fair share, and a user's request history.",
                     "public": true,
@@ -194,7 +194,7 @@ Each Machine Request has the following properties:
             },
             "new_application_version": {
                 "id": "197629ba-b296-465f-9a78-9c1da0c4d1ea",
-                "url": "https://atmobeta.iplantc.org/api/v2/image_versions/197629ba-b296-465f-9a78-9c1da0c4d1ea",
+                "url": "https://atmobeta.cyverse.org/api/v2/image_versions/197629ba-b296-465f-9a78-9c1da0c4d1ea",
                 "name": "3.0-test"
             }
         }
@@ -214,7 +214,7 @@ You can update the following properties for machine_requests you own:
   
         {
             "title": "Updated machine_request",
-            "text": "https://atmobeta.iplantc.org/init_files/machine_requests/hello_world.py",
+            "text": "https://atmobeta.cyverse.org/init_files/machine_requests/hello_world.py",
             "type": "URL"
         }
 
@@ -249,17 +249,17 @@ Collection of all Machine Requests.
                 {
                     "id": 1,
                     "uuid": "5b8db071-27eb-477a-bd3a-8fef850ff581",
-                    "url": "https://atmobeta.iplantc.org/api/v2/machine_requests/5b8db071-27eb-477a-bd3a-8fef850ff581",
+                    "url": "https://atmobeta.cyverse.org/api/v2/machine_requests/5b8db071-27eb-477a-bd3a-8fef850ff581",
                     "instance": {
                         "id": 20397,
                         "uuid": "554c5a89-6905-4d77-a752-1aec64b98480",
-                        "url": "https://atmobeta.iplantc.org/api/v2/instances/554c5a89-6905-4d77-a752-1aec64b98480",
+                        "url": "https://atmobeta.cyverse.org/api/v2/instances/554c5a89-6905-4d77-a752-1aec64b98480",
                         "name": "Development",
                         "status": "active",
                         "size": {
                             "id": 23,
                             "uuid": "39169ae0-bb4f-454f-bd5c-251d7b1ca319",
-                            "url": "https://atmobeta.iplantc.org/api/v2/sizes/39169ae0-bb4f-454f-bd5c-251d7b1ca319",
+                            "url": "https://atmobeta.cyverse.org/api/v2/sizes/39169ae0-bb4f-454f-bd5c-251d7b1ca319",
                             "alias": "1",
                             "name": "tiny1",
                             "cpu": 1,
@@ -275,14 +275,14 @@ Collection of all Machine Requests.
                         "identity": {
                             "id": "2360",
                             "uuid": "b33e5137-2337-45ae-9b80-523b87bc2873",
-                            "url": "https://atmobeta.iplantc.org/api/v2/identities/b33e5137-2337-45ae-9b80-523b87bc2873",
+                            "url": "https://atmobeta.cyverse.org/api/v2/identities/b33e5137-2337-45ae-9b80-523b87bc2873",
                             "provider": 4
                         },
                         "user": 1,
                         "provider": 4,
                         "image": {
                             "id": 1155,
-                            "url": "https://atmobeta.iplantc.org/api/v2/images/92818a5f-38f9-4c0f-adad-c987359ff0ae",
+                            "url": "https://atmobeta.cyverse.org/api/v2/images/92818a5f-38f9-4c0f-adad-c987359ff0ae",
                             "uuid": "92818a5f-38f9-4c0f-adad-c987359ff0ae",
                             "name": "IDAC Server",
                             "description": "Updating description of the original application",
@@ -297,12 +297,12 @@ Collection of all Machine Requests.
                     "identity": {
                         "id": "2360",
                         "uuid": "b33e5137-2337-45ae-9b80-523b87bc2873",
-                        "url": "https://atmobeta.iplantc.org/api/v2/identities/b33e5137-2337-45ae-9b80-523b87bc2873",
+                        "url": "https://atmobeta.cyverse.org/api/v2/identities/b33e5137-2337-45ae-9b80-523b87bc2873",
                         "provider": 4
                     },
                     "status": {
                         "id": 2,
-                        "url": "https://atmobeta.iplantc.org/api/v2/status_types/50643816-5aa7-4334-a7cd-e857bb902265",
+                        "url": "https://atmobeta.cyverse.org/api/v2/status_types/50643816-5aa7-4334-a7cd-e857bb902265",
                         "uuid": "50643816-5aa7-4334-a7cd-e857bb902265",
                         "name": "closed",
                         "description": "",
@@ -313,11 +313,11 @@ Collection of all Machine Requests.
                     "parent_machine": {
                         "id": 1981,
                         "uuid": "4a67757e-4818-485f-9c1d-d1db0b0e4148",
-                        "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/4a67757e-4818-485f-9c1d-d1db0b0e4148",
+                        "url": "https://atmobeta.cyverse.org/api/v2/provider_machines/4a67757e-4818-485f-9c1d-d1db0b0e4148",
                         "provider": {
                             "id": 4,
                             "uuid": "c734f3bc-e16d-499d-88db-f7319d2dd5a7",
-                            "url": "https://atmobeta.iplantc.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
+                            "url": "https://atmobeta.cyverse.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
                             "name": "iPlant Cloud - Tucson",
                             "description": "General purpose default provider. Allocation increases are based on availability, fair share, and a user's request history.",
                             "public": true,
@@ -351,7 +351,7 @@ Collection of all Machine Requests.
                     "new_machine_provider": {
                         "id": 4,
                         "uuid": "c734f3bc-e16d-499d-88db-f7319d2dd5a7",
-                        "url": "https://atmobeta.iplantc.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
+                        "url": "https://atmobeta.cyverse.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
                         "name": "iPlant Cloud - Tucson",
                         "description": "General purpose default provider. Allocation increases are based on availability, fair share, and a user's request history.",
                         "public": true,
@@ -362,7 +362,7 @@ Collection of all Machine Requests.
                     "new_machine_owner": {
                         "id": 1,
                         "uuid": "333fe333-7c12-45a8-b15f-e75a75963d64",
-                        "url": "https://atmobeta.iplantc.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
+                        "url": "https://atmobeta.cyverse.org/api/v2/users/333fe333-7c12-45a8-b15f-e75a75963d64",
                         "username": "example_user"
                     },
                     "start_date": "2015-10-06T17:11:06.494038Z",
@@ -370,11 +370,11 @@ Collection of all Machine Requests.
                     "new_machine": {
                         "id": 2073,
                         "uuid": "88753132-e71b-4867-a15b-fe825804854f",
-                        "url": "https://atmobeta.iplantc.org/api/v2/provider_machines/88753132-e71b-4867-a15b-fe825804854f",
+                        "url": "https://atmobeta.cyverse.org/api/v2/provider_machines/88753132-e71b-4867-a15b-fe825804854f",
                         "provider": {
                             "id": 4,
                             "uuid": "c734f3bc-e16d-499d-88db-f7319d2dd5a7",
-                            "url": "https://atmobeta.iplantc.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
+                            "url": "https://atmobeta.cyverse.org/api/v2/providers/c734f3bc-e16d-499d-88db-f7319d2dd5a7",
                             "name": "iPlant Cloud - Tucson",
                             "description": "General purpose default provider. Allocation increases are based on availability, fair share, and a user's request history.",
                             "public": true,
@@ -389,7 +389,7 @@ Collection of all Machine Requests.
                     },
                     "new_application_version": {
                         "id": "197629ba-b296-465f-9a78-9c1da0c4d1ea",
-                        "url": "https://atmobeta.iplantc.org/api/v2/image_versions/197629ba-b296-465f-9a78-9c1da0c4d1ea",
+                        "url": "https://atmobeta.cyverse.org/api/v2/image_versions/197629ba-b296-465f-9a78-9c1da0c4d1ea",
                         "name": "3.0-test"
                     }
                 }

@@ -141,19 +141,19 @@ To Create a new volume, you need to specify the following properties:
             "identity": {
                 "id": "1",
                 "uuid": "12345678-8e6d-46dd-be89-e3f1eac9da78",
-                "url": "https://atmobeta.iplantc.org/api/v2/identities/12345678-8e6d-46dd-be89-e3f1eac9da78",
+                "url": "https://atmobeta.cyverse.org/api/v2/identities/12345678-8e6d-46dd-be89-e3f1eac9da78",
                 "provider": 5
             },
             "user": {
                 "id": 1,
                 "uuid": "12345678-2c7b-4ea7-84ad-1f07842811a3",
-                "url": "https://atmobeta.iplantc.org/api/v2/users/12345678-2c7b-4ea7-84ad-1f07842811a3",
+                "url": "https://atmobeta.cyverse.org/api/v2/users/12345678-2c7b-4ea7-84ad-1f07842811a3",
                 "username": "sgregory"
             },
             "provider": {
                 "id": 5,
                 "uuid": "12345678-d7bb-4541-9705-af41015e6442",
-                "url": "https://atmobeta.iplantc.org/api/v2/providers/12345678-d7bb-4541-9705-af41015e6442",
+                "url": "https://atmobeta.cyverse.org/api/v2/providers/12345678-d7bb-4541-9705-af41015e6442",
                 "name": "iPlant Workshop Cloud - Tucson",
                 "description": "Reserved for educational needs, workshops, and classes.",
                 "public": false,
@@ -165,7 +165,7 @@ To Create a new volume, you need to specify the following properties:
                 1
             ],
             "size": 1,
-            "url": "https://atmobeta.iplantc.org/api/v2/volumes/12345678-6c44-4843-abef-876543212345",
+            "url": "https://atmobeta.cyverse.org/api/v2/volumes/12345678-6c44-4843-abef-876543212345",
             "start_date": "2014-09-25T17:14:27Z",
             "end_date": null
         }

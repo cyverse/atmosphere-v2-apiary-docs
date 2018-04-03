@@ -55,10 +55,10 @@ Each Project Image has the following properties
             "results": [
                 {
                     "id": 1,
-                    "url": "https://atmobeta.iplantc.org/api/v2/project_images/1",
+                    "url": "https://atmobeta.cyverse.org/api/v2/project_images/1",
                     "project": {
                         "id": 1,
-                        "url": "https://atmobeta.iplantc.org/api/v2/projects/c264cbc9-c905-48ba-9b01-1d216af0feba",
+                        "url": "https://atmobeta.cyverse.org/api/v2/projects/c264cbc9-c905-48ba-9b01-1d216af0feba",
                         "uuid": "c264cbc9-c905-48ba-9b01-1d216af0feba",
                         "name": "testing",
                         "description": "testing",
@@ -68,7 +68,7 @@ Each Project Image has the following properties
                     },
                     "image": {
                         "id": 1,
-                        "url": "https://atmobeta.iplantc.org/api/v2/images/12341123-fe98-5161-b8fa-aa485826288d",
+                        "url": "https://atmobeta.cyverse.org/api/v2/images/12341123-fe98-5161-b8fa-aa485826288d",
                         "uuid": "12341123-fe98-5161-b8fa-aa485826288d",
                         "name": "Ubuntu 14.04.2 XFCE BootScript",
                         "description": "iPlant Base Image for Ubuntu 14.04 with XFCE desktop and BootScripts to change permissions on /opt/my_software",

@@ -23,7 +23,7 @@ Each Status Type has the following properties:
     
         {
             "id": 1,
-            "url": "https://atmobeta.iplantc.org/api/v2/status_types/e69f3223-f64d-46e7-a933-c2d68f7088ec",
+            "url": "https://atmobeta.cyverse.org/api/v2/status_types/e69f3223-f64d-46e7-a933-c2d68f7088ec",
             "uuid": "e69f3223-f64d-46e7-a933-c2d68f7088ec",
             "name": "pending",
             "description": "",
@@ -51,7 +51,7 @@ Collection of all Status Types.
         "results": [
             {
                 "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/status_types/e69f3223-f64d-46e7-a933-c2d68f7088ec",
+                "url": "https://atmobeta.cyverse.org/api/v2/status_types/e69f3223-f64d-46e7-a933-c2d68f7088ec",
                 "uuid": "e69f3223-f64d-46e7-a933-c2d68f7088ec",
                 "name": "pending",
                 "description": "",

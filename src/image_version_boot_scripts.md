@@ -20,15 +20,15 @@ Each image version boot script has the following properties
     
         {
             "id": 156,
-            "url": "https://atmobeta.iplantc.org/api/v2/image_version_boot_scripts/156",
+            "url": "https://atmobeta.cyverse.org/api/v2/image_version_boot_scripts/156",
             "image_version": {
                 "id": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
-                "url": "https://atmobeta.iplantc.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                "url": "https://atmobeta.cyverse.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
                 "name": "1.0"
             },
             "boot_script": {
                 "id": 1,
-                "url": "https://atmobeta.iplantc.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
+                "url": "https://atmobeta.cyverse.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
                 "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
                 "title": "Testing",
                 "type": "Raw Text"
@@ -61,15 +61,15 @@ Each image version boot script has the following properties
             "results": [
                 {
                     "id": 156,
-                    "url": "https://atmobeta.iplantc.org/api/v2/image_version_boot_scripts/156",
+                    "url": "https://atmobeta.cyverse.org/api/v2/image_version_boot_scripts/156",
                     "image_version": {
                         "id": "d4f30fb0-3b08-40fa-9075-e022b6cbd050",
-                        "url": "https://atmobeta.iplantc.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
+                        "url": "https://atmobeta.cyverse.org/api/v2/image_versions/d4f30fb0-3b08-40fa-9075-e022b6cbd050",
                         "name": "1.0"
                     },
                     "boot_script": {
                         "id": 1,
-                        "url": "https://atmobeta.iplantc.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
+                        "url": "https://atmobeta.cyverse.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
                         "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
                         "title": "Testing",
                         "type": "Raw Text"

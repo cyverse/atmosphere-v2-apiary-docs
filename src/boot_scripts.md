@@ -27,7 +27,7 @@ Each Boot Script has the following properties:
         {
             "id": 1,
             "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
-            "url": "https://atmobeta.iplantc.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
+            "url": "https://atmobeta.cyverse.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
             "created_by": "example_user",
             "title": "Sample boot_script",
             "text": "#!/usr/bin/env python\nprint 'Hello World'",
@@ -49,7 +49,7 @@ You can update the following properties for boot_scripts you own:
   
         {
             "title": "Updated boot_script",
-            "text": "https://atmobeta.iplantc.org/init_files/boot_scripts/hello_world.py",
+            "text": "https://atmobeta.cyverse.org/init_files/boot_scripts/hello_world.py",
             "type": "URL"
         }
 
@@ -84,7 +84,7 @@ Collection of all Boot Scripts.
                 {
                     "id": 1,
                     "uuid": "3f048788-258e-4819-be88-9271553cc2ce",
-                    "url": "https://atmobeta.iplantc.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
+                    "url": "https://atmobeta.cyverse.org/api/v2/boot_scripts/3f048788-258e-4819-be88-9271553cc2ce",
                     "created_by": "example_user",
                     "title": "Sample boot_script",
                     "text": "#!/usr/bin/env python\nprint 'Hello World'",
